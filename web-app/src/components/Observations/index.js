@@ -8,14 +8,26 @@ class Observations extends Component{
     constructor(props){
         super(props);
         this.state = {
-            Url: 'http://139.59.137.50/api/observations/',
-            pictureId: '',
-            voteUrl: '',
+            url: 'http://139.59.137.50/api/observations/',
+            observations: [],
+            id: '',
+            observationIndex: 0,
         }
     }
 
+    getNextObservation(){
+        var observation = this.state.observations[this.state.observationIndex];
+        this.setState({
+            id: observation.id,
+            observationIndex: observationIndex + 1,
+        })
+    }
+
     componentDidMount(){
-        //TODO
+        fetch(this.state.url).then(response => response.json())
+            .then(json => this.setState({
+                observations: json,
+            })).then(this.getNextObservation)
     }
 
     render() {
@@ -23,12 +35,13 @@ class Observations extends Component{
             <div>
                 <Title name="Observations" />
                 <Picture
-                    url={this.state.pictureUrl}
+                    url={this.state.url + this.state.id +'/'}
                 />
                 <Votebox
                     id={this.state.pictureId}
-                    url={this.state.voteUrl}
-                />
+                    url = {this.state.url}
+                    goToNext = {this.getNextObservation()}
+               />
             </div>
         );
     }
