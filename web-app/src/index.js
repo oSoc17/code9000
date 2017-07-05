@@ -9,6 +9,9 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 import App from './components/App';
 
+import './reset.css';
+import './index.css';
+
 let store = createStore(rootReducer, applyMiddleware(thunk));
 
 const Root = () => (

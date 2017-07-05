@@ -1,0 +1,23 @@
+.Header {
+    width: 100%;
+    border-bottom: 1px solid whitesmoke;
+}
+
+.Header__Wrapper {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    height: 100px;
+    justify-content: space-between;
+}
+
+.Header__Logo {
+    height: 80px;
+}
+
+.Header__Login {
+    line-height: 100px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
