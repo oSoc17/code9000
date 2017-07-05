@@ -1,6 +1,9 @@
 import React from 'react';
 
-import Title from '../Title';
+
+import Title from '../Title'
+import Picture from '../Picture/picture';
+import Votebox from '../Votebox/votebox';
 
 class Observations extends Component{
     constructor(props){
@@ -18,7 +21,7 @@ class Observations extends Component{
             var observation = this.state.observations[this.state.observationIndex];
             this.setState({
                 id: observation.id,
-                observationIndex: observationIndex + 1,
+                observationIndex: this.state.observationIndex + 1,
             })
         } else {
             this.setState({

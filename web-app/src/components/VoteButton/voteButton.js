@@ -4,10 +4,6 @@
 import React, {Component} from 'react';
 
 class voteButton extends Component {
-    constructor(props){
-        super(props)
-    }
-
     vote(){
         fetch(this.props.url, {
             method: 'POST',
@@ -30,3 +26,4 @@ class voteButton extends Component {
         )
     }
 }
+export default voteButton;
