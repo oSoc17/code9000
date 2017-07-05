@@ -22,7 +22,6 @@ class Observations extends Component{
             this.setState({
                 id: observation.id,
                 observationIndex: this.state.observationIndex + 1,
-                observationIndex: observationIndex + 1,
             })
         } else {
             this.setState({
