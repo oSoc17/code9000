@@ -26,7 +26,7 @@ class Observations extends Component{
         } else {
             this.setState({
                 observationIndex: 0
-            })
+            });
             this.getObservations()
         }
     }

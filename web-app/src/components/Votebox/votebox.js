@@ -20,6 +20,6 @@ const voteBox = (id) => {
             />
         </div>
     )
-}
+};
 
 export default voteBox;
