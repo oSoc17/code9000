@@ -14,18 +14,29 @@ class Observations extends Component{
     }
 
     getNextObservation(){
-        var observation = this.state.observations[this.state.observationIndex];
-        this.setState({
-            id: observation.id,
-            observationIndex: observationIndex + 1,
-        })
+        if(this.state.observationIndex < this.state.observations.length){
+            var observation = this.state.observations[this.state.observationIndex];
+            this.setState({
+                id: observation.id,
+                observationIndex: observationIndex + 1,
+            })
+        } else {
+            this.setState({
+                observationIndex: 0
+            })
+            this.getObservations()
+        }
     }
 
-    componentDidMount(){
+    getObservations(){
         fetch(this.state.url).then(response => response.json())
             .then(json => this.setState({
                 observations: json,
             })).then(this.getNextObservation)
+    }
+
+    componentDidMount(){
+        this.getObservations()
     }
 
     render() {
