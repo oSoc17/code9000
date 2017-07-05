@@ -36,5 +36,5 @@ ln -s /home/birds/develop/web-app/build /home/birds/develop/api/public
 cd ..
 
 # Set live
-cd back
+cd api
 php artisan up
