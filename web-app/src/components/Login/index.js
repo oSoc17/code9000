@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Title from '../Title';
 import { Form, Label, Input, Button } from '../Form';
+import api from '../../utils/api';
 
 import './index.css'
 
@@ -12,8 +13,14 @@ class Login extends Component {
     this.state = {
       isValid: false,
     }
+  }
 
-    console.log(this.state.isValid);
+  login(data) {
+    api.post('/auth', data).then(({ data }) => {
+      // TODO: make an easier jwt token manager
+      window.localStorage.setItem('jwt.token', data.token);
+      window.location = '/';
+    })
   }
 
   render() {
@@ -25,6 +32,7 @@ class Login extends Component {
         <div className="Login__Wrapper">
           <Form
             onValidationChange={(valid) => this.setState({ isValid: valid })}
+            onSubmit={(data) => this.login(data)}
           >
             <Label text="Email address" />
             <Input name="email" rules={['required', 'email']} />
