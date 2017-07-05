@@ -7,5 +7,11 @@ class Picture extends Component{
     constructor(props){
         super(props)
     }
-    render
+    render(){
+        return (
+            <image
+                src={this.props.url + 'picture'}>
+            </image>
+        )
+    }
 }
