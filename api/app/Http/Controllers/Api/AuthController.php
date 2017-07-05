@@ -18,4 +18,10 @@ class AuthController extends Controller
 
         return response()->json(compact('token'));
     }
+    
+    public function me(Request $request)
+    {
+        dd(auth()->user());
+        return response()->json(auth()->user());
+    }
 }
