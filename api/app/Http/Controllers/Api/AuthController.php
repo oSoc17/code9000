@@ -18,18 +18,19 @@ class AuthController extends Controller
 
         return response()->json(compact('token'));
     }
-    
+
     public function me(Request $request)
     {
         dd(auth()->user());
+
         return response()->json(auth()->user());
     }
-    
+
     public function refresh()
     {
         $token = JWTAuth::getToken();
         $newToken = JWTAuth::refresh($token);
-    
+
         return response()->json(compact('newToken'));
     }
 }
