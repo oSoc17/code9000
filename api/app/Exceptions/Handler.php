@@ -5,9 +5,9 @@ namespace App\Exceptions;
 use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Illuminate\Http\Response;
 
 class Handler extends ExceptionHandler
 {
@@ -51,7 +51,8 @@ class Handler extends ExceptionHandler
     {
         if ($exception instanceof NotFoundHttpException) {
             Log::info('NotFoundHttpException, serving index.html of build folder');
-            return new Response(File::get(public_path() . '/build/index.html'), Response::HTTP_OK);
+
+            return new Response(File::get(public_path().'/build/index.html'), Response::HTTP_OK);
         }
     }
 
