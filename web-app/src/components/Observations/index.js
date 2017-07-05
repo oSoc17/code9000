@@ -58,5 +58,4 @@ class Observations extends Component{
         );
     }
 }
-
 export default Observations;
