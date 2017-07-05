@@ -6,16 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Observation extends Model
 {
-	/**
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-    	'captured_at', 
-    	'longitude', 
-    	'latitude',
-    	'picture_storage',
+        'captured_at',
+        'longitude',
+        'latitude',
+        'picture_storage',
     ];
 
     /**
