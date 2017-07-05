@@ -27,37 +27,33 @@ Route::group(['middleware' => 'api'], function () {
     /*
      * GET
      */
-    Route::get('/', function () {
-        return 'GET api';
-    });
     Route::get('observations', function () {
-        return 'GET api/observations';
+        return Observation::all();
     });
     Route::get('observations/{id}', function ($id) {
-        return 'GET api/observations/'.$id;
-    });
-    Route::get('observations/{id}', function ($id) {
-        return 'GET api/observations/'.$id;
+        $observation = Observation::find($id);
+        return $observation->toJson();
     });
     Route::get('observations/{id}/picture', function ($id) {
-        return 'GET api/observations/'.$id.'/picture';
+        $observation = Observation::find($id);
+        $image = Storage::get($observation->picture_storage);
+        return response($image)->header('Content-Type', 'image/jpeg');
     });
 
     /*
      * POST
      */
     Route::post('observations', function (Request $request) {
-        if ($request->hasFile('image') && $request->has('longitude') && $request->has('latitude') && $request->has('captured_at')) {
-            $file = $request->file('image');
-            if ($file->extension() == 'jpeg') {
-                $picture_storage = Storage::putFile('observation', $file);
-                $request['picture_storage'] = $picture_storage;
-            }
-
-            Observation::create($request->all());
-        }
+    	if ($request->hasFile('image') && $request->has('longitude') && $request->has('latitude') && $request->has('captured_at')) {
+	    	$file = $request->file('image');
+	    	if($file->extension()=='jpeg'){
+	    		$picture_storage = Storage::putFile('observation', $file);
+	    		$request['picture_storage'] = $picture_storage;
+	    	}
+	    	Observation::create($request->all());
+		}
     });
     Route::post('observations/vote', function (Request $request) {
-        return 'POST api/observations/vote'.asset('storage/observations/');
+        return 'not yet implemented';
     });
 });
