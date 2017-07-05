@@ -2,6 +2,7 @@
   "name": "web-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://birds.today/build",
   "dependencies": {
     "axios": "^0.16.2",
     "form-serialize": "^0.7.2",
