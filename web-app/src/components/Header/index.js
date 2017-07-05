@@ -8,9 +8,6 @@ const Header = () => {
     <div className="Header">
       <div className="Header__Wrapper">
         <img src={logo} alt="Logo" className="Header__Logo" />
-        <div className="Header__Login">
-          Login
-        </div>
       </div>
     </div>
   );
