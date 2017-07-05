@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use App\Observation;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,10 +46,18 @@ Route::group(['middleware' => 'api'], function () {
     /*
      * POST
      */
-    Route::post('observations', function () {
-        return 'POST api/observations';
+    Route::post('observations', function (Request $request) {
+    	if ($request->hasFile('image') && $request->has('longitude') && $request->has('latitude') && $request->has('captured_at')) {
+	    	$file = $request->file('image');
+	    	if($file->extension()=='jpeg'){
+	    		$picture_storage = Storage::putFile('observation', $file);
+	    		$request['picture_storage'] = $picture_storage;
+	    	}
+
+	    	Observation::create($request->all());
+		}
     });
-    Route::post('observations/vote', function () {
-        return 'POST api/observations/vote';
+    Route::post('observations/vote', function (Request $request) {
+        return 'POST api/observations/vote' . asset('storage/observations/' );
     });
 });
