@@ -11,7 +11,7 @@ class Observation extends Model
      *
      * @var array
      */
-    protected $fillable =
+    protected $fillable = [
     	'captured_at', 
     	'longitude', 
     	'latitude',
