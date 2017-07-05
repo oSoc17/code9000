@@ -1,0 +1,10 @@
+{
+    "api":"develop.birds.today/observations",
+    "bouncetime": 100,
+    "sleeptime": 0.5,
+    "pirsensor": 13,
+    "location": {
+        "lat": 50.8503,
+        "lon": 4.3517
+    }
+}
