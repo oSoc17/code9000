@@ -11,7 +11,7 @@ import App from './components/App';
 
 let store = createStore(rootReducer, applyMiddleware(thunk));
 
-const root = () => (
+const Root = () => (
   <Provider store={store}>
     <Router>
       <App />
@@ -19,4 +19,4 @@ const root = () => (
   </Provider>
 );
 
-render(<App />, document.getElementById('root'));
+render(<Root />, document.getElementById('root'));
