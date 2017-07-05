@@ -2,20 +2,20 @@
 
 namespace App;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+class Observation extends Model
 {
-    use Notifiable;
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'captured_at',
+        'longitude',
+        'latitude',
+        'picture_storage',
     ];
 
     /**
@@ -24,11 +24,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'picture_storage',
     ];
 
     /**
-     * Get the votes for the current user.
+     * Get the votes for the current observation.
      */
     public function votes()
     {
