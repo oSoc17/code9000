@@ -13,3 +13,8 @@
 */
 
 Route::post('auth', 'Api\AuthController@auth');
+
+Route::group(['middleware' => 'jwt.auth', 'namespace' => 'Api'], function() {
+    Route::post('auth/me', 'AuthController@me');
+    Route::post('auth/refresh', 'AuthController@refresh');
+});
