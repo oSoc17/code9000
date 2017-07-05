@@ -21,32 +21,32 @@ Route::group(['middleware' => 'jwt.auth', 'namespace' => 'Api'], function () {
 
 Route::group(['middleware' => 'api'], function () {
 
-	/**
-	 * GET
-	 */
-	Route::get('/', function ()    {
+    /*
+     * GET
+     */
+    Route::get('/', function () {
         return 'GET api';
     });
-    Route::get('observations', function ()    {
+    Route::get('observations', function () {
         return 'GET api/observations';
     });
-    Route::get('observations/{id}', function ($id)    {
-        return 'GET api/observations/' . $id;
+    Route::get('observations/{id}', function ($id) {
+        return 'GET api/observations/'.$id;
     });
-    Route::get('observations/{id}', function ($id)    {
-        return 'GET api/observations/' . $id;
+    Route::get('observations/{id}', function ($id) {
+        return 'GET api/observations/'.$id;
     });
-    Route::get('observations/{id}/picture', function ($id)    {
-        return 'GET api/observations/' . $id . '/picture';
+    Route::get('observations/{id}/picture', function ($id) {
+        return 'GET api/observations/'.$id.'/picture';
     });
 
-    /**
-	 * POST
-	 */
-    Route::post('observations', function ()    {
+    /*
+     * POST
+     */
+    Route::post('observations', function () {
         return 'POST api/observations';
     });
-    Route::post('observations/vote', function ()    {
+    Route::post('observations/vote', function () {
         return 'POST api/observations/vote';
     });
 });
