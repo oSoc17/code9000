@@ -1,12 +1,9 @@
 /* global window */
 import React, { Component } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
-import Header from '../Header';
 import Login from '../Login';
 import Observations from '../Observations';
-
-import './App.css';
 
 class App extends Component {
   render() {

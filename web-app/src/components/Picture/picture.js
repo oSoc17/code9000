@@ -4,12 +4,30 @@
 import React, { Component } from 'react';
 
 class Picture extends Component{
-    
+    constructor(props){
+        super(props)
+        this.state = {
+            picture: ''
+        }
+    }
+    componentDidMount(){
+        fetch(this.props.url + 'picture')
+            .then(pic => this.setState({
+                picture: pic
+            }))
+    }
     render(){
         return (
-            <image
-                src={this.props.url + 'picture'}>
-            </image>
+            <div>
+                <image
+                    src={this.state.picture}
+                >
+                </image>
+                <p>
+                    {this.props.url + 'picture'}
+                </p>
+            </div>
+
         )
     }
 }

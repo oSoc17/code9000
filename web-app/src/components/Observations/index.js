@@ -9,11 +9,13 @@ class Observations extends Component{
     constructor(props){
         super(props);
         this.state = {
-            url: 'http://139.59.137.50/api/observations/',
+            url: 'https://develop.birds.today/api/observations/',
             observations: [],
             id: '',
             observationIndex: 0,
-        }
+        };
+        this.getNextObservation = this.getNextObservation.bind(this)
+        this.getObservations = this.getObservations.bind(this)
     }
 
     getNextObservation(){
@@ -32,10 +34,14 @@ class Observations extends Component{
     }
 
     getObservations(){
-        fetch(this.state.url).then(response => response.json())
-            .then(json => this.setState({
-                observations: json,
-            })).then(this.getNextObservation)
+        fetch(this.state.url)
+            .then(response => response.json())
+            .then(json => {
+                console.log(json);
+                this.setState({
+                    observations: json,
+                });
+            }).then( () => this.getNextObservation() );
     }
 
     componentDidMount(){
@@ -52,8 +58,7 @@ class Observations extends Component{
                 <Votebox
                     id={this.state.pictureId}
                     url = {this.state.url}
-                    goToNext = {this.getNextObservation()}
-               />
+                />
             </div>
         );
     }

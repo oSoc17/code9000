@@ -8,21 +8,14 @@ import voteButton from '../VoteButton/voteButton'
 
 
 class voteBox extends Component{
+    constructor(props){
+        super(props)
+    }
+
     render(){
         return (
             <div>
-                <voteButton
-                    value= {1}
-                    id= {this.props.id}
-                    url={this.props.url}
-                    goToNext={this.props.goToNext}
-                />
-                <voteButton
-                    value= {-1}
-                    id= {this.props.id}
-                    url={this.props.url}
-                    goToNext={this.props.goToNext}
-                />
+
             </div>
         )
 
