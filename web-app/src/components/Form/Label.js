@@ -5,5 +5,5 @@ export const Label = ({ text }) => {
     <label className="Form__Label">
       {text}
     </label>
-  )
-}
+  );
+};

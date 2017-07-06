@@ -18,7 +18,7 @@ const withInput = (WrappedComponent) => class extends Component {
     const key = this.props.name;
     const value = event.target.value;
 
-    const { isValid, messages } = validate({
+    const { isValid } = validate({
       [key]: value,
     }, {
       [key]: this.props.rules,
@@ -26,10 +26,9 @@ const withInput = (WrappedComponent) => class extends Component {
 
     this.setState({
       isValid,
-    })
+    });
 
     this.props.onChange(event);
-
   }
 
   render() {
@@ -38,13 +37,13 @@ const withInput = (WrappedComponent) => class extends Component {
 
     return (
       <WrappedComponent
-        { ...rest }
+        {...rest}
         className={classNames(!isValid && 'Form__Field__Invalid')}
         onChange={(event) => this.handleValueChange(event)}
         onBlur={(event) => this.handleValueChange(event)}
       />
     );
   }
-}
+};
 
 export default withInput;

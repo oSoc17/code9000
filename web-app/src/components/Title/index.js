@@ -1,4 +1,5 @@
-import { Component } from 'react'
+/* global document */
+import { Component } from 'react';
 
 const DEFAULT_TITLE = 'Birds';
 
@@ -18,11 +19,9 @@ class Title extends Component {
   }
 
   setTitle({ name }) {
-    const title = name 
-      ? `${DEFAULT_TITLE} - ${name}`
-      : DEFAULT_TITLE;
+    const title = name ? `${DEFAULT_TITLE} - ${name}` : DEFAULT_TITLE;
 
-      document.title = title;
+    document.title = title;
   }
 
   render() {

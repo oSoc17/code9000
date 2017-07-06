@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const BASE_URL = process.env.REACT_APP_API_URL;
 
-const request = (endpoint, {headers = {}, body, ...otherOptions}, method) => {
+const request = (endpoint, { headers = {}, body, ...otherOptions }, method) => {
   return axios(`${BASE_URL}${endpoint}`, {
     ...otherOptions,
     headers: {
@@ -13,7 +13,7 @@ const request = (endpoint, {headers = {}, body, ...otherOptions}, method) => {
     data: body ? JSON.stringify(body) : undefined,
     method,
   });
-}
+};
 
 export const api = {
   get(endpoint, options = {}) {

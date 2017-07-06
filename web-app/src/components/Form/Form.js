@@ -8,10 +8,37 @@ import classNames from '../../utils/classNames';
 
 import './Form.css';
 
-
 export class Form extends Component {
   componentDidMount() {
     this.validate();
+  }
+
+  getRules() {
+    return flatten(this.buildRules(this.props.children))
+      .filter(field => field !== undefined)
+      .reduce((ruleGroup, { name, rules: fieldRules }) => {
+        return {
+          ...ruleGroup,
+          [name]: fieldRules,
+        };
+      }, {});
+  }
+
+  buildRules(children) {
+    return children.map((child) => {
+      if (_.get(child, 'props.children', false)) {
+        return this.buildRules(_.castArray(child.props.children));
+      }
+
+      if (child.props && child.props.rules) {
+        return {
+          name: child.props.name,
+          rules: child.props.rules,
+        };
+      }
+
+      return undefined;
+    });
   }
 
   submitForm(event) {
@@ -38,32 +65,6 @@ export class Form extends Component {
     return isValid;
   }
 
-  buildRules(children) {
-    return children.map((child) => {
-      if (_.get(child, 'props.children', false)) {
-        return this.buildRules(_.castArray(child.props.children));
-      }
-
-      if (child.props && child.props.rules) {
-        return {
-          name: child.props.name,
-          rules: child.props.rules,
-        };
-      }
-    });
-  }
-
-  getRules() {
-    return flatten(this.buildRules(this.props.children))
-    .filter((field) => field !== undefined)
-    .reduce((ruleGroup, { name, rules: fieldRules }) => {
-      return {
-        ...ruleGroup,
-        [name]: fieldRules,
-      };
-    }, {});
-  }
-
   enhanceChild() {
     return {
       onBlur: () => {
@@ -71,15 +72,15 @@ export class Form extends Component {
       },
       onChange: () => {
         return this.validate();
-      }
-    }
+      },
+    };
   }
 
   enhanceChildren(children) {
-    return React.Children.map(children, (child) => {
+    return React.Children.map(children, child => {
       if (_.get(child, 'props.children', false)) {
         return React.cloneElement(child, {
-          children: this.enhanceChildren(child.props.children)
+          children: this.enhanceChildren(child.props.children),
         });
       }
 
@@ -98,8 +99,8 @@ export class Form extends Component {
     return (
       <form
         className={classNames('Form', className)}
-        ref={(form) => this.form = form}
-        onSubmit={(event) => this.submitForm(event)}
+        ref={form => (this.form = form)}
+        onSubmit={event => this.submitForm(event)}
       >
         {enhancedChildren}
       </form>

@@ -1,7 +1,6 @@
 import React from 'react';
-
 import './Header.css';
-import logo from  './crest.png'
+import logo from './crest.png';
 
 const Header = () => {
   return (
@@ -11,6 +10,6 @@ const Header = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Header;
