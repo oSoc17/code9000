@@ -3,6 +3,7 @@ import _ from 'lodash';
 
 import Title from '../Title';
 import { Button } from '../Form';
+import Icon from '../Icon';
 
 import api from '../../utils/api';
 
@@ -49,9 +50,9 @@ class Observations extends Component {
               <img src={`${process.env.REACT_APP_API_URL}/observations/${observation.id}/picture`} alt="Observation" />
             </div>
             <div className="Observations__Buttons">
-              <Button onClick={() => this.vote(1)} circle>UP</Button>
+              <Button onClick={() => this.vote(1)} circle><Icon name="thumbs-up" /></Button>
               <Button onClick={() => this.vote(0)} >SKIP</Button>
-              <Button onClick={() => this.vote(-1)} circle>DOWN</Button>
+              <Button onClick={() => this.vote(-1)} circle><Icon name="thumbs-down" /></Button>
             </div>
           </div>
         )}
