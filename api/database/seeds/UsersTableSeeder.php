@@ -14,6 +14,7 @@ class UsersTableSeeder extends Seeder
     {
         $this->seedDevelopLogin();
         $this->seedOsocLogins();
+        $this->seedCustomerLogins();
     }
 
     /**
@@ -37,6 +38,14 @@ class UsersTableSeeder extends Seeder
 			$this->createUser($firstname, $firstname.'@bird.today', 'code9000');
 		}
 	}
+
+	/**
+	 * Add all customer accounts
+	 */
+    private function seedCustomerLogins()
+    {
+    	$this->createUser('Pieter-Jan Pauwels', 'pieterjan.pauwels@digipolis.gent', 'code9000');
+    }
 
 	/**
 	 * Create User with name, email and password
