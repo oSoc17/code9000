@@ -33,14 +33,8 @@ class ObservationController extends Controller
     public function store(ObservationModel $request)
     {
         $file = $request->file('image');
-            
-        $picture_storage = Storage::putFile('observations', $file);
+        $request['picture_storage'] = Storage::putFile('observations', $file);
         
-        $observation = new Observation($request->all());
-        
-        $observation->picture_storage = $picture_storage;
-        $observation->save();
-        
-        return $observation;
+        return Observation::create($request->all());
     }
 }
