@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\ObservationModel;
 use App\Observation;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class ObservationController extends Controller
@@ -34,7 +33,7 @@ class ObservationController extends Controller
     {
         $file = $request->file('image');
         $request['picture_storage'] = Storage::putFile('observations', $file);
-        
+
         return Observation::create($request->all());
     }
 }

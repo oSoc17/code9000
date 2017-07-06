@@ -53,10 +53,10 @@ class Handler extends ExceptionHandler
         // If no route is found, we will serve the React app. React will show a 404 page.
         if ($exception instanceof NotFoundHttpException && !strpos($request->url(), '/api')) {
             Log::info('NotFoundHttpException, Route not found, serving index.html of build folder');
-    
+
             return new Response(File::get(public_path().'/build/index.html'), Response::HTTP_OK);
         }
-    
+
         return parent::render($request, $exception);
     }
 
