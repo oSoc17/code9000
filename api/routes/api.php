@@ -1,6 +1,5 @@
 <?php
 
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -12,24 +11,22 @@
 |
 */
 
-Route::post('auth', 'Api\AuthController@auth');
-
-Route::group(['middleware' => 'jwt.auth', 'namespace' => 'Api'], function () {
-    Route::post('auth/me', 'AuthController@me');
-    Route::post('auth/refresh', 'AuthController@refresh');
-});
-
-Route::group(['middleware' => 'api'], function () {
-
-    /*
-     * GET
-     */
+Route::group(['namespace' => 'Api'], function ()
+{
+    Route::post('auth', 'AuthController@auth');
+    
     Route::get('observations', 'Api\ObservationController@index');
     Route::get('observations/{id}', 'Api\ObservationController@show');
     Route::get('observations/{id}/picture', 'Api\ObservationController@getPicture');
-
-    /*
-     * POST
-     */
+    
     Route::post('observations', 'Api\ObservationController@store');
+    
+    // Authenticated url's
+    Route::group(['middleware' => 'jwt.auth'], function ()
+    {
+        Route::post('auth/me', 'AuthController@me');
+        Route::post('auth/refresh', 'AuthController@refresh');
+        
+        Route::post('votes', 'VotesController@store');
+    });
 });
