@@ -1,11 +1,13 @@
 import React from 'react';
 
-export const Button = ({ children, ...rest }) => {
+import classNames from '../../utils/classNames';
+
+import './Button.css';
+
+export const Button = ({ children, circle, ...rest }) => {
   return (
-    <div className="Form__Button">
-      <button {...rest}>
-        {children}
-      </button>
-    </div>
+    <button className={classNames('Form__Button', circle && 'Form__Button--circle')} {...rest}>
+      {children}
+    </button>
   );
 };

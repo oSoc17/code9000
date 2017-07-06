@@ -13,6 +13,7 @@ class Vote extends Model
      */
     protected $fillable = [
         'value',
+        'observation_id',
     ];
 
     /**

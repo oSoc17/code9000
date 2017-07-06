@@ -1,3 +1,4 @@
+/* global localStorage */
 import axios from 'axios';
 
 export const BASE_URL = process.env.REACT_APP_API_URL;
@@ -7,6 +8,7 @@ const request = (endpoint, { headers = {}, body, ...otherOptions }, method) => {
     ...otherOptions,
     headers: {
       ...headers,
+      Authorization: `Bearer ${localStorage.getItem('jwt.token')}}`,
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
