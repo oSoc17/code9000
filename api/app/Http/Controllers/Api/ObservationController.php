@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\ObservationModel;
 use App\Observation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -29,15 +30,17 @@ class ObservationController extends Controller
         return response($image)->header('Content-Type', 'image/jpeg');
     }
 
-    public function store(Request $request)
+    public function store(ObservationModel $request)
     {
-        if ($request->hasFile('image') && $request->has('longitude') && $request->has('latitude') && $request->has('captured_at')) {
-            $file = $request->file('image');
-            if ($file->extension() == 'jpeg') {
-                $picture_storage = Storage::putFile('observation', $file);
-                $request['picture_storage'] = $picture_storage;
-            }
-            Observation::create($request->all());
-        }
+        $file = $request->file('image');
+            
+        $picture_storage = Storage::putFile('observations', $file);
+        
+        $observation = new Observation($request->all());
+        
+        $observation->picture_storage = $picture_storage;
+        $observation->save();
+        
+        return $observation;
     }
 }
