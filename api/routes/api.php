@@ -18,6 +18,7 @@ Route::group(['namespace' => 'Api'], function () {
     Route::get('observations/{id}', 'ObservationController@show');
     Route::get('observations/{id}/picture', 'ObservationController@getPicture');
 
+
     Route::post('observations', 'ObservationController@store');
 
     // Authenticated url's
