@@ -1,10 +1,11 @@
+/* global window */
 import React, { Component } from 'react';
 
 import Title from '../Title';
 import { Form, Label, Input, Button } from '../Form';
 import api from '../../utils/api';
 
-import './index.css'
+import './index.css';
 
 class Login extends Component {
   constructor(...props) {
@@ -12,15 +13,15 @@ class Login extends Component {
 
     this.state = {
       isValid: false,
-    }
+    };
   }
 
-  login(data) {
-    api.post('/auth', data).then(({ data }) => {
+  login(body) {
+    api.post('/auth', body).then(({ data }) => {
       // TODO: make an easier jwt token manager
       window.localStorage.setItem('jwt.token', data.token);
       window.location = '/';
-    })
+    });
   }
 
   render() {
@@ -31,8 +32,8 @@ class Login extends Component {
         <Title name="Login" />
         <div className="Login__Wrapper">
           <Form
-            onValidationChange={(valid) => this.setState({ isValid: valid })}
-            onSubmit={(data) => this.login(data)}
+            onValidationChange={valid => this.setState({ isValid: valid })}
+            onSubmit={data => this.login(data)}
           >
             <Label text="Email address" />
             <Input name="email" rules={['required', 'email']} />
@@ -40,11 +41,7 @@ class Login extends Component {
             <Label text="Password" />
             <Input name="password" type="password" rules={['required']} />
 
-            <Button 
-              disabled={!isValid}
-            >
-              Login
-            </Button>
+            <Button disabled={!isValid}>Login</Button>
           </Form>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Title from '../Title'
+import Title from '../Title';
 
 const Observations = () => {
   return (
@@ -9,6 +9,6 @@ const Observations = () => {
       Observations
     </div>
   );
-}
+};
 
 export default Observations;

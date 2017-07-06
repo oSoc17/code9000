@@ -1,3 +1,4 @@
+/* global window */
 import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
@@ -16,17 +17,14 @@ class App extends Component {
       <div className="App">
         <Header />
         <Switch>
-          <Route exact path='/login' component={Login} />
+          <Route exact path="/login" component={Login} />
 
-          {token === null 
-            ? <Redirect to="/login"/>
-            : (
-              <div>
-                <Route exact path='/' component={Observations} />
-                <Route exact path='/login' component={Login} />
-              </div>
-            )
-          }
+          {token === null
+            ? <Redirect to="/login" />
+            : <div>
+              <Route exact path="/" component={Observations} />
+              <Route exact path="/login" component={Login} />
+            </div>}
         </Switch>
       </div>
     );
