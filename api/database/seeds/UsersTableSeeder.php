@@ -22,7 +22,7 @@ class UsersTableSeeder extends Seeder
      */
     private function seedDevelopLogin()
     {
-        $this->createUser('develop', 'develop@bird.today', 'bird');
+        $this->createUser('develop', 'develop@birds.today', 'bird');
     }
 
     /**
@@ -35,7 +35,7 @@ class UsersTableSeeder extends Seeder
 
         // Create one user account per person
         foreach ($firstnames as $firstname) {
-            $this->createUser($firstname, $firstname.'@bird.today', 'code9000');
+            $this->createUser($firstname, $firstname.'@birds.today', 'code9000');
         }
     }
 
