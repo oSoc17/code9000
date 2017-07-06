@@ -48,9 +48,11 @@ class Observations extends Component {
             <div className="Observations__Picture">
               <img src={`${process.env.REACT_APP_API_URL}/observations/${observation.id}/picture`} alt="Observation" />
             </div>
-            <Button onClick={() => this.vote(1)}>UP</Button>
-            <Button onClick={() => this.vote(0)}>SKIP</Button>
-            <Button onClick={() => this.vote(-1)}>DOWN</Button>
+            <div className="Observations__Buttons">
+              <Button onClick={() => this.vote(1)} circle>UP</Button>
+              <Button onClick={() => this.vote(0)} >SKIP</Button>
+              <Button onClick={() => this.vote(-1)} circle>DOWN</Button>
+            </div>
           </div>
         )}
       </div>
