@@ -22,7 +22,3 @@
 .Form__Field__Invalid::placeholder {
   color: lighten(#F44336, 20) !important;
 }
-
-.Form__Button {
-  margin-top: 8px;
-}
