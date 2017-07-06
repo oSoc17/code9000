@@ -14,11 +14,11 @@
 Route::group(['namespace' => 'Api'], function () {
     Route::post('auth', 'AuthController@auth');
 
-    Route::get('observations', 'Api\ObservationController@index');
-    Route::get('observations/{id}', 'Api\ObservationController@show');
-    Route::get('observations/{id}/picture', 'Api\ObservationController@getPicture');
+    Route::get('observations', 'ObservationController@index');
+    Route::get('observations/{id}', 'ObservationController@show');
+    Route::get('observations/{id}/picture', 'ObservationController@getPicture');
 
-    Route::post('observations', 'Api\ObservationController@store');
+    Route::post('observations', 'ObservationController@store');
 
     // Authenticated url's
     Route::group(['middleware' => 'jwt.auth'], function () {
