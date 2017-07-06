@@ -29,7 +29,7 @@ class Observations extends Component {
       observations: [..._.dropRight(this.state.observations)],
     });
 
-    api.post('/observations', {
+    api.post('/votes', {
       body: {
         observation_id: observation.id,
         value,
