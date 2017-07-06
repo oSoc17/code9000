@@ -4,8 +4,7 @@
 import React, {Component} from 'react';
 
 //Components
-import voteButton from '../VoteButton/voteButton'
-
+import voteButton from "../VoteButton/voteButton"
 
 class voteBox extends Component{
     constructor(props){
@@ -15,12 +14,10 @@ class voteBox extends Component{
     render(){
         return (
             <div>
-
             </div>
         )
 
     }
-
 }
 
 export default voteBox;

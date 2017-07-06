@@ -4,6 +4,11 @@
 import React, {Component} from 'react';
 
 class voteButton extends Component {
+    constructor(props){
+        super(props);
+        console.log("hey tis ik")
+    }
+
     vote(){
         fetch(this.props.url, {
             method: 'POST',
@@ -17,13 +22,18 @@ class voteButton extends Component {
                     value: this.props.value,
                 }
             })
-        }).then(this.props.goToNext())
+        })
     }
 
     render(){
         return(
-            <button onClick={() => this.vote()}></button>
+            <div>
+                <button></button>
+                <p>Test</p>
+                test
+            </div>
         )
     }
 }
-export default voteButton;
+
+export default voteButton
