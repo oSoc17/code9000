@@ -1,59 +1,58 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 
 import Title from '../Title';
-import Picture from '../Picture/picture';
-import Votebox from '../Votebox/votebox';
+import { Button } from '../Form';
+
+import api from '../../utils/api';
+
+import './Observations.css';
 
 class Observations extends Component {
-  constructor(props) {
-    super(props);
+  constructor(...props) {
+    super(...props);
+
     this.state = {
-      url: 'https://develop.birds.today/api/observations/',
       observations: [],
-      id: '',
-      observationIndex: 0,
     };
-    this.getNextObservation = this.getNextObservation.bind(this);
-    this.getObservations = this.getObservations.bind(this);
   }
 
   componentDidMount() {
-    this.getObservations();
+    api.get('/observations')
+      .then(({ data }) => this.setState({ observations: data }));
   }
 
-  getNextObservation() {
-    if (this.state.observationIndex < this.state.observations.length) {
-      const observation = this.state.observations[this.state.observationIndex];
-      this.setState({
-        id: observation.id,
-        observationIndex: this.state.observationIndex + 1,
-      });
-    } else {
-      this.setState({
-        observationIndex: 0,
-      });
-      this.getObservations();
-    }
-  }
+  vote(value) {
+    const observation = _.last(this.state.observations);
 
-  getObservations() {
-    fetch(this.state.url)
-      .then(response => response.json())
-      .then(json => {
-        console.log(json);
-        this.setState({
-          observations: json,
-        });
-      })
-      .then(() => this.getNextObservation());
+    this.setState({
+      observations: [..._.dropRight(this.state.observations)],
+    });
+
+    api.post('/observations', {
+      body: {
+        observation_id: observation.id,
+        value,
+      },
+    });
   }
 
   render() {
+    const observation = _.last(this.state.observations);
+
     return (
-      <div>
+      <div className="Observations">
         <Title name="Observations" />
-        <Picture url={`${this.state.url + this.state.id}/`} />
-        <Votebox id={this.state.pictureId} url={this.state.url} />
+        {observation && (
+          <div>
+            <div className="Observations__Picture">
+              <img src={`${process.env.REACT_APP_API_URL}/observations/${observation.id}/picture`} alt="Observation" />
+            </div>
+            <Button onClick={() => this.vote(1)}>UP</Button>
+            <Button onClick={() => this.vote(0)}>SKIP</Button>
+            <Button onClick={() => this.vote(-1)}>DOWN</Button>
+          </div>
+        )}
       </div>
     );
   }
