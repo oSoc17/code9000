@@ -25,7 +25,7 @@ class VoteModel extends FormRequest
     {
         return [
             'observation_id' => 'required|integer',
-            'value' => 'required|integer|min:-1,1',
+            'value'          => 'required|integer|min:-1,1',
         ];
     }
 }
