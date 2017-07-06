@@ -19,7 +19,6 @@ Route::group(['middleware' => 'jwt.auth', 'namespace' => 'Api'], function () {
     Route::post('auth/refresh', 'AuthController@refresh');
 });
 
-
 Route::get('observations', 'Api\ObservationController@index');
 Route::get('observations/{id}', 'Api\ObservationController@show');
 Route::get('observations/{id}/picture', 'Api\ObservationController@getPicture');
@@ -28,4 +27,3 @@ Route::get('observations/{id}/picture', 'Api\ObservationController@getPicture');
  * POST
  */
 Route::post('observations', 'Api\ObservationController@store');
-

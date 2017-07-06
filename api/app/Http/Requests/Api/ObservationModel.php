@@ -25,9 +25,9 @@ class ObservationModel extends FormRequest
     public function rules()
     {
         return [
-            'image' => 'required|image|mimes:jpeg',
-            'longitude' => 'required',
-            'latitude' => 'required',
+            'image'       => 'required|image|mimes:jpeg',
+            'longitude'   => 'required',
+            'latitude'    => 'required',
             'captured_at' => 'required|date',
         ];
     }
