@@ -38,18 +38,19 @@ class Deploy extends Command
     public function handle()
     {
         $this->info("DEPLOY APPLICATION\n");
-    
+
         $this->exec('cd .. && bash deploy.sh');
-        
+
         $this->info("DEPLOYED APPLICATION\n");
     }
-    
+
     protected function exec($command)
     {
         $pwd = base_path();
-        
+
         $result = shell_exec("cd $pwd && $command");
         $this->output->write($result);
+
         return $result;
     }
 }
