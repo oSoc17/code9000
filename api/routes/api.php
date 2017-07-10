@@ -23,9 +23,12 @@ Route::group(['namespace' => 'Api'], function () {
     Route::post('observations', 'ObservationController@store');
     // Authenticated url's
     Route::group(['middleware' => 'jwt.auth'], function () {
-        Route::post('auth/me', 'AuthController@me');
-        Route::post('auth/observations', 'ObservationController@forUser');
-        Route::post('auth/refresh', 'AuthController@refresh');
+
+        Route::prefix('auth')->group(function () {
+            Route::post('me', 'AuthController@me');
+            Route::post('refresh', 'AuthController@refresh');
+            Route::post('logout', 'AuthController@logout');
+        });
 
         Route::post('votes', 'VotesController@store');
     });
