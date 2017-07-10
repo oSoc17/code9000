@@ -124,6 +124,8 @@ return [
 
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
 
+    'deploy_branch_webhook' => env('DEPLOY_BRANCH_WEBHOOK'),
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers

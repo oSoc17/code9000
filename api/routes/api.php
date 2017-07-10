@@ -28,4 +28,6 @@ Route::group(['namespace' => 'Api'], function () {
 
         Route::post('votes', 'VotesController@store');
     });
+
+    Route::post('deploy', 'GithubWebhookController@deploy');
 });
