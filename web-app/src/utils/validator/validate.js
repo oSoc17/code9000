@@ -11,8 +11,8 @@ export default (input, rules) => {
         const { rule: ruleValidator, message } = RULES[ruleToValidate];
 
         if (ruleValidator(input[field]) === false) {
-          result.isValid = false;
-          result.messages[field] = [
+          result.isValid = false; // eslint-disable-line
+          result.messages[field] = [ // eslint-disable-line
             ...(result.messages[field] || []),
             message,
           ];
