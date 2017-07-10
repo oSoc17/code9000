@@ -123,6 +123,8 @@ return [
     'log' => env('APP_LOG', 'single'),
 
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
+    
+    'deploy_branch_webhook' => env('DEPLOY_BRANCH_WEBHOOK'),
 
     /*
     |--------------------------------------------------------------------------
