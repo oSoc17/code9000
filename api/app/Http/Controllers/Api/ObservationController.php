@@ -9,9 +9,8 @@ use App\Http\Requests\Api\ObservationModel;
 
 class ObservationController extends Controller
 {
-    
     /**
-     * Return all observations
+     * Return all observations.
      *
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
@@ -19,9 +18,9 @@ class ObservationController extends Controller
     {
         return Observation::all();
     }
-    
+
     /**
-     * Get the observation metadata with an id
+     * Get the observation metadata with an id.
      *
      * @param $id
      *
@@ -33,9 +32,9 @@ class ObservationController extends Controller
 
         return $observation->toJson();
     }
-    
+
     /**
-     * Return the picture that is stored
+     * Return the picture that is stored.
      *
      * @param $id
      *
@@ -48,9 +47,9 @@ class ObservationController extends Controller
 
         return response($image)->header('Content-Type', 'image/jpeg');
     }
-    
+
     /**
-     * Create a new observation
+     * Create a new observation.
      *
      * @param \App\Http\Requests\Api\ObservationModel $request
      *

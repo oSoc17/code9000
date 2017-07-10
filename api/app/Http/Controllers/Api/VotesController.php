@@ -8,9 +8,8 @@ use App\Http\Requests\Api\VoteModel;
 
 class VotesController extends Controller
 {
-    
     /**
-     * Add a new vote for specific user. Only unique votes
+     * Add a new vote for specific user. Only unique votes.
      *
      * @param \App\Http\Requests\Api\VoteModel $request
      *

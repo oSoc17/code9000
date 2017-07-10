@@ -13,11 +13,11 @@
 
 Route::group(['namespace' => 'Api'], function () {
     Route::post('auth', 'AuthController@auth');
-    
+
     Route::get('observations', 'ObservationController@index');
     Route::get('observations/{id}', 'ObservationController@show');
     Route::get('observations/{id}/picture', 'ObservationController@getPicture');
-    
+
     Route::get('documentation', 'DocumentationController@index');
 
     Route::post('observations', 'ObservationController@store');
