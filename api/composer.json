@@ -1,11 +1,11 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "code9000/api",
+    "description": "API for the (common tern) observations",
+    "keywords": ["code9000", "birds", "birds.today", "common tern", "oSoc17", "open", "biodiversity", "observations", "oSoc17", "open", "summer", "of", "code", "oSoc"],
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=5.6.4",
+        "php": "^7.0",
         "barryvdh/laravel-cors": "^0.9.2",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
@@ -43,7 +43,8 @@
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
             "php artisan optimize"
-        ]
+        ],
+        "test": "vendor/bin/phpunit"
     },
     "config": {
         "preferred-install": "dist",

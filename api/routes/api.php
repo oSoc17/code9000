@@ -18,8 +18,9 @@ Route::group(['namespace' => 'Api'], function () {
     Route::get('observations/{id}', 'ObservationController@show');
     Route::get('observations/{id}/picture', 'ObservationController@getPicture');
 
-    Route::post('observations', 'ObservationController@store');
+    Route::get('documentation', 'DocumentationController@index');
 
+    Route::post('observations', 'ObservationController@store');
     // Authenticated url's
     Route::group(['middleware' => 'jwt.auth'], function () {
         Route::post('auth/me', 'AuthController@me');
