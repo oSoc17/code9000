@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Requests\Api\InstallationModel;
 use App\Installation;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\InstallationModel;
 
 class InstallationController extends Controller
 {
@@ -31,7 +30,7 @@ class InstallationController extends Controller
     public function update(InstallationModel $request, $id)
     {
         $installation = Installation::find($id);
-        
+
         $installation->fill($request->all());
         $installation->save();
     }
@@ -45,7 +44,7 @@ class InstallationController extends Controller
     public function destroy($id)
     {
         $installation = Installation::find($id);
-        
+
         $installation->delete();
     }
 }

@@ -2,8 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use App\Installation;
 use Closure;
+use App\Installation;
 
 class AuthenticateInstallation
 {
@@ -17,11 +17,11 @@ class AuthenticateInstallation
     public function handle($request, Closure $next)
     {
         $installation = Installation::firstOrCreate(['token' => $request->token]);
-        
-        if($installation->active === 1) {
+
+        if ($installation->active === 1) {
             return $next($request);
         }
-    
+
         return response()->json('This device has not (yet) access', 401);
     }
 }

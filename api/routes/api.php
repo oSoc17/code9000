@@ -17,7 +17,7 @@ Route::group(['namespace' => 'Api'], function () {
     Route::get('observations', 'ObservationController@index');
     Route::get('observations/{id}', 'ObservationController@show');
     Route::get('observations/{id}/picture', 'ObservationController@getPicture');
-    
+
     Route::get('documentation', 'DocumentationController@index');
 
     // Authenticated url's for Installation devices
@@ -34,7 +34,7 @@ Route::group(['namespace' => 'Api'], function () {
         });
 
         Route::post('votes', 'VotesController@store');
-    
+
         // Only admins
         Route::group(['middleware' => 'auth.admin'], function () {
             Route::resource('installations', 'InstallationController', ['only' => ['index', 'update', 'destroy']]);

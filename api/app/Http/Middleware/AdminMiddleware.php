@@ -4,8 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class AdminMiddleware {
-    
+class AdminMiddleware
+{
     /**
      * Handle an incoming request.
      *
@@ -16,11 +16,10 @@ class AdminMiddleware {
      */
     public function handle($request, Closure $next)
     {
-        if (auth()->check() && auth()->user()->isAdmin())
-        {
+        if (auth()->check() && auth()->user()->isAdmin()) {
             return $next($request);
         }
-        
+
         return response()->json('You are not authenticated or access is denied for your account.', 401);
     }
 }
