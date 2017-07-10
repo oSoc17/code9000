@@ -2,6 +2,8 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\AdminMiddleware;
+use App\Http\Middleware\AuthenticateInstallation;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -47,6 +49,8 @@ class Kernel extends HttpKernel
      *
      * These middleware may be assigned to groups or used individually.
      *
+     *
+     *
      * @var array
      */
     protected $routeMiddleware = [
@@ -58,5 +62,7 @@ class Kernel extends HttpKernel
         'throttle'    => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'jwt.auth'    => \Tymon\JWTAuth\Middleware\GetUserFromToken::class,
         'jwt.refresh' => \Tymon\JWTAuth\Middleware\RefreshToken::class,
+        'auth.admin' =>  AdminMiddleware::class,
+        'auth.installation' => AuthenticateInstallation::class,
     ];
 }
