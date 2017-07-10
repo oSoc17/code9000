@@ -18,7 +18,7 @@ class ObservationController extends Controller
     {
         return Observation::all();
     }
-    
+
     public function forUser()
     {
         // TODO: only get observations that aren't validated
