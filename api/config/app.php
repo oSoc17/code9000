@@ -181,6 +181,7 @@ return [
 
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
+        Spatie\JsonApiPaginate\JsonApiPaginateServiceProvider::class,
 
     ],
 
