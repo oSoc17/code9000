@@ -1,7 +1,7 @@
 {
     "name": "code9000/api",
-    "description": "API for the birds",
-    "keywords": ["code9000", "birds"],
+    "description": "API for the (common tern) observations",
+    "keywords": ["code9000", "birds", "birds.today", "common tern", "oSoc17", "open", "biodiversity", "observations", "oSoc17", "open", "summer", "of", "code", "oSoc"],
     "license": "MIT",
     "type": "project",
     "require": {
