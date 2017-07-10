@@ -6,7 +6,7 @@ import { Button } from '../Form';
 import Icon from '../Icon';
 
 import api from '../../utils/api';
-
+import Swing from '../../utils/Swing'
 import './Observations.css';
 
 class Observations extends Component {
@@ -15,8 +15,16 @@ class Observations extends Component {
 
     this.state = {
       observations: [],
+        stack: null,
     };
   }
+
+    // throwOut Method
+    throwCard(card) {
+
+        // throwOut method call
+        card.throwOut(100, 200);
+    }
 
   componentDidMount() {
     api.get('/observations')
@@ -40,20 +48,24 @@ class Observations extends Component {
 
   render() {
     const observation = _.last(this.state.observations);
-
     return (
       <div className="Observations">
         <Title name="Observations" />
         {observation && (
-          <div>
-            <div className="Observations__Picture">
-              <img src={`${process.env.REACT_APP_API_URL}/observations/${observation.id}/picture`} alt="Observation" />
-            </div>
-            <div className="Observations__Buttons">
-              <Button onClick={() => this.vote(1)} circle><Icon name="thumbs-up" /></Button>
-              <Button onClick={() => this.vote(0)} >SKIP</Button>
-              <Button onClick={() => this.vote(-1)} circle><Icon name="thumbs-down" /></Button>
-            </div>
+          <div id="viewport">
+            <Swing
+                className="stack"
+                tagName="div"
+                setStack={(stack)=> this.setState({stack:stack})}
+                ref="stack"
+                throwoutleft={(e)=> this.vote(-1)}
+                throwoutup={(e) => this.vote(0)}
+                throwoutright={(e) => this.vote(1)}
+            >
+              <div className="card clubs" ref="card1" >
+                <img src={`${process.env.REACT_APP_API_URL}/observations/${observation.id}/picture`} alt="Observation" />
+              </div>
+            </Swing>
           </div>
         )}
       </div>

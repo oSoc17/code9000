@@ -13,3 +13,36 @@
     display: flex;
     justify-content: space-between;
 }
+ html,
+ body,
+ ul,
+ li {
+     margin: 0; padding: 0;
+ }
+
+ #viewport img{
+     width: 300px;
+ }
+
+body {  font: normal 16px/24px 'Helvetica Neue', Helvetica, Arial, freesans, sans-serif;
+}
+
+#viewport {
+    width: 500px; height: 500px; position: relative; margin: auto;
+}
+
+#viewport .stack {
+    width: 200px; height: 300px; position: absolute; top: 100px; margin: auto; border-radius: 10px;
+}
+
+#viewport .card {
+    position: absolute; top: 0; left: 0; line-height: 300px; text-align: center; font-size: 100px; box-sizing: border-box; cursor: default;
+}
+
+#viewport .in-deck:nth-child(3) {
+    top: 2px; transform: translate(2px, 2px) rotate(0.4deg);
+}
+
+#viewport .in-deck:nth-child(2) {
+    top: 4px; transform: translate(-4px, -2px) rotate(-1deg);
+}
