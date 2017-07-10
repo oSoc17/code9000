@@ -16,7 +16,7 @@ class ObservationController extends Controller
      */
     public function index()
     {
-        return Observation::all();
+        return Observation::jsonPaginate();
     }
 
     public function forUser()
@@ -24,7 +24,7 @@ class ObservationController extends Controller
         // TODO: only get observations that aren't validated
         return Observation::whereDoesntHave('votes', function ($query) {
             $query->where('user_id', auth()->user()->id);
-        })->get();
+        })->jsonPaginate();
     }
 
     /**
