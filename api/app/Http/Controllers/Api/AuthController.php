@@ -50,4 +50,9 @@ class AuthController extends Controller
 
         return response()->json(compact('newToken'));
     }
+
+    public function logout()
+    {
+        JWTAuth::invalidate(JWTAuth::getToken());
+    }
 }
