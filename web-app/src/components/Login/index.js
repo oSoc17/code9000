@@ -59,7 +59,9 @@ class Login extends Component {
               <Divider text="or" />
 
               <div className="Login__LoginButton">
-                <FacebookButton onClick={() => this.facebookLogin()}>Sign in with Facebook</FacebookButton>
+                <FacebookButton onClick={() => this.facebookLogin()}>
+                  Sign in with Facebook
+                </FacebookButton>
               </div>
 
               <div className="Login__SignUp">
