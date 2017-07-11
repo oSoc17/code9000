@@ -12,17 +12,33 @@
 */
 
 Route::group(['namespace' => 'Api'], function () {
-    Route::post('auth', 'AuthController@auth');
 
-    Route::get('observations', 'ObservationController@index');
-    Route::get('observations/{id}', 'ObservationController@show');
-    Route::get('observations/{id}/picture', 'ObservationController@getPicture');
-
+    // Route = api/
     Route::get('documentation', 'DocumentationController@index');
+    Route::post('deploy', 'GithubWebhookController@deploy');
 
-    Route::post('observations', 'ObservationController@store');
-    // Authenticated url's
+    // Route = api/auth
+    Route::prefix('auth')->group(function () {
+        Route::post('/', 'AuthController@auth');
+        Route::post('register', 'AuthController@register');
+    });
+
+    // Authenticated url's for Installation devices
+    Route::group(['middleware' => 'auth.installation'], function () {
+        Route::post('observations', 'ObservationController@store');
+    });
+
+    // Route = api/observations
+    Route::prefix('observations')->group(function () {
+        Route::get('/', 'ObservationController@index');
+        Route::get('{id}', 'ObservationController@show');
+        Route::get('{id}/picture', 'ObservationController@getPicture');
+    });
+
+    // JWT-Authenticated url's
     Route::group(['middleware' => 'jwt.auth'], function () {
+
+        // Route = api/auth
         Route::prefix('auth')->group(function () {
             Route::post('me', 'AuthController@me');
             Route::post('refresh', 'AuthController@refresh');
@@ -31,8 +47,12 @@ Route::group(['namespace' => 'Api'], function () {
             Route::get('observations', 'ObservationController@forUser');
         });
 
+        // Route = api/
         Route::post('votes', 'VotesController@store');
-    });
 
-    Route::post('deploy', 'GithubWebhookController@deploy');
+        // Only admins
+        Route::group(['middleware' => 'auth.admin'], function () {
+            Route::resource('installations', 'InstallationController', ['only' => ['index', 'update', 'destroy']]);
+        });
+    });
 });

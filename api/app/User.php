@@ -24,7 +24,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token', 'updated_at',
+        'password', 'remember_token', 'updated_at', 'is_admin',
     ];
 
     /**
@@ -33,5 +33,10 @@ class User extends Authenticatable
     public function votes()
     {
         return $this->hasMany('App\Vote');
+    }
+
+    public function isAdmin()
+    {
+        return $this->is_admin;
     }
 }
