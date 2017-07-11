@@ -28,10 +28,10 @@ class AuthSocialiteController extends Controller
         if (is_null($user)) {
             $user = $this->createUser($facebookUser);
         }
-        
+
         $token = JWTAuth::fromUser($user);
         $redirectUrl = sprintf('%s/login/callback/%s/%s', config('app.url_front_end'), $this->driver, $token);
-    
+
         return redirect()->to($redirectUrl);
     }
 
