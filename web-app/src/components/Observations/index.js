@@ -32,13 +32,13 @@ class Observations extends Component {
   }
 
   vote(value) {
-      const observation = _.first(this.state.observations);
+      const observation = _.last(this.state.observations);
 
        this.setState({
-       observations: [..._.drop(this.state.observations)],
+       observations: [..._.dropRight(this.state.observations)],
        });
 
-
+    console.log(observation.id)
     api.post('/votes', {
       body: {
         observation_id: observation.id,
@@ -55,6 +55,7 @@ class Observations extends Component {
 
   render() {
     const observation = _.last(this.state.observations);
+    console.log(this.state.observations)
     return (
       <div className="Observations">
         <Title name="Observations" />
@@ -66,9 +67,7 @@ class Observations extends Component {
                     tagName="div"
                     setStack={(stack)=> this.setState({stack:stack})}
                     ref="stack"
-                    throwout={(e)=>{e.target.style.visibility='hidden'
-                                    console.log(e)
-                                    this.checkDirectionUp(e.throwDirection)}}
+                    throwout={(e)=>{this.checkDirectionUp(e.throwDirection)}}
                     throwoutleft={(e) => {this.vote(-1)}}
                     throwoutright={(e) => {this.vote(1)}}
                 >
@@ -81,6 +80,11 @@ class Observations extends Component {
                     )}
                 </Swing>
               </div>
+                <div className="Observations__Buttons">
+                    <Button onClick={() => this.vote(1)} circle><Icon name="thumbs-up" /></Button>
+                    <Button onClick={() => this.vote(0)} >SKIP</Button>
+                    <Button onClick={() => this.vote(-1)} circle><Icon name="thumbs-down" /></Button>
+                </div>
             </div>
         )}
       </div>
