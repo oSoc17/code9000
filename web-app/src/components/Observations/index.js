@@ -1,63 +1,17 @@
-import React, { Component } from 'react';
-import _ from 'lodash';
+import { connect } from 'react-redux';
 
-import Title from '../Title';
-import { Button } from '../Form';
-import Icon from '../Icon';
+import Observations from './Observations';
+import mapActionCreatorsToProps from '../../utils/mapActionCreatorsToProps';
 
-import api from '../../utils/api';
+import {
+  loadObservations,
+} from '../../actions';
 
-import './Observations.css';
+const actionCreators = mapActionCreatorsToProps({
+  loadObservations,
+});
 
-class Observations extends Component {
-  constructor(...props) {
-    super(...props);
-
-    this.state = {
-      observations: [],
-    };
-  }
-
-  componentDidMount() {
-    api.get('/observations')
-      .then(({ data }) => this.setState({ observations: data }));
-  }
-
-  vote(value) {
-    const observation = _.last(this.state.observations);
-
-    this.setState({
-      observations: [..._.dropRight(this.state.observations)],
-    });
-
-    api.post('/votes', {
-      body: {
-        observation_id: observation.id,
-        value,
-      },
-    });
-  }
-
-  render() {
-    const observation = _.last(this.state.observations);
-
-    return (
-      <div className="Observations">
-        <Title name="Observations" />
-        {observation && (
-          <div>
-            <div className="Observations__Picture">
-              <img src={`${process.env.REACT_APP_API_URL}/observations/${observation.id}/picture`} alt="Observation" />
-            </div>
-            <div className="Observations__Buttons">
-              <Button onClick={() => this.vote(1)} circle><Icon name="thumbs-up" /></Button>
-              <Button onClick={() => this.vote(0)} >SKIP</Button>
-              <Button onClick={() => this.vote(-1)} circle><Icon name="thumbs-down" /></Button>
-            </div>
-          </div>
-        )}
-      </div>
-    );
-  }
-}
-export default Observations;
+export default connect(
+  undefined,
+  actionCreators,
+)(Observations);
