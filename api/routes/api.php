@@ -26,6 +26,7 @@ Route::group(['namespace' => 'Api'], function () {
 
         Route::post('register', 'AuthController@register');
         Route::post('refresh', 'AuthController@refresh');
+        Route::post('reset', 'AuthController@reset');
     });
 
     // Authenticated url's for Installation devices
