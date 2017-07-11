@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\UserRegistrationModel;
+use App\User;
 
 class AuthController extends Controller
 {
@@ -54,5 +56,23 @@ class AuthController extends Controller
     public function logout()
     {
         JWTAuth::invalidate(JWTAuth::getToken());
+    }
+
+    /**
+     * Register a new User.
+     *
+     * @param \App\Http\Requests\Api\UserRegistrationModel $request
+     *
+     * @return mixed
+     */
+    public function register(UserRegistrationModel $request)
+    {
+        $account = [
+            'name'     => $request->name,
+            'email'    => $request->email,
+            'password' => bcrypt($request->password),
+        ];
+        
+        User::create($account);
     }
 }
