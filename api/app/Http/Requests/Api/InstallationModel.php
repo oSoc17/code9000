@@ -24,7 +24,7 @@ class InstallationModel extends FormRequest
     public function rules()
     {
         return [
-            'active' => 'required|integer',
+            'active' => 'required|boolean',
         ];
     }
 }
