@@ -20,6 +20,10 @@ Route::group(['namespace' => 'Api'], function () {
     // Route = api/auth
     Route::prefix('auth')->group(function () {
         Route::post('/', 'AuthController@auth');
+    
+        Route::get('facebook', 'AuthSocialiteController@redirectToProvider');
+        Route::get('facebook/callback', 'AuthSocialiteController@handleProviderCallback');
+        
         Route::post('register', 'AuthController@register');
     });
 
