@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\User;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\UserRegistrationModel;
-use App\User;
 
 class AuthController extends Controller
 {
@@ -72,7 +72,7 @@ class AuthController extends Controller
             'email'    => $request->email,
             'password' => bcrypt($request->password),
         ];
-        
+
         User::create($account);
     }
 }
