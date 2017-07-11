@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import Swing from 'react-swing';
 
-
 import Title from '../Title';
 import { Button } from '../Form';
 import Icon from '../Icon';
@@ -32,20 +31,26 @@ class Observations extends Component {
       .then(({ data }) => this.setState({ observations: data }));
   }
 
-  vote(id, value) {
-    /*
-     this.setState({
-     observations: [..._.dropRight(this.state.observations)],
-     });
-    */
+  vote(value) {
+      const observation = _.first(this.state.observations);
+
+       this.setState({
+       observations: [..._.drop(this.state.observations)],
+       });
 
 
     api.post('/votes', {
       body: {
-        observation_id: id,
+        observation_id: observation.id,
         value,
       },
     });
+  }
+
+  checkDirectionUp(direction){
+      if (direction.toString() == 'Symbol(UP)'){
+        this.vote(0)
+        }
   }
 
   render() {
@@ -61,14 +66,15 @@ class Observations extends Component {
                     tagName="div"
                     setStack={(stack)=> this.setState({stack:stack})}
                     ref="stack"
-                    throwout={(e)=>{e.target.style.visibility='hidden'}}
-                    throwoutleft={(e) => {this.vote(e.target.id, -1)}}
-                    throwoutup={(e) => {this.vote(e.target.id, 0)}}
-                    throwoutright={(e) => {this.vote(e.target.id, 1)}}
+                    throwout={(e)=>{e.target.style.visibility='hidden'
+                                    console.log(e)
+                                    this.checkDirectionUp(e.throwDirection)}}
+                    throwoutleft={(e) => {this.vote(-1)}}
+                    throwoutright={(e) => {this.vote(1)}}
                 >
                     {this.state.observations.map( (observation) => {
                         return (
-                            <div className="card" key={observation.id} id={observation.id}>
+                            <div className="card" key={observation.id}>
                               <img src={`${process.env.REACT_APP_API_URL}/observations/${observation.id}/picture`} alt="Observation" />
                             </div>
                         )}
