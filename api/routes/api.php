@@ -27,7 +27,7 @@ Route::group(['namespace' => 'Api'], function () {
             Route::post('me', 'AuthController@me');
             Route::post('refresh', 'AuthController@refresh');
             Route::post('logout', 'AuthController@logout');
-            
+
             Route::get('observations', 'ObservationController@forUser');
         });
 
