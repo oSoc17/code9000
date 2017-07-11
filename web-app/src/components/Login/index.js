@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 
 import Title from '../Title';
+import Header from '../Header';
 import { Form, Label, Input, Button } from '../Form';
 import api from '../../utils/api';
 
@@ -28,21 +29,24 @@ class Login extends Component {
     const { isValid } = this.state;
 
     return (
-      <div className="Login">
-        <Title name="Login" />
-        <div className="Login__Wrapper">
-          <Form
-            onValidationChange={valid => this.setState({ isValid: valid })}
-            onSubmit={data => this.login(data)}
-          >
-            <Label text="Email address" />
-            <Input name="email" rules={['required', 'email']} />
+      <div>
+        <Header />
+        <div className="Login">
+          <Title name="Login" />
+          <div className="Login__Wrapper">
+            <Form
+              onValidationChange={valid => this.setState({ isValid: valid })}
+              onSubmit={data => this.login(data)}
+            >
+              <Label text="Email address" />
+              <Input name="email" rules={['required', 'email']} />
 
-            <Label text="Password" />
-            <Input name="password" type="password" rules={['required']} />
+              <Label text="Password" />
+              <Input name="password" type="password" rules={['required']} />
 
-            <Button disabled={!isValid}>Login</Button>
-          </Form>
+              <Button disabled={!isValid}>Login</Button>
+            </Form>
+          </div>
         </div>
       </div>
     );
