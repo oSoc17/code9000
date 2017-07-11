@@ -7,7 +7,7 @@ class BootstrapContainer extends Component {
     const { loadObservations, finishInitialLoading } = this.props;
 
     Promise.all([
-      api.get('/observations').then(({ data }) => loadObservations(data)),
+      api.get('/observations').then(({ data: paginationModel }) => loadObservations(paginationModel.data)),
     ])
       .then(finishInitialLoading);
   }
