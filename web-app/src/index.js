@@ -12,7 +12,6 @@ import App from './components/App';
 import Login from './components/Login';
 import LoginCallback from './components/Login/LoginCallback';
 
-import './reset.css';
 import './index.css';
 
 const configureStore = () => {
