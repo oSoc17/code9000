@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api;
 
 use App\User;
-use App\PasswordReset;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\Controller;
