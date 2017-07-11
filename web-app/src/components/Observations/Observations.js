@@ -13,21 +13,19 @@ class Observations extends Component {
 
   vote(value) {
     const observation = _.head(this.props.observations);
-
+    const newObservations = [..._.drop(this.props.observations)];
     api.post('/votes', {
       body: {
         observation_id: observation.id,
         value,
       },
+    }).then(() => {
+      this.props.loadObservations(newObservations);
+
+      if (newObservations.length < 6) {
+        this.fetch();
+      }
     });
-
-    const newObservations = [..._.drop(this.props.observations)];
-
-    this.props.loadObservations(newObservations);
-
-    if (newObservations.length < 6) {
-      this.fetch();
-    }
   }
 
   fetch() {
@@ -38,8 +36,6 @@ class Observations extends Component {
 
   render() {
     const observation = _.head(this.props.observations);
-
-    console.log(observation && observation.id);
 
     return (
       <div className="Observations">

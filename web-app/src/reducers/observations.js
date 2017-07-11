@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import reducer from './reducer';
 
 import { LOAD_OBSERVATIONS } from '../actions/types';
