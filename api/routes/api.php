@@ -52,6 +52,5 @@ Route::group(['namespace' => 'Api'], function () {
         Route::group(['middleware' => 'auth.admin'], function () {
             Route::resource('installations', 'InstallationController', ['only' => ['index', 'update', 'destroy']]);
         });
-        
     });
 });
