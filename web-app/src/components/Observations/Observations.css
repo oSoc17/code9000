@@ -32,7 +32,7 @@ body {  font: normal 16px/24px 'Helvetica Neue', Helvetica, Arial, freesans, san
 }
 
 #viewport .stack {
-    width: 200px; height: 300px; position: absolute; top: 100px; margin: auto; border-radius: 10px;
+    width: 200px; height: 300px; position: absolute; top: 100px; margin: 10%; border-radius: 10px;
 }
 
 #viewport .card {

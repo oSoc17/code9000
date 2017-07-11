@@ -7,10 +7,12 @@
     "axios": "^0.16.2",
     "form-serialize": "^0.7.2",
     "lodash": "^4.17.4",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.1",
+    "react-swing": "0.0.7",
     "redux": "^3.7.1",
     "redux-thunk": "^2.2.0",
     "swing": "^4.4.0"
