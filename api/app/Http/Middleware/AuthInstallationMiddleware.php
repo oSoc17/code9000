@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use App\Installation;
 
-class AuthenticateInstallation
+class AuthInstallationMiddleware
 {
     /**
      * Handle an incoming request.
