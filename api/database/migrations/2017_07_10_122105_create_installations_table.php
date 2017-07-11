@@ -16,7 +16,7 @@ class CreateInstallationsTable extends Migration
         Schema::create('installations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('token')->unique();
-            $table->integer('active')->default(0);
+            $table->boolean('active')->default(false);
             $table->timestamps();
         });
     }
