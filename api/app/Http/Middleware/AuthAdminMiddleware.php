@@ -20,6 +20,6 @@ class AuthAdminMiddleware
             return $next($request);
         }
 
-        return response()->json('You are not authenticated or access is denied for your account.', 401);
+        return response()->json('You are not allowed to perform this action.', 403);
     }
 }

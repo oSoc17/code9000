@@ -22,6 +22,6 @@ class AuthInstallationMiddleware
             return $next($request);
         }
 
-        return response()->json('This device has not (yet) access', 401);
+        return response()->json('The device is not authorized.', 401);
     }
 }
