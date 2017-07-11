@@ -20,7 +20,11 @@ Route::group(['namespace' => 'Api'], function () {
 
     Route::get('documentation', 'DocumentationController@index');
 
-    Route::post('observations', 'ObservationController@store');
+    // Authenticated url's for Installation devices
+    Route::group(['middleware' => 'auth.installation'], function () {
+        Route::post('observations', 'ObservationController@store');
+    });
+
     // Authenticated url's
     Route::group(['middleware' => 'jwt.auth'], function () {
         Route::prefix('auth')->group(function () {
@@ -30,6 +34,11 @@ Route::group(['namespace' => 'Api'], function () {
         });
 
         Route::post('votes', 'VotesController@store');
+
+        // Only admins
+        Route::group(['middleware' => 'auth.admin'], function () {
+            Route::resource('installations', 'InstallationController', ['only' => ['index', 'update', 'destroy']]);
+        });
     });
 
     Route::post('deploy', 'GithubWebhookController@deploy');
