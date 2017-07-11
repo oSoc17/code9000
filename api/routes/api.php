@@ -48,7 +48,7 @@ Route::group(['namespace' => 'Api'], function () {
 
         // Route = api/
         Route::post('votes', 'VotesController@store');
-    
+
         // Only admins
         Route::group(['middleware' => 'auth.admin'], function () {
             Route::resource('installations', 'InstallationController', ['only' => ['index', 'update', 'destroy']]);
