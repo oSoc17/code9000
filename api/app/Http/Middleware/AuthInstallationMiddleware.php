@@ -18,7 +18,7 @@ class AuthInstallationMiddleware
     {
         $installation = Installation::firstOrCreate(['token' => $request->token]);
 
-        if ($installation->active === 1) {
+        if ($installation->active) {
             return $next($request);
         }
 
