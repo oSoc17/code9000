@@ -24,7 +24,9 @@ class ObservationController extends Controller
         // TODO: only get observations that aren't validated
         return Observation::whereDoesntHave('votes', function ($query) {
             $query->where('user_id', auth()->user()->id);
-        })->jsonPaginate();
+        })
+            ->orderBy('captured_at', 'ASC') // TODO: change to caputred_at
+            ->jsonPaginate();
     }
 
     /**
