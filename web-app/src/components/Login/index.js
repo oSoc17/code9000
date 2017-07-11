@@ -6,7 +6,7 @@ import Title from '../Title';
 import Divider from '../Divider';
 import { Form, Input, Button, FacebookButton } from '../Form';
 
-import api from '../../utils/api';
+import api, { BASE_URL } from '../../utils/api';
 
 import logo from '../../theme/crest.png';
 import './Login.css';
@@ -26,6 +26,10 @@ class Login extends Component {
       window.localStorage.setItem('jwt.token', data.token);
       window.location = '/';
     });
+  }
+
+  facebookLogin() {
+    window.location = `${BASE_URL}/auth/facebook`;
   }
 
   render() {
@@ -55,7 +59,7 @@ class Login extends Component {
               <Divider text="or" />
 
               <div className="Login__LoginButton">
-                <FacebookButton disabled={!isValid}>Sign in with Facebook</FacebookButton>
+                <FacebookButton onClick={() => this.facebookLogin()}>Sign in with Facebook</FacebookButton>
               </div>
 
               <div className="Login__SignUp">
