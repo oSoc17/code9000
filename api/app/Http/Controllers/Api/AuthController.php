@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Api;
 
 use App\User;
+use App\PasswordReset;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\UserLogin;
 use App\Http\Requests\Api\UserRegistrationModel;
 use Tymon\JWTAuth\Exceptions\TokenBlacklistedException;
+use App\Http\Requests\Api\PasswordResetModel;
 
 class AuthController extends Controller
 {
@@ -84,5 +86,22 @@ class AuthController extends Controller
         $token = JWTAuth::fromUser($user);
 
         return response()->json(compact('token'));
+    }
+
+    /**
+     * Send a mail for resetting the password.
+     *
+     * @param \App\Http\Requests\Api\PasswordResetModel $request
+     *
+     * @return mixed
+     */
+    public function sendResetMail(PasswordResetModel $request)
+    {
+        // TODO: Get current user_id
+        // TODO: Generate key
+        // TODO: Generate URL
+        // TODO: Send email
+        // TODO: Only send reset password mail once an hour
+        // TODO: Handle email response and reset email
     }
 }
