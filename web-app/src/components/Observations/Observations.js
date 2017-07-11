@@ -10,20 +10,9 @@ import api from '../../utils/api';
 import './Observations.css';
 
 class Observations extends Component {
-  constructor(...props) {
-    super(...props);
-
-    this.state = {
-      observations: [],
-    };
-  }
 
   vote(value) {
-    const observation = _.last(this.state.observations);
-
-    this.setState({
-      observations: [..._.dropRight(this.state.observations)],
-    });
+    const observation = _.head(this.props.observations);
 
     api.post('/votes', {
       body: {
@@ -31,10 +20,26 @@ class Observations extends Component {
         value,
       },
     });
+
+    const newObservations = [..._.drop(this.props.observations)];
+
+    this.props.loadObservations(newObservations);
+
+    if (newObservations.length < 6) {
+      this.fetch();
+    }
+  }
+
+  fetch() {
+    api.get('/auth/observations').then(({ data: paginationModel }) => {
+      this.props.loadObservations(paginationModel.data);
+    });
   }
 
   render() {
-    const observation = _.last(this.state.observations);
+    const observation = _.head(this.props.observations);
+
+    console.log(observation && observation.id);
 
     return (
       <div className="Observations">
