@@ -26,6 +26,7 @@ cd ..
 cd web-app
 
 yarn install
+yarn build-css
 yarn build
 
 cd ..

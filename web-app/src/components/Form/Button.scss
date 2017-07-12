@@ -1,0 +1,47 @@
+@import "../../theme/_index.scss";
+
+.Form__Button {
+  outline: none;
+  border: none;
+
+  width: 100%;
+  text-align: center;
+
+  color: white;
+  font-size: 17px;
+  padding: 12px 0px; 
+
+  background-color: $darkPastelBlue;
+  border-radius: 3px;
+}
+
+.Form__Button--circle {
+  border-radius: 50%; 
+}
+
+.Form__FacebookButton {
+  background-color: $governorBay;
+  padding: 0px;
+}
+
+.Form__FacebookButton__Wrapper {
+  display: flex;
+}
+
+.Form__FacebookButton__Item {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content:center;
+}
+
+.Form__FacebookButton__Logo {
+  background-color: $portGore;
+  width: 50px;
+}
+
+.Form__FacebookButton__Children {
+  flex-grow: 1;
+  padding: 12px 0px; 
+}
+

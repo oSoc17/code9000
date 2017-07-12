@@ -22,6 +22,7 @@ matrix:
         - cd web-app
         - travis_retry yarn install
       script:
+        - yarn build-css
         - yarn lint
         - travis_retry yarn test
         - travis_retry yarn run build

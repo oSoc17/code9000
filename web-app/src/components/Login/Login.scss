@@ -1,0 +1,45 @@
+@import "../../theme/_index.scss";
+
+.Login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Login__Wrapper {
+  width: 360px;
+  height: 640px;
+
+  padding: 30px 30px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.Login__Logo {
+  margin: 0 auto;
+  width: 150px;
+
+  padding: 20px 20px 50px;
+}
+
+.Login__Password {
+  margin-top: 16px;
+}
+
+.Login__ForgotPassword, .Login__SignUp {
+  margin-top: 4px;
+  font-size: 11px;
+
+  color: $lobLolly;
+}
+
+.Login__SignUp {
+  width: 100%;
+  text-align: center;
+}
+
+.Login__LoginButton {
+  margin: 20px 0px;
+}

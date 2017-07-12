@@ -1,0 +1,35 @@
+@import "../../theme/_index.scss";
+
+.Form__Label {
+  font-weight: bold;
+  display: block;
+  padding: 12px 0px;
+  margin-top: 8px;
+}
+
+.Form__Input {
+  width: 100%;
+  box-sizing: border-box;
+
+  color: $lobLolly;
+  font-size: 17px;
+
+  border: 1px solid $lobLolly;
+  border-radius: 3px;
+  
+
+  padding: 12px;
+}
+
+.Form__Input::placeholder {
+  color: $lobLolly !important;
+}
+
+.Form__Input:focus, .Form__Dropdown:focus, .Form__Textarea:focus {
+  outline: none !important;
+}
+
+.Form__Field__Invalid {
+  //border: 1.2px solid #F44336 !important;
+  //color: #F44336 !important;
+}
