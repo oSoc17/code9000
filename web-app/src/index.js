@@ -10,6 +10,7 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 import App from './components/App';
 import Login from './components/Login';
+import LoginCallback from './components/Login/LoginCallback';
 
 import './reset.css';
 import './index.css';
@@ -29,6 +30,10 @@ const configureStore = () => {
 const isAuthenticated = () => {
   const token = window.localStorage.getItem('jwt.token');
 
+  if (window.location.pathname.startsWith('/login')) {
+    return null;
+  }
+
   if (token === null || token === undefined) {
     return <Redirect to="/login" />;
   }
@@ -41,6 +46,7 @@ const Root = () => (
     <Router>
       <Switch>
         <Route exact path="/login" component={Login} />
+        <Route exact path="/login/callback/facebook/:token" component={LoginCallback} />
         {isAuthenticated()}
       </Switch>
     </Router>

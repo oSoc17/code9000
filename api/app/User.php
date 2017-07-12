@@ -35,6 +35,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Vote');
     }
 
+    public function providers()
+    {
+        return $this->hasMany('App\Provider');
+    }
+
     public function isAdmin()
     {
         return $this->is_admin;
