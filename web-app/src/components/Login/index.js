@@ -1,12 +1,15 @@
 /* global window */
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import Title from '../Title';
-import Header from '../Header';
-import { Form, Label, Input, Button } from '../Form';
-import api from '../../utils/api';
+import Divider from '../Divider';
+import { Form, Input, Button, FacebookButton } from '../Form';
 
-import './index.css';
+import api, { BASE_URL } from '../../utils/api';
+
+import logo from '../../theme/crest.svg';
+import './Login.css';
 
 class Login extends Component {
   constructor(...props) {
@@ -25,26 +28,47 @@ class Login extends Component {
     });
   }
 
+  facebookLogin(event) {
+    event.preventDefault();
+
+    window.location = `${BASE_URL}/auth/facebook`;
+  }
+
   render() {
     const { isValid } = this.state;
 
     return (
-      <div>
-        <Header />
-        <div className="Login">
-          <Title name="Login" />
-          <div className="Login__Wrapper">
+      <div className="Login">
+        <Title name="Login" />
+        <div className="Login__Wrapper">
+          <img src={logo} alt="CODE9000 crest" className="Login__Logo" />
+          <div className="Login__Form">
             <Form
               onValidationChange={valid => this.setState({ isValid: valid })}
               onSubmit={data => this.login(data)}
             >
-              <Label text="Email address" />
-              <Input name="email" rules={['required', 'email']} />
+              <Input name="email" rules={['required', 'email']} placeholder="Email" />
+              <Input name="password" type="password" rules={['required']} placeholder="Password" className="Login__Password" />
 
-              <Label text="Password" />
-              <Input name="password" type="password" rules={['required']} />
+              <div className="Login__ForgotPassword">
+                Forgot password? <Link to="/account-recovery">Reset Password</Link>
+              </div>
 
-              <Button disabled={!isValid}>Login</Button>
+              <div className="Login__LoginButton">
+                <Button disabled={!isValid}>Log in</Button>
+              </div>
+
+              <Divider text="or" />
+
+              <div className="Login__LoginButton">
+                <FacebookButton onClick={(e) => this.facebookLogin(e)}>
+                  Sign in with Facebook
+                </FacebookButton>
+              </div>
+
+              <div className="Login__SignUp">
+                Not a member? <Link to="/sing-up">Sign up here!</Link>
+              </div>
             </Form>
           </div>
         </div>

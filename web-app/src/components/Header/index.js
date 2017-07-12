@@ -1,7 +1,8 @@
 /* global window */
 import React, { Component } from 'react';
 import './Header.css';
-import logo from './crest.png';
+
+import logo from '../../theme/crest.png';
 
 import api, { removeToken } from '../../utils/api';
 
