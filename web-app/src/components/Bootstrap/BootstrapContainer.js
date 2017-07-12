@@ -4,10 +4,11 @@ import api from '../../utils/api';
 
 class BootstrapContainer extends Component {
   componentWillMount() {
-    const { loadObservations, finishInitialLoading } = this.props;
+    const { loadObservations, loadUser, finishInitialLoading } = this.props;
 
     Promise.all([
       api.get('/auth/observations').then(({ data: paginationModel }) => loadObservations(paginationModel.data)),
+      api.get('/auth/me').then(({ data }) => loadUser(data)),
     ])
       .then(finishInitialLoading);
   }
