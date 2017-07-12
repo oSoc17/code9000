@@ -12,7 +12,7 @@ class PasswordReset extends Model
      * @var array
      */
     protected $fillable = [
-        'email',
+        'user_id', 'token', 'created_at',
     ];
 
     /**
@@ -21,6 +21,6 @@ class PasswordReset extends Model
      * @var array
      */
     protected $hidden = [
-        'email', 'token', 'created_at',
+        'user_id', 'token', 'created_at',
     ];
 }
