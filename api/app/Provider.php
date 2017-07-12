@@ -10,6 +10,6 @@ class Provider extends Model
         'user_id',
         'provider',
         'provider_id',
-        'provider_token'
+        'provider_token',
     ];
 }
