@@ -47,7 +47,7 @@ Route::group(['namespace' => 'Api'], function () {
         Route::prefix('auth')->group(function () {
             Route::get('me', 'AuthController@me');
             Route::get('observations', 'ObservationController@forUser');
-            
+
             Route::post('logout', 'AuthController@logout');
         });
 
