@@ -114,9 +114,9 @@ class AuthController extends Controller
     public function sendResetMail(PasswordResetModel $request)
     {
         $user_email = $request->email;
-        // TODO: Get current user_id
-        $user_id = User::where('email', $user_email)->get()->id;
-        if ($user_id) {
+        $user = User::where('email', $user_email)->first();
+        if ($user) {
+            $user_id = $user->id;
             // TODO: Generate key
             // TODO: Input key, id and timestamp
             // TODO: Generate URL
