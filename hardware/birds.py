@@ -18,22 +18,22 @@ import asyncio
 os.chdir(sys.path[0])
 
 # Set logging level
-logging.basicConfig(stream=sys.stdout, level=logging.INFO, format='%(asctime)s %(message)s')
+logging.basicConfig(stream=sys.stdout, level=logging.DEBUG, format='%(asctime)s %(message)s')
 
 # Python external modules
 try:
-    import requests
+	import requests
 except ImportError:
-    logging.critical('Python Requests is not installed!')
-    exit('Importing Python Requests module failed!')
+	logging.critical('Python Requests is not installed!')
+	exit('Importing Python Requests module failed!')
 
 # Python Raspberry Pi specific modules
 try:
-    import RPi.GPIO as GPIO
-    import picamera
+	import RPi.GPIO as GPIO
+	import picamera
 except ImportError:
-    logging.critical('Raspberry Pi Python modules are missing or this program is not running on a Raspberry Pi!')
-    exit('Importing Python Raspberry Pi modules failed!')
+	logging.critical('Raspberry Pi Python modules are missing or this program is not running on a Raspberry Pi!')
+	exit('Importing Python Raspberry Pi modules failed!')
 
 # Read configuration (you can edit this file for your system)
 configFile = open('constants.json')
@@ -48,98 +48,74 @@ if not os.path.exists(configData['pictureDir']):
 # Create a camera instance
 camera = picamera.PiCamera()
 
+# Upload queue
+uploadQueue = []
+uploading = False
+
 def takePicture(channel):
-    global camera
-    global uploadNow
-    
-    logging.debug('Bird detected!')
-    logging.debug('Getting current time...')
-    currentTimestamp = getTime() # Read the current time
-    logging.debug('Taking picture...')
-    camera.capture('{}/{}.jpg'.format(configData['pictureDir'], currentTimestamp)) # Take picture
+	global camera
+	global uploadQueue
 
-    # Too much pictures on the SD card, start uploading directly
-    if len(os.listdir(configData['pictureDir'])) > configData['maxpictures'] and not uploadTimer.is_alive() and not uploadNow:	
-        logging.info('Picture batch too large, initiate upload now...')
-        uploadNow = True
-
-    logging.debug('Bird event completed!')
-    
+	logging.debug('Bird detected!')
+	logging.debug('Getting current time...')
+	currentTimestamp = getTime() # Read the current time
+	logging.debug('Taking picture...')
+	camera.capture('{}/{}.jpg'.format(configData['pictureDir'], currentTimestamp)) # Take picture
+	uploadQueue.append('{}/{}.jpg'.format(configData['pictureDir'], currentTimestamp))
+	logging.debug('Bird event completed!')
 
 # Setup GPIO pins
 GPIO.setmode(GPIO.BOARD) # Use BOARD GPIO numbers
 GPIO.setup(configData['pirsensor'], GPIO.IN, pull_up_down=GPIO.PUD_DOWN)  # Setup GPIO for PIR sensor
 GPIO.add_event_detect(configData['pirsensor'], GPIO.FALLING, bouncetime=configData['bouncetime'], callback=takePicture)
 
-uploadNow = False
-
-# Upload timer callback
-def upload():
-	global uploadNow
-	uploadNow = True
-
-networkBuffer = 0 # Limit max requests to avoid overloading the network card
-
 @asyncio.coroutine
 def uploadAsync():
-	asyncLoop = asyncio.get_event_loop()
-	global uploadNow
+	global uploadQueue
+	global uploading
 
-	def _executeReq(f):
-		global networkBuffer
-		if networkBuffer < configData['networkBuffer']:
-			networkBuffer = networkBuffer + 1
-			currentFile = open('{}/{}'.format(configData['pictureDir'], f), 'rb')
-			currentUpload = {'image': currentFile} # Read file
-			currentTimestamp = f.split('.')[0]
-			try:
-				r = requests.post(configData['api'], data={'longitude': configData['location']['lon'], 'latitude': configData['location']['lat'], 'captured_at': currentTimestamp, 'token': configData['token'] }, files=currentUpload) # Upload data to API
-			except requests.exceptions.ConnectionError as error:
-				logging.error('Suddenly, a wild network error appeared: {}'.format(error))
-			except:
-				logging.error('An error occured while uploading data to the API')
-			finally:
-				if r.status_code == 200:
-					os.remove('{}/{}'.format(configData['pictureDir'], f))
-					networkBuffer = networkBuffer - 1 # Request complete
-					logging.debug('Uploading data OK')
-	
-			return currentFile.close() # Close file
-		else:
-			return logging.debug('Network buffer is full!')
+	logging.debug('Uploading asynchronous the picture and meta data to API')
+	logging.debug('Uploadqueue: {}'.format(str(uploadQueue)))
 
+	for index,picture in enumerate(uploadQueue):
+		currentFile = open(picture, 'rb')
+		currentUpload = {'image': currentFile} # Read file
+		currentTimestamp = os.path.basename(currentFile.name).split('.')[0]
+		try:
+			r = requests.post(configData['api'], data={'longitude': configData['location']['lon'], 'latitude': configData['location']['lat'], 'captured_at': currentTimestamp, 'token': configData['token'] }, files=currentUpload) # Upload data to API
+			uploadQueue.remove(picture)
+		except requests.exceptions.ConnectionError:
+			logging.debug('Suddenly, a wild network error appeared')
+		except:
+			logging.debug('Uploading failed!')
+	return False
 
-	if uploadNow and len(os.listdir(configData['pictureDir'])):
-		logging.debug('Uploading asynchronous the picture and meta data to API')
-		req = asyncLoop.run_in_executor(None, _executeReq, os.listdir(configData['pictureDir'])[0])
-
-uploadTimer = threading.Timer(configData['timebetween'], upload)
-uploadTimer.start()
 
 def getTime():
 	return strftime('%Y-%m-%d %H:%M:%S', gmtime())
 
 def loop():
-    try:
-        logging.info('You can always exit this program by pressing CTRL + C')
-        logging.info('Looking for birds...')
-        while(True):
-            asyncLoop = asyncio.get_event_loop()
-            asyncLoop.run_until_complete(uploadAsync())
-            sleep(configData['sleeptime'])
+	try:
+		logging.info('You can always exit this program by pressing CTRL + C')
+		logging.info('Looking for birds...')
+		busy = False
+		while(True):
+			if len(uploadQueue) and busy == False:
+				busy = True
+				asyncLoop = asyncio.get_event_loop()
+				busy = asyncLoop.run_until_complete(uploadAsync())
+			sleep(configData['sleeptime'])
 
-    except KeyboardInterrupt:
-        logging.debug('Shutting down and cleaning up...')
-        uploadTimer.join()
-        GPIO.cleanup()
-        logging.info('Shutdown complete!')
+	except KeyboardInterrupt:
+		logging.debug('Shutting down and cleaning up...')
+		GPIO.cleanup()
+		logging.info('Shutdown complete!')
 
 # Start the loop()
 # Reason for the IF statement is here: https://stackoverflow.com/questions/419163/what-does-if-name-main-do
 if __name__ == '__main__':
-    loop()
+	loop()
 
 # Clean up too when crashing...
 logging.error('Shutdown and cleaning up after crash...')
-uploadTimer.join()
 GPIO.cleanup()
