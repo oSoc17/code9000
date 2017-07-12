@@ -8,7 +8,7 @@ import { Form, Input, Button, FacebookButton } from '../Form';
 
 import api, { BASE_URL } from '../../utils/api';
 
-import logo from '../../theme/crest.png';
+import logo from '../../theme/crest.svg';
 import './Login.css';
 
 class Login extends Component {
