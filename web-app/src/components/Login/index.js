@@ -28,7 +28,9 @@ class Login extends Component {
     });
   }
 
-  facebookLogin() {
+  facebookLogin(event) {
+    event.preventDefault();
+    
     window.location = `${BASE_URL}/auth/facebook`;
   }
 
@@ -59,7 +61,7 @@ class Login extends Component {
               <Divider text="or" />
 
               <div className="Login__LoginButton">
-                <FacebookButton onClick={() => this.facebookLogin()}>
+                <FacebookButton onClick={(e) => this.facebookLogin(e)}>
                   Sign in with Facebook
                 </FacebookButton>
               </div>
