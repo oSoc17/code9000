@@ -117,13 +117,15 @@ class AuthController extends Controller
         $user_email = $request->email;
         $user = User::where('email', $user_email)->first();
         if ($user) {
+            $token = str_random(191);
             $data = [
                 'user_id' => $user->id, 
-                'token' => str_random(191),
+                'token' => $token,
                 'created_at' => date('Y-m-d H:i:s'),
             ];
             PasswordReset::create($data);
             // TODO: Generate URL
+            $url = config('url_front_end') . '/reset/' . $token;
             // TODO: Send email (if fail -> what?)
             // TODO: Only send reset password mail once an hour
             // TODO: Handle email response and reset password (used token = delete?)
