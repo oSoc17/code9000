@@ -11,6 +11,10 @@ const setToken = ({ newToken }) => {
   window.localStorage.setItem('jwt.token', newToken);
 };
 
+export const removeToken = () => {
+  window.localStorage.removeItem('jwt.token');
+};
+
 const abstractRequest = (endpoint, { headers = {}, body, ...otherOptions }, method) => {
   return axios(`${BASE_URL}${endpoint}`, {
     ...otherOptions,
