@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\User;
 use App\PasswordReset;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\Controller;
@@ -119,9 +118,9 @@ class AuthController extends Controller
         $user = User::where('email', $user_email)->first();
         if ($user) {
             $data = [
-                'user_id'     => $user->id, 
-                'token'    => str_random(191),
-                'created_at' => Carbon::now()->toDayDateTimeString()
+                'user_id' => $user->id, 
+                'token' => str_random(191),
+                'created_at' => date('Y-m-d H:i:s'),
             ];
             PasswordReset::create($data);
             // TODO: Generate URL
