@@ -1,20 +1,59 @@
-/* global localStorage */
+/* global window */
 import axios from 'axios';
 
 export const BASE_URL = process.env.REACT_APP_API_URL;
 
-const request = (endpoint, { headers = {}, body, ...otherOptions }, method) => {
+const getToken = () => {
+  return window.localStorage.getItem('jwt.token');
+};
+
+const setToken = ({ newToken }) => {
+  window.localStorage.setItem('jwt.token', newToken);
+};
+
+const abstractRequest = (endpoint, { headers = {}, body, ...otherOptions }, method) => {
   return axios(`${BASE_URL}${endpoint}`, {
     ...otherOptions,
     headers: {
       ...headers,
-      Authorization: `Bearer ${localStorage.getItem('jwt.token')}}`,
+      Authorization: `Bearer ${getToken()}`,
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
     data: body ? JSON.stringify(body) : undefined,
     method,
   });
+};
+
+const checkForRefreshToken = (endpoint, content, method) => (error) => {
+  if (error.response && error.response.status === 401) {
+    return abstractRequest('/auth/refresh', {}, 'post').then(({ data }) => {
+      setToken(data);
+
+      return abstractRequest(endpoint, content, method);
+    });
+  }
+  return Promise.reject(error);
+};
+
+const checkForRelogin = error => {
+  if (!error.response || !error.response.data || window.location.pathname === '/login') {
+    return Promise.reject(error);
+  }
+
+  const message = error.response.data.error;
+
+  if (['token_expired', 'token_invalid', 'token_not_provided'].includes(message)) {
+    window.location = '/login';
+  }
+
+  return Promise.reject(error);
+};
+
+const request = (endpoint, content, method) => {
+  return abstractRequest(endpoint, content, method)
+    .catch(checkForRefreshToken(endpoint, content, method))
+    .catch(checkForRelogin);
 };
 
 export const api = {
