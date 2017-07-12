@@ -113,11 +113,16 @@ class AuthController extends Controller
      */
     public function sendResetMail(PasswordResetModel $request)
     {
+        $user_email = $request->email;
         // TODO: Get current user_id
-        // TODO: Generate key
-        // TODO: Generate URL
-        // TODO: Send email
-        // TODO: Only send reset password mail once an hour
-        // TODO: Handle email response and reset email
+        $user_id = User::where('email', $user_email)->get()->id;
+        if ($user_id) {
+            // TODO: Generate key
+            // TODO: Input key, id and timestamp
+            // TODO: Generate URL
+            // TODO: Send email (if fail -> what?)
+            // TODO: Only send reset password mail once an hour
+            // TODO: Handle email response and reset password (used token = delete?)
+        }
     }
 }
