@@ -6,6 +6,7 @@ use App\Observation;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\Api\ObservationModel;
+use Intervention\Image\Facades\Image;
 
 class ObservationController extends Controller
 {
@@ -68,8 +69,20 @@ class ObservationController extends Controller
     public function store(ObservationModel $request)
     {
         $file = $request->file('image');
-        $request['picture_storage'] = Storage::putFile('observations', $file);
-
+    
+        // Create a file name
+        $path = $file->hashName('observations');
+    
+        // Resize the image
+        $image = Image::make($file);
+        $image->resize(750, null, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+    
+        // Store the image
+        Storage::put($path, $image->stream());
+        $request['picture_storage'] = $path;
+    
         return Observation::create($request->all());
     }
 }
