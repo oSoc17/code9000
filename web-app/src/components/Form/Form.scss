@@ -11,10 +11,10 @@
   width: 100%;
   box-sizing: border-box;
 
-  color: $color4;
+  color: $lobLolly;
   font-size: 17px;
 
-  border: 1px solid $color4;
+  border: 1px solid $lobLolly;
   border-radius: 3px;
   
 
@@ -22,7 +22,7 @@
 }
 
 .Form__Input::placeholder {
-  color: $color4 !important;
+  color: $lobLolly !important;
 }
 
 .Form__Input:focus, .Form__Dropdown:focus, .Form__Textarea:focus {

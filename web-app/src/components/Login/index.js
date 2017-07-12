@@ -30,7 +30,7 @@ class Login extends Component {
 
   facebookLogin(event) {
     event.preventDefault();
-    
+
     window.location = `${BASE_URL}/auth/facebook`;
   }
 
