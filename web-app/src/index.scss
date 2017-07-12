@@ -20,3 +20,15 @@ a {
   color: $darkPastelBlue;
 }
 
+table {
+    width: 100%;
+}
+
+table th {
+    text-align: left;
+    font-weight: bold;
+}
+
+table td, table th {
+    padding: 10px;
+}

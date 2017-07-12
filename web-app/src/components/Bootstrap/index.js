@@ -6,11 +6,13 @@ import mapActionCreatorsToProps from '../../utils/mapActionCreatorsToProps';
 import {
   loadObservations,
   finishInitialLoading,
+  loadUser,
 } from '../../actions';
 
 const actionCreators = mapActionCreatorsToProps({
   loadObservations,
   finishInitialLoading,
+  loadUser,
 });
 
 export default connect(
