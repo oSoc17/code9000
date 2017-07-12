@@ -83,7 +83,9 @@ def uploadAsync():
 		currentTimestamp = os.path.basename(currentFile.name).split('.')[0]
 		try:
 			r = requests.post(configData['api'], data={'longitude': configData['location']['lon'], 'latitude': configData['location']['lat'], 'captured_at': currentTimestamp, 'token': configData['token'] }, files=currentUpload) # Upload data to API
-			uploadQueue.remove(picture)
+			if r.status_code == 200:
+				uploadQueue.remove(picture)
+				logging.debug('Upload OK')
 		except requests.exceptions.ConnectionError:
 			logging.debug('Suddenly, a wild network error appeared')
 		except:
