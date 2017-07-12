@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use Webpatser\Uuid\Uuid;
 use App\User;
 use App\PasswordReset;
 use Illuminate\Http\Request;
@@ -117,15 +118,15 @@ class AuthController extends Controller
         $user_email = $request->email;
         $user = User::where('email', $user_email)->first();
         if ($user) {
-            $token = str_random(191);
+            $uuid_token = Uuid::generate(4);
             $data = [
                 'user_id' => $user->id, 
-                'token' => $token,
+                'token' => $uuid_token,
                 'created_at' => date('Y-m-d H:i:s'),
             ];
             PasswordReset::create($data);
-            // TODO: Generate URL
-            $url = config('url_front_end') . '/reset/' . $token;
+            // TODO: Check URL
+            $url = config('url_front_end') . '/reset/' . $uuid_token;
             // TODO: Send email (if fail -> what?)
             // TODO: Only send reset password mail once an hour
             // TODO: Handle email response and reset password (used token = delete?)
