@@ -16,11 +16,9 @@ class PasswordReset extends Model
     ];
 
     /**
-     * The attributes that should be hidden for arrays.
+     * Indicates if the model should be timestamped.
      *
-     * @var array
+     * @var bool
      */
-    protected $hidden = [
-        'user_id', 'token', 'created_at',
-    ];
+    public $timestamps = false;
 }
