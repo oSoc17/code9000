@@ -27,7 +27,7 @@ class UserRegistrationModel extends FormRequest
         return [
             'name'       => 'required',
             'email'   => 'required|email',
-            'password'    => 'required|min:5|confirmed',
+            'password'    => 'required|min:5',
         ];
     }
 }
