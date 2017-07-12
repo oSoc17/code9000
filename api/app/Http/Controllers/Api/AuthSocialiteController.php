@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Provider;
 use App\User;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\Controller;
@@ -20,32 +21,25 @@ class AuthSocialiteController extends Controller
     {
         $facebookUser = Socialite::driver($this->driver)->stateless()->user();
 
-        $user = User::where('email', $facebookUser->email)
-            ->where('provider', $this->driver)
-            ->where('provider_id', $facebookUser->id)
-            ->first();
-
-        if (is_null($user)) {
-            $user = $this->createUser($facebookUser);
-        }
-
+        $user = $this->firstOrCreateUser($facebookUser);
+        
+        $this->firstOrCreateProvider($user, $facebookUser);
+        
         $token = JWTAuth::fromUser($user);
         $redirectUrl = sprintf('%s/login/callback/%s/%s', config('app.url_front_end'), $this->driver, $token);
 
         return redirect()->to($redirectUrl);
     }
 
-    private function createUser($facebookUser)
+    private function firstOrCreateUser($facebookUser)
     {
-        $user = new User;
-        $user->fill(['name' => $facebookUser->name, 'email' => $facebookUser->email]);
-
-        $user->provider = $this->driver;
-        $user->provider_id = $facebookUser->id;
-        $user->provider_token = $facebookUser->token;
-
-        $user->save();
-
-        return $user;
+        return User::firstOrCreate(['email' => $facebookUser->email], ['name' => $facebookUser->name]);
+    }
+    
+    private function firstOrCreateProvider($user, $facebookUser) {
+        return Provider::updateOrCreate(
+            ['user_id' => $user->id, 'provider' => $this->driver],
+            ['provider_id' => $facebookUser->id, 'provider_token' => $facebookUser->token]
+        );
     }
 }
