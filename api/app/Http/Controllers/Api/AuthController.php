@@ -126,8 +126,7 @@ class AuthController extends Controller
             ];
             PasswordReset::create($data);
             // TODO: Check URL
-            $url = config('app.url_front_end') . '/reset/' . $uuid_token;
-            echo $url;
+            $url = url('/reset/' . $uuid_token);
             // TODO: Send email (if fail -> what?)
             // TODO: Only send reset password mail once an hour
             // TODO: Handle email response and reset password (used token = delete?)
