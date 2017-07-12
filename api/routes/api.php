@@ -45,9 +45,10 @@ Route::group(['namespace' => 'Api'], function () {
 
         // Route = api/auth
         Route::prefix('auth')->group(function () {
-            Route::post('me', 'AuthController@me');
-            Route::post('logout', 'AuthController@logout');
+            Route::get('me', 'AuthController@me');
             Route::get('observations', 'ObservationController@forUser');
+            
+            Route::post('logout', 'AuthController@logout');
         });
 
         // Route = api/
