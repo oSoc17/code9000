@@ -17,8 +17,9 @@ class MailController extends Controller
     {
         $content = [
             'title'=> 'Reset your password',
-            'body'=> 'The body of your message.',
+            'body'=> 'Dear ' . $request->name . ', please click the link below to reset your password. If you have not requested a new password, please ignore this email.',
             'button' => 'Reset your password',
+            'url' => $request->url,
         ];
         Mail::to($request->email)->send(new PasswordReset($content));
     }
