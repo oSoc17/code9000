@@ -1,7 +1,9 @@
 @component('mail::message')
 # {{ $content['title'] }}
 
-{!! $content['body'] !!}
+@foreach ($content['body'] as $line)
+    <p>{{ $line }}</p>
+@endforeach
 
 @component('mail::button', ['url' => $content['url'], 'color' => 'blue'])
 {{ $content['button'] }}

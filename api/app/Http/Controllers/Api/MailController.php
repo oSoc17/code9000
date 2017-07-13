@@ -15,9 +15,12 @@ class MailController extends Controller
      */
     public function sendPasswordResetMail($request)
     {
+        $body[] = 'Hi '.$request->name.',';
+        $body[] = 'Please click the link below to reset your password.';
+        $body[] = 'If you have not requested a new password, please ignore this email.';
         $content = [
             'title'=> 'Reset your password',
-            'body'=> 'Dear '.$request->name.', </br> Please click the link below to reset your password. </br> If you have not requested a new password, please ignore this email.',
+            'body'=> $body,
             'button' => 'Reset your password!',
             'url' => $request->url,
         ];
