@@ -109,7 +109,7 @@ img {
 }
 
 .header a {
-    color: #bbbfc3;
+    color: #fff;
     font-size: 19px;
     font-weight: bold;
     text-decoration: none;
@@ -166,7 +166,7 @@ img {
 }
 
 .footer p {
-    color: #AEAEAE;
+    color: #fff;
     font-size: 12px;
     text-align: center;
 }
@@ -220,10 +220,10 @@ img {
 
 .button-blue {
     background-color: #67A0D6;
-    border-top: 10px solid #3097D1;
-    border-right: 18px solid #3097D1;
-    border-bottom: 10px solid #3097D1;
-    border-left: 18px solid #3097D1;
+    border-top: 10px solid #67A0D6;
+    border-right: 18px solid #67A0D6;
+    border-bottom: 10px solid #67A0D6;
+    border-left: 18px solid #67A0D6;
 }
 
 .button-green {
