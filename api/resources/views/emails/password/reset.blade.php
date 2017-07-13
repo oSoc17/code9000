@@ -1,12 +1,13 @@
 @component('mail::message')
-# {{ $content['title'] }}
+# Reset your password
 
-@foreach ($content['body'] as $line)
-    <p>{{ $line }}</p>
-@endforeach
+Hi {{ $content['name'] }}!
+
+Please click the link below to reset your password.
+If you have not requested a new password, please ignore this email.
 
 @component('mail::button', ['url' => $content['url'], 'color' => 'blue'])
-{{ $content['button'] }}
+Reset your password!
 @endcomponent
 
 Hope to see your soon,<br>
