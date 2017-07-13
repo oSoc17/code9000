@@ -120,12 +120,12 @@ class AuthController extends MailController
         if ($user) {
             $uuid_token = Uuid::generate(4);
             $data = [
-                'user_id' => $user->id, 
+                'user_id' => $user->id,
                 'token' => $uuid_token,
                 'created_at' => date('Y-m-d H:i:s'),
             ];
             PasswordReset::create($data);
-            $url = url('/reset/' . $uuid_token);
+            $url = url('/reset/'.$uuid_token);
             // TODO: Send email (if fail -> delete database record!)
             $request->request->add(['url' => $url]);
             $this->sendPasswordResetMail($request);

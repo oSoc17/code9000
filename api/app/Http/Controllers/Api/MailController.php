@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use Mail;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Mail\PasswordReset;
+use App\Http\Controllers\Controller;
 
 class MailController extends Controller
 {
@@ -16,11 +15,11 @@ class MailController extends Controller
      */
     public function sendPasswordResetMail($request)
     {
-    	$content = [
-    		'title'=> 'Reset your password', 
-    		'body'=> 'The body of your message.',
-    		'button' => 'Reset your password'
-		];
-    	Mail::to($request->email)->send(new PasswordReset($content));
+        $content = [
+            'title'=> 'Reset your password',
+            'body'=> 'The body of your message.',
+            'button' => 'Reset your password',
+        ];
+        Mail::to($request->email)->send(new PasswordReset($content));
     }
 }

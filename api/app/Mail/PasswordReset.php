@@ -5,7 +5,6 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class PasswordReset extends Mailable
 {
@@ -28,6 +27,6 @@ class PasswordReset extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.password.reset')->with('content',$this->content);
+        return $this->markdown('emails.password.reset')->with('content', $this->content);
     }
 }
