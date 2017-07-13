@@ -17,7 +17,7 @@ class MailController extends Controller
     {
         $content = [
             'title'=> 'Reset your password',
-            'body'=> 'Dear ' . $request->name . ', please click the link below to reset your password. If you have not requested a new password, please ignore this email.',
+            'body'=> 'Dear '.$request->name.', please click the link below to reset your password. If you have not requested a new password, please ignore this email.',
             'button' => 'Reset your password',
             'url' => $request->url,
         ];
