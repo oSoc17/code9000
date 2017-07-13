@@ -48,7 +48,7 @@ class Observations extends Component {
   }
 
   checkDirectionUp(direction){
-      if (direction.toString() == 'Symbol(UP)'){
+      if (direction.toString() === 'Symbol(UP)'){
         this.vote(0)
         }
   }

@@ -9,6 +9,7 @@
 }
 
 .Observations__Buttons {
+    width: 90vw;
     margin-top: 50px;
     display: flex;
     justify-content: space-between;
@@ -28,7 +29,7 @@ body {  font: normal 16px/24px 'Helvetica Neue', Helvetica, Arial, freesans, san
 }
 
 #viewport {
-    width: 500px; height: 500px; position: relative; margin: auto;
+    width: 500px; height: 350px; position: relative; margin: auto;
 }
 
 #viewport .stack {
