@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Icon from '../Icon';
+
 import classNames from '../../utils/classNames';
 
 import './Button.css';
@@ -16,7 +18,7 @@ export const FacebookButton = ({ children, ...rest }) => {
   return (
     <button className={classNames('Form__Button', 'Form__FacebookButton')} {...rest}>
       <div className="Form__FacebookButton__Wrapper">
-        <div className="Form__FacebookButton__Item Form__FacebookButton__Logo" />
+        <Icon name="facebook" className="Form__FacebookButton__Item Form__FacebookButton__Logo" />
         <div className="Form__FacebookButton__Item Form__FacebookButton__Children">{children}</div>
       </div>
     </button>
