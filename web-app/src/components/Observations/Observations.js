@@ -40,11 +40,16 @@ class Observations extends Component {
     return (
       <div className="Observations">
         <Title name="Observations" />
+        {observation === undefined && (
+          <p>No observations left</p>
+        )}
         {observation && (
           <div>
-            <div className="Observations__Picture">
-              <img src={`${process.env.REACT_APP_API_URL}/observations/${observation.id}/picture`} alt="Observation" />
-            </div>
+            <img
+              src={`${process.env.REACT_APP_API_URL}/observations/${observation.id}/picture`}
+              alt="Observation"
+              className="Observations__Picture"
+            />
             <div className="Observations__Buttons">
               <Button onClick={() => this.vote(1)} circle><Icon name="thumbs-up" /></Button>
               <Button onClick={() => this.vote(0)} >SKIP</Button>
