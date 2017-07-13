@@ -1,10 +1,8 @@
-/* global window */
 import React, { Component } from 'react';
 
 import Title from '../Title';
 import GuestMode from '../GuestMode';
-import { Form, Input, Button }  from '../Form';
-import api from '../../utils/api';
+import { Form, Input, Button } from '../Form';
 
 import './ResetPassword.css';
 
