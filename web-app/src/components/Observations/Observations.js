@@ -51,9 +51,9 @@ class Observations extends Component {
               className="Observations__Picture"
             />
             <div className="Observations__Buttons">
-              <Button onClick={() => this.vote(1)} circle><Icon name="thumbs-up" /></Button>
+              <Button onClick={() => this.vote(1)}><Icon name="thumbs-up" /></Button>
               <Button onClick={() => this.vote(0)} >SKIP</Button>
-              <Button onClick={() => this.vote(-1)} circle><Icon name="thumbs-down" /></Button>
+              <Button onClick={() => this.vote(-1)}><Icon name="thumbs-down" /></Button>
             </div>
           </div>
         )}
