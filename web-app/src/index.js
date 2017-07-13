@@ -14,6 +14,7 @@ import LoginCallback from './components/Login/LoginCallback';
 import StartScreen from './components/StartScreen';
 import ResetPassword from './components/ResetPassword';
 import SignUp from './components/SignUp';
+import NotFound from './components/NotFound';
 
 import './index.css';
 
@@ -54,6 +55,7 @@ const Root = () => (
         <Route exact path="/sign-up" component={SignUp} />
 
         {isAuthenticated()}
+        <Route component={NotFound} />
       </Switch>
     </Router>
   </Provider>
