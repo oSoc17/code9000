@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
+use Mail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Mail;
 
 class MailController extends Controller
 {
