@@ -21,6 +21,10 @@
   border-radius: 50%; 
 }
 
+.Form__Button--light {
+  background-color: $jordyBlue;
+}
+
 .Form__Button:disabled {
   cursor: not-allowed;
 }
