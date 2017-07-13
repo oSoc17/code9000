@@ -128,6 +128,7 @@ class AuthController extends MailController
             $url = url('/reset/'.$uuid_token);
             // TODO: Send email (if fail -> delete database record!)
             $request->request->add(['url' => $url]);
+            $request->request->add(['name' => $user->name]);
             $this->sendPasswordResetMail($request);
             // TODO: Only send reset password mail once an hour
             // TODO: Handle email response and reset password (used token = delete?)
