@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use Mail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Mail\PasswordReset;
 
 class MailController extends Controller
 {
@@ -13,14 +14,13 @@ class MailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function sendPasswordResetMail($receiverAddress)
+    public function sendPasswordResetMail($request)
     {
     	$content = [
     		'title'=> 'Reset your password', 
     		'body'=> 'The body of your message.',
     		'button' => 'Reset your password'
-    		];
-
-    	Mail::to($receiverAddress)->send(new PasswordReset($content));
+		];
+    	Mail::to($request->email)->send(new PasswordReset($content));
     }
 }
