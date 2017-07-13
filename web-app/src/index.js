@@ -30,7 +30,7 @@ const configureStore = () => {
 const isAuthenticated = () => {
   const token = window.localStorage.getItem('jwt.token');
 
-  if (window.location.pathname.startsWith('/')) {
+  if (window.location.pathname.startsWith('/') && !token) {
     return <Route exact path="/" component={StartScreen} />;
   }
 
