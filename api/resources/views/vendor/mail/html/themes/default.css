@@ -289,3 +289,11 @@ img {
 .footer_fix {
     background-color: #BCCBD3;
 }
+
+#image_fix {
+    display: inline-block;
+}
+
+.caption {
+    display: block;
+}
