@@ -20,12 +20,12 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Switch>
-          <div className="App__Wrapper">
+        <div className="App__Wrapper">
+          <Switch>
             <Route exact path="/" component={Observations} />
             <Route exact path="/installations" component={Installations} />
-          </div>
-        </Switch>
+          </Switch>
+        </div>
       </div>
     );
   }
