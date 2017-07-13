@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
-use Webpatser\Uuid\Uuid;
 use App\User;
 use App\PasswordReset;
+use Webpatser\Uuid\Uuid;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\Controller;
@@ -13,7 +13,7 @@ use Tymon\JWTAuth\Exceptions\TokenBlacklistedException;
 use App\Http\Requests\Api\PasswordResetModel;
 use App\Http\Requests\Api\UserRegistrationModel;
 
-class AuthController extends Controller
+class AuthController extends MailController
 {
     /**
      * Authenticate the user and create a token.
@@ -125,9 +125,10 @@ class AuthController extends Controller
                 'created_at' => date('Y-m-d H:i:s'),
             ];
             PasswordReset::create($data);
-            // TODO: Check URL
             $url = url('/reset/' . $uuid_token);
-            // TODO: Send email (if fail -> what?)
+            // TODO: Send email (if fail -> delete database record!)
+            $request->request->add(['url' => $url]);
+            $this->sendPasswordResetMail($request);
             // TODO: Only send reset password mail once an hour
             // TODO: Handle email response and reset password (used token = delete?)
         }
