@@ -111,7 +111,6 @@ img {
 .header a {
     color: #fff;
     font-size: 19px;
-    font-weight: bold;
     text-decoration: none;
     text-shadow: 0 1px 0 white;
 }
@@ -212,7 +211,7 @@ img {
 .button {
     border-radius: 3px;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);
-    color: #FFF;
+    color: #67A0D6;
     display: inline-block;
     text-decoration: none;
     -webkit-text-size-adjust: none;
@@ -284,4 +283,8 @@ img {
 .promotion p {
     font-size: 15px;
     text-align: center;
+}
+
+.footer_fix {
+    background-color: #929493;
 }
