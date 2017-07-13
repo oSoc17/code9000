@@ -105,7 +105,7 @@ img {
 .header {
     padding: 25px 0;
     text-align: center;
-    background-color: #929493;
+    background-color: #BCCBD3;
 }
 
 .header a {
@@ -161,7 +161,7 @@ img {
     -premailer-cellpadding: 0;
     -premailer-cellspacing: 0;
     -premailer-width: 570px;
-    background-color: #929493;
+    background-color: #BCCBD3;
 }
 
 .footer p {
@@ -286,5 +286,5 @@ img {
 }
 
 .footer_fix {
-    background-color: #929493;
+    background-color: #BCCBD3;
 }
