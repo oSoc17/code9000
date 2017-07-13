@@ -1,7 +1,7 @@
 @component('mail::message')
 # {{ $content['title'] }}
 
-{{ $content['body'] }}
+{!! $content['body'] !!}
 
 @component('mail::button', ['url' => $content['url'], 'color' => 'blue'])
 {{ $content['button'] }}
