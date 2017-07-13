@@ -218,6 +218,7 @@ img {
 }
 
 .button-blue {
+    color: #fff;
     background-color: #67A0D6;
     border-top: 10px solid #67A0D6;
     border-right: 18px solid #67A0D6;
