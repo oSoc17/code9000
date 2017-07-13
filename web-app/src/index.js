@@ -11,6 +11,7 @@ import rootReducer from './reducers';
 import App from './components/App';
 import Login from './components/Login';
 import LoginCallback from './components/Login/LoginCallback';
+import StartScreen from './components/StartScreen';
 
 import './index.css';
 
@@ -29,12 +30,12 @@ const configureStore = () => {
 const isAuthenticated = () => {
   const token = window.localStorage.getItem('jwt.token');
 
-  if (window.location.pathname.startsWith('/login')) {
-    return null;
+  if (window.location.pathname.startsWith('/')) {
+    return <Route exact path="/" component={StartScreen} />;
   }
 
   if (token === null || token === undefined) {
-    return <Redirect to="/login" />;
+    return <Redirect to="/" />;
   }
 
   return <App />;
