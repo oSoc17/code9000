@@ -24,12 +24,15 @@ class Header extends Component {
       <div className="Header">
         <div className="Header__Wrapper">
           <img src={logo} alt="Logo" className="Header__Logo" />
-          <div>
-            <div className="Logout" onClick={() => this.logout()} >
-              Logout
+          <div className="Header__Menu__Right">
+            <div className="Header__Menu__Right__Item">
+              <NavLink to="/">Home</NavLink>
+            </div>
+            <div className="Header__Menu__Right__Item" onClick={() => this.logout()}>
+              <NavLink to="/logout">Logout</NavLink>
             </div>
             {isAdmin && (
-              <div>
+              <div className="Header__Menu__Right__Item">
                 <NavLink to="/installations">Installations</NavLink>
               </div>
             )}
