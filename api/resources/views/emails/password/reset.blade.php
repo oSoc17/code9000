@@ -8,5 +8,5 @@
 @endcomponent
 
 Hope to see your soon,<br>
-{{ config('app.name') }}
+{{ config('app.name') }} team
 @endcomponent
