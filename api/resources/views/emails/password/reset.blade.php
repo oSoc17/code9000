@@ -3,10 +3,10 @@
 
 {{ $content['body'] }}
 
-@component('mail::button', ['url' => ''])
+@component('mail::button', ['url' => $content['url'], 'color' => 'blue'])
 {{ $content['button'] }}
 @endcomponent
 
-Thanks,<br>
+Hope to see your soon,<br>
 {{ config('app.name') }}
 @endcomponent
