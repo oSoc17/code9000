@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use DateTime;
 use App\User;
 use App\PasswordReset;
 use Webpatser\Uuid\Uuid;
@@ -117,21 +118,39 @@ class AuthController extends MailController
     {
         $user_email = $request->email;
         $user = User::where('email', $user_email)->first();
-        if ($user) {
+        if ($user && $this->notSpamming($user, 30)) {
+            // User exists and had no request < 30m
             $uuid_token = Uuid::generate(4);
+            $url = url('/reset/'.$uuid_token);
+            $request->request->add(['url' => $url]);
+            $request->request->add(['name' => $user->name]);
+            $this->sendPasswordResetMail($request);
+            // Store in database
             $data = [
                 'user_id' => $user->id,
                 'token' => $uuid_token,
                 'created_at' => date('Y-m-d H:i:s'),
             ];
             PasswordReset::create($data);
-            $url = url('/reset/'.$uuid_token);
-            // TODO: Send email (if fail -> delete database record!)
-            $request->request->add(['url' => $url]);
-            $request->request->add(['name' => $user->name]);
-            $this->sendPasswordResetMail($request);
-            // TODO: Only send reset password mail once an hour
-            // TODO: Handle email response and reset password (used token = delete?)
         }
+    }
+
+    private function notSpamming(User $user, $minutes)
+    {
+        if($user) {
+            $last_password_request = PasswordReset::where('user_id', $user->id)->orderBy('created_at', 'desc')->first();
+            if(!$last_password_request){
+                // No request were stored yet
+                return true;
+            }
+            $last_password_request_time = $last_password_request->created_at;
+            $now_DateTime = new DateTime();
+            $last_password_request_DateTime = new DateTime($last_password_request_time);
+            $interval = $now_DateTime->diff($last_password_request_DateTime)->i;
+            if($interval >= $minutes) {
+                return true;
+            }
+        }
+        return false;
     }
 }
