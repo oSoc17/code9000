@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Observation;
 use App\Http\Controllers\Controller;
+use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\Api\ObservationModel;
 
@@ -68,7 +69,19 @@ class ObservationController extends Controller
     public function store(ObservationModel $request)
     {
         $file = $request->file('image');
-        $request['picture_storage'] = Storage::putFile('observations', $file);
+
+        // Create a file name
+        $path = $file->hashName('observations');
+
+        // Resize the image
+        $image = Image::make($file);
+        $image->resize(750, null, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+
+        // Store the image
+        Storage::put($path, $image->stream());
+        $request['picture_storage'] = $path;
 
         return Observation::create($request->all());
     }
