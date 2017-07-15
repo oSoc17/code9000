@@ -1,15 +1,19 @@
 .Observations {
-    width: 500px;
-    margin: 50px auto;
+    margin-top: 50px;
 }
 
-.Observations__Picture img {
+.Observations__Picture {
     margin: 0 auto;
     display: block;
+    width: 100%
 }
 
 .Observations__Buttons {
     margin-top: 50px;
     display: flex;
     justify-content: space-between;
+}
+
+.Observations__Buttons .Form__Button {
+    margin: 0px 50px;
 }

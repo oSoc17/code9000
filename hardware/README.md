@@ -27,23 +27,46 @@ However, a separate 5V power supply will be needed to provide enough power for t
 
 1. Download the Raspbian OS from the official Raspberry Pi website:
 2. Run ```sudo apt-get update && sudo apt-get upgrade -y``` in the terminal to get the Raspberry Pi up to date.
-3. Install the following Python module with pip:
+3. Install the following Python module with pip (if not installed):
 	- Requests (```sudo pip install requests```)
 
 4. Clone the #code9000 project to the Raspberry Pi:
 	- ```sudo apt-get install git```
 	- ```git clone https://github.com/osoc17/code9000```
-5. Configure the Raspberry Pi to boot in CLI mode.
-	- ```sudo raspi-config```
-	- Select ```Boot Options```
-	- Select ```CLI mode (automatic login)```
-	- Exit raspi-config
+5. Configure the Raspberry Pi: ```sudo raspi-config```
 
-6. Add a crontab entry to launch the Python script when booting
-	- ```crontab -e```
-	- Add this line at the end of the file: ```@reboot python3 /path/to/birds.py > /path/to/cronlog```
+	**Switch to CLI mode**
+	- Select ```Boot Options```
+	- Select ```Desktop / CLI```
+	- Select ```Console Autologin```
+
+	**Enable camera**
+	- Select ```Interfacing Options```
+	- Select ```Camera```
+	- Select ```Yes (enable camera interface) and OK```
+
+	**Timezone and keyboard layout**
+	- Select ```Localisation Options```
+	- Select ```Change Timezone```
+	- Select ```Select your timezone from the list```
+	- Select ```Localisation Options```
+	- Select ```Change Keyboard Layout```
+
+	**Splash screen**
+	- Select ```Boot Options```
+	- Select ```Splash Screen```
+	- Select ```No```
+	- Exit raspi-config: ```Finish and reboot```
+6. Add a crontab entry to launch the shell script when booting
+
+	- Navigate to the launcher.sh path: ```cd /path/to/launcher.sh```
+	- Make the script executable: ```chmod +x launcher.sh```
+	- Edit crontab table: ```crontab -e```
+	- Add this line at the end of the file: ```@reboot sh /path/to/launcher.sh > /path/to/cronlog 2>&1```
 	- Close the file using CTRL+X (Nano editor)
 	- You should see a message that a new entry was added to the crontab jobs
-
 7. Reboot the Raspberry Pi using ```sudo reboot```
+
 8. If everything goes well, you should see a message in the terminal that we're looking now for birds.
+
+9. To save power, you can disable the HDMI display by adding ```DISABLE reboot``` to the crontab (explained in 6). This setting doesn't survive a reboot.

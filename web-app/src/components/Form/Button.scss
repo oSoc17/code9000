@@ -13,10 +13,20 @@
 
   background-color: $darkPastelBlue;
   border-radius: 3px;
+
+  cursor: pointer;
 }
 
 .Form__Button--circle {
   border-radius: 50%; 
+}
+
+.Form__Button--light {
+  background-color: $jordyBlue;
+}
+
+.Form__Button:disabled {
+  cursor: not-allowed;
 }
 
 .Form__FacebookButton {
@@ -37,7 +47,9 @@
 
 .Form__FacebookButton__Logo {
   background-color: $portGore;
+  border-radius: 3px;
   width: 50px;
+  font-size: 25px;
 }
 
 .Form__FacebookButton__Children {
