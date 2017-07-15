@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
-use DateTime;
 use App\User;
+use DateTime;
 use App\PasswordReset;
 use Webpatser\Uuid\Uuid;
 use Illuminate\Http\Request;
@@ -119,7 +119,7 @@ class AuthController extends MailController
     {
         $user_email = $request->email;
         $user = User::where('email', $user_email)->first();
-        if ($user && $this->notSpamming($user, env("PASSWORD_RESET_MINUTES", 30))) {
+        if ($user && $this->notSpamming($user, env('PASSWORD_RESET_MINUTES', 30))) {
             // User exists and had no request < PASSWORD_RESET_MINUTES
             $uuid_token = Uuid::generate(4);
             $url = url('/reset/'.$uuid_token);
@@ -138,15 +138,16 @@ class AuthController extends MailController
 
     private function notSpamming(User $user, $minutes)
     {
-        if($user) {
+        if ($user) {
             $last_password_request = PasswordReset::where('user_id', $user->id)->orderBy('created_at', 'desc')->first();
-            if(!$last_password_request){
+            if (! $last_password_request) {
                 // No request were stored yet
                 return true;
             }
             $last_password_request_time = $last_password_request->created_at;
             $this->isInsideInterval($last_password_request_time, $minutes);
         }
+
         return false;
     }
 
@@ -155,9 +156,10 @@ class AuthController extends MailController
         $now_DateTime = new DateTime();
         $last_DateTime = new DateTime($lastTime);
         $interval = $now_DateTime->diff($last_DateTime)->i;
-        if($interval >= $minutes) {
+        if ($interval >= $minutes) {
             return true;
         }
+
         return false;
     }
 
@@ -170,7 +172,7 @@ class AuthController extends MailController
     public function resetPassword(NewPasswordModel $request, $token)
     {
         $password_reset = PasswordReset::where('token', $token)->first();
-        if($password_reset && $this->isInsideInterval($password_reset->created_at, env("PASSWORD_RESET_MINUTES", 30))) {
+        if ($password_reset && $this->isInsideInterval($password_reset->created_at, env('PASSWORD_RESET_MINUTES', 30))) {
             $user = User::find($password_reset->user_id);
             $user->password = bcrypt($request->password);
             $user->save();
