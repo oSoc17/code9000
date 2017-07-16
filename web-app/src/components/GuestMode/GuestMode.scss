@@ -1,0 +1,24 @@
+
+.GuestMode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.GuestMode__Wrapper {
+  width: 360px;
+  height: 640px;
+
+  padding: 30px 30px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.GuestMode__Logo {
+  margin: 0 auto;
+  width: 150px;
+
+  padding: 20px 20px 50px;
+}

@@ -3,11 +3,11 @@
 namespace App\Exceptions;
 
 use Exception;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\File;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Illuminate\Http\Response;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Handler extends ExceptionHandler
@@ -51,7 +51,7 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
         // If no route is found, we will serve the React app. React will show a 404 page.
-        if ($exception instanceof NotFoundHttpException && !strpos($request->url(), '/api')) {
+        if ($exception instanceof NotFoundHttpException && ! strpos($request->url(), '/api')) {
             Log::info('NotFoundHttpException, Route not found, serving index.html of build folder');
 
             return new Response(File::get(public_path().'/build/index.html'), Response::HTTP_OK);

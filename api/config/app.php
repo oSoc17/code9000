@@ -53,6 +53,8 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
+    'url_front_end' => env('APP_FRONT_END_URL', 'http://localhost'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
@@ -64,7 +66,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Europe/Brussels',
 
     /*
     |--------------------------------------------------------------------------
@@ -120,9 +122,11 @@ return [
     |
     */
 
-    'log' => env('APP_LOG', 'single'),
+    'log' => env('APP_LOG', 'daily'),
 
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
+
+    'deploy_branch_webhook' => env('DEPLOY_BRANCH_WEBHOOK'),
 
     /*
     |--------------------------------------------------------------------------
@@ -179,6 +183,9 @@ return [
 
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
+        Spatie\JsonApiPaginate\JsonApiPaginateServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -230,6 +237,8 @@ return [
         'View'         => Illuminate\Support\Facades\View::class,
         'JWTAuth'      => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory'   => Tymon\JWTAuth\Facades\JWTFactory::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 

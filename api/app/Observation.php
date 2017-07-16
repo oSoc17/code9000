@@ -12,10 +12,7 @@ class Observation extends Model
      * @var array
      */
     protected $fillable = [
-        'captured_at',
-        'longitude',
-        'latitude',
-        'picture_storage',
+        'captured_at', 'longitude', 'latitude', 'picture_storage',
     ];
 
     /**
@@ -24,7 +21,7 @@ class Observation extends Model
      * @var array
      */
     protected $hidden = [
-        'picture_storage',
+        'picture_storage', 'created_at', 'updated_at',
     ];
 
     /**

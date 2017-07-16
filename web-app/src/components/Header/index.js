@@ -1,15 +1,13 @@
-import React from 'react';
-import './Header.css';
-import logo from './crest.png';
+import { connect } from 'react-redux';
 
-const Header = () => {
-  return (
-    <div className="Header">
-      <div className="Header__Wrapper">
-        <img src={logo} alt="Logo" className="Header__Logo" />
-      </div>
-    </div>
-  );
-};
+import Header from './Header';
+import { isAdmin } from '../../selectors/application';
 
-export default Header;
+const mapStateToProps = (state) => ({
+  isAdmin: isAdmin(state),
+});
+
+export default connect(
+  mapStateToProps,
+  undefined,
+)(Header);

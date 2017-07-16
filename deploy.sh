@@ -1,13 +1,10 @@
 #!/usr/bin/env bash
 
+echo $(pwd)
+
 cd api
 
 php artisan down
-
-eval `ssh-agent -s`
-
-ssh-add -D
-ssh-add ~/.ssh/id_rsa
 
 cd ..
 git pull
@@ -29,11 +26,15 @@ cd ..
 cd web-app
 
 yarn install
+yarn build-css
 yarn build
 
-ln -s /home/birds/develop/web-app/build /home/birds/develop/api/public
-
 cd ..
+
+# Symlink the front-end to the back-end
+
+CURRENT_DIR=$(pwd)
+ln -s $CURRENT_DIR/web-app/build $CURRENT_DIR/api/public
 
 # Set live
 cd api

@@ -2,35 +2,79 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\UserRegistrationModel;
 
 class AuthController extends Controller
 {
+    /**
+     * Authenticate the user and create a token.
+     *
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function auth(Request $request)
     {
         $credentials = $request->only('email', 'password');
 
-        if (!$token = JWTAuth::attempt($credentials)) {
+        if (! $token = JWTAuth::attempt($credentials)) {
             return response()->json(['error' => 'invalid_credentials'], 401);
         }
 
         return response()->json(compact('token'));
     }
 
+    /**
+     * Return the current authenticated user.
+     *
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function me(Request $request)
     {
-        dd(auth()->user());
+        $user = auth()->user();
 
-        return response()->json(auth()->user());
+        return response()->json($user);
     }
 
+    /**
+     * Refresh the JWT token.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function refresh()
     {
         $token = JWTAuth::getToken();
         $newToken = JWTAuth::refresh($token);
 
         return response()->json(compact('newToken'));
+    }
+
+    public function logout()
+    {
+        JWTAuth::invalidate(JWTAuth::getToken());
+    }
+
+    /**
+     * Register a new User.
+     *
+     * @param \App\Http\Requests\Api\UserRegistrationModel $request
+     *
+     * @return mixed
+     */
+    public function register(UserRegistrationModel $request)
+    {
+        $account = [
+            'name'     => $request->name,
+            'email'    => $request->email,
+            'password' => bcrypt($request->password),
+        ];
+
+        User::create($account);
     }
 }

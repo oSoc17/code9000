@@ -17,6 +17,15 @@ class Vote extends Model
     ];
 
     /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'updated_at',
+    ];
+
+    /**
      * Get the observation where the vote belongs to.
      */
     public function observation()
