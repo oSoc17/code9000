@@ -10,6 +10,9 @@ things are bought somewhere else.
 - Solar panels
 - Solar charger
 - Solar battery
+- Arduino UNO (Battery Guard)
+- A few resistors (2x 20K Ohm and 2x 10K Ohm) and some wires
+- 5V Relay
 - 4G router
 
 An alternative setup could be achieved using a 3G/4G network shield for example: [Adafruit FONA 3G + GPS](https://learn.adafruit.com/adafruit-fona-3g-cellular-gps-breakout/overview) which also includes GPS. With this shield the setup becomes smaller and easier to hide.
@@ -24,6 +27,8 @@ However, a separate 5V power supply will be needed to provide enough power for t
 5. The picture and the meta data is send to the API.
 
 ## How to set this thing up?
+
+### I. Raspberry Pi
 
 1. Download the Raspbian OS from the official Raspberry Pi website:
 2. Run ```sudo apt-get update && sudo apt-get upgrade -y``` in the terminal to get the Raspberry Pi up to date.
@@ -57,7 +62,10 @@ However, a separate 5V power supply will be needed to provide enough power for t
 	- Select ```Splash Screen```
 	- Select ```No```
 	- Exit raspi-config: ```Finish and reboot```
-6. Add a crontab entry to launch the shell script when booting
+
+6. Modify ```constants.json``` to your own configuration.
+
+7. Add a crontab entry to launch the shell script when booting
 
 	- Navigate to the launcher.sh path: ```cd /path/to/launcher.sh```
 	- Make the script executable: ```chmod +x launcher.sh```
@@ -65,8 +73,24 @@ However, a separate 5V power supply will be needed to provide enough power for t
 	- Add this line at the end of the file: ```@reboot sh /path/to/launcher.sh > /path/to/cronlog 2>&1```
 	- Close the file using CTRL+X (Nano editor)
 	- You should see a message that a new entry was added to the crontab jobs
-7. Reboot the Raspberry Pi using ```sudo reboot```
+8. Reboot the Raspberry Pi using ```sudo reboot```
 
-8. If everything goes well, you should see a message in the terminal that we're looking now for birds.
+9. If everything goes well, you should see a message in the terminal that we're looking now for birds.
 
-9. To save power, you can disable the HDMI display by adding ```DISABLE reboot``` to the crontab (explained in 6). This setting doesn't survive a reboot.
+10. To save power, you can disable the HDMI display by adding ```@reboot /opt/vc/bin/tvservice -o``` to the crontab (explained in 6). This setting doesn't survive a reboot.
+
+### II.Battery Guard (Arduino)
+
+1. Build the hardware from the schematic below:
+	SCHEMATIC HERE
+	*Tip: You can measure the voltage dividers output to check if the circuit is correctly build.*
+
+2. Download the [Arduino IDE](https://www.arduino.cc/en/Main/Software) and install it.
+
+3. Open the ```powerManager.ino``` script in the Arduino IDE.
+
+4. Configure the script according to your configuration.
+
+5. Flash it on your Arduino. This script is tested **only** on the Arduino UNO R3.
+
+### III. Solar panels & charger
