@@ -38,7 +38,7 @@ const withInput = (WrappedComponent) => class extends Component {
     return (
       <WrappedComponent
         {...rest}
-        className={classNames(!isValid && 'Form__Field__Invalid')}
+        className={classNames(className, !isValid && 'Form__Field__Invalid')}
         onChange={(event) => this.handleValueChange(event)}
         onBlur={(event) => this.handleValueChange(event)}
       />

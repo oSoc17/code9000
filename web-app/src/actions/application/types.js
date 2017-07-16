@@ -1,0 +1,2 @@
+export const FINISH_INITIAL_LOADING = 'FINISH_INITIAL_LOADING';
+export const LOAD_USER = 'LOAD_USER';

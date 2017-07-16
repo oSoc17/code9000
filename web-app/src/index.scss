@@ -1,0 +1,34 @@
+
+@import url('https://fonts.googleapis.com/css?family=Chivo:400,700i,900');
+
+@import "./theme/_index.scss";
+@import "./_reset.scss";
+
+body, html, #root {
+  height: 100%;
+  width: 100%;
+}
+
+html * {
+  font-family: $font;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: $darkPastelBlue;
+}
+
+table {
+    width: 100%;
+}
+
+table th {
+    text-align: left;
+    font-weight: bold;
+}
+
+table td, table th {
+    padding: 10px;
+}

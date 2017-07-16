@@ -1,0 +1,29 @@
+@mixin respond-to($size) {
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin onMobile() {
+  @include respond-to($xs) {
+    @content;
+  }
+}
+
+@mixin onTablet() {
+  @include respond-to($sm) {
+    @content;
+  }
+}
+
+@mixin onDesktop() {
+  @include respond-to($md) {
+    @content;
+  }
+}
+
+@mixin onLargeScreen() {
+  @include respond-to($lg) {
+    @content;
+  }
+}

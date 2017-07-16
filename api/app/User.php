@@ -2,8 +2,8 @@
 
 namespace App;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
@@ -24,7 +24,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'updated_at',
     ];
 
     /**
@@ -33,5 +33,15 @@ class User extends Authenticatable
     public function votes()
     {
         return $this->hasMany('App\Vote');
+    }
+
+    public function providers()
+    {
+        return $this->hasMany('App\Provider');
+    }
+
+    public function isAdmin()
+    {
+        return $this->is_admin;
     }
 }
