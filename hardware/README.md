@@ -87,10 +87,14 @@ However, a separate 5V power supply will be needed to provide enough power for t
 
 2. Download the [Arduino IDE](https://www.arduino.cc/en/Main/Software) and install it.
 
-3. Open the ```powerManager.ino``` script in the Arduino IDE.
+3. Install the following Arduino libraries:
+	- [DS3231 by NorthernWidget](https://github.com/NorthernWidget/DS3231)
+	- [Adafruit SleepyDog by Adafruit](https://github.com/adafruit/Adafruit_SleepyDog)
 
-4. Configure the script according to your configuration.
+4. Open the ```powerManager.ino``` script in the Arduino IDE.
 
-5. Flash it on your Arduino. This script is tested **only** on the Arduino UNO R3.
+5. Configure the script according to your configuration.
+
+6. Flash it on your Arduino. This script is tested **only** on the Arduino UNO R3.
 
 ### III. Solar panels & charger
