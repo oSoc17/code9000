@@ -121,15 +121,15 @@ class AuthController extends MailController
         $user = User::where('email', $userEmail)->first();
         if ($user && ! $this->isSpamming($user, config('app.password_reset_minutes'))) {
             // User exists and had no request < app.password_reset_minutes
-            $uuid_token = Uuid::generate(4);
-            $url = url('/reset/'.$uuid_token);
+            $token = Uuid::generate(4) . '-' . str_random(40);
+            $url = url('/reset/'.$token);
             $request->request->add(['url' => $url]);
             $request->request->add(['name' => $user->name]);
             $this->sendPasswordResetMail($request);
             // Store in database
             $data = [
                 'user_id' => $user->id,
-                'token' => $uuid_token,
+                'token' => $token,
                 'created_at' => date('Y-m-d H:i:s'),
             ];
             PasswordReset::create($data);
