@@ -117,8 +117,8 @@ class AuthController extends MailController
      */
     public function sendResetMail(PasswordResetModel $request)
     {
-        $user_email = $request->email;
-        $user = User::where('email', $user_email)->first();
+        $userEmail = $request->email;
+        $user = User::where('email', $userEmail)->first();
         if ($user && $this->notSpamming($user, env('PASSWORD_RESET_MINUTES', 30))) {
             // User exists and had no request < PASSWORD_RESET_MINUTES
             $uuid_token = Uuid::generate(4);
