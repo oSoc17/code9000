@@ -53,7 +53,7 @@ class SignUp extends Component {
           <Input name="email" rules={['required', 'email']} placeholder="Email" className="SignUp__Input" />
           <Input name="password" type="password" rules={['required', 'password']} placeholder="Password" className="SignUp__Input" />
           <div className="SignUp__PasswordInformation">
-            Password must be at least 6 characters long.
+            Password must be at least 5 characters long.
           </div>
 
           <div className="SignUp__Button">
