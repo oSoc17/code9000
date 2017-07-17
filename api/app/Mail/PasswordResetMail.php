@@ -6,7 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class PasswordReset extends Mailable
+class PasswordResetMail extends Mailable
 {
     use Queueable, SerializesModels;
 
