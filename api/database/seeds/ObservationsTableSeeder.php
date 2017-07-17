@@ -12,6 +12,7 @@ class ObservationsTableSeeder extends Seeder
         'bird1.jpg',
         'bird2.jpg',
         'bird3.jpg',
+        'bird4.jpg',
     ];
 
     /**
