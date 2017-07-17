@@ -69,12 +69,14 @@ class AuthController extends Controller
      */
     public function register(UserRegistrationModel $request)
     {
-        $account = [
+        $user = User::create([
             'name'     => $request->name,
             'email'    => $request->email,
             'password' => bcrypt($request->password),
-        ];
-
-        User::create($account);
+        ]);
+        
+        $token = JWTAuth::fromUser($user);
+    
+        return response()->json(compact('token'));
     }
 }
