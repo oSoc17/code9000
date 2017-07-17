@@ -119,8 +119,8 @@ class AuthController extends MailController
     {
         $userEmail = $request->email;
         $user = User::where('email', $userEmail)->first();
-        if ($user && ! $this->isSpamming($user, env('PASSWORD_RESET_MINUTES', 30))) {
-            // User exists and had no request < PASSWORD_RESET_MINUTES
+        if ($user && ! $this->isSpamming($user, config('app.password_reset_minutes'))) {
+            // User exists and had no request < app.password_reset_minutes
             $uuid_token = Uuid::generate(4);
             $url = url('/reset/'.$uuid_token);
             $request->request->add(['url' => $url]);
@@ -164,7 +164,7 @@ class AuthController extends MailController
     }
 
     /**
-     * Store the new password in the database if token is valid and time < PASSWORD_RESET_MINUTES.
+     * Store the new password in the database if token is valid and time < app.password_reset_minutes.
      *
      * @param \App\Http\Requests\Api\NewPasswordModel $request
      * @param string $token
@@ -172,7 +172,7 @@ class AuthController extends MailController
     public function resetPassword(NewPasswordModel $request, $token)
     {
         $password_reset = PasswordReset::where('token', $token)->first();
-        if ($password_reset && $this->isInsideInterval($password_reset->created_at, env('PASSWORD_RESET_MINUTES', 30))) {
+        if ($password_reset && $this->isInsideInterval($password_reset->created_at, config('app.password_reset_minutes'))) {
             $user = User::find($password_reset->user_id);
             $user->password = bcrypt($request->password);
             $user->save();
