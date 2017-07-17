@@ -12,10 +12,10 @@ import App from './components/App';
 import Login from './components/Login';
 import LoginCallback from './components/Login/LoginCallback';
 import StartScreen from './components/StartScreen';
-import ResetPassword from './components/ResetPassword';
 import SignUp from './components/SignUp';
 import NotFound from './components/NotFound';
 import OnBoard from './components/OnBoard';
+import RequestResetPassword from './components/RequestResetPassword';
 
 import './index.css';
 
@@ -53,7 +53,7 @@ const Root = () => (
       <Switch>
         <Route exact path="/login" component={Login} />
         <Route exact path="/login/callback/facebook/:token" component={LoginCallback} />
-        <Route exact path="/reset-password" component={ResetPassword} />
+        <Route exact path="/reset-password" component={RequestResetPassword} />
 
         <Route exact path="/sign-up" component={SignUp} />
         <Route exact path="/start" component={OnBoard} />
