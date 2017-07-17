@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use App\Services\Imgur\ImgurApi;
 use GuzzleHttp\Client;
+use App\Services\Imgur\ImgurApi;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
