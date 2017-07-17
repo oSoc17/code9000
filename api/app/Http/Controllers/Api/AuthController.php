@@ -130,7 +130,7 @@ class AuthController extends MailController
             $data = [
                 'user_id' => $user->id,
                 'token' => $token,
-                'created_at' => date('Y-m-d H:i:s'),
+                'created_at' => Carbon::now(),
             ];
             PasswordReset::create($data);
         }
@@ -142,7 +142,7 @@ class AuthController extends MailController
             $last_password_request = PasswordReset::where('user_id', $user->id)->orderBy('created_at', 'desc')->first();
             if (! $last_password_request) {
                 // No request were stored yet
-                return true;
+                return false;
             }
             $last_password_request_time = $last_password_request->created_at;
             return $this->isInsideInterval($last_password_request_time, $minutes);
@@ -154,8 +154,8 @@ class AuthController extends MailController
     private function isInsideInterval($lastTime, $minutes)
     {
         $now = Carbon::now();
-        $diff = $now->diffInMinutes($lastTime);
-        if ($diff >= $minutes) {
+        $diff = $now->diffInMinutes(Carbon::parse($lastTime));
+        if ($diff <= $minutes) {
             return true;
         }
 
@@ -172,7 +172,7 @@ class AuthController extends MailController
     {
         $passwordReset = PasswordReset::where('token', $token)->first();
         if ($passwordReset && $this->isInsideInterval($passwordReset->created_at, config('app.password_reset_minutes'))) {
-            $user = $passwordReset->user();
+            $user = $passwordReset->user()->first();
             $user->password = bcrypt($request->password);
             $user->save();
         }
