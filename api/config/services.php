@@ -40,5 +40,10 @@ return [
         'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
         'redirect' => config('app.url').'/api/auth/facebook/callback',
     ],
+    
+    'imgur' => [
+        'api_url' => env('IMGUR_API_URL', 'https://api.imgur.com/3'),
+        'client_id' => env('IMGUR_CLIENT_ID'),
+    ]
 
 ];
