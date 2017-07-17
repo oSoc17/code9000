@@ -119,7 +119,7 @@ class AuthController extends MailController
     {
         $userEmail = $request->email;
         $user = User::where('email', $userEmail)->first();
-        if ($user && $this->notSpamming($user, env('PASSWORD_RESET_MINUTES', 30))) {
+        if ($user && ! $this->isSpamming($user, env('PASSWORD_RESET_MINUTES', 30))) {
             // User exists and had no request < PASSWORD_RESET_MINUTES
             $uuid_token = Uuid::generate(4);
             $url = url('/reset/'.$uuid_token);
@@ -136,7 +136,7 @@ class AuthController extends MailController
         }
     }
 
-    private function notSpamming(User $user, $minutes)
+    private function isSpamming(User $user, $minutes)
     {
         if ($user) {
             $last_password_request = PasswordReset::where('user_id', $user->id)->orderBy('created_at', 'desc')->first();
@@ -145,7 +145,7 @@ class AuthController extends MailController
                 return true;
             }
             $last_password_request_time = $last_password_request->created_at;
-            $this->isInsideInterval($last_password_request_time, $minutes);
+            return $this->isInsideInterval($last_password_request_time, $minutes);
         }
 
         return false;
