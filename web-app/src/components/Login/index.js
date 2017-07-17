@@ -53,8 +53,8 @@ class Login extends Component {
               onValidationChange={valid => this.setState({ isValid: valid })}
               onSubmit={data => this.login(data)}
             >
-              <Input name="email" rules={['required', 'email']} placeholder="Email" />
-              <Input name="password" type="password" rules={['required']} placeholder="Password" className="Login__Password" />
+              <Input name="email" rules={['required', 'email']} placeholder="Email" icon="email" />
+              <Input name="password" type="password" rules={['required']} placeholder="Password" className="Login__Password" icon="lock" />
 
               <div className="Login__ForgotPassword">
                 Forgot password? <Link to="/reset-password">Reset Password</Link>
