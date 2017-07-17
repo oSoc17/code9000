@@ -20,7 +20,7 @@ class VotesController extends Controller
         $currentVote = Vote::where(['observation_id' => $request->observation_id, 'user_id' => auth()->user()->id])->first();
 
         if (! is_null($currentVote)) {
-            return response()->json('You has already voted');
+            return response()->json('You have already voted');
         }
 
         $vote = new Vote($request->all());
