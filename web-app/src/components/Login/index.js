@@ -51,7 +51,7 @@ class Login extends Component {
               <Input name="password" type="password" rules={['required']} placeholder="Password" className="Login__Password" />
 
               <div className="Login__ForgotPassword">
-                Forgot password? <Link to="/account-recovery">Reset Password</Link>
+                Forgot password? <Link to="/reset-password">Reset Password</Link>
               </div>
 
               <div className="Login__LoginButton">
@@ -67,7 +67,7 @@ class Login extends Component {
               </div>
 
               <div className="Login__SignUp">
-                Not a member? <Link to="/sing-up">Sign up here!</Link>
+                Not a member? <Link to="/register">Sign up here!</Link>
               </div>
             </Form>
           </div>
