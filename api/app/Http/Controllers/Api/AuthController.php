@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\User;
-use DateTime;
+use Carbon\Carbon;
 use App\PasswordReset;
 use Webpatser\Uuid\Uuid;
 use Illuminate\Http\Request;
@@ -153,10 +153,9 @@ class AuthController extends MailController
 
     private function isInsideInterval($lastTime, $minutes)
     {
-        $now_DateTime = new DateTime();
-        $last_DateTime = new DateTime($lastTime);
-        $interval = $now_DateTime->diff($last_DateTime)->i;
-        if ($interval >= $minutes) {
+        $now = Carbon::now();
+        $diff = $now->diffInMinutes($lastTime);
+        if ($diff >= $minutes) {
             return true;
         }
 
