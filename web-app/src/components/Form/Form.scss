@@ -17,8 +17,27 @@
   border: 1px solid $lobLolly;
   border-radius: 3px;
   
+  padding: $margin*2;
+}
 
-  padding: 12px;
+.Form__Input__Icon {
+  background-repeat: no-repeat;
+  background-size: $margin*3 $margin*3;
+  background-position: $margin * 2 center;
+
+  padding: $margin*2 $margin*7;
+}
+
+.Form__Input__Icon--email {
+  background-image: url(../../theme/icons/email.svg);
+}
+
+.Form__Input__Icon--lock {
+  background-image: url(../../theme/icons/lock.svg);
+}
+
+.Form__Input__Icon--person {
+  background-image: url(../../theme/icons/person.svg);
 }
 
 .Form__Input::placeholder {
