@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Requests\Api\UserLogin;
 use App\User;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
@@ -13,11 +14,11 @@ class AuthController extends Controller
     /**
      * Authenticate the user and create a token.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param $request
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function auth(Request $request)
+    public function auth(UserLogin $request)
     {
         $credentials = $request->only('email', 'password');
 
