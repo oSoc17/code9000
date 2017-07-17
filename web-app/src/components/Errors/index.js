@@ -19,7 +19,6 @@ const Errors = ({ errors, className }) => {
 
   return (
     <div className={classNames('Errors', className)}>
-      
       {keys.map((key) => (
         <div>{errors[key]}</div>
       ))}
