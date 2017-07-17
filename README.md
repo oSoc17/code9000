@@ -20,18 +20,20 @@ Getting Started
 ##### 1. Webapplicatie
 To install the webapplication, first go the the folder "webapp". Then use npm to install the required modules.
 
-'''
+```
 $  cd webapp/
 $  npm install
-'''
+```
+
 
 Copy .env.example to .env, and change the URL to the one of your API. This will probably be a localhost:// + the port where you run the API.
 
-'''
+```
 $  cp .env.example .env
 $  nano .env
 $ npm start
-'''
+```
+
 
 #### Documentation
 
