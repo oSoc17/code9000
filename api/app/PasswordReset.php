@@ -21,4 +21,12 @@ class PasswordReset extends Model
      * @var bool
      */
     public $timestamps = false;
+
+    /**
+     * Get the user that owns the passwordReset.
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

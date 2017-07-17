@@ -171,9 +171,9 @@ class AuthController extends MailController
      */
     public function resetPassword(NewPasswordModel $request, $token)
     {
-        $password_reset = PasswordReset::where('token', $token)->first();
-        if ($password_reset && $this->isInsideInterval($password_reset->created_at, config('app.password_reset_minutes'))) {
-            $user = User::find($password_reset->user_id);
+        $passwordReset = PasswordReset::where('token', $token)->first();
+        if ($passwordReset && $this->isInsideInterval($passwordReset->created_at, config('app.password_reset_minutes'))) {
+            $user = $passwordReset->user();
             $user->password = bcrypt($request->password);
             $user->save();
         }
