@@ -77,8 +77,8 @@ return [
     | Application password reset limit
     |--------------------------------------------------------------------------
     |
-    | This variable will be used to limit the password reset function 
-    | and can be configured in the .env file. The default value is set 
+    | This variable will be used to limit the password reset function
+    | and can be configured in the .env file. The default value is set
     | in case the configuration is missing in the .env file.
     |
     */

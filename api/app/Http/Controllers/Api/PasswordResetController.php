@@ -7,15 +7,15 @@ use App\User;
 use Carbon\Carbon;
 use App\PasswordReset;
 use Webpatser\Uuid\Uuid;
-use App\Mail\PasswordResetMail;
 use Illuminate\Http\Request;
+use App\Mail\PasswordResetMail;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\NewPasswordModel;
 use App\Http\Requests\Api\PasswordResetModel;
 
 class PasswordResetController extends Controller
 {
-   /**
+    /**
      * Send a mail for resetting the password.
      *
      * @param \App\Http\Requests\Api\PasswordResetModel $request
@@ -28,11 +28,11 @@ class PasswordResetController extends Controller
         $user = User::where('email', $userEmail)->first();
         if ($user && ! $this->isSpamming($user, config('app.password_reset_minutes'))) {
             // User exists and had no request < app.password_reset_minutes
-            $token = Uuid::generate(4) . '-' . str_random(40);
+            $token = Uuid::generate(4).'-'.str_random(40);
             $this->sendPasswordResetMail([
-                'email' => $userEmail, 
-                'url' => url('/reset-password/'.$token), 
-                'name' => $user->name 
+                'email' => $userEmail,
+                'url' => url('/reset-password/'.$token),
+                'name' => $user->name,
             ]);
             // Store in database
             $data = [
@@ -53,6 +53,7 @@ class PasswordResetController extends Controller
                 return false;
             }
             $last_password_request_time = $last_password_request->created_at;
+
             return $this->isInsideInterval($last_password_request_time, $minutes);
         }
 
