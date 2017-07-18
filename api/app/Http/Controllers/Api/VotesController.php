@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Events\ObservationIsValid;
 use App\Vote;
 use App\Observation;
+use App\Events\ObservationIsValid;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\VoteModel;
 
@@ -21,7 +21,7 @@ class VotesController extends Controller
     {
         $observation = $this->getObservation($request->observation_id);
         $currentVote = $this->findCurrentVote($observation);
-    
+
         if (! is_null($currentVote)) {
             return response()->json('You have already voted on this observation.');
         }
@@ -36,14 +36,16 @@ class VotesController extends Controller
 
         return $vote;
     }
-    
-    private function getObservation($id) {
+
+    private function getObservation($id)
+    {
         return Observation::whereNull('is_valid')
             ->where('observation_id', $request->observation_id)
             ->firstOrFail();
     }
-    
-    private function findCurrentVote(Observation $observation) {
+
+    private function findCurrentVote(Observation $observation)
+    {
         return Vote::where('observation_id', $observation->id)
             ->where('user_id', auth()->user()->id);
     }
@@ -53,14 +55,14 @@ class VotesController extends Controller
         $sum = $observation->votes->reduce(function ($carry, $item) {
             return $carry + $item;
         });
-        
+
         if ($sum >= config('app.valid_observation_threshold')) {
             $observation->is_valid = true;
             $observation->save();
 
             event(new ObservationIsValid($observation));
         }
-        
+
         if ($sum <= config('app.unvalid_observation_threshold')) {
             $observation->is_valid = false;
             $observation->save();
