@@ -5,6 +5,7 @@
   "homepage": "http://birds.today/build",
   "dependencies": {
     "axios": "^0.16.2",
+    "flickity": "^2.0.9",
     "form-serialize": "^0.7.2",
     "lodash": "^4.17.4",
     "react": "^15.6.1",
@@ -20,8 +21,8 @@
     "eslint-plugin-import": "^2.6.1",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.1.0",
-    "react-scripts": "1.0.10",
-    "node-sass": "^4.5.0"
+    "node-sass": "^4.5.0",
+    "react-scripts": "1.0.10"
   },
   "scripts": {
     "start": "react-scripts start",
