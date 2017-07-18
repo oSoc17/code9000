@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\User;
 use Illuminate\Http\Request;
+use Tymon\JWTAuth\Exceptions\JWTException;
+use Tymon\JWTAuth\Exceptions\TokenBlacklistedException;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\UserLogin;
@@ -50,10 +52,16 @@ class AuthController extends Controller
      */
     public function refresh()
     {
-        $token = JWTAuth::getToken();
-        $newToken = JWTAuth::refresh($token);
-
-        return response()->json(compact('newToken'));
+        try {
+            $token = JWTAuth::getToken();
+            $newToken = JWTAuth::refresh($token);
+            
+            return response()->json(compact('newToken'));
+        }
+        
+        catch(TokenBlacklistedException $exception) {
+            return response()->json(['error' => 'token_blacklisted'], $exception->getStatusCode());
+        }
     }
 
     public function logout()
