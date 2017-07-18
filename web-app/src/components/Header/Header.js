@@ -23,13 +23,24 @@ class Header extends Component {
     return (
       <div className="Header">
         <div className="Header__Wrapper">
-          <img src={logo} alt="Logo" className="Header__Logo" />
+          <div className="Header__Menu__Left">
+            <img src={logo} alt="Logo" className="Header__Logo" />
+            <div className="Header__Title">
+              birds.today
+            </div>
+          </div>
           <div className="Header__Menu__Right">
             <div className="Header__Menu__Right__Item">
-              <NavLink to="/">Home</NavLink>
+              <NavLink to="/" />
+            </div>
+            <div className="Header__Menu__Right__Item">
+              <NavLink to="/" />
+            </div>
+            <div className="Header__Menu__Right__Item">
+              <NavLink to="/" />
             </div>
             <div className="Header__Menu__Right__Item" onClick={() => this.logout()}>
-              <NavLink to="/logout">Logout</NavLink>
+              <NavLink to="/logout" />
             </div>
             {isAdmin && (
               <div className="Header__Menu__Right__Item">

@@ -1,3 +1,7 @@
+@import "../../theme/_index.scss";
+
+$height: 100px;
+
 .Header {
     width: 100%;
     border-bottom: 1px solid whitesmoke;
@@ -5,19 +9,31 @@
 
 .Header__Wrapper {
     width: 80%;
+    max-width: 1010px;
     margin: 0 auto;
     display: flex;
     align-items: center;
-    height: 100px;
+    height: $height;
     justify-content: space-between;
 }
 
+.Header__Menu__Left {
+    display: flex;
+    align-items: center;
+}
+
 .Header__Logo {
-    height: 80px;
+    height: $height * 0.8;
+}
+
+.Header__Title {
+    color: $darkPastelBlue;
+    font-size: 18px;
+    margin-left: $margin * 3;
 }
 
 .Header__Login {
-    line-height: 100px;
+    line-height: $height;
     text-transform: uppercase;
     font-weight: bold;
 }
@@ -27,5 +43,27 @@
 }
 
 .Header__Menu__Right__Item {
-    margin: 0px 10px;
+    margin-left: $margin * 4;
+}
+
+.Header__Menu__Right__Item {
+    width: $margin * 4;
+    height: $margin * 4;
+    background-color: black;
+}
+
+@include onMobile() {
+    $newHeight: 80px;
+
+    .Header__Wrapper {
+        height: $newHeight;
+    }
+
+    .Header__Logo {
+        height: $newHeight * 0.8;
+    }
+
+    .Header__Title {
+        display: none;
+    }
 }
