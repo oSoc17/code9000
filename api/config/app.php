@@ -66,7 +66,7 @@ return [
     | is reached, the observation will be marked as (un)valid.
     |
     */
- 
+
      'valid_observation_threshold' => env('VALID_OBSERVATION_THRESHOLD', 5),
      'unvalid_observation_threshold' => env('UNVALID_OBSERVATION_THRESHOLD', 5),
 
