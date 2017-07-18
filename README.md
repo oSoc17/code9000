@@ -33,16 +33,14 @@ Dylan, do your magic
 
 ##### Students
  - [Demian Dekoninck](https://github.com/DemianD)
- - <a href "https://github.com/DemianD"> Demian Dekoninck </a>
- - <a target="_blank" href "https://github.com/diegodewilde" > Diëgo De Wilde </a>
- - <a  target="_blank" href "https://github.com/DylanVanAssche"> Dylan Van Assche </a>
- - <a target="_blank" href "https://github.com/BertCommeine"> Bert Commeine </a>
- - <a target="_blank" href "https://github.com/BertCommeine"> Cynthia Vanoirbeek </a>
+ - [Diëgo De Wilde](https://github.com/diegodewilde)
+ - [Dylan Van Assche](https://github.com/DylanVanAssche)
+ - [Bert Commeine](https://github.com/BertCommeine)
+ - [Cynthia Vanoirbeek](https://github.com/BertCommeine)
 
 ##### Coaches
-- <a  target="_blank" href "https://miet.be"> Miet Claes </a>
-- <a  target="_blank" href "https://mono.company"> Xavier Bertels </a>
-
+- [Miet Claes](https://miet.be)
+- [Xavier Bertels](https://mono.company)
 
 #### MIT License
 This project is released as an open-source project under the <a href="https://github.com/oSoc17/lopeningent_backend/blob/develop/LICENSE"> MIT License </a>
