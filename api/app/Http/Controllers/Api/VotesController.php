@@ -40,20 +40,21 @@ class VotesController extends Controller
     private function getObservation($id)
     {
         return Observation::whereNull('is_valid')
-            ->where('observation_id', $request->observation_id)
+            ->where('id', $id)
             ->firstOrFail();
     }
 
     private function findCurrentVote(Observation $observation)
     {
         return Vote::where('observation_id', $observation->id)
-            ->where('user_id', auth()->user()->id);
+            ->where('user_id', auth()->user()->id)
+            ->first();
     }
 
     private function checkObservationThreshold(Observation $observation)
     {
         $sum = $observation->votes->reduce(function ($carry, $item) {
-            return $carry + $item;
+            return $carry + $item->value;
         });
 
         if ($sum >= config('app.valid_observation_threshold')) {
