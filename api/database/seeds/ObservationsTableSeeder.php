@@ -9,10 +9,16 @@ use Illuminate\Support\Facades\Storage;
 class ObservationsTableSeeder extends Seeder
 {
     private $images = [
-        'bird1.jpg',
-        'bird2.jpg',
-        'bird3.jpg',
-        'bird4.jpg',
+        'common-tern1.jpg',
+        'common-tern2.jpg',
+        'common-tern3.jpg',
+        'common-tern4.jpg',
+        'common-tern5.jpg',
+        'duck.jpg',
+        'flamingo.jpg',
+        'ostrich.jpg',
+        'penguin.jpg',
+        'pigeon.jpg',
     ];
 
     /**
