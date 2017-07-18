@@ -61,12 +61,12 @@ return [
     |--------------------------------------------------------------------------
     |
     | This variable will be used to set the threshold for a valid observation
-    | and can be configured in the .env file. The default value is set 
+    | and can be configured in the .env file. The default value is set
     | in case the configuration is missing in the .env file. Once the value
     | is reached, the observation will be marked as valid.
     |
     */
- 
+
      'valid_observation_threshold' => env('VALID_OBSERVATION_THRESHOLD', 5),
 
     /*

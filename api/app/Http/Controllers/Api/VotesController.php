@@ -40,8 +40,8 @@ class VotesController extends Controller
             $sum += $vote->value;
         }
         if ($sum >= config('app.valid_observation_threshold')) {
-           $observation->is_valid = true;
-           $observation->save();
+            $observation->is_valid = true;
+            $observation->save();
 
            // @TODO: Send valid data to destination(s)
         }
