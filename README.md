@@ -2,7 +2,7 @@
 ===================
 ----------
 
-\#Code9000 is a project in which Digipolis Ghent and the City of Ghent experiment with open data to create new open source proof-of-concepts. The project was developmed by oSoc17. This organisation collaborates with students to create IT-related projects. Students get real cases to work on and move beyond the theoretical and we get new learnings and code to test and iterate upon.
+\#Code9000 is a project in which Digipolis Ghent and the City of Ghent experiment with open data to create new open source proof-of-concepts. The project was developed by oSoc17. This organisation collaborates with students to create IT-related projects. Students get real cases to work on and move beyond the theoretical and we get new learnings and code to test and iterate upon.
 
 <div align="center">
 <img src="https://raw.githubusercontent.com/oSoc17/code9000/develop/web-app/src/theme/crest.png" width=300px />
@@ -24,7 +24,7 @@ The API is made in php, using the Laravel framework. We chose to include user ac
 ##### Webapplication
 To do the validation of our pictures, human validation looked like the best way (given the time we had). As a simple yes-maybe-no validation onepager seemed a little dull and unappealing, we tried to gamify it.
 
-We made a reactjs webapp where you can do all the account-related stuff like logging in or making an account. We made an voting page as well, and tried to implement fun features like scores, badges and a monthly leaderboard.
+We made a ReactJs webapp where you can do all the account-related stuff like logging in or making an account. We made an voting page as well, and tried to implement fun features like scores, badges and a monthly leaderboard.
 
 ##### Hardware
 Dylan, do your magic
