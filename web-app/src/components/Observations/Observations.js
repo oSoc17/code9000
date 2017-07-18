@@ -41,10 +41,10 @@ class Observations extends Component {
     const observation = _.head(this.props.observations);
 
     return (
-      <div className="Observations">
+      <div>
         <Title name="Observations" />
         {observation && (
-          <div>
+          <div className="Observations">
             <div className="Observations__Polaroid">
               <img src={polaroid} alt="Polaroid" />
             </div>
