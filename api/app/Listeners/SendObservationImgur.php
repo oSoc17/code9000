@@ -4,9 +4,10 @@ namespace App\Listeners;
 
 use App\Services\Imgur\ImgurApi;
 use App\Events\ObservationIsValid;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Storage;
 
-class SendObservationImgur
+class SendObservationImgur implements ShouldQueue
 {
     /**
      * @var \App\Services\Imgur\ImgurApi
