@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Vote;
+use App\Observation;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\VoteModel;
 
@@ -27,6 +28,20 @@ class VotesController extends Controller
         $vote->user_id = auth()->user()->id;
         $vote->save();
 
+        $this->checkObservationThreshold(Observation::find($request->observation_id));
+
         return $vote;
+    }
+
+    private function checkObservationThreshold(Observation $observation)
+    {
+        $sum = 0;
+        foreach ($observation->votes as $vote) {
+            $sum += $vote->value;
+        }
+        if ($sum >= config('app.valid_observation_threshold')) {
+           $observation->is_valid = true;
+           $observation->save();
+        }
     }
 }
