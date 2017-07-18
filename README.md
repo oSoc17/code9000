@@ -32,6 +32,7 @@ Dylan, do your magic
 ####  Contributers
 
 ##### Students
+ - [Demian Dekoninck](https://github.com/DemianD)
  - <a href "https://github.com/DemianD"> Demian Dekoninck </a>
  - <a target="_blank" href "https://github.com/diegodewilde" > Diëgo De Wilde </a>
  - <a  target="_blank" href "https://github.com/DylanVanAssche"> Dylan Van Assche </a>
