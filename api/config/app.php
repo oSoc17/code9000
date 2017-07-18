@@ -64,11 +64,13 @@ return [
     | and can be configured in the .env file. The default value is set
     | in case the configuration is missing in the .env file. Once the value
     | is reached, the observation will be marked as (un)valid.
+    | ! IMPORTANT ! 
+    | ! unvalid_observation_threshold needs to be negative !
     |
     */
 
      'valid_observation_threshold' => env('VALID_OBSERVATION_THRESHOLD', 5),
-     'unvalid_observation_threshold' => env('UNVALID_OBSERVATION_THRESHOLD', 5),
+     'unvalid_observation_threshold' => env('UNVALID_OBSERVATION_THRESHOLD', -5),
 
     /*
     |--------------------------------------------------------------------------
