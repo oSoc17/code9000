@@ -24,11 +24,16 @@ class VotesController extends Controller
             return response()->json('You have already voted');
         }
 
-        $this->checkObservationThreshold(Observation::findOrFail($request->observation_id));
+        // Get observation to make sure it exists
+        $observation = Observation::findOrFail($request->observation_id);
 
+        // Store vote
         $vote = new Vote($request->all());
         $vote->user_id = auth()->user()->id;
         $vote->save();
+
+        // Check threshold to (un)validate observation
+        $this->checkObservationThreshold($observation);
 
         return $vote;
     }
