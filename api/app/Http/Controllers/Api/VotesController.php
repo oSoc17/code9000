@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Events\ObservationIsValid;
 use App\Vote;
 use App\Observation;
 use App\Http\Controllers\Controller;
@@ -18,14 +19,12 @@ class VotesController extends Controller
      */
     public function store(VoteModel $request)
     {
-        $currentVote = Vote::where(['observation_id' => $request->observation_id, 'user_id' => auth()->user()->id])->first();
-
+        $observation = $this->getObservation($request->observation_id);
+        $currentVote = $this->findCurrentVote($observation);
+    
         if (! is_null($currentVote)) {
-            return response()->json('You have already voted');
+            return response()->json('You have already voted on this observation.');
         }
-
-        // Get observation to make sure it exists
-        $observation = Observation::findOrFail($request->observation_id);
 
         // Store vote
         $vote = new Vote($request->all());
@@ -37,19 +36,31 @@ class VotesController extends Controller
 
         return $vote;
     }
+    
+    private function getObservation($id) {
+        return Observation::whereNull('is_valid')
+            ->where('observation_id', $request->observation_id)
+            ->firstOrFail();
+    }
+    
+    private function findCurrentVote(Observation $observation) {
+        return Vote::where('observation_id', $observation->id)
+            ->where('user_id', auth()->user()->id);
+    }
 
     private function checkObservationThreshold(Observation $observation)
     {
-        $sum = 0;
-        foreach ($observation->votes as $vote) {
-            $sum += $vote->value;
-        }
+        $sum = $observation->votes->reduce(function ($carry, $item) {
+            return $carry + $item;
+        });
+        
         if ($sum >= config('app.valid_observation_threshold')) {
             $observation->is_valid = true;
             $observation->save();
 
-           // @TODO: Send valid data to destination(s)
+            event(new ObservationIsValid($observation));
         }
+        
         if ($sum <= config('app.unvalid_observation_threshold')) {
             $observation->is_valid = false;
             $observation->save();
