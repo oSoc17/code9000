@@ -5,7 +5,7 @@
 \#Code9000 is a project in which Digipolis Ghent and the City of Ghent experiment with open data to create new open source proof-of-concepts. The project was developmed by oSoc17. This organisation collaborates with students to create IT-related projects. Students get real cases to work on and move beyond the theoretical and we get new learnings and code to test and iterate upon.
 
 <div align="center">
-<img src="https://raw.githubusercontent.com/oSoc17/code9000/develop/web-app/src/theme/crest.png" style="width:300px" />
+<img src="https://raw.githubusercontent.com/oSoc17/code9000/develop/web-app/src/theme/crest.png" width=300px />
 </div>
 
 For this project, we wanted to observe the common tern, a bird living near the "Houtdok" in Ghent. tbc
