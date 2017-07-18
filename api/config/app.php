@@ -64,7 +64,7 @@ return [
     | and can be configured in the .env file. The default value is set
     | in case the configuration is missing in the .env file. Once the value
     | is reached, the observation will be marked as (un)valid.
-    | ! IMPORTANT ! 
+    | ! IMPORTANT !
     | ! unvalid_observation_threshold needs to be negative !
     |
     */
