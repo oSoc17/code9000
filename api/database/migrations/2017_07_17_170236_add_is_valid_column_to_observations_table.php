@@ -14,7 +14,7 @@ class AddIsValidColumnToObservationsTable extends Migration
     public function up()
     {
         Schema::table('observations', function (Blueprint $table) {
-            $table->boolean('is_valid')->default(false);
+            $table->boolean('is_valid')->nullable();
         });
     }
 

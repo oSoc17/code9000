@@ -28,7 +28,7 @@ class VotesController extends Controller
         $vote->user_id = auth()->user()->id;
         $vote->save();
 
-        $this->checkObservationThreshold(Observation::find($request->observation_id));
+        $this->checkObservationThreshold(Observation::findOrFail($request->observation_id));
 
         return $vote;
     }
@@ -44,6 +44,10 @@ class VotesController extends Controller
            $observation->save();
 
            // @TODO: Send valid data to destination(s)
+        }
+        if ($sum >= config('app.unvalid_observation_threshold')) {
+           $observation->is_valid = false;
+           $observation->save();
         }
     }
 }
