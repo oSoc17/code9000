@@ -46,8 +46,8 @@ class VotesController extends Controller
            // @TODO: Send valid data to destination(s)
         }
         if ($sum >= config('app.unvalid_observation_threshold')) {
-           $observation->is_valid = false;
-           $observation->save();
+            $observation->is_valid = false;
+            $observation->save();
         }
     }
 }
