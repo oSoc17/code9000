@@ -49,4 +49,11 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\PasswordReset');
     }
+
+    public function passwordresets()
+    {
+        return $this::with(['passwordresets' => function ($query) {
+            $query->orderBy('created_at', 'desc');
+        }]);
+    }
 }

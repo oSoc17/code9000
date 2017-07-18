@@ -15,6 +15,13 @@ use App\Http\Requests\Api\PasswordResetModel;
 
 class PasswordResetController extends Controller
 {
+    protected $passwordResetMinutes;
+
+    public function __construct()
+    {
+        $this->passwordResetMinutes = config('app.password_reset_minutes');
+    }
+
     /**
      * Send a mail for resetting the password.
      *
@@ -26,35 +33,33 @@ class PasswordResetController extends Controller
     {
         $userEmail = $request->email;
         $user = User::where('email', $userEmail)->first();
-        if ($user && ! $this->isSpamming($user, config('app.password_reset_minutes'))) {
+        if ($user && ! $this->isSpamming($user, $passwordResetMinutes)) {
             // User exists and had no request < app.password_reset_minutes
             $token = Uuid::generate(4).'-'.str_random(40);
             $this->sendPasswordResetMail([
-                'email' => $userEmail,
+                'email' => $user->email,
                 'url' => url('/reset-password/'.$token),
                 'name' => $user->name,
             ]);
             // Store in database
-            $data = [
+            PasswordReset::create([
                 'user_id' => $user->id,
                 'token' => $token,
                 'created_at' => Carbon::now(),
-            ];
-            PasswordReset::create($data);
+            ]);
         }
     }
 
     private function isSpamming(User $user, $minutes)
     {
         if ($user) {
-            $last_password_request = PasswordReset::where('user_id', $user->id)->orderBy('created_at', 'desc')->first();
-            if (! $last_password_request) {
+            $lastPasswordReset = $user->passwordresets->first();
+            if (! $lastPasswordReset) {
                 // No request were stored yet
                 return false;
             }
-            $last_password_request_time = $last_password_request->created_at;
 
-            return $this->isInsideInterval($last_password_request_time, $minutes);
+            return $this->isInsideInterval($lastPasswordReset->created_at, $minutes);
         }
 
         return false;
@@ -64,11 +69,8 @@ class PasswordResetController extends Controller
     {
         $now = Carbon::now();
         $diff = $now->diffInMinutes(Carbon::parse($lastTime));
-        if ($diff <= $minutes) {
-            return true;
-        }
 
-        return false;
+        return $diff <= $minutes;
     }
 
     /**
@@ -80,19 +82,17 @@ class PasswordResetController extends Controller
     public function resetPassword(NewPasswordModel $request, $token)
     {
         $passwordReset = PasswordReset::where('token', $token)->first();
-        if ($passwordReset && $this->isInsideInterval($passwordReset->created_at, config('app.password_reset_minutes'))) {
+        if ($passwordReset && $this->isInsideInterval($passwordReset->created_at, $passwordResetMinutes)) {
             $user = $passwordReset->user()->first();
             $user->password = bcrypt($request->password);
             $user->save();
+        } else {
+            return response()->json(['error' => 'unvalid'], 404);
         }
     }
 
     public function sendPasswordResetMail($mailData)
     {
-        $content = [
-            'name'=> $mailData['name'],
-            'url' => $mailData['url'],
-        ];
-        Mail::to($mailData['email'])->send(new PasswordResetMail($content));
+        Mail::to($mailData['email'])->send(new PasswordResetMail($mailData));
     }
 }
