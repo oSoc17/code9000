@@ -37,7 +37,7 @@ const checkForRefreshToken = (endpoint, content, method) => (error) => {
       return abstractRequest(endpoint, content, method);
     });
   }
-  return Promise.reject(error);
+  return Promise.reject(error.response);
 };
 
 const checkForRelogin = error => {

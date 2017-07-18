@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Title from '../Title';
 import Divider from '../Divider';
 import { Form, Input, Button, FacebookButton } from '../Form';
+import Errors from '../Errors';
 
 import api, { BASE_URL } from '../../utils/api';
 
@@ -17,6 +18,7 @@ class Login extends Component {
 
     this.state = {
       isValid: false,
+      errors: undefined,
     };
   }
 
@@ -25,6 +27,9 @@ class Login extends Component {
       // TODO: make an easier jwt token manager
       window.localStorage.setItem('jwt.token', data.token);
       window.location = '/';
+    })
+    .catch(({ data: errors }) => {
+      this.setState({ errors });
     });
   }
 
@@ -35,7 +40,7 @@ class Login extends Component {
   }
 
   render() {
-    const { isValid } = this.state;
+    const { isValid, errors } = this.state;
 
     return (
       <div className="Login">
@@ -43,12 +48,13 @@ class Login extends Component {
         <div className="Login__Wrapper">
           <img src={logo} alt="CODE9000 crest" className="Login__Logo" />
           <div className="Login__Form">
+            {errors && <Errors errors={errors} />}
             <Form
               onValidationChange={valid => this.setState({ isValid: valid })}
               onSubmit={data => this.login(data)}
             >
-              <Input name="email" rules={['required', 'email']} placeholder="Email" />
-              <Input name="password" type="password" rules={['required']} placeholder="Password" className="Login__Password" />
+              <Input name="email" rules={['required', 'email']} placeholder="Email" icon="email" />
+              <Input name="password" type="password" rules={['required']} placeholder="Password" className="Login__Password" icon="lock" />
 
               <div className="Login__ForgotPassword">
                 Forgot password? <Link to="/reset-password">Reset Password</Link>
@@ -67,7 +73,7 @@ class Login extends Component {
               </div>
 
               <div className="Login__SignUp">
-                Not a member? <Link to="/register">Sign up here!</Link>
+                Not a member? <Link to="/sign-up">Sign up here!</Link>
               </div>
             </Form>
           </div>

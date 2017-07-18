@@ -17,6 +17,14 @@
   cursor: pointer;
 }
 
+.Form__Button--clean {
+  width: auto;
+  font-size: auto;
+  padding: auto;
+  background-color: initial;
+  
+}
+
 .Form__Button--circle {
   border-radius: 50%; 
 }

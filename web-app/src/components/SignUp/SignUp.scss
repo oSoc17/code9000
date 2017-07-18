@@ -1,0 +1,16 @@
+@import "../../theme/_index.scss";
+
+.SignUp__Input {
+  margin-bottom: $margin * 2;
+}
+
+.SignUp__Button {
+  margin-top: $margin * 3;
+}
+
+.SignUp__PasswordInformation {
+  margin-top: -$margin;
+  font-size: 11px;
+
+  color: $jordyBlue;
+}
