@@ -26,7 +26,7 @@ class AddIsValidColumnToObservationsTable extends Migration
     public function down()
     {
         Schema::table('observations', function (Blueprint $table) {
-            $table->dropColumn('is_admin');
+            $table->dropColumn('is_valid');
         });
     }
 }
