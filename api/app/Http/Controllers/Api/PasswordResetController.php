@@ -15,7 +15,7 @@ use App\Http\Requests\Api\PasswordResetModel;
 
 class PasswordResetController extends Controller
 {
-    protected $passwordResetMinutes;
+    private $passwordResetMinutes;
 
     public function __construct()
     {
@@ -52,15 +52,13 @@ class PasswordResetController extends Controller
 
     private function isSpamming(User $user, $minutes)
     {
-        if ($user) {
-            $lastPasswordReset = $user->passwordresets->first();
-            if (! $lastPasswordReset) {
-                // No request were stored yet
-                return false;
-            }
-
-            return $this->isInsideInterval($lastPasswordReset->created_at, $minutes);
+        $lastPasswordReset = $user->passwordResets->first();
+        if (! $lastPasswordReset) {
+            // No request were stored yet
+            return false;
         }
+
+        return $this->isInsideInterval($lastPasswordReset->created_at, $minutes);
 
         return false;
     }
@@ -68,7 +66,7 @@ class PasswordResetController extends Controller
     private function isInsideInterval($lastTime, $minutes)
     {
         $now = Carbon::now();
-        $diff = $now->diffInMinutes(Carbon::parse($lastTime));
+        $diff = $now->diffInMinutes($lastTime);
 
         return $diff <= $minutes;
     }
@@ -83,7 +81,7 @@ class PasswordResetController extends Controller
     {
         $passwordReset = PasswordReset::where('token', $token)->first();
         if ($passwordReset && $this->isInsideInterval($passwordReset->created_at, $passwordResetMinutes)) {
-            $user = $passwordReset->user()->first();
+            $user = $passwordReset->user();
             $user->password = bcrypt($request->password);
             $user->save();
         } else {
