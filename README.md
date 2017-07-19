@@ -27,8 +27,9 @@ To do the validation of our pictures, human validation looked like the best way 
 We made a ReactJs webapp where you can do all the account-related stuff like logging in or making an account. We made an voting page as well, and tried to implement fun features like scores, badges and a monthly leaderboard.
 
 ##### Hardware
-Dylan, do your magic
+We developed an IoT-device which takes pictures of everything that moves and send it to the API. The IoT works asynchronously to simultaneous send the pictures to the API and take pictures of the birds.
 
+The device consists of a Raspberry Pi A+, a Raspberry Pi Camera V2 and a PIR sensor. To keep it self-sustainable we use a solar panel and a battery while a 4G router takes care of the Internet connection.
 ####  Contributers
 
 ##### Students
@@ -36,7 +37,7 @@ Dylan, do your magic
  - [Diëgo De Wilde](https://github.com/diegodewilde)
  - [Dylan Van Assche](https://github.com/DylanVanAssche)
  - [Bert Commeine](https://github.com/BertCommeine)
- - [Cynthia Vanoirbeek](https://github.com/BertCommeine)
+ - [Cynthia Vanoirbeek](https://github.com/cynthiav11)
 
 ##### Coaches
 - [Miet Claes](https://miet.be)
