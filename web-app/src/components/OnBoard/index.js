@@ -20,6 +20,7 @@ class OnBoard extends Component {
       top: undefined,
       bottom: undefined,
       armBottom: 'visibile',
+      currentSlide: 0,
     };
   }
 
@@ -30,6 +31,12 @@ class OnBoard extends Component {
       top: this.calculateTopPolaroid(),
       bottom: this.calculateBottomBert(),
       armBottom: this.calculateBottomArm(),
+    });
+  }
+
+  checkIndex(index) {
+    this.setState({
+      currentSlide: index,
     });
   }
 
@@ -65,7 +72,13 @@ class OnBoard extends Component {
   }
 
   render() {
-    const { showFixedPolaroid } = this.state;
+    const { showFixedPolaroid, currentSlide } = this.state;
+
+    if (currentSlide >= 3) {
+      return (
+        <div>Start trial</div>
+      );
+    }
 
     return (
       <div className="OnBoard">
@@ -77,7 +90,11 @@ class OnBoard extends Component {
           <img src={armIcon} alt="Arm of Bert." className="OnBoard__Footer__Arm" style={this.calculateBottomArm()} />
           {showFixedPolaroid && (<img src={polaroidIcon} alt="" className="OnBoard__Carrousel__Polaroid OnBoard__Carrousel__PolaroidFixed" style={{ top: `${this.calculateTopPolaroid()}px` }} />)}
 
-          <Slider className="OnBoard__Carrousel" process={(percent) => this.checkProgress(percent)}>
+          <Slider
+            className="OnBoard__Carrousel"
+            process={(percent) => this.checkProgress(percent)}
+            currentIndex={(index) => this.checkIndex(index)}
+          >
             <div className="OnBoard__Carrousel__Item">
               <div className="OnBoard__Carrousel__Item__Text">Hi, my name is Bert.</div>
               <div className="OnBoard__Carrousel__Item__Text">I LOVE birds. And I need your help.</div>

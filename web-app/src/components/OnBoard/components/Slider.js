@@ -19,21 +19,26 @@ class Slider extends Component {
 
     this.flickity.on('cellSelect', () => this.updateSelected());
 
-    this.flickity.on('scroll', ((event, progress) => {
+    this.scrollListener = (event, progress) => {
       const percent = progress / (this.carousel.clientWidth * this.props.children.length);
 
       this.progressChanged(parseFloat(percent.toFixed(4)));
-    }));
+    };
+
+    this.flickity.on('scroll', this.scrollListener);
   }
 
   componentWillUnmount() {
     this.flickity.off('cellSelect', () => this.updateSelected());
+    this.flickity.off('scroll', this.scrollListener);
     this.flickity.destroy();
   }
 
   updateSelected() {
     const index = this.flickity.selectedIndex;
     this.setState({ selectedIndex: index });
+
+    this.props.currentIndex(index);
   }
 
   progressChanged(procent) {
@@ -58,6 +63,7 @@ Slider.defaultProps = {
     pageDots: true,
   },
   process: () => {},
+  currentIndex: () => {},
 };
 
 export default Slider;
