@@ -37,7 +37,7 @@ const checkForRefreshToken = (endpoint, content, method) => (error) => {
       return abstractRequest(endpoint, content, method);
     });
   }
-  return Promise.reject(error.response);
+  return Promise.reject(error);
 };
 
 const checkForRelogin = error => {
@@ -47,7 +47,7 @@ const checkForRelogin = error => {
 
   const message = error.response.data.error;
 
-  if (['token_expired', 'token_invalid', 'token_not_provided'].includes(message)) {
+  if (['token_expired', 'token_invalid', 'token_not_provided', 'token_blacklisted', 'user_not_found'].includes(message)) {
     window.location = '/login';
   }
 
