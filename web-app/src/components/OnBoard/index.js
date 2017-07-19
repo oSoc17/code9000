@@ -58,11 +58,10 @@ class OnBoard extends Component {
   calculateBottomArm() {
     const { progress } = this.state;
 
-    if (progress > 0.5) {
-      return 'hidden';
-    }
-
-    return 'visible';
+    return {
+      visibility: progress > 0.5 ? 'hidden' : 'visible',
+      zIndex: progress >= 0.04 && progress < 0.34 ? '0' : '1',
+    };
   }
 
   render() {
@@ -75,7 +74,7 @@ class OnBoard extends Component {
 
         <div className="OnBoard__Footer">
           <img src={bertIcon} alt="Avatar of Bert, the Bird nerd." className="OnBoard__Footer__Bert" style={{ bottom: `${this.calculateBottomBert()}px` }} />
-          <img src={armIcon} alt="Arm of Bert." className="OnBoard__Footer__Arm" style={{ visibility: `${this.calculateBottomArm()}` }} />
+          <img src={armIcon} alt="Arm of Bert." className="OnBoard__Footer__Arm" style={this.calculateBottomArm()} />
           {showFixedPolaroid && (<img src={polaroidIcon} alt="" className="OnBoard__Carrousel__Polaroid OnBoard__Carrousel__PolaroidFixed" style={{ top: `${this.calculateTopPolaroid()}px` }} />)}
 
           <Slider className="OnBoard__Carrousel" process={(percent) => this.checkProgress(percent)}>
