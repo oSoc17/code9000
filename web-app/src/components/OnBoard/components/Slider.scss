@@ -14,3 +14,8 @@
 .flickity-page-dots > .is-selected {
     background-color: $thunderbird !important;
 }
+
+.flickity-viewport {
+    height: 100% !important;
+    min-height: 100%;
+}

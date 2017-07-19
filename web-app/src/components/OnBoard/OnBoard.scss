@@ -1,15 +1,14 @@
 @import "../../theme/_index.scss";
 
-.OnBoard {
+.OnBoard {    
+    display: flex;
+    flex-direction: column;
+
     height: 100%;
     min-height: 100vh;
-
     max-width: $xs;
 
     margin: 0 auto;
-
-    display: flex;
-    flex-direction: column;
 }
 
 .OnBoard__Content {
@@ -23,11 +22,13 @@
     height: 100%;
 
     background-color: whitesmoke;
+    overflow: hidden;
+    position: relative;
 }
 
 .OnBoard__Footer__Bert {
     margin: 0 auto;
-    width: 325px;
+    max-width: 325px;
 
     position: absolute;
     left: 0;
