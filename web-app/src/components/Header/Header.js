@@ -1,6 +1,5 @@
 /* global window */
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
 
 import './Header.css';
 
@@ -18,26 +17,12 @@ class Header extends Component {
   }
 
   render() {
-    const { isAdmin } = this.props;
+    // const { isAdmin } = this.props;
+    // TODO: show icon for the IoT installations
 
     return (
       <div className="Header">
-        <div className="Header__Wrapper">
-          <img src={logo} alt="Logo" className="Header__Logo" />
-          <div className="Header__Menu__Right">
-            <div className="Header__Menu__Right__Item">
-              <NavLink to="/">Home</NavLink>
-            </div>
-            <div className="Header__Menu__Right__Item" onClick={() => this.logout()}>
-              <NavLink to="/logout">Logout</NavLink>
-            </div>
-            {isAdmin && (
-              <div className="Header__Menu__Right__Item">
-                <NavLink to="/installations">Installations</NavLink>
-              </div>
-            )}
-          </div>
-        </div>
+        <img src={logo} alt="Logo" className="Header__Logo" />
       </div>
     );
   }

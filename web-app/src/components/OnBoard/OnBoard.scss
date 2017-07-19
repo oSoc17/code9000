@@ -1,0 +1,138 @@
+@import "../../theme/_index.scss";
+
+.OnBoard {
+    height: 100%;
+    min-height: 100vh;
+
+    max-width: $xs;
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.OnBoard__Content {
+    flex: 1;
+}
+
+.OnBoard__Footer {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    background-color: whitesmoke;
+}
+
+.OnBoard__Footer__Bert {
+    margin: 0 auto;
+    width: 325px;
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -20px; // TODO: fix this with the icon
+
+    transition-property: top, bottom;
+    transition-duration: 0.1s;
+}
+
+.OnBoard__Footer__Arm {
+    margin: 0 auto;
+
+    width: 127.5px;
+    z-index: 9999;
+
+
+    position: absolute;
+    left: 197.5px;
+    right: 0;
+
+    bottom: 90px;
+}
+
+.OnBoard__Carrousel {
+    width: 100%;
+    height: 100%;
+}
+
+.OnBoard__Carrousel__Item {
+    width: 100%;
+    height: 100% !important;
+    padding: $padding * 8;
+}
+
+.OnBoard__Carrousel__Item__Text {
+    font-size: 20px;
+    margin-bottom: $margin * 4;
+    max-width: 250px;
+}
+
+.OnBoard__Carrousel__Glass {
+    width: 180px;
+    margin: 0 auto;
+
+    position: absolute;
+    left: 0;
+    right: 16px;
+
+    bottom: 140px;
+}
+
+.OnBoard__Carrousel__Polaroid {
+    width: 145px;
+    margin: 0 auto;
+
+    position: absolute;
+    left: 0;
+    right: 16px;
+    bottom: auto;
+}
+
+.OnBoard__Carrousel__PolaroidFixed {
+    transition-property: top, bottom;
+    transition-duration: 0.1s;
+}
+
+.OnBoard__Carrousel__Dias {
+    margin-top: 85px;
+}
+
+.OnBoard__Carrousel__Dia {
+    border-radius: 2px;
+    border: 1px solid rgb(154, 154, 154);
+    padding: 10px 10px 40px;
+    position: absolute;
+
+    background-color: white;
+}
+
+.OnBoard__Carrousel__Dia > img {
+    width: 100%;
+    height: 100%;
+}
+
+.OnBoard__Carrousel__Dia--1 {
+    width: 240px;
+    height: 150px;
+    transform: rotate(-20deg);
+
+    left: 0;
+}
+
+.OnBoard__Carrousel__Dia--2 {
+    width: 200px;
+    height: 145px;
+    transform: rotate(20deg);
+
+    right: 0;
+}
+
+.OnBoard__Carrousel__Dia--3 {
+    width: 250px;
+    height: 200px;
+    margin: 75px auto;
+    left: 0;
+    right: 0;
+}

@@ -21,18 +21,29 @@ class StartScreen extends Component {
 
     this.state = {
       redirect: false,
+      to: undefined,
     };
   }
 
   login() {
     this.setState({
       redirect: true,
+      to: '/login',
+    });
+  }
+
+  startOnboarding() {
+    this.setState({
+      redirect: true,
+      to: '/start',
     });
   }
 
   render() {
-    if (this.state.redirect) {
-      return <Redirect push to="/login" />;
+    const { redirect, to } = this.state;
+
+    if (redirect) {
+      return <Redirect push to={to} />;
     }
 
     return (
@@ -52,7 +63,7 @@ class StartScreen extends Component {
           <Dot />
         </div>
 
-        <Button className="StartScreen__Item StartScreen__Button__Start">Start</Button>
+        <Button className="StartScreen__Item StartScreen__Button__Start" onClick={() => this.startOnboarding()}>Start</Button>
         <Button light className="StartScreen__Item StartScreen__Button__LogIn" onClick={() => this.login()}>Log in</Button>
       </GuestMode>
     );
