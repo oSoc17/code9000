@@ -3,7 +3,8 @@
 .Observations__Picture {
     margin: 0 auto;
     display: block;
-    width: 100%
+    width: 100%;
+    user-drag: none;
 }
 
 .Observations {
@@ -33,6 +34,11 @@
     background-color: rgb(85, 85, 85);
     width: 100%;
     height: auto;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 .Polaroid__Footer {
@@ -46,7 +52,6 @@
 }
 
 .Observations__Button {
-    width: 75px;
     margin: 20px;
     cursor: pointer;
 }

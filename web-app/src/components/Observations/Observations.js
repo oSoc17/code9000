@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
+import Draggable from 'react-draggable';
 
 import Title from '../Title';
 import { Button } from '../Form';
@@ -39,7 +40,9 @@ class Observations extends Component {
 
   render() {
     const observation = _.head(this.props.observations);
-
+    const ButtonStyle = {
+      width: 120
+    }
     return (
       <div>
         <Title name="Observations" />
@@ -48,21 +51,30 @@ class Observations extends Component {
             <div className="Observations__Polaroid">
               <img src={polaroid} alt="Polaroid" />
             </div>
-            <div className="Polaroid">
-              <img
-                className="Polaroid__Inner"
-                src={`${process.env.REACT_APP_API_URL}/observations/${observation.id}/picture`}
-                alt="Observation"
-              />
-              <div className="Polaroid__Footer" />
-            </div>
-
+              <Draggable
+                  onDrag={(e) => {
+                    // Betere code: Positie als state opslaan, knoppen objecten maken die positie overerven
+                    document.getElementById("thrash").width = 75 + (document.getElementsByClassName("Polaroid")[0].getBoundingClientRect().left - document.getElementsByClassName("Observations")[0].getBoundingClientRect().left)/5
+                    document.getElementById("collection").width = 75 - (document.getElementsByClassName("Polaroid")[0].getBoundingClientRect().left - document.getElementsByClassName("Observations")[0].getBoundingClientRect().left)/5
+                    document.getElementsByClassName("Observations__Polaroid")[0].width += 5 // WHY THE FUCK WERKT DIT NIET
+                  }
+                }
+              >
+                <div className="Polaroid">
+                  <img
+                    className="Polaroid__Inner"
+                    src={`${process.env.REACT_APP_API_URL}/observations/${observation.id}/picture`}
+                    alt="Observation"
+                  />
+                  <div className="Polaroid__Footer" />
+                </div>
+              </Draggable>
             <div className="Observations__Buttons">
-              <Button onClick={() => this.vote(1)} className="Form__Button--clean">
-                <img className="Observations__Button" src={book} alt="Add to collection" />
+              <Button style={ButtonStyle}  onClick={() => this.vote(1)} className="Form__Button--clean"  >
+                <img className="Observations__Button" src={book} alt="Add to collection" id="collection" />
               </Button>
-              <Button onClick={() => this.vote(1)} className="Form__Button--clean">
-                <img className="Observations__Button" src={trash} alt="Add to trash" />
+              <Button style={ButtonStyle} onClick={() => this.vote(-1)} className="Form__Button--clean">
+                <img  className="Observations__Button" src={trash} alt="Add to trash" id="thrash" />
               </Button>
             </div>
           </div>
