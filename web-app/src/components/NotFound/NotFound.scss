@@ -61,24 +61,9 @@
 }
 
 .NotFound_Logo_Bird_Animation {
-  -webkit-animation: FLY-ANIMATION 10s ease-out infinite;
-  -moz-animation:    FLY-ANIMATION 10s ease-out infinite;
-  -o-animation:      FLY-ANIMATION 10s ease-out infinite;
   animation:         FLY-ANIMATION 10s ease-out infinite;
 }
 
-@-webkit-keyframes FLY-ANIMATION {
-  25%   { top: 75px;}
-  75% { display: none; top: -700px; }
-}
-@-moz-keyframes FLY-ANIMATION {
-  25%   { top: 75px;}
-  75% { display: none; top: -700px; }
-}
-@-o-keyframes FLY-ANIMATION {
-  25%   { top: 75px;}
-  75% { display: none; top: -700px; }
-}
 @keyframes FLY-ANIMATION {
   25%   { top: 75px;}
   75% { display: none; top: -700px; }
