@@ -34,8 +34,56 @@
 }
 
 .NotFound__Logo {
+  position: relative;
   margin: 0 auto;
   width: 275px;
-
   padding: 20px 20px 50px;
+}
+
+.NotFound_Logo_Bird_Alone {
+  position: absolute;
+  width: 110px;
+  margin: 0 auto;
+  top: 75px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.NotFound_Logo_Bird_Flying {
+  position: absolute;
+  width: 478px;
+  margin: 0 auto;
+  top: 75px;
+  left: -82px;
+  right: 350px;
+  bottom: 0;
+}
+
+.NotFound_Logo_Bird_Animation {
+  -webkit-animation: FLY-ANIMATION 10s ease-out infinite;
+  -moz-animation:    FLY-ANIMATION 10s ease-out infinite;
+  -o-animation:      FLY-ANIMATION 10s ease-out infinite;
+  animation:         FLY-ANIMATION 10s ease-out infinite;
+}
+
+@-webkit-keyframes FLY-ANIMATION {
+  25%   { top: 75px;}
+  75% { display: none; top: -700px; }
+}
+@-moz-keyframes FLY-ANIMATION {
+  25%   { top: 75px;}
+  75% { display: none; top: -700px; }
+}
+@-o-keyframes FLY-ANIMATION {
+  25%   { top: 75px;}
+  75% { display: none; top: -700px; }
+}
+@keyframes FLY-ANIMATION {
+  25%   { top: 75px;}
+  75% { display: none; top: -700px; }
+}
+
+.hidden {
+  visibility: hidden !important;
 }
