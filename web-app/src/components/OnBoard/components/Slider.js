@@ -17,8 +17,13 @@ class Slider extends Component {
   componentDidMount() {
     this.flickity = new Flickity(this.carousel, this.props.options);
 
-    console.log(this.flickity.selectedIndex);
     this.flickity.on('cellSelect', () => this.updateSelected());
+
+    this.flickity.on('scroll', ((event, progress) => {
+      const percent = progress / (this.carousel.clientWidth * this.props.children.length);
+
+      this.progressChanged(parseFloat(percent.toFixed(4)));
+    }));
   }
 
   componentWillUnmount() {
@@ -29,6 +34,10 @@ class Slider extends Component {
   updateSelected() {
     const index = this.flickity.selectedIndex;
     this.setState({ selectedIndex: index });
+  }
+
+  progressChanged(procent) {
+    this.props.process(procent);
   }
 
   render() {
@@ -48,6 +57,7 @@ Slider.defaultProps = {
     prevNextButtons: false,
     pageDots: true,
   },
+  process: () => {},
 };
 
 export default Slider;

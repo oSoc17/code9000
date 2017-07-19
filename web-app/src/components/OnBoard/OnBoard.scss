@@ -24,6 +24,7 @@
 
     background-color: whitesmoke;
 }
+
 .OnBoard__Footer__Bert {
     margin: 0 auto;
     max-width: 325px;
@@ -69,8 +70,12 @@
     position: absolute;
     left: 0;
     right: 16px;
+    bottom: auto;
+}
 
-    bottom: 152px
+.OnBoard__Carrousel__PolaroidFixed {
+    transition-property: top, bottom;
+    transition-duration: 0.1s;
 }
 
 .OnBoard__Carrousel__Dias {
