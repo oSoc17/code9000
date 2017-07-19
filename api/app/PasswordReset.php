@@ -27,7 +27,7 @@ class PasswordReset extends Model
      *
      * @var array
      */
-    protected $dates = [ 'created_at' ];
+    protected $dates = ['created_at'];
 
     /**
      * Get the user that owns the passwordReset.
