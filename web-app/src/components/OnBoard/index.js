@@ -6,6 +6,7 @@ import Header from '../Header';
 import './OnBoard.css';
 
 import bertIcon from '../../theme/icons/bert.svg';
+import armIcon from '../../theme/icons/arm.svg';
 import verkijkerIcon from '../../theme/icons/verkijker.svg';
 import polaroidIcon from '../../theme/icons/polaroid.svg';
 
@@ -17,6 +18,8 @@ class OnBoard extends Component {
       showFixedPolaroid: false,
       progress: undefined,
       top: undefined,
+      bottom: undefined,
+      armBottom: 'visibile',
     };
   }
 
@@ -24,11 +27,13 @@ class OnBoard extends Component {
     this.setState({
       showFixedPolaroid: percent >= 0.5,
       progress: percent,
-      top: this.calculateTop(),
+      top: this.calculateTopPolaroid(),
+      bottom: this.calculateBottomBert(),
+      armBottom: this.calculateBottomArm(),
     });
   }
 
-  calculateTop() {
+  calculateTopPolaroid() {
     const { progress } = this.state;
 
     const top = (window.innerHeight - (152 + 127)); // Margin from bottom + height of polaroid
@@ -40,6 +45,26 @@ class OnBoard extends Component {
     return top - (60 - 5); // Height of header
   }
 
+  calculateBottomBert() {
+    const { progress } = this.state;
+
+    if (progress >= 0.5) {
+      return -20 * (1 + ((progress - 0.5) * 72));
+    }
+
+    return -20;
+  }
+
+  calculateBottomArm() {
+    const { progress } = this.state;
+
+    if (progress > 0.5) {
+      return 'hidden';
+    }
+
+    return 'visible';
+  }
+
   render() {
     const { showFixedPolaroid } = this.state;
 
@@ -49,8 +74,9 @@ class OnBoard extends Component {
         <div className="OnBoard__Content" />
 
         <div className="OnBoard__Footer">
-          <img src={bertIcon} alt="Avatar of Bert, the Bird nerd." className="OnBoard__Footer__Bert" />
-          {showFixedPolaroid && (<img src={polaroidIcon} alt="" className="OnBoard__Carrousel__Polaroid OnBoard__Carrousel__PolaroidFixed" style={{ top: `${this.calculateTop()}px` }} />)}
+          <img src={bertIcon} alt="Avatar of Bert, the Bird nerd." className="OnBoard__Footer__Bert" style={{ bottom: `${this.calculateBottomBert()}px` }} />
+          <img src={armIcon} alt="Arm of Bert." className="OnBoard__Footer__Arm" style={{ visibility: `${this.calculateBottomArm()}` }} />
+          {showFixedPolaroid && (<img src={polaroidIcon} alt="" className="OnBoard__Carrousel__Polaroid OnBoard__Carrousel__PolaroidFixed" style={{ top: `${this.calculateTopPolaroid()}px` }} />)}
 
           <Slider className="OnBoard__Carrousel" process={(percent) => this.checkProgress(percent)}>
             <div className="OnBoard__Carrousel__Item">
@@ -78,7 +104,7 @@ class OnBoard extends Component {
               <div className="OnBoard__Carrousel__Item__Text">I&apos;m going to the HoutDok in Ghent right now to take some more pictures..</div>
               <div className="OnBoard__Carrousel__Item__Text">I would like you to help me spot the common tern.</div>
 
-              {!showFixedPolaroid && <img src={polaroidIcon} alt="" className="OnBoard__Carrousel__Polaroid" style={{ top: `${this.calculateTop()}px` }} />}
+              {!showFixedPolaroid && <img src={polaroidIcon} alt="" className="OnBoard__Carrousel__Polaroid" style={{ top: `${this.calculateTopPolaroid()}px` }} />}
             </div>
             <div className="OnBoard__Carrousel__Item" />
           </Slider>

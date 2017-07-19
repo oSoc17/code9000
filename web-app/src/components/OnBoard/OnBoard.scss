@@ -27,12 +27,29 @@
 
 .OnBoard__Footer__Bert {
     margin: 0 auto;
-    max-width: 325px;
+    width: 325px;
 
     position: absolute;
     left: 0;
     right: 0;
     bottom: -20px; // TODO: fix this with the icon
+
+    transition-property: top, bottom;
+    transition-duration: 0.1s;
+}
+
+.OnBoard__Footer__Arm {
+    margin: 0 auto;
+
+    width: 127.5px;
+    z-index: 9999;
+
+
+    position: absolute;
+    left: 197.5px;
+    right: 0;
+
+    bottom: 90px;
 }
 
 .OnBoard__Carrousel {
