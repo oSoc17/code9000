@@ -59,7 +59,7 @@ class OnBoard extends Component {
               <img src={verkijkerIcon} alt="" className="OnBoard__Carrousel__Glass" />
             </div>
             <div className="OnBoard__Carrousel__Item">
-              <div className="OnBoard__Carrousel__Item__Text">I'm looking for the common tern.</div>
+              <div className="OnBoard__Carrousel__Item__Text">I&apos;m looking for the common tern.</div>
               <div className="OnBoard__Carrousel__Item__Text">I took some pictures, this is what they look like!</div>
 
               <div className="OnBoard__Carrousel__Dias">
@@ -75,7 +75,7 @@ class OnBoard extends Component {
               </div>
             </div>
             <div className="OnBoard__Carrousel__Item">
-              <div className="OnBoard__Carrousel__Item__Text">I'm going to the HoutDok in Ghent right now to take some more pictures..</div>
+              <div className="OnBoard__Carrousel__Item__Text">I&apos;m going to the HoutDok in Ghent right now to take some more pictures..</div>
               <div className="OnBoard__Carrousel__Item__Text">I would like you to help me spot the common tern.</div>
 
               {!showFixedPolaroid && <img src={polaroidIcon} alt="" className="OnBoard__Carrousel__Polaroid" style={{ top: `${this.calculateTop()}px` }} />}
