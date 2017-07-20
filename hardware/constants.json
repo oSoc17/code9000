@@ -6,7 +6,8 @@
     "sleeptime": 10,
     "pirsensor": 13,
 	"shutdown": 14,
-    "timebetween": 10.0,
+    "uploadLimit": 115,
+	"resetUploadTime": 86400,
     "location": {
         "lat": 50.8503,
         "lon": 4.3517
