@@ -7,7 +7,9 @@
 }
 
 .Observations {
+    height: 100%;
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
     align-items: center;
 }
@@ -15,6 +17,10 @@
 .Observations__Polaroid {
     width: 115px;
     margin-bottom: 20px;
+    @media only screen and (max-height: 590px) {
+      visibility: hidden;
+      height: 0
+    }
 }
 
 .Polaroid {
@@ -22,9 +28,7 @@
     border-radius: 3px;
 
     isolation: isolate;
-
     width: 100%;
-
     padding: $padding * 3;
     box-sizing: border-box;
 }
@@ -43,9 +47,11 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
+    flex-direction: row;
 }
 
 .Observations__Button {
+    flex: 1;
     width: 75px;
     margin: 20px;
     cursor: pointer;
