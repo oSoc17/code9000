@@ -1,3 +1,4 @@
+@import "../../theme/_index.scss";
 
 .GuestMode {
   display: flex;
@@ -21,4 +22,15 @@
   width: 150px;
 
   padding: 20px 20px 50px;
+}
+
+.GuestMode__Label {
+  color: $darkPastelBlue;
+}
+
+.GuestMode__GoBack {
+  color: $darkPastelBlue;
+  font-size: 13px;
+  margin-top: $margin * 2;
+  text-align: center;
 }
