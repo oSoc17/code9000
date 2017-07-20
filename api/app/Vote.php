@@ -40,7 +40,7 @@ class Vote extends Model
     {
         return $this->belongsTo('App\User');
     }
-    
+
     public function skipped()
     {
         return $this->value === 0;

@@ -16,7 +16,7 @@ Route::group(['namespace' => 'Api'], function () {
     // Route = api/
     Route::get('documentation', 'DocumentationController@index');
     Route::post('deploy', 'GithubWebhookController@deploy');
-    
+
     Route::get('leaderboard', 'LeaderboardController@index');
 
     // Route = api/auth

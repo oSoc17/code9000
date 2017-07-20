@@ -31,7 +31,7 @@ class Observation extends Model
     {
         return $this->hasMany('App\Vote');
     }
-    
+
     public function isValid()
     {
         return $this->is_valid === 1;
