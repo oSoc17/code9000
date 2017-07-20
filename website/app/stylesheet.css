@@ -1,0 +1,25 @@
+html, body {
+	line-height: 30px;
+	font-family: "Roboto", serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Chivo", serif;
+}
+
+
+.box {
+    background-color: #67A0D6;
+	color: white;
+	margin-top: 32px;
+}
+
+.icon {
+	font-size: 150px;
+}
+
+.button {
+	background-color: #BCCBD3;
+	margin-left: auto;
+	margin-right: auto;
+}
