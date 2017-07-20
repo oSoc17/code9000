@@ -86,21 +86,4 @@ class AuthController extends Controller
 
         return response()->json(compact('token'));
     }
-
-    /**
-     * Send a mail for resetting the password.
-     *
-     * @param \App\Http\Requests\Api\PasswordResetModel $request
-     *
-     * @return mixed
-     */
-    public function sendResetMail(PasswordResetModel $request)
-    {
-        // TODO: Get current user_id
-        // TODO: Generate key
-        // TODO: Generate URL
-        // TODO: Send email
-        // TODO: Only send reset password mail once an hour
-        // TODO: Handle email response and reset email
-    }
 }

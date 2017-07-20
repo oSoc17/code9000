@@ -32,16 +32,18 @@ class PasswordResetController extends Controller
     public function sendResetMail(PasswordResetModel $request)
     {
         $userEmail = $request->email;
+        
         $user = User::where('email', $userEmail)->first();
-        if ($user && ! $this->isSpamming($user, $passwordResetMinutes)) {
-            // User exists and had no request < app.password_reset_minutes
-            $token = Uuid::generate(4).'-'.str_random(40);
+        
+        if ($user && ! $this->isSpamming($user, $this->passwordResetMinutes)) {
+            $token = str_random(40);
+            
             $this->sendPasswordResetMail([
                 'email' => $user->email,
-                'url' => url('/reset-password/'.$token),
+                'url' => route('reset.token', ['token' => $token]),
                 'name' => $user->name,
             ]);
-            // Store in database
+            
             PasswordReset::create([
                 'user_id' => $user->id,
                 'token' => $token,
@@ -53,40 +55,36 @@ class PasswordResetController extends Controller
     private function isSpamming(User $user, $minutes)
     {
         $lastPasswordReset = $user->passwordResets->first();
+        
         if (! $lastPasswordReset) {
-            // No request were stored yet
             return false;
         }
-
-        return $this->isInsideInterval($lastPasswordReset->created_at, $minutes);
-
-        return false;
+        
+        return Carbon::now()->diffInMinutes($lastPasswordReset->created_at) <= $minutes;
     }
-
-    private function isInsideInterval($lastTime, $minutes)
-    {
-        $now = Carbon::now();
-        $diff = $now->diffInMinutes($lastTime);
-
-        return $diff <= $minutes;
-    }
-
+    
     /**
-     * Store the new password in the database if token is valid and time < app.password_reset_minutes.
+     * Store the new password in the database if token is valid and time <
+     * app.password_reset_minutes.
      *
      * @param \App\Http\Requests\Api\NewPasswordModel $request
      * @param string $token
+     *
+     * @return \Illuminate\Http\JsonResponse
      */
     public function resetPassword(NewPasswordModel $request, $token)
     {
         $passwordReset = PasswordReset::where('token', $token)->first();
-        if ($passwordReset && $this->isInsideInterval($passwordReset->created_at, $passwordResetMinutes)) {
+        
+        if ($passwordReset && $this->isInsideInterval($passwordReset->created_at, $this->passwordResetMinutes)) {
             $user = $passwordReset->user();
             $user->password = bcrypt($request->password);
             $user->save();
-        } else {
-            return response()->json(['error' => 'unvalid'], 404);
+            
+            return response()->json(['success' => 'ok']);
         }
+        
+        return response()->json(['error' => 'invalid'], 404);
     }
 
     public function sendPasswordResetMail($mailData)

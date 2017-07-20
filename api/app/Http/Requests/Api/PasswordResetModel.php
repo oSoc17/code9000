@@ -13,7 +13,6 @@ class PasswordResetModel extends FormRequest
      */
     public function authorize()
     {
-        // Everyone can reset their password
         return true;
     }
 
