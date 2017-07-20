@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Title from '../Title';
 import GuestMode, { GoBack } from '../GuestMode';
 import { Form, Input, Button } from '../Form';
-import { Success } from '../Alerts';
+import { Success } from '../Alerts';
 
 import api from '../../utils/api';
 
