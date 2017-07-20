@@ -6,7 +6,8 @@ import { Button } from '../Form';
 
 import api from '../../utils/api';
 
-import polaroid from '../../theme/icons/polaroid.svg';
+import polaroidUp from '../../theme/icons/polaroid_up.svg';
+import polaroidDown from '../../theme/icons/polaroid_down.svg';
 import trash from '../../theme/icons/trash.svg';
 import book from '../../theme/icons/book.svg';
 
@@ -46,9 +47,10 @@ class Observations extends Component {
         {observation && (
           <div className="Observations">
             <div className="Observations__Polaroid">
-              <img src={polaroid} alt="Polaroid" />
+              <img className="Observations__Polaroid_Forground" src={polaroidUp} alt="Polaroid" />
+              <img className="Observations__Polaroid_Background" src={polaroidDown} alt="Polaroid" />
             </div>
-            <div className="Polaroid">
+            <div className="Polaroid Polaroid_Animation_Show">
               <img
                 className="Polaroid__Inner"
                 src={`${process.env.REACT_APP_API_URL}/observations/${observation.id}/picture`}

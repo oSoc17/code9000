@@ -17,16 +17,33 @@
     margin-bottom: 20px;
 }
 
+.Observations__Polaroid_Forground {
+    display: block;
+    position: relative;
+    z-index: 3;
+}
+
+.Observations__Polaroid_Background {
+    display: block;
+    position: relative;
+    bottom: 1px;
+    z-index: 1;
+    width: 113px;
+    margin: auto;
+}
+
 .Polaroid {
     box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.16);
     border-radius: 3px;
 
     isolation: isolate;
 
-    width: 100%;
+    background-color: #fff;
 
     padding: $padding * 3;
     box-sizing: border-box;
+    position: relative;
+    z-index: 2;
 }
 
 .Polaroid__Inner {
@@ -37,6 +54,46 @@
 
 .Polaroid__Footer {
     height: 50px;
+}
+
+.Polaroid_Animation_Before {
+    position: relative;
+    bottom: 100px;
+    padding: $padding;
+    width: 20%;
+    height: 50px;
+}
+
+.Polaroid_Animation_Show {
+    animation: POLAROID-ANIMATION 5s;
+}
+
+@keyframes POLAROID-ANIMATION {
+    0%   {  
+        position: relative;
+        bottom: 100px;
+        padding: $padding;
+        width: 20%;
+        height: 50px;
+        z-index: 2; 
+    }
+    30%   {  
+        position: relative;
+        bottom: 100px;
+        padding: $padding;
+        width: 20%;
+        height: 50px; 
+        z-index: 2; 
+    }
+    50% {
+        bottom: 0px;
+    }
+    100% { 
+        position: static;
+        padding: $padding *3;
+        width: 100%;
+        height: 100%;
+    }
 }
 
 .Observations__Buttons {
