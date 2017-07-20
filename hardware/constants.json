@@ -5,9 +5,8 @@
     "bouncetime": 1000,
     "sleeptime": 10,
     "pirsensor": 13,
+	"shutdown": 14,
     "timebetween": 10.0,
-    "maxpictures": 10,
-    "networkBuffer": 3,
     "location": {
         "lat": 50.8503,
         "lon": 4.3517

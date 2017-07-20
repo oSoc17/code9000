@@ -13,6 +13,7 @@ from time import gmtime, strftime, sleep
 import threading
 import os
 import asyncio
+from subprocess import call
 
 # Set current working directory
 os.chdir(sys.path[0])
@@ -48,7 +49,7 @@ if not os.path.exists(configData['pictureDir']):
 # Create a camera instance
 camera = picamera.PiCamera()
 
-# Upload queue
+# Upload callback
 uploadQueue = []
 uploading = False
 
@@ -64,10 +65,21 @@ def takePicture(channel):
 	uploadQueue.append('{}/{}.jpg'.format(configData['pictureDir'], currentTimestamp))
 	logging.debug('Bird event completed!')
 
+# Shutdown callback
+running = True
+
+def shutdown(channel):
+	running = False
+	GPIO.remove_event_detect(configData['pirsensor'])
+	GPIO.cleanup()
+	call("sudo shutdown -h now", shell=True)
+
 # Setup GPIO pins
 GPIO.setmode(GPIO.BOARD) # Use BOARD GPIO numbers
 GPIO.setup(configData['pirsensor'], GPIO.IN, pull_up_down=GPIO.PUD_DOWN)  # Setup GPIO for PIR sensor
+GPIO.setup(configData['shutdown'], GPIO.IN, pull_up_down=GPIO.PUD_DOWN)  # Setup GPIO for PIR sensor
 GPIO.add_event_detect(configData['pirsensor'], GPIO.FALLING, bouncetime=configData['bouncetime'], callback=takePicture)
+GPIO.add_event_detect(configData['shutdown'], GPIO.FALLING, bouncetime=configData['bouncetime'], callback=shutdown)
 
 @asyncio.coroutine
 def uploadAsync():
@@ -97,11 +109,13 @@ def getTime():
 	return strftime('%Y-%m-%d %H:%M:%S', gmtime())
 
 def loop():
+	global running
+
 	try:
 		logging.info('You can always exit this program by pressing CTRL + C')
 		logging.info('Looking for birds...')
 		busy = False
-		while(True):
+		while(running):
 			if len(uploadQueue) and busy == False:
 				busy = True
 				asyncLoop = asyncio.get_event_loop()
