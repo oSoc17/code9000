@@ -7,35 +7,35 @@
 }
 
 .Observations {
-height: 100%;
-display: flex;
-justify-content: space-between;
-flex-direction: column;
-align-items: center;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
 }
 
 .Observations__Polaroid {
-  width: 115px;
-  margin-bottom: 20px;
-  @media only screen and (max-height: 590px) {
-    visibility: hidden;
-    height: 0
-  }
+    width: 115px;
+    margin-bottom: 20px;
+    @media only screen and (max-height: 590px) {
+      visibility: hidden;
+      height: 0
+    }
 }
 
 .Observations__Polaroid_Forground {
-  display: block;
-  position: relative;
-  z-index: 3;
+    display: block;
+    position: relative;
+    z-index: 3;
 }
 
 .Observations__Polaroid_Background {
-  display: block;
-  position: relative;
-  bottom: 1px;
-  z-index: 1;
-  width: 113px;
-  margin: auto;
+    display: block;
+    position: relative;
+    bottom: 1px;
+    z-index: 1;
+    width: 113px;
+    margin: auto;
 }
 
 .Polaroid {
