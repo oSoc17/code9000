@@ -1,138 +1,170 @@
 @import "../../theme/_index.scss";
 
 .OnBoard {
-    height: 100%;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 
-    max-width: $xs;
+  height: 100%;
+  min-height: 100%;
 
-    margin: 0 auto;
-
-    display: flex;
-    flex-direction: column;
+  margin: 0 auto;
+  background-color: whitesmoke;
 }
 
 .OnBoard__Content {
-    flex: 1;
+  flex: 1;
 }
 
-.OnBoard__Footer {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 100%;
+.OnBoard__Bottom {
+  width: 100%;
+  height: 100%;
 
-    background-color: whitesmoke;
+  overflow: hidden;
+  position: relative;
+
+  margin: 0 auto;
+
+  max-width: $xs;
 }
 
-.OnBoard__Footer__Bert {
-    margin: 0 auto;
-    width: 325px;
+.OnBoard__Bert {
+  margin: 0 auto;
+  width: 325px;
 
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -20px; // TODO: fix this with the icon
-
-    transition-property: top, bottom;
-    transition-duration: 0.1s;
+  position: absolute;
+  left: -50%;
+  right: -50%;
+  bottom: -20px; // TODO: fix this with the icon
 }
 
-.OnBoard__Footer__Arm {
-    margin: 0 auto;
-
-    width: 127.5px;
-    z-index: 9999;
-
-
-    position: absolute;
-    left: 197.5px;
-    right: 0;
-
-    bottom: 90px;
+.OnBoard__Bert--disappear {
+  animation: bertdisappear 5s;
+  animation-fill-mode: forwards;
 }
 
-.OnBoard__Carrousel {
-    width: 100%;
-    height: 100%;
+@keyframes bertdisappear {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(370px);
+  }
 }
 
-.OnBoard__Carrousel__Item {
-    width: 100%;
-    height: 100% !important;
-    padding: $padding * 8;
+.OnBoard__Arm {
+  margin: 0 auto;
+
+  width: 127.5px;
+
+  position: absolute;
+  left: calc(-50% + 198px);
+  right: -50%;
+
+  bottom: 90px;
+
+  pointer-events: none;
 }
 
-.OnBoard__Carrousel__Item__Text {
-    font-size: 20px;
-    margin-bottom: $margin * 4;
-    max-width: 250px;
+.Carrousel {
+  width: 100%;
+  height: 100%;
 }
 
-.OnBoard__Carrousel__Glass {
-    width: 180px;
-    margin: 0 auto;
-
-    position: absolute;
-    left: 0;
-    right: 16px;
-
-    bottom: 140px;
+.Carrousel__Item {
+  width: 100%;
+  height: 100% !important;
+  padding: $padding * 8;
 }
 
-.OnBoard__Carrousel__Polaroid {
-    width: 145px;
-    margin: 0 auto;
-
-    position: absolute;
-    left: 0;
-    right: 16px;
-    bottom: auto;
+.Carrousel__Item__Text {
+  font-size: 20px;
+  margin-bottom: $margin * 4;
+  max-width: 250px;
 }
 
-.OnBoard__Carrousel__PolaroidFixed {
-    transition-property: top, bottom;
-    transition-duration: 0.1s;
+.Carrousel__Glass {
+  width: 180px;
+  margin: 0 auto;
+
+  position: absolute;
+  left: 0;
+  right: 16px;
+
+  bottom: 140px;
 }
 
-.OnBoard__Carrousel__Dias {
-    margin-top: 85px;
+.Carrousel__Polaroid {
+  width: 145px;
+  margin: 0 auto;
+
+  position: absolute;
+  left: 0;
+  right: 16px;
+  bottom: 130px;
+
+  transition: all 5s ease 0s;
 }
 
-.OnBoard__Carrousel__Dia {
-    border-radius: 2px;
-    border: 1px solid rgb(154, 154, 154);
-    padding: 10px 10px 40px;
-    position: absolute;
-
-    background-color: white;
+.Carrousel__Polaroid--disappear {
+  bottom: calc(100% - 55px) !important;
 }
 
-.OnBoard__Carrousel__Dia > img {
-    width: 100%;
-    height: 100%;
+.Carrousel__Dias {
+  margin-top: 85px;
 }
 
-.OnBoard__Carrousel__Dia--1 {
-    width: 240px;
-    height: 150px;
-    transform: rotate(-20deg);
+.Carrousel__Dia {
+  border-radius: 2px;
+  border: 1px solid rgb(154, 154, 154);
+  padding: 10px 10px 40px;
+  position: absolute;
 
-    left: 0;
+  background-color: white;
 }
 
-.OnBoard__Carrousel__Dia--2 {
-    width: 200px;
-    height: 145px;
-    transform: rotate(20deg);
-
-    right: 0;
+.Carrousel__Dia > img {
+  width: 100%;
+  height: 100%;
 }
 
-.OnBoard__Carrousel__Dia--3 {
-    width: 250px;
-    height: 200px;
-    margin: 75px auto;
-    left: 0;
-    right: 0;
+.Carrousel__Dia--1 {
+  width: 240px;
+  height: 150px;
+  transform: rotate(-20deg);
+
+  left: 0;
+}
+
+.Carrousel__Dia--2 {
+  width: 200px;
+  height: 145px;
+  transform: rotate(20deg);
+
+  right: 0;
+}
+
+.Carrousel__Dia--3 {
+  width: 250px;
+  height: 200px;
+  margin: 75px auto;
+  left: 0;
+  right: 0;
+}
+
+@include respond-to(345px) {
+  .OnBoard__Bert {
+    bottom: -80px;
+  }
+
+  .OnBoard__Arm {
+    bottom: 29px;
+  }
+
+  .Carrousel__Glass {
+    bottom: 80px;
+  }
+
+  .Carrousel__Polaroid {
+    bottom: 70px;
+  }
 }
