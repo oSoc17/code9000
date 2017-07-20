@@ -1,14 +1,15 @@
 @import "../../theme/_index.scss";
 
+.Alert {
+  border-radius: 3px;
+  padding: $padding * 2;
+  margin: $margin * 3 0;
+}
+
 .Errors {
   color: lighten($tabasco, 5);
 
   background-color: lighten($tabasco, 45);
-  border-radius: 3px;
-
-  padding: $padding * 2;
-
-  margin: $margin * 3 0;
 }
 
 .Errors__List {
@@ -22,4 +23,9 @@
 
 .Errors__List li:last-child {
   margin-bottom: 0px;
+}
+
+.Success {
+  color: darken($jordyBlue, 10);
+  background-color: lighten($jordyBlue, 10);
 }
