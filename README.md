@@ -44,4 +44,4 @@ The device consists of a Raspberry Pi A+, a Raspberry Pi Camera V2 and a PIR sen
 - [Xavier Bertels](https://mono.company)
 
 #### MIT License
-This project is released as an open-source project under the <a href="https://github.com/oSoc17/lopeningent_backend/blob/develop/LICENSE"> MIT License </a>
+This project is released as an open-source project under the <a href="https://github.com/oSoc17/code9000/blob/develop/LICENSE"> MIT License </a>
