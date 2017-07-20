@@ -21,13 +21,15 @@ class Observations extends Component {
 
     this.state = {
       toggle: true,
-    }
+    };
   }
 
   vote(value) {
     this.togglePolaroidAnimation();
+
     const observation = _.head(this.props.observations);
     const newObservations = [..._.drop(this.props.observations)];
+
     api.post('/votes', {
       body: {
         observation_id: observation.id,
@@ -36,14 +38,15 @@ class Observations extends Component {
     }).then(() => {
       this.props.loadObservations(newObservations);
       this.togglePolaroidAnimation();
+
       if (newObservations.length < 6) {
         this.fetch();
       }
     });
   }
 
-  togglePolaroidAnimation(){
-    this.setState(({ toggle }) => ({ toggle: !toggle }))
+  togglePolaroidAnimation() {
+    this.setState(({ toggle }) => ({ toggle: !toggle }));
   }
 
   fetch() {
