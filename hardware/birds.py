@@ -72,7 +72,7 @@ def takePicture(channel):
 		uploadCounter = uploadCounter + 1
 	else:
 		logging.warning('Daily upload limit reached!')
-		if launch_time - time.time() > 24 * 3600: # Reset limit if device is powered for more then 24 hours.
+		if launch_time - time.time() > configData['resetUploadTime']: # Reset limit if device is powered for more then 24 hours.
 			uploadCounter = 0
 
 
