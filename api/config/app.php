@@ -57,6 +57,36 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Application (un)valid observation threshold
+    |--------------------------------------------------------------------------
+    |
+    | This variable will be used to set the threshold for an (un)valid observation
+    | and can be configured in the .env file. The default value is set
+    | in case the configuration is missing in the .env file. Once the value
+    | is reached, the observation will be marked as (un)valid.
+    | ! IMPORTANT !
+    | ! unvalid_observation_threshold needs to be negative !
+    |
+    */
+
+     'valid_observation_threshold' => env('VALID_OBSERVATION_THRESHOLD', 5),
+     'unvalid_observation_threshold' => env('UNVALID_OBSERVATION_THRESHOLD', -5),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application password reset limit
+    |--------------------------------------------------------------------------
+    |
+    | This variable will be used to limit the password reset function
+    | and can be configured in the .env file. The default value is set
+    | in case the configuration is missing in the .env file.
+    |
+    */
+
+    'password_reset_minutes' => env('PASSWORD_RESET_MINUTES', 30),
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Timezone
     |--------------------------------------------------------------------------
     |

@@ -15,6 +15,7 @@ import StartScreen from './components/StartScreen';
 import ResetPassword from './components/ResetPassword';
 import SignUp from './components/SignUp';
 import NotFound from './components/NotFound';
+import OnBoard from './components/OnBoard';
 
 import './index.css';
 
@@ -44,6 +45,8 @@ const isAuthenticated = () => {
   return <App />;
 };
 
+// TODO: need to think about the onboarding url's
+
 const Root = () => (
   <Provider store={configureStore()}>
     <Router>
@@ -53,6 +56,7 @@ const Root = () => (
         <Route exact path="/reset-password" component={ResetPassword} />
 
         <Route exact path="/sign-up" component={SignUp} />
+        <Route exact path="/start" component={OnBoard} />
 
         {isAuthenticated()}
         <Route component={NotFound} />

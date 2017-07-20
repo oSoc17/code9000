@@ -3,9 +3,12 @@ import _ from 'lodash';
 
 import Title from '../Title';
 import { Button } from '../Form';
-import Icon from '../Icon';
 
 import api from '../../utils/api';
+
+import polaroid from '../../theme/icons/polaroid.svg';
+import trash from '../../theme/icons/trash.svg';
+import book from '../../theme/icons/book.svg';
 
 import './Observations.css';
 
@@ -38,24 +41,35 @@ class Observations extends Component {
     const observation = _.head(this.props.observations);
 
     return (
-      <div className="Observations">
+      <div>
         <Title name="Observations" />
-        {observation === undefined && (
-          <p>No observations left</p>
-        )}
         {observation && (
-          <div>
-            <img
-              src={`${process.env.REACT_APP_API_URL}/observations/${observation.id}/picture`}
-              alt="Observation"
-              className="Observations__Picture"
-            />
+          <div className="Observations">
+            <div className="Observations__Polaroid">
+              <img src={polaroid} alt="Polaroid" />
+            </div>
+            <div className="Polaroid">
+              <img
+                className="Polaroid__Inner"
+                src={`${process.env.REACT_APP_API_URL}/observations/${observation.id}/picture`}
+                alt="Observation"
+              />
+              <div className="Polaroid__Footer" />
+            </div>
+
             <div className="Observations__Buttons">
-              <Button onClick={() => this.vote(1)}><Icon name="thumbs-up" /></Button>
-              <Button onClick={() => this.vote(0)} >SKIP</Button>
-              <Button onClick={() => this.vote(-1)}><Icon name="thumbs-down" /></Button>
+              <Button onClick={() => this.vote(1)} className="Form__Button--clean">
+                <img className="Observations__Button" src={book} alt="Add to collection" />
+              </Button>
+              <Button onClick={() => this.vote(-1)} className="Form__Button--clean">
+                <img className="Observations__Button" src={trash} alt="Add to trash" />
+              </Button>
             </div>
           </div>
+        )}
+
+        {observation === undefined && (
+          <p>No observations left</p>
         )}
       </div>
     );
