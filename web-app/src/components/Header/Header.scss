@@ -3,6 +3,7 @@
 .Header {
     padding: 0 $padding * 5;
 
+    flex-shrink: 0;
     width: 100%;
     height: 60px;
 
