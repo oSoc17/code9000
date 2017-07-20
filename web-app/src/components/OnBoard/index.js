@@ -66,7 +66,7 @@ class OnBoard extends Component {
 
     if (next) {
       return (
-        <div>Are you ready for the next step?</div>
+        <div>Next step, coming soon...</div>
       );
     }
 
