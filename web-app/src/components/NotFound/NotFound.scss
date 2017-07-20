@@ -18,24 +18,62 @@
 }
 
 .NotFound__Text {
-    text-align: center;
-    font-weight: 900;
-    font-size: 22px;
-    color: $mountainMist;
-    margin: 20px 0px;
+  text-align: center;
+  font-weight: 900;
+  font-size: 22px;
+  color: $mountainMist;
+  margin: 20px 0px;
 }
 
 .NotFound__SubText {
-    text-align: center;
-    font-weight: 900;
-    font-size: 20px;
-    color: $mountainMist;
-    margin: 20px 0px;
+  text-align: center;
+  font-weight: 900;
+  font-size: 20px;
+  color: $mountainMist;
+  margin: 20px 0px;
 }
 
 .NotFound__Logo {
+  position: relative;
   margin: 0 auto;
   width: 275px;
-
   padding: 20px 20px 50px;
+}
+
+.NotFound_Logo_Bird_Alone {
+  position: absolute;
+  width: 110px;
+  margin: 0 auto;
+  top: 75px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.NotFound_Logo_Bird_Flying {
+  position: absolute;
+  width: 478px;
+  margin: 0 auto;
+  top: 75px;
+  left: -50%;
+  right: -50%;
+  bottom: 0;
+}
+
+.NotFound_Logo_Bird_Animation {
+  animation: FLY-ANIMATION 10s ease-out infinite;
+}
+
+@keyframes FLY-ANIMATION {
+  25% {
+    top: 75px;
+  }
+  75% {
+    display: none;
+    top: -700px;
+  }
+}
+
+.hidden {
+  visibility: hidden !important;
 }
