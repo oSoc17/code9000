@@ -6,8 +6,6 @@ use Mail;
 use App\User;
 use Carbon\Carbon;
 use App\PasswordReset;
-use Webpatser\Uuid\Uuid;
-use Illuminate\Http\Request;
 use App\Mail\PasswordResetMail;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\NewPasswordModel;
@@ -32,9 +30,9 @@ class PasswordResetController extends Controller
     public function sendResetMail(PasswordResetModel $request)
     {
         $userEmail = $request->email;
-        
+
         $user = User::where('email', $userEmail)->first();
-        
+
         if ($user && ! $this->isSpamming($user, $this->passwordResetMinutes)) {
             $token = str_random(150);
             
@@ -43,7 +41,7 @@ class PasswordResetController extends Controller
                 'url' => sprintf('%s/reset-password/%s', config('APP_FRONT_END_URL'), $token), // Redirect to front-end
                 'name' => $user->name,
             ]);
-            
+
             PasswordReset::create([
                 'user_id' => $user->id,
                 'token' => $token,
@@ -55,14 +53,14 @@ class PasswordResetController extends Controller
     private function isSpamming(User $user, $minutes)
     {
         $lastPasswordReset = $user->passwordResets()->first();
-        
+
         if (! $lastPasswordReset) {
             return false;
         }
-        
+
         return Carbon::now()->diffInMinutes($lastPasswordReset->created_at) <= $minutes;
     }
-    
+
     /**
      * Store the new password in the database if token is valid and time <
      * app.password_reset_minutes.
@@ -75,15 +73,15 @@ class PasswordResetController extends Controller
     public function resetPassword(NewPasswordModel $request, $token)
     {
         $passwordReset = PasswordReset::where('token', $token)->first();
-        
+
         if ($passwordReset && $this->isInsideInterval($passwordReset->created_at, $this->passwordResetMinutes)) {
             $user = $passwordReset->user();
             $user->password = bcrypt($request->password);
             $user->save();
-            
+
             return response()->json(['success' => 'ok']);
         }
-        
+
         return response()->json(['error' => 'invalid'], 404);
     }
 
