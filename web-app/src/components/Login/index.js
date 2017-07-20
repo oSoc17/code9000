@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 import Title from '../Title';
 import Divider from '../Divider';
 import { Form, Input, Button, FacebookButton } from '../Form';
-import Errors from '../Errors';
+import { Errors } from '../Alerts';
+
 
 import api, { BASE_URL } from '../../utils/api';
 
