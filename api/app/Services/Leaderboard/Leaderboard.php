@@ -24,7 +24,7 @@ class Leaderboard {
             return collect($user->toArray())->only(['name', 'points']);
         });
         
-        return $usersWithPoints->all();
+        return $usersWithPoints->sortByDesc('points')->values()->all();
     }
     
     public function forUser(User $user)
@@ -46,7 +46,7 @@ class Leaderboard {
             }
             
             return $acc + self::VOTE + ($this->correctVoted($vote) ? self::CORRECT : self::WRONG);
-        });
+        }, 0);
     }
     
     private function correctVoted(Vote $vote)
