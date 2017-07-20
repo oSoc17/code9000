@@ -52,18 +52,29 @@ camera = picamera.PiCamera()
 # Upload callback
 uploadQueue = []
 uploading = False
+uploadCounter = 0
+launch_time = time.time()
 
 def takePicture(channel):
 	global camera
 	global uploadQueue
-
+	global uploadCounter
+	global launch_time
 	logging.debug('Bird detected!')
-	logging.debug('Getting current time...')
-	currentTimestamp = getTime() # Read the current time
-	logging.debug('Taking picture...')
-	camera.capture('{}/{}.jpg'.format(configData['pictureDir'], currentTimestamp)) # Take picture
-	uploadQueue.append('{}/{}.jpg'.format(configData['pictureDir'], currentTimestamp))
-	logging.debug('Bird event completed!')
+
+	if uploadCounter < configData['uploadLimit']:
+		logging.debug('Getting current time...')
+		currentTimestamp = getTime() # Read the current time
+		logging.debug('Taking picture...')
+		camera.capture('{}/{}.jpg'.format(configData['pictureDir'], currentTimestamp)) # Take picture
+		uploadQueue.append('{}/{}.jpg'.format(configData['pictureDir'], currentTimestamp))
+		logging.debug('Bird event completed!')
+		uploadCounter = uploadCounter + 1
+	else:
+		logging.warning('Daily upload limit reached!')
+		if launch_time - time.time() > 24 * 3600: # Reset limit if device is powered for more then 24 hours.
+			uploadCounter = 0
+
 
 # Shutdown callback
 running = True
