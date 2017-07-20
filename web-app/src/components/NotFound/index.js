@@ -12,13 +12,13 @@ class NotFound extends Component {
 
     this.state = {
       fly: false,
-    }
+    };
   }
 
   componentDidMount() {
     setInterval(() => {
-      this.setState(({ fly }) => ({ fly: !fly }))
-    }, 400)
+      this.setState(({ fly }) => ({ fly: !fly }));
+    }, 400);
   }
 
   render() {
@@ -41,6 +41,6 @@ class NotFound extends Component {
       </div>
     );
   }
-};
+}
 
 export default NotFound;
