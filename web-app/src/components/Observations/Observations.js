@@ -12,10 +12,20 @@ import trash from '../../theme/icons/trash.svg';
 import book from '../../theme/icons/book.svg';
 
 import './Observations.css';
+import classNames from '../../utils/classNames';
 
 class Observations extends Component {
 
+  constructor(...props) {
+    super(...props);
+
+    this.state = {
+      toggle: true,
+    }
+  }
+
   vote(value) {
+    this.togglePolaroidAnimation();
     const observation = _.head(this.props.observations);
     const newObservations = [..._.drop(this.props.observations)];
     api.post('/votes', {
@@ -25,11 +35,15 @@ class Observations extends Component {
       },
     }).then(() => {
       this.props.loadObservations(newObservations);
-
+      this.togglePolaroidAnimation();
       if (newObservations.length < 6) {
         this.fetch();
       }
     });
+  }
+
+  togglePolaroidAnimation(){
+    this.setState(({ toggle }) => ({ toggle: !toggle }))
   }
 
   fetch() {
@@ -50,7 +64,7 @@ class Observations extends Component {
               <img className="Observations__Polaroid_Forground" src={polaroidUp} alt="Polaroid" />
               <img className="Observations__Polaroid_Background" src={polaroidDown} alt="Polaroid" />
             </div>
-            <div className="Polaroid Polaroid_Animation_Show">
+            <div className={classNames('Polaroid', !this.state.toggle && 'Polaroid_Animation_Before', this.state.toggle && 'Polaroid_Animation_Show')}>
               <img
                 className="Polaroid__Inner"
                 src={`${process.env.REACT_APP_API_URL}/observations/${observation.id}/picture`}
