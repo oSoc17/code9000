@@ -5,17 +5,17 @@ namespace App\Services\DatahubGent;
 use App\Observation;
 use GuzzleHttp\Client;
 
-class DatahubGent {
-    
+class DatahubGent
+{
     /**
      * @var \GuzzleHttp\Client
      */
     private $client;
-    
+
     private $apiUrl;
     private $publicHash;
     private $privateHash;
-    
+
     public function __construct(Client $client, $apiUrl, $publicHash, $privateHash)
     {
         $this->client = $client;
@@ -23,7 +23,7 @@ class DatahubGent {
         $this->publicHash = $publicHash;
         $this->privateHash = $privateHash;
     }
-    
+
     /**
      * Write data to a stream for which we know the private hash.
      */
@@ -43,9 +43,9 @@ class DatahubGent {
             ],
         ]);
     }
-    
+
     private function getEndpoint($endpoint)
     {
-        return $this->apiUrl . $endpoint . '/' . $this->publicHash;
+        return $this->apiUrl.$endpoint.'/'.$this->publicHash;
     }
 }

@@ -2,10 +2,10 @@
 
 namespace App\Listeners;
 
-use App\Events\ObservationUploadedToImgur;
 use App\Services\Imgur\ImgurApi;
 use App\Events\ObservationIsValid;
 use Illuminate\Support\Facades\Storage;
+use App\Events\ObservationUploadedToImgur;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 class SendObservationImgur implements ShouldQueue
@@ -42,7 +42,7 @@ class SendObservationImgur implements ShouldQueue
 
         $observation->imgur = $link;
         $observation->save();
-    
+
         event(new ObservationUploadedToImgur($observation));
     }
 

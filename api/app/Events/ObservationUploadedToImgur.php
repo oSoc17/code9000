@@ -8,12 +8,12 @@ use Illuminate\Queue\SerializesModels;
 class ObservationUploadedToImgur
 {
     use SerializesModels;
-    
+
     /**
      * @var \App\Observation
      */
     public $observation;
-    
+
     /**
      * Create a new event instance.
      *
