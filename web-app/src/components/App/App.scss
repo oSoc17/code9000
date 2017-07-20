@@ -1,12 +1,16 @@
 @import "../../theme/_index.scss";
 
 .App {
+    display: flex;
+    flex-direction: column;
     width: 360px;
     height: 100%;
     margin: 0 auto;
 }
 
 .App__Wrapper {
-    //width: 70%;
+    height: 100%
+    flex: 1;
+    display: flex;
     margin: $margin * 4;
 }
