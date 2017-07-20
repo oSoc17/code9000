@@ -36,11 +36,11 @@ class PasswordResetController extends Controller
         $user = User::where('email', $userEmail)->first();
         
         if ($user && ! $this->isSpamming($user, $this->passwordResetMinutes)) {
-            $token = str_random(40);
+            $token = str_random(150);
             
             $this->sendPasswordResetMail([
                 'email' => $user->email,
-                'url' => route('reset.token', ['token' => $token]),
+                'url' => sprintf('%s/reset-password/%s', config('APP_FRONT_END_URL'), $token), // Redirect to front-end
                 'name' => $user->name,
             ]);
             
@@ -54,7 +54,7 @@ class PasswordResetController extends Controller
 
     private function isSpamming(User $user, $minutes)
     {
-        $lastPasswordReset = $user->passwordResets->first();
+        $lastPasswordReset = $user->passwordResets()->first();
         
         if (! $lastPasswordReset) {
             return false;
