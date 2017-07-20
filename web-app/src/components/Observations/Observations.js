@@ -6,7 +6,7 @@ import { Button } from '../Form';
 
 import api from '../../utils/api';
 
-import polaroidUp from '../../theme/icons/polaroid_up.svg';
+import polaroidUp from '../../theme/icons/polaroid.svg';
 import polaroidDown from '../../theme/icons/polaroid_down.svg';
 import trash from '../../theme/icons/trash.svg';
 import book from '../../theme/icons/book.svg';
