@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Events\ObservationUploadedToImgur;
 use App\Services\Imgur\ImgurApi;
 use App\Events\ObservationIsValid;
 use Illuminate\Support\Facades\Storage;
@@ -41,6 +42,8 @@ class SendObservationImgur implements ShouldQueue
 
         $observation->imgur = $link;
         $observation->save();
+    
+        event(new ObservationUploadedToImgur($observation));
     }
 
     private function uploadImage($picture)
