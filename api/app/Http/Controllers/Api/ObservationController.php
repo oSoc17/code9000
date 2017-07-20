@@ -22,8 +22,7 @@ class ObservationController extends Controller
 
     public function forUser()
     {
-        // TODO: only get observations that aren't validated
-        return Observation::whereDoesntHave('votes', function ($query) {
+        return Observation::where('is_valid', null)->whereDoesntHave('votes', function ($query) {
             $query->where('user_id', auth()->user()->id);
         })
             ->orderBy('captured_at', 'ASC') // TODO: change to caputred_at
