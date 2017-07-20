@@ -63,12 +63,7 @@ void loop () {
 */
 bool getSleepState() {
   DateTime now = RTC.now();
-  if ((now.hour() + TIMEZONE_OFFSET) <= HOUR_ON || (now.hour() + TIMEZONE_OFFSET) >= HOUR_OFF) {
-    return true;
-  }
-  else {
-    return false;
-  }
+  return (now.hour() + TIMEZONE_OFFSET) <= HOUR_ON || (now.hour() + TIMEZONE_OFFSET) >= HOUR_OFF)
 }
 
 /*
@@ -77,11 +72,5 @@ bool getSleepState() {
     False = keep power ON
 */
 bool getBatteryState() {
-  if (analogRead(BATTERY_PIN) < MINIMUM_VOLTAGE) {
-    return true;
-  }
-  else {
-    return false;
-  }
+  return analogRead(BATTERY_PIN) < MINIMUM_VOLTAGE)
 }
-

@@ -61,7 +61,7 @@ class Observations extends Component {
               <Button onClick={() => this.vote(1)} className="Form__Button--clean">
                 <img className="Observations__Button" src={book} alt="Add to collection" />
               </Button>
-              <Button onClick={() => this.vote(1)} className="Form__Button--clean">
+              <Button onClick={() => this.vote(-1)} className="Form__Button--clean">
                 <img className="Observations__Button" src={trash} alt="Add to trash" />
               </Button>
             </div>
