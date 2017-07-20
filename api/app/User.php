@@ -44,4 +44,9 @@ class User extends Authenticatable
     {
         return $this->is_admin;
     }
+
+    public function passwordResets()
+    {
+        return $this->hasMany('App\PasswordReset')->orderBy('created_at', 'DESC');
+    }
 }
