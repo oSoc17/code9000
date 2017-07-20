@@ -28,8 +28,8 @@ class Login extends Component {
       window.localStorage.setItem('jwt.token', data.token);
       window.location = '/';
     })
-    .catch(({ data: errors }) => {
-      this.setState({ errors });
+    .catch(() => {
+      this.setState({ errors: ['Your credentials are incorrect.'] });
     });
   }
 
