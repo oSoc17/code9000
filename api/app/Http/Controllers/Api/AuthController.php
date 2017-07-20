@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\UserLogin;
-use App\Http\Requests\Api\PasswordResetModel;
 use App\Http\Requests\Api\UserRegistrationModel;
 use Tymon\JWTAuth\Exceptions\TokenBlacklistedException;
 
