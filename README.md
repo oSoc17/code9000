@@ -19,12 +19,12 @@ For this project, we wanted to observe the common tern, a bird living near the "
 ##### API
 The API handles the pictures taken by the IoT-device. We use it to collect our pictures, save it and make it accessible for other services. Since we don't have another way of validating what creature triggered the infraredsensor, we are using a human voting system. Votes are send to the API, and when an image reaches a certain treshhold, the API will assume it's validated and send it forward.
 
-The API is made in php, using the Laravel framework. We chose to include user accounts as it's the only way to know for sure one person can only vote once on a picture.
+The API is made in PHP, using the Laravel framework. We chose to include user accounts as it's the only way to know for sure one person can only vote once on a picture.
 
 ##### Webapplication
 To do the validation of our pictures, human validation looked like the best way (given the time we had). As a simple yes-maybe-no validation onepager seemed a little dull and unappealing, we tried to gamify it.
 
-We made a ReactJs webapp where you can do all the account-related stuff like logging in or making an account. We made an voting page as well, and tried to implement fun features like scores, badges and a monthly leaderboard.
+We made a ReactJS webapp where you can do all the account-related stuff like logging in or making an account. We made an voting page as well, and tried to implement fun features like scores, badges and a monthly leaderboard.
 
 ##### Hardware
 We developed an IoT-device which takes pictures of everything that moves and send it to the API. The IoT works asynchronously to simultaneous send the pictures to the API and take pictures of the birds.
