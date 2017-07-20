@@ -35,7 +35,7 @@ class PasswordResetController extends Controller
 
         if ($user && ! $this->isSpamming($user)) {
             $token = str_random(150);
-            
+
             $this->sendPasswordResetMail([
                 'email' => $user->email,
                 'url' => sprintf('%s/reset-password/%s', config('app.url_front_end'), $token), // Redirect to front-end
@@ -75,10 +75,9 @@ class PasswordResetController extends Controller
         $passwordReset = PasswordReset::with('user')->where('token', $token)->first();
 
         if ($passwordReset && $this->isInsideInterval($passwordReset->created_at)) {
-
             $passwordReset->user->password = bcrypt($request->password);
             $passwordReset->user->save();
-            
+
             $passwordReset->delete();
 
             return response()->json(['success' => 'ok']);
@@ -91,8 +90,9 @@ class PasswordResetController extends Controller
     {
         Mail::to($mailData['email'])->send(new PasswordResetMail($mailData));
     }
-    
-    private function isInsideInterval($passwordResetDate) {
+
+    private function isInsideInterval($passwordResetDate)
+    {
         return Carbon::now()->diffInMinutes($passwordResetDate) <= $this->passwordResetMinutes;
     }
 }
