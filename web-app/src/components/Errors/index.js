@@ -20,7 +20,7 @@ const Errors = ({ errors, className }) => {
   return (
     <div className={classNames('Errors', className)}>
       {keys.map((key) => (
-        <div>{errors[key]}</div>
+        <div key={key}>{errors[key]}</div>
       ))}
     </div>
   );
