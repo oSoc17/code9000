@@ -9,7 +9,9 @@ $headerHeight: 125px;
   display: flex;
   justify-content: center;
 
-  z-index: 5;
+  z-index: 10;
+
+  background-color: white;
 }
 
 .Header__Wrapper {
@@ -22,6 +24,8 @@ $headerHeight: 125px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  
+  background-color: inherit;
 }
 
 .Header__Logo {
