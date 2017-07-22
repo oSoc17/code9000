@@ -30,6 +30,7 @@
 }
 
 .Observations__Footer {
+  margin-top: 30px;
   border-top: 1px solid rgb(222, 222, 222);
   background-color: #E9E9E9;
   width: 100%;
@@ -54,4 +55,12 @@
 .Observations__Buttons img {
   height: 90%;
   cursor: pointer;
+}
+
+@include max-height(900px) {
+  .Observations__PolaroidIcon {
+    margin-top: -150px;
+    overflow: hidden;
+    z-index: -99;
+  }
 }
