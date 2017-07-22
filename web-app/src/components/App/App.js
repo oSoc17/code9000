@@ -6,6 +6,7 @@ import Bootstrap from '../Bootstrap';
 import Header from '../Header';
 import Observations from '../Observations';
 import Installations from '../Installations';
+import NotFound from '../NotFound';
 
 import './App.css';
 
@@ -24,6 +25,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Observations} />
             <Route exact path="/installations" component={Installations} />
+            <Route component={NotFound} />
           </Switch>
         </div>
       </div>
