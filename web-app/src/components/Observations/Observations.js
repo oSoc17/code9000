@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Title from '../Title';
+import Polaroid from '../Polaroid';
 
 import './Observations.css';
 import polaroid from '../../theme/icons/polaroid.svg';
@@ -19,13 +20,9 @@ class Observations extends Component {
             <div className="col col-lg-12">
               <img className="Observations__PolaroidIcon" src={polaroid} alt="Polaroid camera" />
             </div>
-            <div className="col col-lg-12">
+            <div className="col col-lg-offset-2 col-lg-8">
               <div className="Observations__Picture">
-                <img
-                  className="Observations__Picture"
-                  src={`${process.env.REACT_APP_API_URL}/observations/${observation.id}/picture`}
-                  alt="The Observation"
-                />
+                <Polaroid img={`${process.env.REACT_APP_API_URL}/observations/${observation.id}/picture`} />
               </div>
             </div>
           </div>
