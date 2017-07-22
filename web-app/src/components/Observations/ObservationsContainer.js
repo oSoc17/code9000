@@ -14,14 +14,13 @@ class ObservationsContainer extends Component {
       value,
     };
 
-    api
-      .post('/votes', { body }).then(() => {
-        this.props.loadObservations(newObservations);
+    api.post('/votes', { body }).then(() => {
+      this.props.loadObservations(newObservations);
 
-        if (newObservations.length < 6) {
-          this.fetch();
-        }
-      });
+      if (newObservations.length < 6) {
+        this.fetch();
+      }
+    });
   }
 
   fetch() {
@@ -31,9 +30,7 @@ class ObservationsContainer extends Component {
   }
 
   render() {
-    const observation = _.head(this.props.observations);
-
-    return <Observations observation={observation} vote={(value) => this.vote(value)} />;
+    return <Observations observations={this.props.observations} vote={value => this.vote(value)} />;
   }
 }
 export default ObservationsContainer;
