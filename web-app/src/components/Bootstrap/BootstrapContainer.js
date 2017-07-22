@@ -8,7 +8,7 @@ import './Bootstrap.css';
 
 class BootstrapContainer extends Component {
   componentWillMount() {
-    const { loadObservations, loadUser, finishInitialLoading } = this.props;
+    const { loadObservations, loadUser, loadRanking, finishInitialLoading } = this.props;
 
     api
       .get('/auth/me')
@@ -17,6 +17,7 @@ class BootstrapContainer extends Component {
         return Promise.all([
           takeAtLeast(800),
           api.get('/auth/observations').then(({ data: paginationModel }) => loadObservations(paginationModel.data)),
+          api.get('/leaderboard').then(({ data }) => loadRanking(data)),
         ]);
       })
       .then(finishInitialLoading);
