@@ -32,6 +32,11 @@ $headerHeight: 125px;
     height: 85%;
 }
 
+.Header__Logo img {
+    height: 100%;
+    width: auto;
+}
+
 .Header__Menu {
   display: flex;
 }
@@ -49,6 +54,14 @@ $headerHeight: 125px;
     url('./Icons/bird_gray.svg')
     url('./Icons/profile_gray.svg')
     url('./Icons/profile.svg')
+}
+
+.Header__Menu__Icon:hover, .Header__Menu__Icon:active, .Header__Menu__Icon:visited {
+  text-decoration: none;
+}
+
+.Header__Menu__Icon:focus {
+  text-decoration: none;
 }
 
 .Header__Menu__Icon {
@@ -79,17 +92,17 @@ $headerHeight: 125px;
   background-image: url('./Icons/profile_gray.svg');
 }
 
-.Header__Menu__Leader:hover, .Header__Menu__Leader--active {
+.Header__Menu__Leader:hover, .Header__Menu__Leader:focus, .Header__Menu__Leader--active {
   background-image: url('./Icons/leader.svg');
   color: rgb(234, 181, 50);
 }
 
-.Header__Menu__Bird:hover, .Header__Menu__Bird--active {
+.Header__Menu__Bird:hover, .Header__Menu__Bird:focus, .Header__Menu__Bird--active {
   background-image: url('./Icons/bird.svg');
   color: rgb(214, 102, 55);
 }
 
-.Header__Menu__Profile:hover, .Header__Menu__Profile--active {
+.Header__Menu__Profile:hover, .Header__Menu__Profile:focus, .Header__Menu__Profile--active {
   background-image: url('./Icons/profile.svg');
   color: $darkPastelBlue;
 }
