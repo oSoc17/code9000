@@ -13,7 +13,6 @@ import Login from './components/Login';
 import LoginCallback from './components/Login/LoginCallback';
 import StartScreen from './components/StartScreen';
 import SignUp from './components/SignUp';
-import NotFound from './components/NotFound';
 import OnBoard from './components/OnBoard';
 import RequestResetPassword from './components/RequestResetPassword';
 import ResetPassword from './components/ResetPassword';
@@ -53,10 +52,8 @@ const Root = () => (
         <Route exact path="/login/callback/facebook/:token" component={LoginCallback} />
         <Route exact path="/reset-password" component={RequestResetPassword} />
         <Route exact path="/reset-password/:token" component={ResetPassword} />
-
         <Route exact path="/sign-up" component={SignUp} />
         <Route exact path="/start" component={OnBoard} />
-        
         {isAuthenticated()}
       </Switch>
     </Router>

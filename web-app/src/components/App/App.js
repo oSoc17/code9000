@@ -25,7 +25,6 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Observations} />
             <Route exact path="/installations" component={Installations} />
-            
             <Route component={NotFound} />
           </Switch>
         </div>
