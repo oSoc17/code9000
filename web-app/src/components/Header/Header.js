@@ -22,7 +22,7 @@ class Header extends Component {
     return (
       <div className="Header">
         <div className="Header__Wrapper">
-          <img src={logo} alt="Logo" className="Header__Logo" />
+          <NavLink to="/" className="Header__Logo"><img src={logo} alt="Logo" /></NavLink>
           <div className="Header__Menu">
             <NavLink
               to="/ranking"
