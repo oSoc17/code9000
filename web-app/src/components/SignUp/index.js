@@ -49,13 +49,13 @@ class SignUp extends Component {
           onValidationChange={(valid) => this.setState({ isValid: valid })}
           onSubmit={(body) => this.signUp(body)}
         >
-          <Input name="name" rules={['required']} placeholder="Name" className="SignUp__Input" />
-          <Input name="email" rules={['required', 'email']} placeholder="Email" className="SignUp__Input" />
-          <Input name="password" type="password" rules={['required', 'password']} placeholder="Password" className="SignUp__Input" />
+          <Input name="name" rules={['required']} placeholder="Name" className="SignUp__Input" icon="person" />
+          <Input name="email" rules={['required', 'email']} placeholder="Email" className="SignUp__Input" icon="email" />
+          <Input name="password" type="password" rules={['required', 'password']} placeholder="Password" className="SignUp__Input" icon="lock" />
+
           <div className="SignUp__PasswordInformation">
             Password must be at least 5 characters long.
           </div>
-
           <div className="SignUp__Button">
             <Button disabled={!isValid || busy}>Sign up</Button>
           </div>

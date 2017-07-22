@@ -40,7 +40,7 @@ class RequestResetPassword extends Component {
             onSubmit={(body) => this.requestResetPassword(body)}
           >
             <div className="GuestMode__Label">To reset, please fill in your email:</div>
-            <Input name="email" rules={['required', 'email']} placeholder="Email" className="RequestResetPassword__Input" />
+            <Input name="email" rules={['required', 'email']} placeholder="Email" className="RequestResetPassword__Input" icon="email" />
             <div className="RequestResetPassword__Button">
               <Button disabled={!isValid}>Reset password</Button>
             </div>
