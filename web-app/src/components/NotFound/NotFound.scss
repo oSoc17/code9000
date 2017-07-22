@@ -7,14 +7,13 @@
 }
 
 .NotFound__Wrapper {
-  width: 360px;
-  height: 640px;
-
   padding: 50px 30px;
   box-sizing: border-box;
 
   display: flex;
   flex-direction: column;
+
+  height: 100%;
 }
 
 .NotFound__Text {
@@ -36,44 +35,36 @@
 .NotFound__Logo {
   position: relative;
   margin: 0 auto;
-  width: 275px;
-  padding: 20px 20px 50px;
+  width: 500px;
+  height: 360px;
+  padding: 30px 100px;
 }
 
-.NotFound_Logo_Bird_Alone {
+.NotFound_Logo_Background {
   position: absolute;
-  width: 110px;
-  margin: 0 auto;
-  top: 75px;
-  left: 0;
-  right: 0;
-  bottom: 0;
 }
 
-.NotFound_Logo_Bird_Flying {
+.NotFound_Logo_Bird {
   position: absolute;
-  width: 478px;
-  margin: 0 auto;
-  top: 75px;
-  left: -50%;
-  right: -50%;
-  bottom: 0;
+
+  top: 0; left: 0; bottom: 0; right: 0;
+  margin: auto;
+
+  z-index: 2;
+
+  transition: top 4s;
+
+  background-image: url('../../theme/icons/crest_bird.svg');
+  background-repeat: no-repeat;
+  background-size: 170px 170px;
+  background-position: center center;
 }
 
-.NotFound_Logo_Bird_Animation {
-  animation: FLY-ANIMATION 10s ease-out infinite;
+.NotFound_Logo_Bird--hide {
+  top: -900px;
 }
 
-@keyframes FLY-ANIMATION {
-  25% {
-    top: 75px;
-  }
-  75% {
-    display: none;
-    top: -700px;
-  }
-}
-
-.hidden {
-  visibility: hidden !important;
+.NotFound_Logo_Bird--wings {
+  background-image: url('../../theme/icons/crest_bird_flying.svg');
+  background-size: 500px 500px;
 }
