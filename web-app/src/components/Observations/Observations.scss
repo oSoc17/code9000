@@ -1,109 +1,66 @@
 @import "../../theme/_index.scss";
 
-.Observations__Picture {
-  margin: 0 auto;
-  display: block;
-  width: 100%;
-}
-
 .Observations {
+  position: relative;
+
   display: flex;
   flex-direction: column;
-  align-items: center;
+
+  justify-content: space-between;
+
+  height: 100%;
 }
 
-.Observations__Polaroid {
-  width: 115px;
-  margin-bottom: 20px;
-}
-
-.Observations__Polaroid_Forground {
+.Observations__PolaroidIcon {
   display: block;
-  position: relative;
-  z-index: 3;
+  width: 300px;
+
+  margin: 30px auto;
 }
 
-.Observations__Polaroid_Background {
-  display: block;
-  position: relative;
-  bottom: 1px;
-  z-index: 1;
-  width: 113px;
-  margin: auto;
+.Observations__Picture {
+  width: 100%;
+  height: auto;
+  flex: 1;
 }
 
-.Polaroid {
-  box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.16);
-  border-radius: 3px;
-
-  isolation: isolate;
-
-  background-color: #fff;
-
-  padding: $padding * 3;
-  box-sizing: border-box;
-  position: relative;
-  z-index: 2;
-}
-
-.Polaroid__Inner {
-  background-color: rgb(85, 85, 85);
+.Observations__Picture > img {
   width: 100%;
   height: auto;
 }
 
-.Polaroid__Footer {
-  height: 50px;
+.Observations__Footer {
+  margin-top: 30px;
+  border-top: 1px solid rgb(222, 222, 222);
+  background-color: #E9E9E9;
+  width: 100%;
+  height: 100px;
+
+  align-self: flex-end;
 }
 
-.Polaroid_Animation_Before {
-  position: relative;
-  bottom: 100px;
-  padding: $padding;
-  width: 20%;
-  height: 50px;
-}
-
-.Polaroid_Animation_Show {
-  animation: POLAROID-ANIMATION 5s;
-}
-
-@keyframes POLAROID-ANIMATION {
-  0% {
-    position: relative;
-    bottom: 100px;
-    padding: $padding;
-    width: 20%;
-    height: 50px;
-    z-index: 2;
-  }
-  30% {
-    position: relative;
-    bottom: 100px;
-    padding: $padding;
-    width: 20%;
-    height: 50px;
-    z-index: 2;
-  }
-  50% {
-    bottom: 0px;
-  }
-  100% {
-    position: static;
-    padding: $padding * 3;
-    width: 100%;
+.Observations__Footer {
+  .container, .row, .col {
     height: 100%;
   }
 }
 
 .Observations__Buttons {
   display: flex;
-  width: 100%;
   justify-content: space-between;
+  align-items: center;
+  margin: 0 30px;
 }
 
-.Observations__Button {
-  width: 75px;
-  margin: 20px;
+.Observations__Buttons img {
+  height: 90%;
   cursor: pointer;
+}
+
+@include max-height(900px) {
+  .Observations__PolaroidIcon {
+    margin-top: -150px;
+    overflow: hidden;
+    z-index: -99;
+  }
 }
