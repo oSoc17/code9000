@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 import api from '../../utils/api';
+import takeAtLeast from '../../utils/takeAtLeast';
+import feather from '../../theme/icons/feather.svg';
+
+import './Bootstrap.css';
 
 class BootstrapContainer extends Component {
   componentWillMount() {
@@ -11,6 +15,7 @@ class BootstrapContainer extends Component {
       .then(({ data }) => loadUser(data))
       .then(() => {
         return Promise.all([
+          takeAtLeast(800),
           api.get('/auth/observations').then(({ data: paginationModel }) => loadObservations(paginationModel.data)),
         ]);
       })
@@ -19,8 +24,12 @@ class BootstrapContainer extends Component {
 
   render() {
     return (
-      <div>
-        Loading ...
+      <div className="Bootstrap">
+        <img
+          className="Bootstrap__Feather"
+          src={feather}
+          alt="Feather loading"
+        />
       </div>
     );
   }
