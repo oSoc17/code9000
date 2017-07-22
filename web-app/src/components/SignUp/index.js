@@ -1,7 +1,7 @@
 /* global window */
 import React, { Component } from 'react';
 
-import GuestMode from '../GuestMode';
+import GuestMode, { GoBack } from '../GuestMode';
 import Title from '../Title';
 import { Input, Form, Button } from '../Form';
 
@@ -61,6 +61,7 @@ class SignUp extends Component {
           </div>
         </Form>
         )}
+        <GoBack />
       </GuestMode>
     );
   }
