@@ -7,6 +7,5 @@
 }
 
 .App__Wrapper {
-    //width: 70%;
-    margin: $margin * 4;
+    height: calc(100% - 126px); // Make header height using variable
 }
