@@ -24,15 +24,12 @@
 
     isolation: isolate;
 
-    width: 100%;
-
     padding: $padding * 3;
     box-sizing: border-box;
 }
 
 .Polaroid__Inner {
     background-color: rgb(85, 85, 85);
-    width: 100%;
     height: auto;
     user-select: none;
     -moz-user-select: none;
@@ -46,6 +43,7 @@
 }
 
 .Observations__Buttons {
+    z-index: 1;
     display: flex;
     width: 100%;
     justify-content: space-between;
