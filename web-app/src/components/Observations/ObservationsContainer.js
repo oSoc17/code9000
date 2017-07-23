@@ -36,7 +36,11 @@ class ObservationsContainer extends Component {
   }
 
   render() {
-    return <Observations observations={this.props.observations} vote={value => this.vote(value)} generateImageUrl={generateImageUrl} />;
+    return (<Observations
+      observations={this.props.observations}
+      vote={value => this.vote(value)}
+      generateImageUrl={generateImageUrl}
+    />);
   }
 }
 export default ObservationsContainer;
