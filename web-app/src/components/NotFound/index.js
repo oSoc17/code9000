@@ -3,8 +3,6 @@ import React, { Component } from 'react';
 import classNames from '../../utils/classNames';
 
 import crestBackground from '../../theme/icons/crest_red_empty.svg';
-import crestBirdAlone from '../../theme/icons/crest_bird.svg';
-import crestBirdFlying from '../../theme/icons/crest_bird_flying.svg';
 
 import './NotFound.css';
 
