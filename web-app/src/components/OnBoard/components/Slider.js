@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import _ from 'lodash';
 import Flickity from 'flickity';
 
 import 'flickity/dist/flickity.min.css';
@@ -56,7 +55,10 @@ class Slider extends Component {
     const { children, className, getRef } = this.props;
 
     return (
-      <div ref={(carousel) => { this.carousel = carousel; getRef(carousel); }} className={className}>
+      <div
+        ref={(carousel) => { this.carousel = carousel; getRef(carousel); }}
+        className={className}
+      >
         {children}
       </div>
     );

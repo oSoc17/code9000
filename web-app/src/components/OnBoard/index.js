@@ -1,4 +1,4 @@
-/* global window */
+/* global */
 import React, { Component } from 'react';
 import Slider from './components/Slider';
 
@@ -7,14 +7,11 @@ import Slide2 from './Slides/Slide2';
 import Slide3 from './Slides/Slide3';
 import Slide4 from './Slides/Slide4';
 
-import classNames from '../../utils/classNames';
-
 import Header from '../Header';
 import './OnBoard.css';
 
 import bertIcon from '../../theme/icons/bert.svg';
 import polaroidIcon from '../../theme/icons/polaroid.svg';
-import armIcon from '../../theme/icons/arm.svg';
 
 const BERT_POSITION_BOTTOM = 5;
 const POLAROID_POSITION_BOTTOM = 180;
@@ -29,7 +26,6 @@ class OnBoard extends Component {
   }
 
   process(progress) {
-    console.log(progress);
     this.setState({ progress });
   }
 
@@ -73,7 +69,10 @@ class OnBoard extends Component {
     }
 
     return {
-      bottom: positionFrom + (((this.slider.clientHeight - component.clientHeight) * this.state.progress.previous)),
+      bottom:
+        positionFrom
+        + (((this.slider.clientHeight - component.clientHeight)
+        * this.state.progress.previous)),
     };
   }
 
@@ -87,7 +86,6 @@ class OnBoard extends Component {
 
   render() {
     const showFixedPolaroid = this.state.progress.total >= 0.5;
-    //const hideFixedBert = this.state.progress.total >= 0.65;
 
     return (
       <div className="OnBoard">
