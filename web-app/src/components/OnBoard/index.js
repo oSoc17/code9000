@@ -16,8 +16,8 @@ import bertIcon from '../../theme/icons/bert.svg';
 import polaroidIcon from '../../theme/icons/polaroid.svg';
 import armIcon from '../../theme/icons/arm.svg';
 
-const BERT_POSITION_BOTTOM = 0;
-const POLAROID_POSITION_BOTTOM = 190;
+const BERT_POSITION_BOTTOM = 5;
+const POLAROID_POSITION_BOTTOM = 180;
 class OnBoard extends Component {
   constructor(...props) {
     super(...props);
