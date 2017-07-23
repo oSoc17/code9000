@@ -52,11 +52,15 @@ class Observations extends Component {
               <img src={polaroid} alt="Polaroid" />
             </div>
               <Draggable
+                  bounds='parent'
                   onDrag={(e) => {
+                    if (Math.abs(e.movementX) > 10 ) {
+                      this.vote(Math.sign(e.movementX))
+                    }
                     // Betere code: Positie als state opslaan, knoppen objecten maken die positie overerven
                     document.getElementById("thrash").width = 75 + (document.getElementsByClassName("Polaroid")[0].getBoundingClientRect().left - document.getElementsByClassName("Observations")[0].getBoundingClientRect().left)/3
                     document.getElementById("collection").width = 75 - (document.getElementsByClassName("Polaroid")[0].getBoundingClientRect().left - document.getElementsByClassName("Observations")[0].getBoundingClientRect().left)/3
-                    document.getElementsByClassName("Polaroid__Inner")[0].width -= e.movementY // WHY THE FUCK WERKT DIT NIET
+                    document.getElementsByClassName("Polaroid__Inner")[0].width -= 2 * e.movementY // WHY THE FUCK WERKT DIT NIET
                   }
                 }
               >
