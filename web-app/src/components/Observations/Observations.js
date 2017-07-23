@@ -2,94 +2,68 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 
 import Title from '../Title';
-import { Button } from '../Form';
-
-import api from '../../utils/api';
-
-import polaroidUp from '../../theme/icons/polaroid.svg';
-import polaroidDown from '../../theme/icons/polaroid_down.svg';
-import trash from '../../theme/icons/trash.svg';
-import book from '../../theme/icons/book.svg';
+import Polaroid from '../Polaroid';
 
 import './Observations.css';
-import classNames from '../../utils/classNames';
+import polaroid from '../../theme/icons/polaroid.svg';
+import trash from '../../theme/icons/trash.svg';
+import book from '../../theme/icons/book.svg';
+import feather from '../../theme/icons/feather.svg';
+
+const generateImageUrl = (observationId) => {
+  return `${process.env.REACT_APP_API_URL}/observations/${observationId}/picture`;
+};
 
 class Observations extends Component {
-
-  constructor(...props) {
-    super(...props);
-
-    this.state = {
-      toggle: true,
-    };
-  }
-
-  vote(value) {
-    this.togglePolaroidAnimation();
-
-    const observation = _.head(this.props.observations);
-    const newObservations = [..._.drop(this.props.observations)];
-
-    api.post('/votes', {
-      body: {
-        observation_id: observation.id,
-        value,
-      },
-    }).then(() => {
-      this.props.loadObservations(newObservations);
-      this.togglePolaroidAnimation();
-
-      if (newObservations.length < 6) {
-        this.fetch();
-      }
-    });
-  }
-
-  togglePolaroidAnimation() {
-    this.setState(({ toggle }) => ({ toggle: !toggle }));
-  }
-
-  fetch() {
-    api.get('/auth/observations').then(({ data: paginationModel }) => {
-      this.props.loadObservations(paginationModel.data);
-    });
-  }
-
   render() {
-    const observation = _.head(this.props.observations);
+    const { observations, vote } = this.props;
+
+    if (observations.length <= 0) {
+      return (
+        <div className="container Observations__Empty">
+          <div className="Feather">
+            <img src={feather} alt="Feather" />
+          </div>
+          <div className="col-lg-12">
+            <h1>All the birds have flown for today!</h1>
+            <p>Thank you so much for your contribution.</p>
+            <p>
+              Follow <a href="https://twitter.com/TodayBirds">@TodayBirds</a> on twitter or like the
+              page <a href="https://www.facebook.com/TodayBirds/">Birds Today</a> on Facebook to
+              keep track of all the pictures Bert takes.
+            </p>
+          </div>
+        </div>
+      );
+    }
+
+    const observation = _.head(observations);
 
     return (
-      <div>
-        <Title name="Observations" />
-        {observation && (
-          <div className="Observations">
-            <div className="Observations__Polaroid">
-              <img className="Observations__Polaroid_Forground" src={polaroidUp} alt="Polaroid" />
-              <img className="Observations__Polaroid_Background" src={polaroidDown} alt="Polaroid" />
+      <div className="Observations">
+        <Title name="Vote" />
+        <div className="container">
+          <div className="row">
+            <div className="col col-lg-12">
+              <img className="Observations__PolaroidIcon" src={polaroid} alt="Polaroid camera" />
             </div>
-            <div className={classNames('Polaroid', !this.state.toggle && 'Polaroid_Animation_Before', this.state.toggle && 'Polaroid_Animation_Show')}>
-              <img
-                className="Polaroid__Inner"
-                src={`${process.env.REACT_APP_API_URL}/observations/${observation.id}/picture`}
-                alt="Observation"
-              />
-              <div className="Polaroid__Footer" />
-            </div>
-
-            <div className="Observations__Buttons">
-              <Button onClick={() => this.vote(1)} className="Form__Button--clean">
-                <img className="Observations__Button" src={book} alt="Add to collection" />
-              </Button>
-              <Button onClick={() => this.vote(-1)} className="Form__Button--clean">
-                <img className="Observations__Button" src={trash} alt="Add to trash" />
-              </Button>
+            <div className="col col-lg-offset-2 col-lg-8">
+              <div className="Observations__Picture">
+                <Polaroid img={generateImageUrl(observation.id)} />
+              </div>
             </div>
           </div>
-        )}
-
-        {observation === undefined && (
-          <p>No observations left</p>
-        )}
+        </div>
+        <div className="Observations__Footer">
+          <div className="container">
+            <div className="row">
+              <div className="col col-lg-12 Observations__Buttons">
+                <img src={trash} alt="Swipe observation to trash" onClick={() => vote(1)} />
+                <img src={book} alt="Swipe book to trash" onClick={() => vote(-1)} />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

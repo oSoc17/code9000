@@ -49,7 +49,14 @@ class RequestResetPassword extends Component {
             onSubmit={(body) => this.requestResetPassword(body)}
           >
             <div className="GuestMode__Label">Fill in your new password:</div>
-            <Input type="password" name="password" rules={['required', 'password']} placeholder="Password" className="ResetPassword__Input" />
+            <Input
+              type="password"
+              name="password"
+              rules={['required', 'password']}
+              placeholder="Password"
+              className="ResetPassword__Input"
+              icon="lock"
+            />
             <div className="ResetPassword__Button">
               <Button disabled={!isValid}>Reset password</Button>
             </div>

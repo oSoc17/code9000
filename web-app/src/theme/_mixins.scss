@@ -4,6 +4,12 @@
   }
 }
 
+@mixin max-height($size) {
+  @media only screen and (max-height: $size) {
+    @content;
+  }
+}
+
 @mixin onMobile() {
   @include respond-to($xs) {
     @content;
