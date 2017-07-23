@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Polaroid from '../../Polaroid';
+import Polaroid from '../../../Polaroid';
 import { Slide } from '../components/Slider';
 
 import commonTern1 from '../pictures/common_tern_1.jpeg';

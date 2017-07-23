@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Slide } from '../components/Slider';
 
-import polaroidIcon from '../../../theme/icons/polaroid.svg';
+import polaroidIcon from '../../../../theme/icons/polaroid.svg';
 
 const Slide3 = ({ showFixedPolaroid }) => (
   <Slide className="Carrousel__Item">

@@ -1,4 +1,4 @@
-@import "../../theme/_index.scss";
+@import "../../../theme/_index.scss";
 
 @mixin centerHorizontal() {
   position: absolute;
@@ -9,8 +9,8 @@
 }
 
 .OnBoard {
-  height: 100%;
   width: 100%;
+  height: 100%;
 
   background-color: whitesmoke;
   overflow: auto;
@@ -47,7 +47,6 @@
 .Carrousel__Item {
   width: 100% !important;
   height: 100% !important;
-  pointer-events: none;
 
   .Carrousel__Item__Text {
     margin-top: 50px;
@@ -125,4 +124,14 @@
   bottom: 145px;
 
   position: absolute;
+}
+
+.Carrousel__Item__Slide4 {
+  display: flex;
+  align-items: center;
+}
+
+.Carrousel__Item__Action {
+  height: 70px;
+  margin: 30px;
 }

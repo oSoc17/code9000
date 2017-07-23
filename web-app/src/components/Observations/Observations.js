@@ -10,13 +10,9 @@ import trash from '../../theme/icons/trash.svg';
 import book from '../../theme/icons/book.svg';
 import feather from '../../theme/icons/feather.svg';
 
-const generateImageUrl = (observationId) => {
-  return `${process.env.REACT_APP_API_URL}/observations/${observationId}/picture`;
-};
-
 class Observations extends Component {
   render() {
-    const { observations, vote } = this.props;
+    const { observations, vote, generateImageUrl } = this.props;
 
     if (observations.length <= 0) {
       return (

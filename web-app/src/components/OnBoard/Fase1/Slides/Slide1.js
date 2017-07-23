@@ -1,7 +1,7 @@
 import React from 'react';
 import { Slide } from '../components/Slider';
 
-import verkijkerIcon from '../../../theme/icons/verkijker.svg';
+import verkijkerIcon from '../../../../theme/icons/verkijker.svg';
 
 export const Slide1 = () => (
   <Slide className="Carrousel__Item">

@@ -1,19 +1,21 @@
 /* global */
 import React, { Component } from 'react';
-import Slider from './components/Slider';
+import Slider from './Fase1/components/Slider';
 
-import Slide1 from './Slides/Slide1';
-import Slide2 from './Slides/Slide2';
-import Slide3 from './Slides/Slide3';
-import Slide4 from './Slides/Slide4';
+import Slide1 from './Fase1/Slides/Slide1';
+import Slide2 from './Fase1/Slides/Slide2';
+import Slide3 from './Fase1/Slides/Slide3';
+import Slide4 from './Fase1/Slides/Slide4';
 
 import Header from '../Header';
-import './OnBoard.css';
+import './Fase1/OnBoard.css';
 
 import bertIcon from '../../theme/icons/bert.svg';
 import polaroidIcon from '../../theme/icons/polaroid.svg';
 
-const BERT_POSITION_BOTTOM = 5;
+import Fase2 from './Fase2';
+
+const BERT_POSITION_BOTTOM = 0;
 const POLAROID_POSITION_BOTTOM = 180;
 class OnBoard extends Component {
   constructor(...props) {
@@ -22,6 +24,7 @@ class OnBoard extends Component {
     this.state = {
       index: 0,
       progress: {},
+      fase2: false,
     };
   }
 
@@ -84,43 +87,52 @@ class OnBoard extends Component {
     return this.moveTop(POLAROID_POSITION_BOTTOM, this.fixedPolaroid);
   }
 
+  showFase2() {
+    this.setState({ fase2: true });
+  }
+
   render() {
     const showFixedPolaroid = this.state.progress.total >= 0.5;
 
     return (
       <div className="OnBoard">
         <Header />
-        <div className="OnBoard__Wrapper">
-          <div className="OnBoard__Content">
-            {!false && (<img
-              src={bertIcon}
-              alt="Avatar of Bert, the Bird nerd."
-              className="OnBoard__Bert"
-              ref={(ref) => this.fixedBert = ref}
-              style={this.moveBert()}
-            />)}
+        {this.state.fase2 && (
+          <Fase2 />
+        )}
+        {!this.state.fase2 && (
+          <div className="OnBoard__Wrapper">
+            <div className="OnBoard__Content">
+              {!false && (<img
+                src={bertIcon}
+                alt="Avatar of Bert, the Bird nerd."
+                className="OnBoard__Bert"
+                ref={(ref) => this.fixedBert = ref}
+                style={this.moveBert()}
+              />)}
 
-            {showFixedPolaroid && (<img
-              src={polaroidIcon}
-              alt="Polaroid of Bert"
-              className="OnBoard__Polaroid"
-              ref={(ref) => this.fixedPolaroid = ref}
-              style={this.movePolaroid()}
-            />)}
+              {showFixedPolaroid && (<img
+                src={polaroidIcon}
+                alt="Polaroid of Bert"
+                className="OnBoard__Polaroid"
+                ref={(ref) => this.fixedPolaroid = ref}
+                style={this.movePolaroid()}
+              />)}
 
-            <Slider
-              className="Carrousel"
-              process={(percent) => this.process(percent)}
-              currentIndex={(index) => this.currentIndex(index)}
-              getRef={(ref) => this.slider = ref}
-            >
-              <Slide1 />
-              <Slide2 />
-              <Slide3 showFixedPolaroid={showFixedPolaroid} />
-              <Slide4 />
-            </Slider>
+              <Slider
+                className="Carrousel"
+                process={(percent) => this.process(percent)}
+                currentIndex={(index) => this.currentIndex(index)}
+                getRef={(ref) => this.slider = ref}
+              >
+                <Slide1 />
+                <Slide2 />
+                <Slide3 showFixedPolaroid={showFixedPolaroid} />
+                <Slide4 showFase2={() => this.showFase2()} />
+              </Slider>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     );
   }
