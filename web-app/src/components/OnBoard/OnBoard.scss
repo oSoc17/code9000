@@ -1,68 +1,41 @@
 @import "../../theme/_index.scss";
 
-.OnBoard {
-  display: flex;
-  flex-direction: column;
-
-  height: 100%;
-  min-height: 100%;
-
-  margin: 0 auto;
-  background-color: whitesmoke;
-}
-
-.OnBoard__Content {
-  flex: 1;
-}
-
-.OnBoard__Bottom {
-  width: 100%;
-  height: 100%;
-
-  overflow: hidden;
-  position: relative;
-
-  margin: 0 auto;
-
-  max-width: $xs;
-}
-
-.OnBoard__Bert {
-  margin: 0 auto;
-  width: 325px;
-
+@mixin centerHorizontal() {
   position: absolute;
   left: -50%;
   right: -50%;
-  bottom: -20px; // TODO: fix this with the icon
-}
-
-.OnBoard__Bert--disappear {
-  animation: bertdisappear 5s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes bertdisappear {
-  from {
-    transform: translateY(0px);
-  }
-  to {
-    transform: translateY(370px);
-  }
-}
-
-.OnBoard__Arm {
+  
   margin: 0 auto;
+}
 
-  width: 127.5px;
+.OnBoard {
+  height: 100%;
+  width: 100%;
 
-  position: absolute;
-  left: calc(-50% + 198px);
-  right: -50%;
+  background-color: whitesmoke;
+  overflow: auto;
+  position: relative;
+}
 
-  bottom: 90px;
+.OnBoard__Wrapper {
+  position: relative;
+  width: 100%;
 
-  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.OnBoard__Content {
+  //height: 100%;
+  width: 100%;
+
+  height: 640px;
+  max-width: 360px;
+
+  border: 1px solid darken(whitesmoke, 20);
+
+  position: relative;
 }
 
 .Carrousel {
@@ -71,100 +44,84 @@
 }
 
 .Carrousel__Item {
-  width: 100%;
+  width: 100% !important;
   height: 100% !important;
-  padding: $padding * 8;
+  pointer-events: none;
+
+  .Carrousel__Item__Text {
+    margin-top: 50px;
+    margin-left: 50px;
+
+    max-width: 250px;
+
+    position: absolute;
+
+    p {
+      font-size: 20px;
+      margin-top: 25px;
+    }
+  }
 }
 
-.Carrousel__Item__Text {
-  font-size: 20px;
-  margin-bottom: $margin * 4;
-  max-width: 250px;
+.OnBoard__Bert {
+  @include centerHorizontal();
+  width: 250px;
+  bottom: 0;
+
+  transition: bottom 1.5s linear;
 }
 
-.Carrousel__Glass {
-  width: 180px;
-  margin: 0 auto;
-
-  position: absolute;
-  left: 0;
-  right: 16px;
-
-  bottom: 140px;
+.OnBoard__Verkijker {
+  @include centerHorizontal();
+  width: 200px;
+  bottom: 150px;
+  left: calc(-50% - 35px);
 }
 
-.Carrousel__Polaroid {
-  width: 145px;
-  margin: 0 auto;
+.OnBoard__Polaroid {
+  @include centerHorizontal();
+  width: 150px;
+  height: auto;
+  bottom: 190px;
+  left: calc(-50% - 15px);
 
-  position: absolute;
-  left: 0;
-  right: 16px;
-  bottom: 130px;
-
-  transition: all 5s ease 0s;
-}
-
-.Carrousel__Polaroid--disappear {
-  bottom: calc(100% - 55px) !important;
+  transition: bottom 1.5s linear;
 }
 
 .Carrousel__Dias {
-  margin-top: 85px;
+  .Polaroid {
+    padding: 10px;
+    padding-bottom: 25px;
+    border-radius: 0px;
+  }
 }
 
-.Carrousel__Dia {
-  border-radius: 2px;
-  border: 1px solid rgb(154, 154, 154);
-  padding: 10px 10px 40px;
-  position: absolute;
-
-  background-color: white;
-}
-
-.Carrousel__Dia > img {
-  width: 100%;
-  height: 100%;
-}
-
-.Carrousel__Dia--1 {
-  width: 240px;
+.Carrousel__Dias__1 {
+  width: 55%;
   height: 150px;
-  transform: rotate(-20deg);
 
-  left: 0;
+  position: absolute;
+  bottom: 240px;
+  transform: rotate(-10deg);
 }
 
-.Carrousel__Dia--2 {
-  width: 200px;
-  height: 145px;
-  transform: rotate(20deg);
-
-  right: 0;
+.Carrousel__Dias__2 {
+  width: 55%;
+  height: 150px;
+  
+  position: absolute;
+  bottom: 240px;
+  right: -20px;
+  transform: rotate(6deg);
 }
 
-.Carrousel__Dia--3 {
-  width: 250px;
-  height: 200px;
-  margin: 75px auto;
-  left: 0;
-  right: 0;
-}
+.Carrousel__Dias__3 {
+  @include centerHorizontal();
 
-@include respond-to(345px) {
-  .OnBoard__Bert {
-    bottom: -80px;
-  }
+  width: 70%;
+  height: 150px;
 
-  .OnBoard__Arm {
-    bottom: 29px;
-  }
+  bottom: 145px;
 
-  .Carrousel__Glass {
-    bottom: 80px;
-  }
-
-  .Carrousel__Polaroid {
-    bottom: 70px;
-  }
+  position: absolute;
 }
