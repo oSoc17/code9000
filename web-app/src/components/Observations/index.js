@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import Observations from './Observations';
+import ObservationsContainer from './ObservationsContainer';
 import mapActionCreatorsToProps from '../../utils/mapActionCreatorsToProps';
 
 import { loadObservations } from '../../actions';
@@ -18,4 +18,4 @@ const actionCreators = mapActionCreatorsToProps({
 export default connect(
   mapStateToProps,
   actionCreators,
-)(Observations);
+)(ObservationsContainer);

@@ -1,4 +1,4 @@
-@import "../../../theme/_index.scss";
+@import "../../../../theme/_index.scss";
 
 .flickity-page-dots {
     bottom: 10px;
@@ -13,4 +13,9 @@
 
 .flickity-page-dots > .is-selected {
     background-color: $thunderbird !important;
+}
+
+.flickity-viewport {
+    height: 100% !important;
+    min-height: 100%;
 }

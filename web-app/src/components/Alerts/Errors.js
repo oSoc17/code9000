@@ -2,14 +2,14 @@ import React from 'react';
 
 import classNames from '../../utils/classNames';
 
-import './Errors.css';
+import './Alerts.css';
 
-const Errors = ({ errors, className }) => {
+export const Errors = ({ errors, className }) => {
   const keys = Object.keys(errors);
 
   if (keys.length > 1) {
     return (
-      <div className={classNames('Errors', className)}>
+      <div className={classNames('Alert', 'Errors', className)}>
         <ul className="Errors__List">
           {keys.map((key) => <li key={key}>{errors[key]}</li>)}
         </ul>
@@ -18,12 +18,10 @@ const Errors = ({ errors, className }) => {
   }
 
   return (
-    <div className={classNames('Errors', className)}>
+    <div className={classNames('Alert', 'Errors', className)}>
       {keys.map((key) => (
-        <div>{errors[key]}</div>
+        <div key={key}>{errors[key]}</div>
       ))}
     </div>
   );
 };
-
-export default Errors;

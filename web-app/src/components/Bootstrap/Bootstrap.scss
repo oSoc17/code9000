@@ -1,0 +1,22 @@
+.Bootstrap {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Bootstrap__Feather {
+  animation: spin 1500ms infinite;
+  animation-timing-function: linear;
+  width: 120px;
+  height: 120px;
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

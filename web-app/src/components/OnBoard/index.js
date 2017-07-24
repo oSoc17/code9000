@@ -1,130 +1,138 @@
-/* global window */
+/* global */
 import React, { Component } from 'react';
-import Slider from './components/Slider';
+import Slider from './Fase1/components/Slider';
+
+import Slide1 from './Fase1/Slides/Slide1';
+import Slide2 from './Fase1/Slides/Slide2';
+import Slide3 from './Fase1/Slides/Slide3';
+import Slide4 from './Fase1/Slides/Slide4';
 
 import Header from '../Header';
-import './OnBoard.css';
+import './Fase1/OnBoard.css';
 
 import bertIcon from '../../theme/icons/bert.svg';
-import armIcon from '../../theme/icons/arm.svg';
-import verkijkerIcon from '../../theme/icons/verkijker.svg';
 import polaroidIcon from '../../theme/icons/polaroid.svg';
 
+import Fase2 from './Fase2';
+
+const BERT_POSITION_BOTTOM = 0;
+const POLAROID_POSITION_BOTTOM = 180;
 class OnBoard extends Component {
   constructor(...props) {
     super(...props);
 
     this.state = {
-      showFixedPolaroid: false,
-      progress: undefined,
-      top: undefined,
-      bottom: undefined,
-      armBottom: 'visibile',
-      currentSlide: 0,
+      index: 0,
+      progress: {},
+      fase2: false,
     };
   }
 
-  checkProgress(percent) {
-    this.setState({
-      showFixedPolaroid: percent >= 0.5,
-      progress: percent,
-      top: this.calculateTopPolaroid(),
-      bottom: this.calculateBottomBert(),
-      armBottom: this.calculateBottomArm(),
-    });
+  process(progress) {
+    this.setState({ progress });
   }
 
-  checkIndex(index) {
-    this.setState({
-      currentSlide: index,
-    });
+  currentIndex(index) {
+    this.setState({ index });
   }
 
-  calculateTopPolaroid() {
-    const { progress } = this.state;
-
-    const top = (window.innerHeight - (152 + 127)); // Margin from bottom + height of polaroid
-
-    if (progress >= 0.5) {
-      return top * (1 - ((progress - 0.5) * 4.15));
+  moveBottom(positionFrom, component) {
+    if (!this.slider || !component) {
+      return undefined;
     }
 
-    return top - (60 - 5); // Height of header
-  }
-
-  calculateBottomBert() {
-    const { progress } = this.state;
-
-    if (progress >= 0.5) {
-      return -20 * (1 + ((progress - 0.5) * 72));
+    if (this.state.progress.total >= 0.65) {
+      return {
+        bottom: positionFrom - component.clientHeight,
+      };
     }
 
-    return -20;
-  }
-
-  calculateBottomArm() {
-    const { progress } = this.state;
+    if (this.state.progress.total < 0.5 || this.state.progress.previous < 0) {
+      return undefined;
+    }
 
     return {
-      visibility: progress > 0.5 ? 'hidden' : 'visible',
-      zIndex: progress >= 0.04 && progress < 0.34 ? '0' : '1',
+      bottom: positionFrom - ((component.clientHeight * this.state.progress.previous)),
     };
+  }
+
+  moveTop(positionFrom, component) {
+    if (!this.slider || !component) {
+      return undefined;
+    }
+
+    if (this.state.progress.total >= 0.65) {
+      return {
+        bottom: this.slider.clientHeight,
+      };
+    }
+
+    if (this.state.progress.total < 0.5 || this.state.progress.previous < 0) {
+      return undefined;
+    }
+
+    return {
+      bottom:
+        positionFrom
+        + (((this.slider.clientHeight - component.clientHeight)
+        * this.state.progress.previous)),
+    };
+  }
+
+  moveBert() {
+    return this.moveBottom(BERT_POSITION_BOTTOM, this.fixedBert);
+  }
+
+  movePolaroid() {
+    return this.moveTop(POLAROID_POSITION_BOTTOM, this.fixedPolaroid);
+  }
+
+  showFase2() {
+    this.setState({ fase2: true });
   }
 
   render() {
-    const { showFixedPolaroid, currentSlide } = this.state;
-
-    if (currentSlide >= 3) {
-      return (
-        <div>Start trial</div>
-      );
-    }
+    const showFixedPolaroid = this.state.progress.total >= 0.5;
 
     return (
       <div className="OnBoard">
         <Header />
-        <div className="OnBoard__Content" />
+        {this.state.fase2 && (
+          <Fase2 />
+        )}
+        {!this.state.fase2 && (
+          <div className="OnBoard__Wrapper">
+            <div className="OnBoard__Content">
+              {!false && (<img
+                src={bertIcon}
+                alt="Avatar of Bert, the Bird nerd."
+                className="OnBoard__Bert"
+                ref={(ref) => this.fixedBert = ref}
+                style={this.moveBert()}
+              />)}
 
-        <div className="OnBoard__Footer">
-          <img src={bertIcon} alt="Avatar of Bert, the Bird nerd." className="OnBoard__Footer__Bert" style={{ bottom: `${this.calculateBottomBert()}px` }} />
-          <img src={armIcon} alt="Arm of Bert." className="OnBoard__Footer__Arm" style={this.calculateBottomArm()} />
-          {showFixedPolaroid && (<img src={polaroidIcon} alt="" className="OnBoard__Carrousel__Polaroid OnBoard__Carrousel__PolaroidFixed" style={{ top: `${this.calculateTopPolaroid()}px` }} />)}
+              {showFixedPolaroid && (<img
+                src={polaroidIcon}
+                alt="Polaroid of Bert"
+                className="OnBoard__Polaroid"
+                ref={(ref) => this.fixedPolaroid = ref}
+                style={this.movePolaroid()}
+              />)}
 
-          <Slider
-            className="OnBoard__Carrousel"
-            process={(percent) => this.checkProgress(percent)}
-            currentIndex={(index) => this.checkIndex(index)}
-          >
-            <div className="OnBoard__Carrousel__Item">
-              <div className="OnBoard__Carrousel__Item__Text">Hi, my name is Bert.</div>
-              <div className="OnBoard__Carrousel__Item__Text">I LOVE birds. And I need your help.</div>
-              <img src={verkijkerIcon} alt="" className="OnBoard__Carrousel__Glass" />
+              <Slider
+                className="Carrousel"
+                process={(percent) => this.process(percent)}
+                currentIndex={(index) => this.currentIndex(index)}
+                getRef={(ref) => this.slider = ref}
+              >
+                <Slide1 />
+                <Slide2 />
+                <Slide3 showFixedPolaroid={showFixedPolaroid} />
+                <Slide4 showFase2={() => this.showFase2()} />
+              </Slider>
             </div>
-            <div className="OnBoard__Carrousel__Item">
-              <div className="OnBoard__Carrousel__Item__Text">I&apos;m looking for the common tern.</div>
-              <div className="OnBoard__Carrousel__Item__Text">I took some pictures, this is what they look like!</div>
-
-              <div className="OnBoard__Carrousel__Dias">
-                <div className="OnBoard__Carrousel__Dia OnBoard__Carrousel__Dia--1">
-                  <img src="" alt="" />
-                </div>
-                <div className="OnBoard__Carrousel__Dia OnBoard__Carrousel__Dia--2">
-                  <img src="" alt="" />
-                </div>
-                <div className="OnBoard__Carrousel__Dia OnBoard__Carrousel__Dia--3">
-                  <img src="" alt="" />
-                </div>
-              </div>
-            </div>
-            <div className="OnBoard__Carrousel__Item">
-              <div className="OnBoard__Carrousel__Item__Text">I&apos;m going to the HoutDok in Ghent right now to take some more pictures..</div>
-              <div className="OnBoard__Carrousel__Item__Text">I would like you to help me spot the common tern.</div>
-
-              {!showFixedPolaroid && <img src={polaroidIcon} alt="" className="OnBoard__Carrousel__Polaroid" style={{ top: `${this.calculateTopPolaroid()}px` }} />}
-            </div>
-            <div className="OnBoard__Carrousel__Item" />
-          </Slider>
-        </div>
+          </div>
+        )}
       </div>
     );
   }

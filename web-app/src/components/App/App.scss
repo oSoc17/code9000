@@ -1,12 +1,13 @@
 @import "../../theme/_index.scss";
 
 .App {
-    width: 360px;
+    width: 100%;
     height: 100%;
     margin: 0 auto;
 }
 
 .App__Wrapper {
-    //width: 70%;
-    margin: $margin * 4;
+    height: calc(100% - 126px); // Make header height using variabe
+
+    overflow-x: hidden;
 }

@@ -1,0 +1,141 @@
+@import "../../../theme/_index.scss";
+
+@mixin centerHorizontal() {
+  position: absolute;
+  left: -50%;
+  right: -50%;
+  
+  margin: 0 auto;
+}
+
+.OnBoard {
+  width: 100%;
+  height: 100%;
+
+  background-color: whitesmoke;
+  overflow: auto;
+  position: relative;
+}
+
+.OnBoard__Wrapper {
+  position: relative;
+  width: 100%;
+  //height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.OnBoard__Content {
+  //height: 100%;
+  width: 100%;
+
+  height: 640px;
+  max-width: 360px;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.Carrousel {
+  width: 100%;
+  height: 100%;
+}
+
+.Carrousel__Item {
+  width: 100% !important;
+  height: 100% !important;
+
+  .Carrousel__Item__Text {
+    margin-top: 50px;
+    margin-left: 50px;
+
+    max-width: 250px;
+
+    position: absolute;
+
+    p {
+      font-size: 20px;
+      margin-top: 25px;
+    }
+  }
+}
+
+.OnBoard__Bert {
+  @include centerHorizontal();
+  width: 250px;
+  bottom: 0;
+
+  transition: bottom 1.5s linear;
+}
+
+.OnBoard__Verkijker {
+  @include centerHorizontal();
+  width: 200px;
+  bottom: 150px;
+  left: calc(-50% - 35px);
+}
+
+.OnBoard__Polaroid {
+  @include centerHorizontal();
+  width: 150px;
+  height: auto;
+  bottom: 190px;
+  left: calc(-50% - 15px);
+
+  transition: bottom 1.5s linear;
+}
+
+.Carrousel__Dias {
+  .Polaroid {
+    padding: 10px;
+    padding-bottom: 25px;
+    border-radius: 0px;
+  }
+}
+
+.Carrousel__Dias__1 {
+  width: 55%;
+  height: 150px;
+
+  position: absolute;
+  bottom: 240px;
+  transform: rotate(-10deg);
+}
+
+.Carrousel__Dias__2 {
+  width: 55%;
+  height: 150px;
+  
+  position: absolute;
+  bottom: 240px;
+  right: -20px;
+  transform: rotate(6deg);
+}
+
+.Carrousel__Dias__3 {
+  @include centerHorizontal();
+
+  width: 70%;
+  height: 150px;
+
+  bottom: 145px;
+
+  position: absolute;
+}
+
+.Carrousel__Item__Slide4 {
+  display: flex;
+  align-items: center;
+}
+
+.Carrousel__Item__Action {
+  height: 70px;
+  margin: 30px;
+}
+
+.Observations__Empty {
+  overflow: hidden;
+}

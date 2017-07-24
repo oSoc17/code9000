@@ -7,35 +7,64 @@
 }
 
 .NotFound__Wrapper {
-  width: 360px;
-  height: 640px;
-
   padding: 50px 30px;
   box-sizing: border-box;
 
   display: flex;
   flex-direction: column;
+
+  height: 100%;
 }
 
 .NotFound__Text {
-    text-align: center;
-    font-weight: 900;
-    font-size: 22px;
-    color: $mountainMist;
-    margin: 20px 0px;
+  text-align: center;
+  font-weight: 900;
+  font-size: 22px;
+  color: $mountainMist;
+  margin: 20px 0px;
 }
 
 .NotFound__SubText {
-    text-align: center;
-    font-weight: 900;
-    font-size: 20px;
-    color: $mountainMist;
-    margin: 20px 0px;
+  text-align: center;
+  font-weight: 900;
+  font-size: 20px;
+  color: $mountainMist;
+  margin: 20px 0px;
 }
 
 .NotFound__Logo {
+  position: relative;
   margin: 0 auto;
-  width: 275px;
+  width: 500px;
+  height: 360px;
+  padding: 30px 100px;
+}
 
-  padding: 20px 20px 50px;
+.NotFound_Logo_Background {
+  position: absolute;
+}
+
+.NotFound_Logo_Bird {
+  position: absolute;
+
+  top: 0; left: 0; bottom: 0; right: 0;
+  margin: auto;
+
+  z-index: 2;
+
+  transition: top 1.5s;
+
+  background-image: url('../../theme/icons/crest_bird.svg');
+  background-repeat: no-repeat;
+  background-size: 170px 170px;
+  background-position: center center;
+}
+
+.NotFound_Logo_Bird--hide {
+  top: -900px;
+}
+
+.NotFound_Logo_Bird--wings {
+  background-image: url('../../theme/icons/crest_bird_flying.svg');
+  background-size: 500px 500px;
 }
