@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import Title from '../Title';
 import Divider from '../Divider';
-import GuestMode from '../GuestMode';
+import GuestMode, { GoBack } from '../GuestMode';
 
 import { Errors } from '../Alerts';
 import { Form, Input, Button, FacebookButton } from '../Form';
@@ -73,6 +73,10 @@ class Login extends Component {
 
             <div className="Login__SignUp">
               Not a member? <Link to="/sign-up">Sign up here!</Link>
+            </div>
+
+            <div className="Login__GoBack">
+              <GoBack to="/app" />
             </div>
           </Form>
         </div>

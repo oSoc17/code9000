@@ -4,7 +4,7 @@
   margin-top: 16px;
 }
 
-.Login__ForgotPassword, .Login__SignUp {
+.Login__ForgotPassword {
   margin-top: 4px;
   font-size: 11px;
 
@@ -12,10 +12,19 @@
 }
 
 .Login__SignUp {
+  margin-top: 4px;
+  
+  font-size: 15px;
+  color: $lobLolly;
+
   width: 100%;
   text-align: center;
 }
 
 .Login__LoginButton {
   margin: 20px 0px;
+}
+
+.Login__GoBack {
+  margin-top: $margin * 3;
 }
