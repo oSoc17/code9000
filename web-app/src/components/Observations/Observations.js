@@ -10,13 +10,9 @@ import trash from '../../theme/icons/trash.svg';
 import book from '../../theme/icons/book.svg';
 import feather from '../../theme/icons/feather.svg';
 
-const generateImageUrl = (observationId) => {
-  return `${process.env.REACT_APP_API_URL}/observations/${observationId}/picture`;
-};
-
 class Observations extends Component {
   render() {
-    const { observations, vote } = this.props;
+    const { observations, vote, generateImageUrl } = this.props;
 
     if (observations.length <= 0) {
       return (
@@ -45,12 +41,16 @@ class Observations extends Component {
         <div className="Observations__Picture">
           <div className="container">
             <div className="row">
-              <div className="col-lg-12">
+              <div className="col col-lg-12 Observations__PolaroidIcon__Wrapper">
                 <img className="Observations__PolaroidIcon" src={polaroid} alt="Polaroid camera" />
+              </div>
+              <div className="col col-lg-offset-2 col-lg-8">
+                <div className="Observations__Picture">
+                  <Polaroid img={generateImageUrl(observation.id)} />
+                </div>
               </div>
             </div>
           </div>
-          <Polaroid img={generateImageUrl(observation.id)} />
         </div>
         <div className="Observations__Footer">
           <div className="container">

@@ -42,14 +42,23 @@ class Slider extends Component {
   }
 
   progressChanged(procent) {
-    this.props.process(procent);
+    const amountChildren = this.props.children.length;
+    const currentIndexProcent = (this.state.selectedIndex * (100 / amountChildren)) / 100;
+
+    this.props.process({
+      total: procent,
+      previous: parseFloat(((procent - currentIndexProcent) * amountChildren).toFixed(4)),
+    });
   }
 
   render() {
-    const { children, className } = this.props;
+    const { children, className, getRef } = this.props;
 
     return (
-      <div ref={(carousel) => this.carousel = carousel} className={className}>
+      <div
+        ref={(carousel) => { this.carousel = carousel; getRef(carousel); }}
+        className={className}
+      >
         {children}
       </div>
     );
@@ -65,5 +74,11 @@ Slider.defaultProps = {
   process: () => {},
   currentIndex: () => {},
 };
+
+export const Slide = ({ children, className }) => (
+  <div className={className}>
+    {children}
+  </div>
+);
 
 export default Slider;

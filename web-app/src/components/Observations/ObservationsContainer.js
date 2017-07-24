@@ -4,6 +4,10 @@ import _ from 'lodash';
 import Observations from './Observations';
 import api from '../../utils/api';
 
+const generateImageUrl = (observationId) => {
+  return `${process.env.REACT_APP_API_URL}/observations/${observationId}/picture`;
+};
+
 class ObservationsContainer extends Component {
   componentWillMount() {
     this.fetch();
@@ -32,7 +36,11 @@ class ObservationsContainer extends Component {
   }
 
   render() {
-    return <Observations observations={this.props.observations} vote={value => this.vote(value)} />;
+    return (<Observations
+      observations={this.props.observations}
+      vote={value => this.vote(value)}
+      generateImageUrl={generateImageUrl}
+    />);
   }
 }
 export default ObservationsContainer;
