@@ -11,5 +11,6 @@
 
 .App__Wrapper {
     flex: 1;
-    padding: 30px;
+    padding-top: $appWrapperPadding;
+    position: relative;
 }
