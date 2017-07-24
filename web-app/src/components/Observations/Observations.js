@@ -46,7 +46,8 @@ class Observations extends Component {
               </div>
               <Swipeable
                 onSwipeLeft={() => vote(1)}
-                onSwipeRight={() => vote(-1)}>
+                onSwipeRight={() => vote(-1)}
+              >
                 <div className="col col-lg-offset-2 col-lg-8">
                   <div className="Observations__Picture">
                     <Polaroid img={generateImageUrl(observation.id)} />
