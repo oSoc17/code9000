@@ -7,8 +7,8 @@ import Divider from '../Divider';
 import { Form, Input, Button, FacebookButton } from '../Form';
 import { Errors } from '../Alerts';
 
-
 import api, { BASE_URL } from '../../utils/api';
+import redirect from '../../utils/redirect';
 
 import logo from '../../theme/crest.svg';
 import './Login.css';
@@ -27,7 +27,7 @@ class Login extends Component {
     api.post('/auth', body).then(({ data }) => {
       // TODO: make an easier jwt token manager
       window.localStorage.setItem('jwt.token', data.token);
-      window.location = '/';
+      redirect('/');
     })
     .catch(() => {
       this.setState({ errors: ['Your credentials are incorrect.'] });

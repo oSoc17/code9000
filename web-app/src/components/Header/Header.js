@@ -1,4 +1,3 @@
-/* global window */
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
@@ -6,12 +5,13 @@ import './Header.css';
 
 import logo from '../../theme/crest.svg';
 import api, { removeToken } from '../../utils/api';
+import redirect from '../../utils/redirect';
 
 class Header extends Component {
   logout() {
     api.post('/auth/logout').then(() => {
       removeToken();
-      window.location = '/login';
+      redirect('/login');
     });
   }
 
