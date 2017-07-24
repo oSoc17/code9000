@@ -11,97 +11,82 @@
 <body>
 
 <!-- Navbar -->
-<div class="w3-top">
- <div class="w3-bar w3-black w3-left-align">
-  <a href="#" class="w3-bar-item w3-button w3-teal w3-right"><i class="fa fa-home w3-margin-right"></i>Birds.today</a>
-  <a href="https://github.com/oSoc17/code9000" target="_blank" class="w3-bar-item w3-button w3-hide-small w3-hover-white w3-right">Developers</a>
- </div>
-
-  <!-- Navbar on small screens -->
-  <div class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium">
-    <a href="#team" class="w3-bar-item w3-button">Birds.today</a>
-    <a href="#work" class="w3-bar-item w3-button">Developers</a>
-  </div>
-</div>
-
-<!-- Header -->
-<div class="w3-container w3-animate-opacity box" style="min-height: 20%;">
-	<div class="w3-center w3-padding-64">
-		<h1>Spot birds from your couch</h1>
-		<p>Help Bert to spot birds</p>
+<nav class="w3-top">
+	<div class="w3-bar w3-xlarge text-black">
+		<a href="#about" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-right"><i class="fa fa-user"></i> ABOUT</a>
+		<a href="https://www.github.com/oSoc17/code9000" target="_blank" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-right"><i class="fa fa-user" aria-hidden="true"></i> DEVELOPERS</a>
+		<a href="https://www.github.com/oSoc17/code9000" target="_blank" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-right"><i class="fa fa-github"></i> APP</a>
 	</div>
-</div>
+
+	<!-- Navbar on small screens -->
+	<div class="w3-container w3-top w3-hide-large w3-large w3-padding bg-black">
+		<a href="https://www.github.com/oSoc17/code9000" target="_blank" class="w3-padding w3-hover-white w3-right text-white"><i class="fa fa-user" aria-hidden="true"></i> ABOUT</a>
+		<a href="https://www.github.com/oSoc17/code9000" target="_blank" class="w3-padding w3-hover-white w3-right text-white"><i class="fa fa-user" aria-hidden="true"></i> DEVELOPERS</a>
+		<a href="https://www.github.com/oSoc17/code9000" target="_blank" class="w3-padding w3-hover-white w3-right text-white"><i class="fa fa-github" aria-hidden="true"></i> APP</a>
+	</div>
+</nav>
 
 <!-- Features Container -->
-<!--<div class="w3-container w3-center w3-animate-opacity features w3-red">
-	<div class="w3-row">
-		<div class="w3-third w3-cell w3-cell-middle">
-			<i class="fa fa-compass icon" aria-hidden="true"></i>
-			<h3>Locations</h3>
-			<p class="w3-large">Spot birds on locations you could never visit, until now.</p>
-		</div>
-
-		<div class="w3-third">
-			<i class="fa fa-rocket icon" aria-hidden="true"></i>
-			<h3>Speed</h3>
-			<p class="w3-large">Tired of waiting hours to spot that special bird? That's over now!</p>
-		</div>
-
-		<div class="w3-third">
-			<i class="fa fa-globe icon" aria-hidden="true"></i>
-			<h3>Community</h3>
-			<p class="w3-large">Be a part of something larger while supporting the research on biodiversity.</p>
+<div class="w3-display-container w3-opacity-min w3-center page" id="features">
+	<!-- Header -->
+	<div class="w3-container w3-animate-opacity w3-display-top box">
+		<div class="w3-center w3-padding-64">
+			<h1>Spot birds from your couch</h1>
+			<p>Help Bert to spot birds</p>
 		</div>
 	</div>
-</div>-->
+	<div class="w3-row w3-padding-large w3-padding-64 w3-animate-opacity">
+		<div class="w3-container w3-cell w3-cell-middle w3-mobile w3-padding-large features">
+	        <i class="fa fa-compass icon" aria-hidden="true"></i>
+	        <h3>Locations</h3>
+	        <p class="w3-large">Spot birds on locations you could never visit, until now.</p>
+	    </div>
+	    <div class="w3-container w3-cell w3-cell-middle w3-mobile w3-padding-large features">
+	        <i class="fa fa-rocket icon" aria-hidden="true"></i>
+	        <h3>Speed</h3>
+	        <p class="w3-large">Tired of waiting hours to spot that special bird? That's over now!</p>
+	    </div>
+	    <div class="w3-container w3-cell w3-cell-middle w3-mobile w3-padding-large features">
+	        <i class="fa fa-globe icon" aria-hidden="true"></i>
+	        <h3>Community</h3>
+	        <p class="w3-large">Be a part of something larger while supporting the research on biodiversity.</p>
+	    </p>
+	    </div>
 
-<div class="w3-cell-row w3-center" style="min-height: 50%;">
-    <div class="w3-container w3-cell w3-cell-middle w3-mobile features">
-        <i class="fa fa-compass icon" aria-hidden="true"></i>
-        <h3>Locations</h3>
-        <p class="w3-large">Spot birds on locations you could never visit, until now.</p>
-    </div>
-    <div class="w3-container w3-cell w3-cell-middle w3-mobile features">
-        <i class="fa fa-rocket icon" aria-hidden="true"></i>
-        <h3>Speed</h3>
-        <p class="w3-large">Tired of waiting hours to spot that special bird? That's over now!</p>
-    </div>
-    <div class="w3-container w3-cell w3-cell-middle w3-mobile features">
-        <i class="fa fa-globe icon" aria-hidden="true"></i>
-        <h3>Community</h3>
-        <p class="w3-large">Be a part of something larger while supporting the research on biodiversity.</p>
-    </p>
-    </div>
+		<!-- Call for action button -->
+		<p class="w3-center w3-padding-64 w3-animate-opacity">
+			<a href="#features" class="w3-button w3-round w3-xxlarge bg-black text-white button">Help Bert now!</a>
+		</p>
+
+
+	</div>
 </div>
 
-<!-- Call for action button -->
-<p class="w3-center" style="min-height: 10%;"><button class="w3-button w3-padding-large w3-xlarge button">Help Bert now!</button></p>
 
-<div class="w3-container w3-animate-opacity box">
+<div class="w3-container w3-animate-opacity w3-padding-large box">
 	<div class="w3-center w3-padding-64">
 		<h1>Follow us on</h1>
 		<div class="w3-row w3-center w3-padding-32 social">
 			<div class="w3-half">
-                <a href="https://www.facebook.com/TodayBirds" target="_blank">
+                <a href="https://www.facebook.com/TodayBirds" target="_blank" class="text-hover-white">
     				<i class="fa fa-facebook-square icon" aria-hidden="true"></i>
     				<h3>Facebook</h3>
                 </a>
 			</div>
 
 			<div class="w3-half">
-                <a href="https://www.twitter.com/TodayBirds" target="_blank">
-				<i class="fa fa-twitter-square icon" aria-hidden="true"></i>
-				<h3>Twitter</h3>
-            </a>
+                <a href="https://www.twitter.com/TodayBirds" target="_blank" class="text-hover-white">
+					<i class="fa fa-twitter-square icon" aria-hidden="true"></i>
+					<h3>Twitter</h3>
+            	</a>
 			</div>
 		</div>
 	</div>
 </div>
 
 <!-- Footer -->
-<footer class="w3-container w3-padding-32 w3-theme-d1 w3-center">
-<h4>Powered by</h4>
-<p>Digipolis Gent - Open Knowledge Belgium</p>
+<footer class="w3-center w3-padding-large bg-black text-white">
+	<p>Powered by <a href="https://www.digipolis.be" title="Digipolis" target="_blank" class="text-hover-white2">Digipolis Gent</a> &amp; <a href="https://www.openknowledge.be" title="Open Knowledge Belgium" target="_blank" class="text-hover-white2">Open Knowledge Belgium</a></p>
 </footer>
 </body>
 </html>
