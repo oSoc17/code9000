@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
-import {Swipeable} from 'react-touch'
+import { Swipeable } from 'react-touch';
 
 import Title from '../Title';
 import Polaroid from '../Polaroid';
@@ -37,36 +37,36 @@ class Observations extends Component {
     const observation = _.head(observations);
     return (
       <div className="Observations">
-              <Title name="Vote" />
-              <div className="Observations__Picture">
-                <div className="container">
-                  <div className="row">
-                    <div className="col col-lg-12 Observations__PolaroidIcon__Wrapper">
-                      <img className="Observations__PolaroidIcon" src={polaroid} alt="Polaroid camera" />
-                    </div>
-                    <Swipeable
-                        onSwipeLeft={ () => vote(1) }
-                        onSwipeRight={ () => vote(-1) }>
-                      <div className="col col-lg-offset-2 col-lg-8">
-                        <div className="Observations__Picture">
-                          <Polaroid img={generateImageUrl(observation.id)} />
-                        </div>
-                      </div>
-                      </Swipeable>
-                  </div>
-                </div>
+        <Title name="Vote" />
+        <div className="Observations__Picture">
+          <div className="container">
+            <div className="row">
+              <div className="col col-lg-12 Observations__PolaroidIcon__Wrapper">
+                <img className="Observations__PolaroidIcon" src={polaroid} alt="Polaroid camera" />
               </div>
-              <div className="Observations__Footer">
-                <div className="container">
-                  <div className="row">
-                    <div className="col col-lg-12 Observations__Buttons">
-                      <img src={trash} alt="Swipe observation to trash" onClick={() => vote(1)} />
-                      <img src={book} alt="Swipe book to trash" onClick={() => vote(-1)} />
-                    </div>
+              <Swipeable
+                onSwipeLeft={() => vote(1)}
+                onSwipeRight={() => vote(-1)}>
+                <div className="col col-lg-offset-2 col-lg-8">
+                  <div className="Observations__Picture">
+                    <Polaroid img={generateImageUrl(observation.id)} />
                   </div>
                 </div>
+              </Swipeable>
+            </div>
+          </div>
+        </div>
+        <div className="Observations__Footer">
+          <div className="container">
+            <div className="row">
+              <div className="col col-lg-12 Observations__Buttons">
+                <img src={trash} alt="Swipe observation to trash" onClick={() => vote(1)} />
+                <img src={book} alt="Swipe book to trash" onClick={() => vote(-1)} />
               </div>
             </div>
+          </div>
+        </div>
+      </div>
     );
   }
 }
