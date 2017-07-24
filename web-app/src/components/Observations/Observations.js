@@ -42,17 +42,15 @@ class Observations extends Component {
     return (
       <div className="Observations">
         <Title name="Vote" />
-        <div className="container">
-          <div className="row">
-            <div className="col col-lg-12">
-              <img className="Observations__PolaroidIcon" src={polaroid} alt="Polaroid camera" />
-            </div>
-            <div className="col col-lg-offset-2 col-lg-8">
-              <div className="Observations__Picture">
-                <Polaroid img={generateImageUrl(observation.id)} />
+        <div className="Observations__Picture">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-12">
+                <img className="Observations__PolaroidIcon" src={polaroid} alt="Polaroid camera" />
               </div>
             </div>
           </div>
+          <Polaroid img={generateImageUrl(observation.id)} />
         </div>
         <div className="Observations__Footer">
           <div className="container">
