@@ -50,6 +50,14 @@
   cursor: pointer;
 }
 
+@include onMobile() {
+  .Polaroid {
+    padding: 10px;
+    padding-bottom: 50px;
+    border-radius: 2px;
+  }
+}
+
 @include max-height(900px) {
   .Observations__PolaroidIcon {
     margin-top: -150px;
