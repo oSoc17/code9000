@@ -33,7 +33,7 @@ class AuthSocialiteController extends Controller
 
     private function firstOrCreateUser($facebookUser)
     {
-        return User::firstOrCreate(['email' => $facebookUser->email], ['name' => $facebookUser->name]);
+        return User::updateOrCreate(['email' => $facebookUser->email], ['name' => $facebookUser->name, 'avatar_url' => $facebookUser->avatar]);
     }
 
     private function firstOrCreateProvider($user, $facebookUser)
