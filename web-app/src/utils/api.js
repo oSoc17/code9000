@@ -50,7 +50,7 @@ const checkForRelogin = error => {
   const message = error.response.data.error;
 
   if (['token_expired', 'token_invalid', 'token_not_provided', 'token_blacklisted', 'user_not_found'].includes(message)) {
-    window.location = redirect('/login');
+    redirect('/login');
   }
 
   return Promise.reject(error.response);

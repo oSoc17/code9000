@@ -31,7 +31,7 @@ class SignUp extends Component {
 
         // TODO: make an easier jwt token manager
         window.localStorage.setItem('jwt.token', data.token);
-        window.location = redirect('/');
+        redirect('/');
       })
       .catch(() => {
         this.setState({ busy: false });
