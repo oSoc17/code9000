@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './GuestMode.css';
 import logo from '../../theme/crest.svg';
@@ -8,11 +9,21 @@ const GuestMode = ({ children, className }) => {
   return (
     <div className={classNames('GuestMode', className)}>
       <div className="GuestMode__Wrapper">
-        <img src={logo} alt="CODE9000 crest" className="Login__Logo" />
+        <img src={logo} alt="CODE9000 crest" className="GuestMode__Logo" />
         {children}
       </div>
     </div>
   );
+};
+
+export const GoBack = ({ to }) => {
+  return (
+    <div className="GuestMode__GoBack"><Link to={to}>Go back</Link></div>
+  );
+};
+
+GoBack.defaultProps = {
+  to: '/login',
 };
 
 export default GuestMode;

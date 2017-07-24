@@ -1,52 +1,36 @@
 @import "../../theme/_index.scss";
 
 .StartScreen {
-    display: flex;
-}
-
-.StartScreen__Item {
-    width: 100%;
+  display: flex;
 }
 
 .StartScreen__Title {
-    font-size: 29px;
-    color: $darkPastelBlue;
-    text-align: center;
+  font-size: 29px;
+  color: $darkPastelBlue;
+  text-align: center;
 }
 
 .StartScreen__SubTitle {
-    font-size: 17.5px;
-    color: $darkPastelBlue;
-    text-align: center;
-    margin-top: 16px;
+  font-size: 17.5px;
+  color: $darkPastelBlue;
+  text-align: center;
+  margin-top: 16px;
 }
 
-.StartScreen__Button__Start {
-    margin-top: 32px;
+.StartScreen__Buttons {
+  margin-top: auto;
 }
 
-.StartScreen__Button__LogIn {
-    margin-top: 16px;
+.StartScreen__Buttons__Start {
+  margin-top: 32px;
 }
 
-.StartScreen__Dots {
-    display: flex;
-    justify-content: space-between;
-    margin: 0px 80px;
-    margin-top: 90px;
+.StartScreen__Buttons__LogIn {
+  margin-top: 16px;
 }
 
-.StartScreen__Dot {
-    display: flex;
-    height: 15px;
-    width: 15px;
-
-    border: 1px solid $nevada;
-    border-radius: 50%;
-
-    cursor: pointer;
-}
-
-.StartScreen__Dot--active {
-    background-color: $nevada;
+@media (min-height: 700px) {
+  .StartScreen__Buttons {
+    margin-top: 50px;
+  }
 }

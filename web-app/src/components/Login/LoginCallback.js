@@ -9,8 +9,6 @@ const setToken = (token) => {
 const LoginCallback = ({ match }) => {
   setToken(match.params.token);
 
-  window.location = '/';
-
   return <Redirect to="/" />;
 };
 

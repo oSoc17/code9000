@@ -3,58 +3,56 @@ import _ from 'lodash';
 import {Swipeable} from 'react-touch'
 
 import Title from '../Title';
-import { Button } from '../Form';
+import Polaroid from '../Polaroid';
 
-import api from '../../utils/api';
-
+import './Observations.css';
 import polaroid from '../../theme/icons/polaroid.svg';
 import trash from '../../theme/icons/trash.svg';
 import book from '../../theme/icons/book.svg';
-
-import './Observations.css';
+import feather from '../../theme/icons/feather.svg';
 
 class Observations extends Component {
-
-  vote(value) {
-    const observation = _.head(this.props.observations);
-    const newObservations = [..._.drop(this.props.observations)];
-    api.post('/votes', {
-      body: {
-        observation_id: observation.id,
-        value,
-      },
-    }).then(() => {
-      this.props.loadObservations(newObservations);
-
-      if (newObservations.length < 6) {
-        this.fetch();
-      }
-    });
-  }
-
-  fetch() {
-    api.get('/auth/observations').then(({ data: paginationModel }) => {
-      this.props.loadObservations(paginationModel.data);
-    });
-  }
-
   render() {
-    const observation = _.head(this.props.observations);
-    const ButtonStyle = {
-      width: 120
+    const { observations, vote, generateImageUrl } = this.props;
+
+    if (observations.length <= 0) {
+      return (
+        <div className="container Observations__Empty">
+          <div className="Feather">
+            <img src={feather} alt="Feather" />
+          </div>
+          <div className="col-lg-12">
+            <h1>All the birds have flown for today!</h1>
+            <p>Thank you so much for your contribution.</p>
+            <p>
+              Follow <a href="https://twitter.com/TodayBirds">@TodayBirds</a> on twitter or like the
+              page <a href="https://www.facebook.com/TodayBirds/">Birds Today</a> on Facebook to
+              keep track of all the pictures Bert takes.
+            </p>
+          </div>
+        </div>
+      );
     }
+
+    const observation = _.head(observations);
     return (
-      <div>
-        <Title name="Observations" />
-        {observation && (
-          <div className="Observations">
-            <div className="Observations__Polaroid">
-              <img src={polaroid} alt="Polaroid" />
+      <div className="Observations">
+        <Title name="Vote" />
+        <div className="Observations__Picture">
+          <div className="container">
+            <div className="row">
+              <div className="col col-lg-12 Observations__PolaroidIcon__Wrapper">
+                <img className="Observations__PolaroidIcon" src={polaroid} alt="Polaroid camera" />
+              </div>
+              <div className="col col-lg-offset-2 col-lg-8">
+                <div className="Observations__Picture">
+                  <Polaroid img={generateImageUrl(observation.id)} />
+                </div>
+              </div>
             </div>
               <Swipeable
                   onSwipeLeft={() => this.vote(1)}
-                  onSwipeRight={() => this.vote(-1)}
-              >
+                  onSwipeRight={() => this.vote(-1)}>
                 <div className="Polaroid">
                   <img
                     className="Polaroid__Inner"
@@ -64,20 +62,18 @@ class Observations extends Component {
                   <div className="Polaroid__Footer" />
                 </div>
               </Swipeable>
-            <div className="Observations__Buttons">
-              <Button style={ButtonStyle}  onClick={() => this.vote(1)} className="Form__Button--clean"  >
-                <img className="Observations__Button" src={book} alt="Add to collection" id="collection" />
-              </Button>
-              <Button style={ButtonStyle} onClick={() => this.vote(-1)} className="Form__Button--clean">
-                <img  className="Observations__Button" src={trash} alt="Add to trash" id="thrash" />
-              </Button>
+          </div>
+        </div>
+        <div className="Observations__Footer">
+          <div className="container">
+            <div className="row">
+              <div className="col col-lg-12 Observations__Buttons">
+                <img src={trash} alt="Swipe observation to trash" onClick={() => vote(1)} />
+                <img src={book} alt="Swipe book to trash" onClick={() => vote(-1)} />
+              </div>
             </div>
           </div>
-        )}
-
-        {observation === undefined && (
-          <p>No observations left</p>
-        )}
+        </div>
       </div>
     );
   }
