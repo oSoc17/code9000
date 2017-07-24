@@ -14,6 +14,10 @@
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.1",
     "react-touch": "^0.4.2",
+    "react-pinch-zoom-pan": "^1.4.2",
+    "react-redux": "^5.0.5",
+    "react-router-dom": "^4.1.1",
+    "react-transitive-number": "^3.0.1",
     "redux": "^3.7.1",
     "redux-thunk": "^2.2.0"
   },

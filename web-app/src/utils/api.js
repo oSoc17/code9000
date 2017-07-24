@@ -30,7 +30,7 @@ const abstractRequest = (endpoint, { headers = {}, body, ...otherOptions }, meth
 };
 
 const checkForRefreshToken = (endpoint, content, method) => (error) => {
-  if (error.response && error.response.status === 401) {
+  if (error.response && error.response.status === 401 && getToken()) {
     return abstractRequest('/auth/refresh', {}, 'post').then(({ data }) => {
       setToken(data);
 
@@ -42,7 +42,7 @@ const checkForRefreshToken = (endpoint, content, method) => (error) => {
 
 const checkForRelogin = error => {
   if (!error.response || !error.response.data || window.location.pathname === '/login') {
-    return Promise.reject(error);
+    return Promise.reject(error.response);
   }
 
   const message = error.response.data.error;
@@ -51,7 +51,7 @@ const checkForRelogin = error => {
     window.location = '/login';
   }
 
-  return Promise.reject(error);
+  return Promise.reject(error.response);
 };
 
 const request = (endpoint, content, method) => {
