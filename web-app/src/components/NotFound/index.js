@@ -23,7 +23,7 @@ class NotFound extends Component {
 
     setInterval(() => {
       this.setState(({ fly }) => ({ fly: !fly }));
-    }, 6000);
+    }, 2000);
   }
 
   render() {
