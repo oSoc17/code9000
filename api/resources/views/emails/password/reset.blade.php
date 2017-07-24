@@ -11,6 +11,6 @@ Reset your password!
 
 If you have not requested a new password, please ignore this email.
 
-Hope to see your soon,<br>
+Hope to see you soon,<br>
 {{ config('app.name') }} team
 @endcomponent

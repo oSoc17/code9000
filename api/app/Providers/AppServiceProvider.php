@@ -6,6 +6,7 @@ use GuzzleHttp\Client;
 use App\Services\Imgur\ImgurApi;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use App\Services\DatahubGent\DatahubGent;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -31,6 +32,15 @@ class AppServiceProvider extends ServiceProvider
                 $app->make(Client::class),
                 config('services.imgur.api_url'),
                 config('services.imgur.client_id')
+            );
+        });
+
+        $this->app->singleton(DatahubGent::class, function ($app) {
+            return new DatahubGent(
+                $app->make(Client::class),
+                config('services.datahubGent.api_url'),
+                config('services.datahubGent.publicHash'),
+                config('services.datahubGent.privateHash')
             );
         });
     }

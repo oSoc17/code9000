@@ -5,14 +5,16 @@ import mapActionCreatorsToProps from '../../utils/mapActionCreatorsToProps';
 
 import {
   loadObservations,
-  finishInitialLoading,
+  loadRanking,
   loadUser,
+  finishInitialLoading,
 } from '../../actions';
 
 const actionCreators = mapActionCreatorsToProps({
   loadObservations,
-  finishInitialLoading,
+  loadRanking,
   loadUser,
+  finishInitialLoading,
 });
 
 export default connect(

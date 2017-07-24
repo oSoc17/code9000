@@ -46,4 +46,10 @@ return [
         'client_id' => env('IMGUR_CLIENT_ID'),
     ],
 
+    'datahubGent' => [
+        'api_url' => env('DATAHUBGENT_API_URL', 'http://datahub.gent.be'),
+        'publicHash' => env('DATAHUBGENT_PUBLIC_HASH'),
+        'privateHash' => env('DATAHUBGENT_PRIVATE_HASH'),
+    ],
+
 ];
