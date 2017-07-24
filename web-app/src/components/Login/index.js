@@ -47,7 +47,7 @@ class Login extends Component {
       <div className="Login">
         <Title name="Login" />
         <div className="Login__Wrapper">
-          <img src={logo} alt="CODE9000 crest" className="Login__Logo" />
+          <img src={logo} alt="CODE9000 crest" className="GuestMode__Logo" />
           <div className="Login__Form">
             {errors && <Errors errors={errors} />}
             <Form
