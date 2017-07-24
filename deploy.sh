@@ -34,7 +34,9 @@ cd ..
 # Symlink the front-end to the back-end
 
 CURRENT_DIR=$(pwd)
-ln -s $CURRENT_DIR/web-app/build $CURRENT_DIR/api/public
+
+ln -sf $CURRENT_DIR/web-app/build/**/* $CURRENT_DIR/api/public
+ln -sf $CURRENT_DIR/web-app/build/* $CURRENT_DIR/api/public
 
 # Set live
 cd api
