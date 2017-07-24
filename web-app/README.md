@@ -12,10 +12,10 @@ Getting Started
 
 ####  Installation
 
-To install the webapplication, first go the the folder "webapp". Then use yarn to install the required modules.
+To install the webapplication, first go the the folder "web-app". Then use yarn to install the required modules.
 
 ```
-$  cd webapp/
+$  cd web-app/
 $  yarn install
 ```
 
