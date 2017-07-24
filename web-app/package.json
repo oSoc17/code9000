@@ -13,6 +13,7 @@
     "react-draggable": "^2.2.6",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.1",
+    "react-touch": "^0.4.2",
     "redux": "^3.7.1",
     "redux-thunk": "^2.2.0"
   },

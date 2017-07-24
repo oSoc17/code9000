@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
-import Draggable from 'react-draggable';
+import {Swipeable} from 'react-touch'
 
 import Title from '../Title';
 import { Button } from '../Form';
@@ -51,29 +51,19 @@ class Observations extends Component {
             <div className="Observations__Polaroid">
               <img src={polaroid} alt="Polaroid" />
             </div>
-              <Draggable
-                  bounds='parent'
-                  onDrag={(e) => {
-                    if (Math.abs(e.movementX) > 10 ) {
-                      this.vote(Math.sign(e.movementX))
-                    }
-                    // Betere code: Positie als state opslaan, knoppen objecten maken die positie overerven
-                    document.getElementById("thrash").width = 75 + (document.getElementsByClassName("Polaroid")[0].getBoundingClientRect().left - document.getElementsByClassName("Observations")[0].getBoundingClientRect().left)/3
-                    document.getElementById("collection").width = 75 - (document.getElementsByClassName("Polaroid")[0].getBoundingClientRect().left - document.getElementsByClassName("Observations")[0].getBoundingClientRect().left)/3
-                    document.getElementsByClassName("Polaroid__Inner")[0].width -= 2 * e.movementY // WHY THE FUCK WERKT DIT NIET
-                  }
-                }
+              <Swipeable
+                  onSwipeLeft={() => this.vote(1)}
+                  onSwipeRight={() => this.vote(-1)}
               >
                 <div className="Polaroid">
                   <img
                     className="Polaroid__Inner"
                     src={`${process.env.REACT_APP_API_URL}/observations/${observation.id}/picture`}
                     alt="Observation"
-                    width="100%"
                   />
                   <div className="Polaroid__Footer" />
                 </div>
-              </Draggable>
+              </Swipeable>
             <div className="Observations__Buttons">
               <Button style={ButtonStyle}  onClick={() => this.vote(1)} className="Form__Button--clean"  >
                 <img className="Observations__Button" src={book} alt="Add to collection" id="collection" />
