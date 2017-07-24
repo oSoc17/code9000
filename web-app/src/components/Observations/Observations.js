@@ -36,7 +36,6 @@ class Observations extends Component {
 
     const observation = _.head(observations);
     return (
-
       <div className="Observations">
               <Title name="Vote" />
               <div className="Observations__Picture">
@@ -46,8 +45,8 @@ class Observations extends Component {
                       <img className="Observations__PolaroidIcon" src={polaroid} alt="Polaroid camera" />
                     </div>
                     <Swipeable
-                        onSwipeLeft={() => vote(1)}
-                        onSwipeRight={() => vote(-1)}>
+                        onSwipeLeft={ () => vote(1) }
+                        onSwipeRight={ () => vote(-1) }>
                       <div className="col col-lg-offset-2 col-lg-8">
                         <div className="Observations__Picture">
                           <Polaroid img={generateImageUrl(observation.id)} />
