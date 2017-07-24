@@ -4,10 +4,6 @@
     display: flex;
 }
 
-.StartScreen__Item {
-    width: 100%;
-}
-
 .StartScreen__Title {
     font-size: 29px;
     color: $darkPastelBlue;
@@ -21,32 +17,10 @@
     margin-top: 16px;
 }
 
-.StartScreen__Button__Start {
+.StartScreen__Buttons__Start {
     margin-top: 32px;
 }
 
-.StartScreen__Button__LogIn {
+.StartScreen__Buttons__LogIn {
     margin-top: 16px;
-}
-
-.StartScreen__Dots {
-    display: flex;
-    justify-content: space-between;
-    margin: 0px 80px;
-    margin-top: 90px;
-}
-
-.StartScreen__Dot {
-    display: flex;
-    height: 15px;
-    width: 15px;
-
-    border: 1px solid $nevada;
-    border-radius: 50%;
-
-    cursor: pointer;
-}
-
-.StartScreen__Dot--active {
-    background-color: $nevada;
 }

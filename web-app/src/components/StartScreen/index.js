@@ -49,22 +49,15 @@ class StartScreen extends Component {
     return (
       <GuestMode className="StartScreen">
         <Title name="Welcome" />
-        <div className="StartScreen__Item StartScreen__Title">
+        <div className="StartScreen__Title">
           birds.today
         </div>
-        <div className="StartScreen__Item StartScreen__SubTitle">
+        <div className="StartScreen__SubTitle">
           A bird spotting app
         </div>
 
-        <div className="StartScreen__Dots">
-          <Dot className="StartScreen__Dot--active" />
-          <Dot />
-          <Dot />
-          <Dot />
-        </div>
-
-        <Button className="StartScreen__Item StartScreen__Button__Start" onClick={() => this.startOnboarding()}>Start</Button>
-        <Button light className="StartScreen__Item StartScreen__Button__LogIn" onClick={() => this.login()}>Log in</Button>
+        <Button className="StartScreen__Buttons__Start" onClick={() => this.startOnboarding()}>Start</Button>
+        <Button light className="StartScreen__Buttons__LogIn" onClick={() => this.login()}>Log in</Button>
       </GuestMode>
     );
   }
