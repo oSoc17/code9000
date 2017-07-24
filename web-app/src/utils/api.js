@@ -1,6 +1,8 @@
 /* global window */
 import axios from 'axios';
 
+import redirect from './redirect';
+
 export const BASE_URL = process.env.REACT_APP_API_URL;
 
 const getToken = () => {
@@ -48,7 +50,7 @@ const checkForRelogin = error => {
   const message = error.response.data.error;
 
   if (['token_expired', 'token_invalid', 'token_not_provided', 'token_blacklisted', 'user_not_found'].includes(message)) {
-    window.location = '/login';
+    window.location = redirect('/login');
   }
 
   return Promise.reject(error.response);
