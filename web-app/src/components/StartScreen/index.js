@@ -5,15 +5,7 @@ import GuestMode from '../GuestMode';
 import Title from '../Title';
 import { Button } from '../Form';
 
-import classNames from '../../utils/classNames';
-
 import './StartScreen.css';
-
-const Dot = ({ className }) => {
-  return (
-    <div className={classNames('StartScreen__Dot', className)} />
-  );
-};
 
 class StartScreen extends Component {
   constructor(...props) {
@@ -55,9 +47,10 @@ class StartScreen extends Component {
         <div className="StartScreen__SubTitle">
           A bird spotting app
         </div>
-
-        <Button className="StartScreen__Buttons__Start" onClick={() => this.startOnboarding()}>Start</Button>
-        <Button light className="StartScreen__Buttons__LogIn" onClick={() => this.login()}>Log in</Button>
+        <div className="StartScreen__Buttons">
+          <Button className="StartScreen__Buttons__Start" onClick={() => this.startOnboarding()}>Start</Button>
+          <Button light className="StartScreen__Buttons__LogIn" onClick={() => this.login()}>Log in</Button>
+        </div>
       </GuestMode>
     );
   }

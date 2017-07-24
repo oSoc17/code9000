@@ -2,13 +2,13 @@
 
 .GuestMode {
   display: flex;
-  align-items: center;
   justify-content: center;
+  min-height: 100%;
 }
 
 .GuestMode__Wrapper {
   width: 360px;
-  height: 640px;
+  min-height: 100%;
 
   padding: 30px 30px;
   box-sizing: border-box;
