@@ -4,6 +4,7 @@ body,h1,h2,h3,h4,h5,h6, p, a {
 
 body, html {
     height: 100%;
+	width: 100%;
     color: #6C6E78;
     line-height: 1.0;
 }
