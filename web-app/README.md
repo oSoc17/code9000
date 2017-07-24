@@ -12,12 +12,15 @@ Getting Started
 
 ####  Installation
 
-To install the webapplication, first go the the folder "webapp". Then use yarn to install the required modules.
+To install the webapplication, first go the the folder "web-app". Then use yarn to install the required modules.
 
 ```
-$  cd webapp/
+$  cd web-app/
 $  yarn install
+$  yarn start && yarn watch-css
 ```
+
+
 
 
 Copy .env.example to .env, and change the URL to the one of your API.
