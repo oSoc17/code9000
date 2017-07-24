@@ -1,32 +1,32 @@
 @import "../../theme/_index.scss";
 
 .StartScreen {
-    display: flex;
+  display: flex;
 }
 
 .StartScreen__Title {
-    font-size: 29px;
-    color: $darkPastelBlue;
-    text-align: center;
+  font-size: 29px;
+  color: $darkPastelBlue;
+  text-align: center;
 }
 
 .StartScreen__SubTitle {
-    font-size: 17.5px;
-    color: $darkPastelBlue;
-    text-align: center;
-    margin-top: 16px;
+  font-size: 17.5px;
+  color: $darkPastelBlue;
+  text-align: center;
+  margin-top: 16px;
 }
 
 .StartScreen__Buttons {
-    margin-top: auto;
+  margin-top: auto;
 }
 
 .StartScreen__Buttons__Start {
-    margin-top: 32px;
+  margin-top: 32px;
 }
 
 .StartScreen__Buttons__LogIn {
-    margin-top: 16px;
+  margin-top: 16px;
 }
 
 @media (max-height: 500px) {
@@ -36,7 +36,7 @@
 }
 
 @media (min-height: 700px) {
-    .StartScreen__Buttons {
-        margin-top: 50px;
-    }
+  .StartScreen__Buttons {
+    margin-top: 50px;
+  }
 }
