@@ -39,13 +39,12 @@ class Header extends Component {
             >
               Vote
             </NavLink>
-            <NavLink
-              to="/profile"
-              className="Header__Menu__Icon Header__Menu__Profile"
-              activeClassName="Header__Menu__Profile--active"
+            <div
+              onClick={() => this.logout()}
+              className="Header__Menu__Icon Header__Menu__SignOut"
             >
-              Profile
-            </NavLink>
+              Sign Out
+            </div>
           </div>
         </div>
       </div>
