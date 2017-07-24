@@ -1,17 +1,33 @@
 html, body {
 	line-height: 30px;
 	font-family: "Roboto", serif;
+    height: 100%;
+    width: 100%;
+    margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: "Chivo", serif;
 }
 
+a {
+    text-decoration: none;
+}
+
+.page {
+    width: 100%;
+    min-height: 100%;
+
+}
+
+.features {
+    width: 33%;
+}
 
 .box {
     background-color: #67A0D6;
 	color: white;
-	margin-top: 32px;
+    height: calc(35% - 46px); /*Ask Xavier 25% for the box*/
 }
 
 .icon {
@@ -19,7 +35,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .button {
+    border-radius: 3px;
 	background-color: #BCCBD3;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.social {
+    width: 35%;
+    margin: auto;
 }
