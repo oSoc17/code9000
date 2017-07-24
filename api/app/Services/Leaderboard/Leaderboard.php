@@ -20,7 +20,7 @@ class Leaderboard
         $usersWithPoints = $users->map(function ($user) {
             $user->points = $this->forUser($user);
 
-            return collect($user->toArray())->only(['name', 'points']);
+            return collect($user->toArray())->only(['id', 'name', 'points']);
         });
 
         return $usersWithPoints->sortByDesc('points')->values()->all();
