@@ -16,6 +16,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\ObservationIsValid' => [
             'App\Listeners\SendObservationImgur',
         ],
+        'App\Events\ObservationUploadedToImgur' => [
+            'App\Listeners\SendObservationDatahubGent',
+        ],
     ];
 
     /**

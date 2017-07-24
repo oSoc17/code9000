@@ -1,5 +1,8 @@
 .Polaroid {
-    width: 100%;
+    max-width: 500px;
+    margin:0 auto;
+    display: block;
+
     padding: 30px;
     padding-bottom: 80px;
 
@@ -7,6 +10,8 @@
     border-radius: 5px;
 
     border-top: 0.5px solid whitesmoke;
+
+    background-color: white;
 }
 
 .Polaroid img {

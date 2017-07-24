@@ -8,29 +8,27 @@
 
   justify-content: space-between;
 
-  height: 100%;
+  height: calc(100% - 126px);
+}
+
+.Observations__PolaroidIcon__Wrapper {
+  overflow: hidden;
+}
+
+.Observations__Picture {
+  margin: 30px;
 }
 
 .Observations__PolaroidIcon {
   display: block;
+  width: 100%;
   max-width: 300px;
 
-  margin: 30px auto;
-}
-
-.Observations__Picture {
-  width: 100%;
-  height: auto;
-  flex: 1;
-}
-
-.Observations__Picture > img {
-  width: 100%;
-  height: auto;
+  margin: 0 auto;
+  margin-bottom: 30px;
 }
 
 .Observations__Footer {
-  margin-top: 30px;
   border-top: 1px solid rgb(222, 222, 222);
   background-color: #e9e9e9;
   width: 100%;
@@ -76,8 +74,8 @@
   height: 10rem;
 
   position: absolute;
-  top: -200px;
-  left: 30px;
+  top: -156px;
+  left: 50px;
   z-index: 2;
 
   animation: featherAnimation 7s infinite linear;
