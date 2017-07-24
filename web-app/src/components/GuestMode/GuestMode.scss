@@ -19,9 +19,9 @@
 
 .GuestMode__Logo {
   margin: 0 auto;
-  width: 150px;
+  width: 70%;
 
-  padding: 20px 20px 50px;
+  padding: 0px 20px 10px;
 }
 
 .GuestMode__Label {
@@ -33,4 +33,11 @@
   font-size: 13px;
   margin-top: $margin * 2;
   text-align: center;
+}
+
+@media (min-width: 300px) {
+  .GuestMode__Logo {
+    width: 80%;
+    padding: 20px 20px 50px;
+  }
 }
