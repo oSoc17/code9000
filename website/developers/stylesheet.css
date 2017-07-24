@@ -13,24 +13,12 @@ a {
     text-decoration: none;
 }
 
-.bg-blue {
-    background-color: #67A0D6;
-}
-
-.bg-darkblue {
-    background-color: #324173;
-}
-
-.bg-grey {
-    background-color: #929493;
-}
-
-.bg-black, .bg-hover-black {
-    background-color: #1D1D1D;
-}
-
 .bg-white {
     background: #FFFFFF;
+}
+
+.bg-black {
+    background-color: #1D1D1D;
 }
 
 .text-white, .text-hover-white {
@@ -49,14 +37,6 @@ a {
     color: #FFFFFF;
 }
 
-.text-lightgrey, .text-hover-lightgrey {
-    color: #BCCBD3;
-}
-
-.text-hover-lightgrey:hover {
-    color: #1D1D1D;
-}
-
 /* First image (Logo. Full height) */
 .page {
     height: 100%;
@@ -73,7 +53,7 @@ a {
 .feature {
     margin-left: 3%;
     margin-right: 3%;
-    height: 60%;
+    height: 45%;
 }
 
 .featureItem, .featureChild, .featureImage { /*Give childs access to %height*/
@@ -88,14 +68,11 @@ a {
 .center {
     padding-top: 10%;
     padding-bottom: 10%;
-}
-
-.center p, .center h2 {
-    text-align: center;
+	text-align: center;
 }
 
 .w3-display-middle {
-    white-space:nowrap;
+    white-space: nowrap;
 }
 
 /* Turn off parallax scrolling for tablets and phones */
