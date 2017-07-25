@@ -11,7 +11,7 @@ The website [solarelectricityhandbook.com](http://solarelectricityhandbook.com/s
 We used the 'Optimal Year Round' setting to have the best performance in every season of the year.
 
 <p align="center">
-  <img src="images/solarirradiance.png" alt="Screenshot">
+  <img src="images/solarIrradiance.png" alt="Screenshot">
   <br>
   <i>Solar irradiance for Ghent, Belgium (<a href="http://solarelectricityhandbook.com/solar-irradiance.html" target="_blank">source</a>)</i>
 </p>

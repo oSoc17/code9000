@@ -3,7 +3,7 @@
 
 ## I. NatureBytes kit
 
-1. Follow the installation guide from NatureBytes to setup the kit. You can find the guide [here](http://naturebytes.org/downloads/Naturebytes_Wildlife_Cam_Kit_Instructions_AplusPi1_101.pdf). 
+1. Follow the installation guide from NatureBytes to setup the kit. You can find the guide [here](http://naturebytes.org/downloads/Naturebytes_Wildlife_Cam_Kit_Instructions_AplusPi1_101.pdf).
 1. Download the Raspbian OS from the official Raspberry Pi website:
 2. Run ```sudo apt-get update && sudo apt-get upgrade -y``` in the terminal to get the Raspberry Pi up to date.
 3. Install the following Python module with pip (if not installed):
@@ -48,8 +48,15 @@ IoT
 
 ## II.Battery Guard (Arduino)
 
-1. Build the hardware from the schematic below:
-	SCHEMATIC HERE
+
+
+1. Build the hardware from the schematic below:<p align="center">
+	<img src="images/schematicBatteryguard.png" alt="Schematic Battery Guard">
+	<br>
+	<i>Battery Guard schematic</i>
+</p>
+	:information_source: The shutdown signal and the relay will be connected later in this guide.
+	
 	*Tip: You can measure the voltage dividers output to check if the circuit is correctly build.*
 2. Download the [Arduino IDE](https://www.arduino.cc/en/Main/Software) and install it.
 3. Install the following Arduino libraries:
@@ -60,6 +67,12 @@ IoT
 6. Flash it on your Arduino. This script is tested **only** on an Arduino UNO R3.
 
 ## III. Solar panels & charger
+
+<p align="center">
+	<img src="images/schematicSolar.png" alt="Schematic solar kit">
+	<br>
+	<i>Battery Guard schematic</i>
+</p>
 
 1. Connect the solar charger, solar panel and battery correctly according to the instructions from the manufacturer.
 2. Setup the router with a SIM card according to the instructions from the manufacturer.
