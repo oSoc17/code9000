@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
-import { Swipeable } from 'react-touch';
+import Swing from 'react-swing';
 
 import Title from '../Title';
 import Polaroid from '../Polaroid';
@@ -12,6 +12,23 @@ import book from '../../theme/icons/book.svg';
 import feather from '../../theme/icons/feather.svg';
 
 class Observations extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+            stack: null,
+            config: {
+              throwOutConfidence: (xOffset, yOffset, element) => {
+              const xConfidence = Math.min( (2 * Math.abs(xOffset)) / element.offsetWidth, 1);
+              const yConfidence = Math.min( (Math.abs(yOffset)) / (element.offsetHeight * 10), 1);
+              console.log(xConfidence);
+              console.log(yConfidence);
+              return Math.max(xConfidence, yConfidence * 10);
+
+              }
+            }
+        };
+  }
+
   render() {
     const { observations, vote, generateImageUrl } = this.props;
 
@@ -35,6 +52,8 @@ class Observations extends Component {
     }
 
     const observation = _.head(observations);
+
+
     return (
       <div className="Observations">
         <Title name="Vote" />
@@ -44,16 +63,26 @@ class Observations extends Component {
               <div className="col col-lg-12 Observations__PolaroidIcon__Wrapper">
                 <img className="Observations__PolaroidIcon" src={polaroid} alt="Polaroid camera" />
               </div>
-              <Swipeable
-                onSwipeLeft={() => vote(1)}
-                onSwipeRight={() => vote(-1)}
+              <Swing
+              config={this.state.config}
+              className="stack"
+              tagName="div"
+              setStack={(stack)=> this.setState({stack:stack})}
+              ref="stack"
+              throwoutleft={(e) => {vote(-1)
+                            this.state.stack.getCard(e.target).throwIn(100, 200)
+                            console.log("voted");}}
+              throwoutright={(e) => {vote(1)
+                              this.state.stack.getCard(e.target).throwIn(0, 20)
+                              console.log("voted");}}
               >
+
                 <div className="col col-lg-offset-2 col-lg-8">
                   <div className="Observations__Picture">
                     <Polaroid img={generateImageUrl(observation.id)} />
                   </div>
                 </div>
-              </Swipeable>
+              </Swing>
             </div>
           </div>
         </div>
