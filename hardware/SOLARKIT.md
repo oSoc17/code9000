@@ -13,7 +13,7 @@ We used the 'Optimal Year Round' setting to have the best performance in every s
 <p align="center">
   <img src="images/solarirradiance.png" alt="Screenshot">
   <br>
-  <i>Solar irradiance for Ghent, Belgium ([source](http://solarelectricityhandbook.com/solar-irradiance.html))</i>
+  <i>Solar irradiance for Ghent, Belgium (<a href="http://solarelectricityhandbook.com/solar-irradiance.html" target="_blank">source</a>)</i>
 </h1>
 
 If you look at the months we see that December has the lowest amount of sunlight available for Ghent, Belgium: 1030 KWh/m²/day.
