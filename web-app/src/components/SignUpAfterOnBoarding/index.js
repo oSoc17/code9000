@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import SignUp from '../SignUp';
 
+import './SignUpAfterOnBoarding.css';
+
 class SignUpAfterOnBoarding extends Component {
   constructor(...props) {
     super(...props);
@@ -13,7 +15,9 @@ class SignUpAfterOnBoarding extends Component {
 
   render() {
     return (
-      <SignUp />
+      <div className="Overlay">
+        <SignUp />
+       </div>
     );
   }
 }
