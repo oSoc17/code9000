@@ -182,3 +182,5 @@ We use the famous '[Rule of Three](https://en.wikipedia.org/wiki/Cross-multiplic
 
 ## V. Conclusion
 Using the calculations above, we determined that we need to buy a solar panel with a size of at least 0.16 m² for our example. Because we haven't no information about the charger efficiency we over dimension the solar panel a little bit. It's always advised to add some overhead as a reserve.
+
+:exclamation: Make sure that your IoT has a fuse between the load and the battery, some solar charges include them by default. If not, you need to get a fuse that can handle the short-circuit current of your battery. You can find more information [here](http://www.judgeelectrical.co.uk/domestic-electrical/fuses/fuse-rating.html).

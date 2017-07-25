@@ -69,7 +69,7 @@ IoT
 <p align="center">
 	<img src="images/schematicSolar.png" alt="Schematic solar kit">
 	<br>
-	<i>Battery Guard schematic</i>
+	<i>Solar schematic</i>
 </p>
 
 1. Connect the solar charger, solar panel and battery correctly according to the instructions from the manufacturer.
