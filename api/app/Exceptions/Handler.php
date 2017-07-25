@@ -54,7 +54,7 @@ class Handler extends ExceptionHandler
         if ($exception instanceof NotFoundHttpException && ! strpos($request->url(), '/api')) {
             Log::info('NotFoundHttpException, Route not found, serving index.html of build folder');
 
-            return new Response(File::get(public_path().'/build/index.html'), Response::HTTP_OK);
+            return new Response(File::get(public_path().'/index.html'), Response::HTTP_OK);
         }
 
         return parent::render($request, $exception);

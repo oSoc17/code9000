@@ -7,16 +7,11 @@
   flex-direction: column;
 
   justify-content: space-between;
-
-  height: calc(100% - 126px);
+  height: 100%;
 }
 
-.Observations__PolaroidIcon__Wrapper {
-  overflow: hidden;
-}
-
-.Observations__Picture {
-  margin: 30px;
+.Observations__Top {
+  margin-top: -$appWrapperPadding;
 }
 
 .Observations__PolaroidIcon {
@@ -55,6 +50,14 @@
   cursor: pointer;
 }
 
+@include onMobile() {
+  .Polaroid {
+    padding: 10px;
+    padding-bottom: 50px;
+    border-radius: 2px;
+  }
+}
+
 @include max-height(900px) {
   .Observations__PolaroidIcon {
     margin-top: -150px;
@@ -64,8 +67,7 @@
 }
 
 .Observations__Empty {
-  margin-top: 30px;
-  position: relative;
+  height: 100%;
 }
 
 .Feather {
@@ -74,8 +76,9 @@
   height: 10rem;
 
   position: absolute;
-  top: -156px;
+  top: -195px; 
   left: 50px;
+
   z-index: 2;
 
   animation: featherAnimation 7s infinite linear;
