@@ -21,7 +21,7 @@ First things first, check if you the following things at your disposal:
 ### Platform
 - The IoT performs the best when it's installed on an island with the **following dimensions**:
 <p align="center">
-  <img src="images/islandDimensions.svg" alt="Screenshot">
+  <img src="images/islandDimensions.png" alt="Screenshot">
   <br>
   <i>Island dimensions</i>
 </p>
