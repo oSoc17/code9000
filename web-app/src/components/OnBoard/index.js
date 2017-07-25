@@ -34,8 +34,8 @@ class OnBoard extends Component {
 
   currentIndex(index) {
     this.setState({ index });
-    if(index === 3){
-      setTimeout( () => this.showFase2(), 1500);
+    if (index === 3) {
+      setTimeout(() => this.showFase2(), 1500);
     }
   }
 
