@@ -12,20 +12,17 @@ import book from '../../theme/icons/book.svg';
 import feather from '../../theme/icons/feather.svg';
 
 class Observations extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-            stack: null,
-            config: {
-              throwOutConfidence: (xOffset, yOffset, element) => {
-              const xConfidence = Math.min( (2 * Math.abs(xOffset)) / element.offsetWidth, 1);
-              const yConfidence = Math.min( (Math.abs(yOffset)) / (element.offsetHeight * 10), 1);
-              console.log(xConfidence);
-              console.log(yConfidence);
-              return Math.max(xConfidence, yConfidence * 10);
-
-              }
+      stack: null,
+      config: {
+            throwOutConfidence: (xOffset, yOffset, element) => {
+            const xConfidence = Math.min( (2 * Math.abs(xOffset)) / element.offsetWidth, 1);
+            const yConfidence = Math.min( (Math.abs(yOffset)) / (element.offsetHeight * 10), 1);
+            return Math.max(xConfidence, yConfidence * 10);
             }
+          }
         };
   }
 
@@ -65,17 +62,15 @@ class Observations extends Component {
                 <img className="Observations__PolaroidIcon" src={polaroid} alt="Polaroid camera" />
               </div>
               <Swing
-              config={this.state.config}
-              className="stack"
-              tagName="div"
-              setStack={(stack)=> this.setState({stack:stack})}
-              ref="stack"
-              throwoutleft={(e) => {vote(-1)
-                            this.state.stack.getCard(e.target).throwIn(100, 200)
-                            console.log("voted");}}
-              throwoutright={(e) => {vote(1)
-                              this.state.stack.getCard(e.target).throwIn(0, 20)
-                              console.log("voted");}}
+                config={this.state.config}
+                className="stack"
+                tagName="div"
+                setStack={(stack)=> this.setState({stack:stack})}
+                ref="stack"
+                throwoutleft={(e) => {vote(-1)
+                              this.state.stack.getCard(e.target).throwIn(0, 0)}}
+                throwoutright={(e) => {vote(1)
+                                this.state.stack.getCard(e.target).throwIn(0, 0)}}
               >
 
                 <div className="col col-lg-offset-2 col-lg-8">
