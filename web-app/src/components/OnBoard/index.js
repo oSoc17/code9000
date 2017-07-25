@@ -98,44 +98,54 @@ class OnBoard extends Component {
     const showFixedPolaroid = this.state.progress.total >= 0.5;
 
     return (
-      <div className="OnBoard">
-        <Header />
-        {this.state.fase2 && (
-          <Fase2 />
-        )}
-        {!this.state.fase2 && (
-          <div className="OnBoard__Wrapper">
-            <div className="OnBoard__Content">
-              {!false && (<img
-                src={bertIcon}
-                alt="Avatar of Bert, the Bird nerd."
-                className="OnBoard__Bert"
-                ref={(ref) => this.fixedBert = ref}
-                style={this.moveBert()}
-              />)}
+      <div className="App">
+        <div className="App__Wrapper">
 
-              {showFixedPolaroid && (<img
-                src={polaroidIcon}
-                alt="Polaroid of Bert"
-                className="OnBoard__Polaroid"
-                ref={(ref) => this.fixedPolaroid = ref}
-                style={this.movePolaroid()}
-              />)}
+          <Header />
 
-              <Slider
-                className="Carrousel"
-                process={(percent) => this.process(percent)}
-                currentIndex={(index) => this.currentIndex(index)}
-                getRef={(ref) => this.slider = ref}
-              >
-                <Slide1 />
-                <Slide2 />
-                <Slide3 showFixedPolaroid={showFixedPolaroid} />
-                <Slide4 />
-              </Slider>
-            </div>
+          <div className="App__Content">
+            {this.state.fase2 && (
+              <Fase2 />
+            )}
+            {!this.state.fase2 && (
+              <div className="OnBoard__Wrapper">
+                <div className="OnBoard__Content">
+                  {!false && (<img
+                    src={bertIcon}
+                    alt="Avatar of Bert, the Bird nerd."
+                    className="OnBoard__Bert"
+                    ref={(ref) => this.fixedBert = ref}
+                    style={this.moveBert()}
+                  />)}
+
+                  {showFixedPolaroid && (<img
+                    src={polaroidIcon}
+                    alt="Polaroid of Bert"
+                    className="OnBoard__Polaroid"
+                    ref={(ref) => this.fixedPolaroid = ref}
+                    style={this.movePolaroid()}
+                  />)}
+
+                  <Slider
+                    className="Carrousel"
+                    process={(percent) => this.process(percent)}
+                    currentIndex={(index) => this.currentIndex(index)}
+                    getRef={(ref) => this.slider = ref}
+                  >
+                    <Slide1 />
+                    <Slide2 />
+                    <Slide3 showFixedPolaroid={showFixedPolaroid} />
+                    <Slide4 />
+                  </Slider>
+                </div>
+              </div>
+            )}
           </div>
-        )}
+
+          <div className="App__Push" />
+        </div>
+
+        <div className="App__Footer" />
       </div>
     );
   }
