@@ -17,13 +17,13 @@ class Observations extends Component {
     this.state = {
       stack: null,
       config: {
-            throwOutConfidence: (xOffset, yOffset, element) => {
-            const xConfidence = Math.min( (2 * Math.abs(xOffset)) / element.offsetWidth, 1);
-            const yConfidence = Math.min( (Math.abs(yOffset)) / (element.offsetHeight * 10), 1);
-            return Math.max(xConfidence, yConfidence * 10);
-            }
-          }
-        };
+        throwOutConfidence: (xOffset, yOffset, element) => {
+          const xConfidence = Math.min((2 * Math.abs(xOffset)) / element.offsetWidth, 1);
+          const yConfidence = Math.min((Math.abs(yOffset)) / (element.offsetHeight * 10), 1);
+          return Math.max(xConfidence, yConfidence);
+        },
+      },
+    };
   }
 
   render() {
@@ -65,12 +65,16 @@ class Observations extends Component {
                 config={this.state.config}
                 className="stack"
                 tagName="div"
-                setStack={(stack)=> this.setState({stack:stack})}
-                ref="stack"
-                throwoutleft={(e) => {vote(-1)
-                              this.state.stack.getCard(e.target).throwIn(0, 0)}}
-                throwoutright={(e) => {vote(1)
-                                this.state.stack.getCard(e.target).throwIn(0, 0)}}
+                setStack={(stack) => this.setState({ stack })}
+
+                throwoutleft={(e) => {
+                  vote(-1);
+                  this.state.stack.getCard(e.target).throwIn(0, 0);
+                }}
+                throwoutright={(e) => {
+                  vote(1);
+                  this.state.stack.getCard(e.target).throwIn(0, 0);
+                }}
               >
 
                 <div className="col col-lg-offset-2 col-lg-8">
