@@ -46,7 +46,7 @@ IoT
 9. If everything goes well, you should see a message in the terminal that we're looking now for birds.
 10. To save power, you can disable the HDMI display by adding ```@reboot /opt/vc/bin/tvservice -o``` to the crontab (explained in 6). This setting doesn't survive a reboot.
 
-## II.Battery Guard (Arduino)
+## II. Battery Guard (Arduino)
 
 
 
@@ -55,9 +55,7 @@ IoT
 	<br>
 	<i>Battery Guard schematic</i>
 </p>
-	:information_source: The shutdown signal and the relay will be connected later in this guide.
-	
-	*Tip: You can measure the voltage dividers output to check if the circuit is correctly build.*
+	:information_source: The shutdown signal and the relay will be connected later in this guide. You can measure the voltage dividers output to check if the circuit is correctly build.
 2. Download the [Arduino IDE](https://www.arduino.cc/en/Main/Software) and install it.
 3. Install the following Arduino libraries:
 	- [DS3231 by NorthernWidget](https://github.com/NorthernWidget/DS3231)
@@ -81,3 +79,13 @@ IoT
 4. Connect the 4G router to the battery while **keeping an eye on the polarity**.
 5. Connect the IoT device to the battery while **keeping an eye on the polarity**.
 6. If all goes well, the router and the IoT should boot and send the captured pictures to the API you configured in ```constants.json```.
+
+## IV. Hooking it up all together
+
+All the pieces are now ready to be connected with each other, you can find a simple schematic here:
+
+<p align="center">
+	<img src="images/schematicInterconnection.png" alt="Schematic interconnection">
+	<br>
+	<i>Interconnection schematic</i>
+</p>

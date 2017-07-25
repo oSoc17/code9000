@@ -92,10 +92,92 @@ In our example: <b>CONSUMPTION EACH DAY = 2.55 W * 12 hours = 30.6 Wh/day</b> We
 </table>
 But we forgot something! The efficiency we calculated in step 5! We can do that using this formula:
 
-```ACTUAL SIZE = CALCULATED SIZE * TOTAL EFFICIENCY```
+```ACTUAL SIZE = CALCULATED SIZE * TOTAL EFFICIENCY * CHARGER EFFICIENCY```
 
 
-For example: <b>ACTUAL SIZE = 0.029708738 m²/0.19 = 0.16 m²</b>
+For example (CHARGER EFFICIENCY = 1): <b>ACTUAL SIZE = 0.029708738 m²/0.19 = 0.16 m²</b>
+See the further for the real charger efficiency.
 
-## IV. Conclusion
-Using the calculations above, we determined that we need to buy a solar panel with a size of at least 0.16 m² for our example. It's always advised to add some overhead as a reserve.
+## IV. Battery & charger
+We selected a solar panel but we also need a battery to store the generated energy and a charger to keep the battery healthy.
+We will explain this using a simple example:
+
+From the datasheet of a [80Wp solar panel](http://www.conrad.be/ce/nl/product/1485914/):
+
+<table style="width:100%">
+	<tr>
+		<th>No load voltage</th>
+		<th>Nominal voltage</th>
+		<th>Nominal current</th>
+		<th>Short-circuit current</th>
+	</tr>
+	<tr>
+		<td>22.3 V</td>
+		<td>12 V</td>
+		<td>4.49 A</td>
+		<td>4.85 A</td>
+	</tr>
+</table>
+
+If the charger has an efficiency of 100% then the nominal current (4.49 A) of the solar panel will be delivered to the battery, in the real world this isn't true of course.
+
+### A) PWM based charger
+
+Since our system is small we used a PWM based charger because it's cheap for small solar systems.
+You need to choose a charger that can handle the current from your solar panel and can handle the battery. Most chargers are compatible with 12/24 V lead acid batteries.
+
+For our example we can buy a charger that can handle at least 6 A of charging current. We picked up this one: [solar charger PWM](http://www.conrad.be/ce/nl/product/110864/IVT-200001-Solar-laadregelaar-12-V-24-V-8-A?ref=list).
+
+### B) MPPT  based charger
+
+For bigger solar systems a MPPT (Maximum Point to Point Tracker) charger is better because it's efficiency is much higher then in comparison with a PWM charger.
+Choosing a MPPT charger is almost the same process as with the PWM charger in step A.
+
+### C) Which charger do I need?
+It all depends on how big you installation will be, in our case we only need to feed one device so a cheaper PWM charger is sufficient for our purpose.
+You can find more information [here](http://offgridham.com/2015/12/solar-charge-controller/).
+
+### D) Battery
+The size of your battery depends on how much generated energy you would like to store.
+We will explain the calculations using a simple example:
+
+From the datasheet of a [12V lead acid 6.6 Ah](http://www.conrad.be/ce/nl/product/110752/):
+
+<table style="width:100%">
+	<tr>
+		<th>Voltage</th>
+		<th>Capacity</th>
+	</tr>
+	<tr>
+		<td>12 V</td>
+		<td>6.6 Ah</td>
+	</tr>
+</table>
+
+In step III we did the calculations of the power consumption of our IoT, we can use that to figure out how long our IoT can run on a fully charged battery.
+
+The capacity of a battery is defined as the as '[Ampere hour](https://en.wikipedia.org/wiki/Ampere_hour)'. So the current that can flow in 1 hour is equal to 6.6 A, if our device uses 6.6 A then it runs exactly for 1 hour.
+To make the calculations easier we asume that the lead acid battery has a steady voltage of 12 V (in the real world this depends on the temperature, charging level, ...)
+<b>Available power capacity: 12 V * 6.6 A = 79.2 Wh</b>
+
+We use the famous '[Rule of Three](https://en.wikipedia.org/wiki/Cross-multiplication#Rule_of_Three)' for this in a slightly differnt way then above. For example: <table style="width:100%">
+   <tr>
+	   <th>Power</th>
+	   <th>Time</th>
+   </tr>
+   <tr>
+	   <td>79.2 W</td>
+	   <td>1 hour</td>
+   </tr>
+   <tr>
+	   <td>1 W</td>
+	   <td>79.2 hours</td>
+   </tr>
+   <tr>
+	   <td>2.55 W</td>
+	   <td>approx. 31 hours</td>
+   </tr>
+</table>
+
+## V. Conclusion
+Using the calculations above, we determined that we need to buy a solar panel with a size of at least 0.16 m² for our example. Because we haven't no information about the charger efficiency we over dimension the solar panel a little bit. It's always advised to add some overhead as a reserve.
