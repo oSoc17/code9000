@@ -56,16 +56,13 @@
   pointer-events: none;
 
   .Carrousel__Item__Text {
-    margin-top: 50px;
-    margin-left: 50px;
-
     max-width: 250px;
 
     position: absolute;
 
     p {
       font-size: 20px;
-      margin-top: 25px;
+      margin-bottom: 25px;
     }
   }
 }
