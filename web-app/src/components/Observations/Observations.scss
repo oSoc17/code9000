@@ -1,45 +1,56 @@
 @import "../../theme/_index.scss";
 
 .Observations {
-  position: relative;
+  min-height: calc(100vh - #{$headerHeight} - #{$footerHeight} - 60px - 2px);
+  width: 100%;
 
   display: flex;
   flex-direction: column;
-  height: 100%;
-
-  overflow: hidden;
+  align-items: center;
 }
 
 .Observations__Top {
-  margin-top: -$appWrapperPadding;
-  flex: 1;
+  height: 100%;
+  flex: 1 0 auto;
+  width: 100%;
+
+  overflow: hidden;
 }
 
 .Observations__PolaroidIcon {
   display: block;
   width: 100%;
-  max-width: 300px;
+  max-width: 225px;
 
   margin: 0 auto;
   margin-bottom: 30px;
 }
 
-.Observations__Footer {
-  width: 100%;
-  height: 100px;
+.Observations__Swing {
+  padding: 5px;
+  z-index: 5px;
+}
 
-  align-self: flex-end;
+.Observations__Bottom {
+  width: 100%;
+  max-width: 500px;
+
+  margin: $margin * 2 0px;
+  flex-shrink: 0;
 
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .Observations__Button {
-  height: 125px;
-  width: 125px;
+  height: 95px;
+  width: 95px;
 
   border-radius: 50%;
-  box-shadow: 0 0 20px rgba(#000000, 0.3);
+  //box-shadow: 0 0 20px rgba(#000000, 0.3);
+
+  border: 1px solid whitesmoke;
+  box-shadow: 0 0 1px rgba(#000000, 0.2);
 
   display: flex;
   align-items: center;
@@ -50,10 +61,6 @@
 
 .Observations__Button:hover {
   box-shadow: 0 0 20px rgba(#000000, 0.2);
-}
-
-.Observations__Button:active {
-  box-shadow: 0 0 20px rgba(#000000, 0.4);
 }
 
 .Observations__Button img {
@@ -69,6 +76,10 @@
 }
 
 @include max-height(900px) {
+  .Observations {
+    margin-top: -30px;
+  }
+
   .Observations__PolaroidIcon {
     margin-top: -150px;
     overflow: hidden;
@@ -86,7 +97,7 @@
   height: 10rem;
 
   position: absolute;
-  top: -195px; 
+  top: -195px;
   left: 50px;
 
   z-index: 2;

@@ -10,6 +10,10 @@
   z-index: 10;
 
   background-color: white;
+
+  flex-shrink: 0;
+
+  height: $headerHeight;
 }
 
 .Header__Wrapper {
@@ -20,17 +24,17 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
+
   background-color: inherit;
 }
 
 .Header__Logo {
-    height: 85%;
+  height: 85%;
 }
 
 .Header__Logo img {
-    height: 100%;
-    width: auto;
+  height: 100%;
+  width: auto;
 }
 
 .Header__Menu {
@@ -44,19 +48,14 @@
 **/
 .Header__Menu:after {
   display: none;
-  content: 
-    url('./Icons/leader.svg') 
-    url('./Icons/leader_gray.svg') 
-    url('./Icons/bird.svg')
-    url('./Icons/bird_gray.svg')
-    url('./Icons/sign_out.svg')
-    url('./Icons/sign_out_gray.svg')
+  content: url('./Icons/leader.svg') url('./Icons/leader_gray.svg')
+    url('./Icons/bird.svg') url('./Icons/bird_gray.svg')
+    url('./Icons/sign_out.svg') url('./Icons/sign_out_gray.svg');
 }
 
-.Header__Menu__Icon:hover, .Header__Menu__Icon:active, .Header__Menu__Icon:visited {
-  text-decoration: none;
-}
-
+.Header__Menu__Icon:hover,
+.Header__Menu__Icon:active,
+.Header__Menu__Icon:visited,
 .Header__Menu__Icon:focus {
   text-decoration: none;
 }
@@ -71,7 +70,7 @@
 
   display: flex;
   align-items: flex-end;
-  
+
   font-weight: bold;
 
   color: rgb(125, 125, 125);
@@ -90,17 +89,23 @@
   background-image: url('./Icons/sign_out_gray.svg');
 }
 
-.Header__Menu__Leader:hover, .Header__Menu__Leader:focus, .Header__Menu__Leader--active {
+.Header__Menu__Leader:hover,
+.Header__Menu__Leader:focus,
+.Header__Menu__Leader--active {
   background-image: url('./Icons/leader.svg');
   color: rgb(234, 181, 50);
 }
 
-.Header__Menu__Bird:hover, .Header__Menu__Bird:focus, .Header__Menu__Bird--active {
+.Header__Menu__Bird:hover,
+.Header__Menu__Bird:focus,
+.Header__Menu__Bird--active {
   background-image: url('./Icons/bird.svg');
   color: rgb(214, 102, 55);
 }
 
-.Header__Menu__SignOut:hover, .Header__Menu__SignOut:focus, .Header__Menu__SignOut--active {
+.Header__Menu__SignOut:hover,
+.Header__Menu__SignOut:focus,
+.Header__Menu__SignOut--active {
   background-image: url('./Icons/sign_out.svg');
   color: $darkPastelBlue;
 }
