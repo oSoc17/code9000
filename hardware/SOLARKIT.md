@@ -57,7 +57,7 @@ Do this for every device that will be connected to the battery and take the sum 
 	</tr>
 </table>
 
-<b>TOTAL: 2.55 W power consumption for all the devices connected to the battery.</b>
+<p><b>TOTAL: 2.55 W power consumption for all the devices connected to the battery.</b></p>
 
 4. Now we need to take the efficiency of the solar panel and DC-DC convertor into account. Since our battery works on 12 V we need to convert it into 5 V to power the Raspberry Pi A+. These convertors have an efficiency between 75-85%. To combine the efficiencies you need to multiply them:
 
