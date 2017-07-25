@@ -13,9 +13,11 @@
     "react-pinch-zoom-pan": "^1.4.2",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.1",
+    "react-swing": "^0.0.7",
     "react-transitive-number": "^3.0.1",
     "redux": "^3.7.1",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "swing": "^3.1.1"
   },
   "devDependencies": {
     "eslint": "^3.19.0",
