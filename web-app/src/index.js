@@ -1,7 +1,7 @@
 /* global document, window */
 import React from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
@@ -41,7 +41,9 @@ const isAuthenticated = () => {
   return <App />;
 };
 
-// TODO: need to think about the onboarding url's
+const Router = process.env.REACT_APP_ROUTER === 'HASH'
+  ? HashRouter
+  : BrowserRouter;
 
 const Root = () => (
   <Provider store={configureStore()}>
