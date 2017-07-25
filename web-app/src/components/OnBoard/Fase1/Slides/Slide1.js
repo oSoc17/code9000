@@ -7,7 +7,7 @@ export const Slide1 = () => (
   <Slide className="Carrousel__Item">
     <div className="Carrousel__Item__Text">
       <p>Hi, my name is Bert.</p>
-      <p>I'm a birdspotter and I'm looking for the common tern. </p>
+      <p>I&apos;m a birdspotter and I&apos;m looking for the common tern. </p>
       <p>Would you like to help me? </p>
     </div>
     <img src={verkijkerIcon} alt="" className="OnBoard__Verkijker" />
