@@ -55,11 +55,7 @@
     url('./Icons/sign_out_gray.svg')
 }
 
-.Header__Menu__Icon:hover, .Header__Menu__Icon:active, .Header__Menu__Icon:visited {
-  text-decoration: none;
-}
-
-.Header__Menu__Icon:focus {
+.Header__Menu__Icon:hover, .Header__Menu__Icon:active, .Header__Menu__Icon:visited, .Header__Menu__Icon:focus {
   text-decoration: none;
 }
 
