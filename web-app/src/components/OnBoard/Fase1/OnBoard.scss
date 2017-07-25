@@ -51,6 +51,8 @@
   width: 100% !important;
   height: 100% !important;
 
+  overflow: hidden;
+
   .Carrousel__Item__Text {
     margin-top: 50px;
     margin-left: 50px;
@@ -105,6 +107,7 @@
 
   position: absolute;
   bottom: 240px;
+  left: 15px;
   transform: rotate(-10deg);
 }
 
@@ -114,7 +117,7 @@
   
   position: absolute;
   bottom: 240px;
-  right: -20px;
+  right: 10px;
   transform: rotate(6deg);
 }
 
