@@ -21,7 +21,7 @@ First things first, check if you the following things at your disposal:
 ### Platform
 - The IoT performs the best when it's installed on an island with the **following dimensions**:
 <p align="center">
-  <img src="images/islandDimensions.png" alt="Screenshot">
+  <img src="images/islandDimensions.png" alt="Dimensions">
   <br>
   <i>Island dimensions</i>
 </p>
@@ -34,4 +34,11 @@ First things first, check if you the following things at your disposal:
 More details about this are explained [here](https://www.github.com/oSoc17/hardware/SOLARKIT.md).
 
 ## II. Install the IoT
--
+1. Mount the IoT on a tree stump or something else using the straps delivered with the NatureBytes kit.
+2. Connect the ethernet cable, power supply cable to the IoT device.
+3. Close the IoT properly and and make sure it's watertight!
+4. Switch on the power supply in the waterproof box.
+5. Close the waterproof box and make sure it's watertight! You can add a lock for extra security.
+6. Fix the waterproof box on the platform.
+7. Wait for the IoT until it's completely booted.
+8. Test if everything works: power, pictures are taken, pictures arrive at the API, ...
