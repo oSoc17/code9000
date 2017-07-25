@@ -14,7 +14,7 @@ We used the 'Optimal Year Round' setting to have the best performance in every s
   <img src="images/solarirradiance.png" alt="Screenshot">
   <br>
   <i>Solar irradiance for Ghent, Belgium (<a href="http://solarelectricityhandbook.com/solar-irradiance.html" target="_blank">source</a>)</i>
-</h1>
+</p>
 
 If you look at the months we see that December has the lowest amount of sunlight available for Ghent, Belgium: 1030 KWh/m²/day.
 
@@ -24,10 +24,11 @@ If you look at the months we see that December has the lowest amount of sunlight
 Now that we know how much sun light is available we can select our solar kit.
 The technology used in the solar panel plays a roll in how efficient the solar panel is (how much sun light will be converted into electricity). Those information should be available in the datasheet of the solar panel provided by the manufacturer. However, our manufacturer didn't provide a detailed datasheet with this information so we used the following chart to determine the efficiency:
 
-<div style="align: center;">
-	<img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/PVeff%28rev170414%29.jpg"></img>
-	<i>Solar efficiency for each technology through the years</i> ([source](https://en.wikipedia.org/wiki/Solar_cell_efficiency))
-</div>
+<p align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/PVeff%28rev170414%29.jpg" alt="Screenshot">
+  <br>
+  <i>Solar efficiency for each technology through the years (<a href="https://en.wikipedia.org/wiki/Solar_cell_efficiency" target="_blank">source</a>)</i>
+</p>
 
 We are using a 'Single Crystal' solar panel, the current efficiency is around 25-27 %.
 
