@@ -6,6 +6,7 @@
 
   display: flex;
   justify-content: center;
+  align-items: center;
 
   z-index: 10;
 
@@ -18,6 +19,7 @@
 
 .Header__Wrapper {
   width: 100%;
+  height: 100%;
   max-width: 1010px;
   margin: 0 50px;
 
@@ -128,5 +130,14 @@
 
   .Header__Menu__Icon {
     margin: 0 5px;
+  }
+}
+
+
+.Header__LogoNotAuthenticated {
+  height: 65%;
+
+  img {
+    height: 100%;
   }
 }
