@@ -158,6 +158,7 @@ In step III we did the calculations of the power consumption of our IoT, we can 
 
 The capacity of a battery is defined as the as '[Ampere hour](https://en.wikipedia.org/wiki/Ampere_hour)'. So the current that can flow in 1 hour is equal to 6.6 A, if our device uses 6.6 A then it runs exactly for 1 hour.
 To make the calculations easier we asume that the lead acid battery has a steady voltage of 12 V (in the real world this depends on the temperature, charging level, ...)
+
 <b>Available power capacity: 12 V * 6.6 A = 79.2 Wh</b>
 
 We use the famous '[Rule of Three](https://en.wikipedia.org/wiki/Cross-multiplication#Rule_of_Three)' for this in a slightly differnt way then above. For example: <table style="width:100%">
