@@ -4,7 +4,7 @@
 ## I. Preparations
 ### Hardware
 First things first, check if you the following things at your disposal:
-- [ ] Naturebytes Kit
+- [ ] NatureBytes Kit
 - [ ] CAT5 UTP cable
 - [ ] Power cables
 - [ ] Waterproof box
@@ -14,7 +14,7 @@ First things first, check if you the following things at your disposal:
 - [ ] Lead acid battery
 - [ ] Fuse
 
-:exclamation: **If you haven't configured the Naturebytes kit yet, click [here](https://www.github.com/oSoc17/code9000/hardware/SETUP.md).**
+:exclamation: **If you haven't configured the NatureBytes kit yet, click [here](https://www.github.com/oSoc17/code9000/hardware/SETUP.md).**
 
 :exclamation: **If you don't know which solar kit you need, click [here](https://www.github.com/oSoc17/hardware/SOLARKIT.md).**
 
