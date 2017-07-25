@@ -18,7 +18,7 @@ class Observations extends Component {
       stack: null,
       config: {
         throwOutConfidence: (xOffset, yOffset, element) => {
-          const xConfidence = Math.min((2 * Math.abs(xOffset)) / element.offsetWidth, 1);
+          const xConfidence = Math.min((3 * Math.abs(xOffset)) / element.offsetWidth, 1);
           const yConfidence = Math.min((Math.abs(yOffset)) / (element.offsetHeight * 10), 1);
           return Math.max(xConfidence, yConfidence);
         },
