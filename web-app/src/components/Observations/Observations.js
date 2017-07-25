@@ -88,13 +88,11 @@ class Observations extends Component {
         </div>
 
         <div className="Observations__Footer">
-          <div className="container">
-            <div className="row">
-              <div className="col col-lg-12 Observations__Buttons">
-                <img src={trash} alt="Swipe observation to trash" onClick={() => vote(1)} />
-                <img src={book} alt="Swipe book to trash" onClick={() => vote(-1)} />
-              </div>
-            </div>
+          <div className="Observations__Button" onClick={() => vote(-1)}>
+            <img src={trash} alt="Trash" />
+          </div>
+          <div className="Observations__Button" onClick={() => vote(1)}>
+            <img src={book} alt="Book" />
           </div>
         </div>
       </div>
