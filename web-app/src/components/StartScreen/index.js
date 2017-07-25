@@ -49,7 +49,7 @@ class StartScreen extends Component {
         </div>
         <div className="StartScreen__Buttons">
           <Button className="StartScreen__Buttons__Start" onClick={() => this.startOnboarding()}>Start</Button>
-          <Button light className="StartScreen__Buttons__LogIn" onClick={() => this.login()}>Log in</Button>
+          <Button className="StartScreen__Buttons__LogIn" onClick={() => this.login()}>Log in</Button>
         </div>
       </GuestMode>
     );
