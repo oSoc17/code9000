@@ -11,7 +11,7 @@ import Header from '../Header';
 import './Fase1/OnBoard.css';
 
 import bertIcon from '../../theme/icons/bert.svg';
-import polaroidIcon from '../../theme/icons/polaroid.svg';
+import polaroidIcon from '../../theme/icons/polaroid_original.svg';
 
 import Fase2 from './Fase2';
 
