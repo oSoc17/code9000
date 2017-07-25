@@ -50,7 +50,6 @@ class Observations extends Component {
 
     const observation = _.head(observations);
 
-
     return (
       <div className="Observations">
         <Title name="Vote" />
@@ -76,7 +75,6 @@ class Observations extends Component {
                   this.state.stack.getCard(e.target).throwIn(0, 0);
                 }}
               >
-
                 <div className="col col-lg-offset-2 col-lg-8">
                   <div className="Observations__Picture">
                     <Polaroid img={generateImageUrl(observation.id)} />
