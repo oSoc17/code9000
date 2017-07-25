@@ -4,7 +4,7 @@
   position: absolute;
   left: -50%;
   right: -50%;
-  
+
   margin: 0 auto;
 }
 
@@ -52,6 +52,8 @@
   height: 100% !important;
 
   overflow: hidden;
+
+  pointer-events: none;
 
   .Carrousel__Item__Text {
     margin-top: 50px;
@@ -114,7 +116,7 @@
 .Carrousel__Dias__2 {
   width: 55%;
   height: 150px;
-  
+
   position: absolute;
   bottom: 240px;
   right: 10px;
