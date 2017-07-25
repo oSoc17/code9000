@@ -5,6 +5,7 @@ import GuestMode, { GoBack } from '../GuestMode';
 import Title from '../Title';
 import { Input, Form, Button } from '../Form';
 
+import redirect from '../../utils/redirect';
 import api from '../../utils/api';
 
 import './SignUp.css';
@@ -30,7 +31,7 @@ class SignUp extends Component {
 
         // TODO: make an easier jwt token manager
         window.localStorage.setItem('jwt.token', data.token);
-        window.location = '/';
+        redirect('/');
       })
       .catch(() => {
         this.setState({ busy: false });

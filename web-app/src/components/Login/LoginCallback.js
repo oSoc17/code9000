@@ -1,5 +1,4 @@
-import React from 'react';
-import { Redirect } from 'react-router-dom';
+import redirect from '../../utils/redirect';
 
 /* global window */
 const setToken = (token) => {
@@ -9,9 +8,9 @@ const setToken = (token) => {
 const LoginCallback = ({ match }) => {
   setToken(match.params.token);
 
-  window.location = '/';
+  redirect('/');
 
-  return <Redirect to="/" />;
+  return null;
 };
 
 export default LoginCallback;

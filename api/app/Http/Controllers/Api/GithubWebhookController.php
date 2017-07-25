@@ -16,7 +16,7 @@ class GithubWebhookController extends Controller
 
         abort_unless($ref === $payload->ref, 403);
 
-        $response = Artisan::call('deploy');
+        Artisan::queue('deploy');
 
         return response(['success' => true]);
     }
