@@ -22,7 +22,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <div className="App__Wrapper">
+        <div className="App__Content">
           <Switch>
             <Route exact path="/" component={Observations} />
             <Route exact path="/ranking" component={Ranking} />
@@ -30,6 +30,7 @@ class App extends Component {
             <Route component={NotFound} />
           </Switch>
         </div>
+        <div className="App__Footer" />
       </div>
     );
   }
