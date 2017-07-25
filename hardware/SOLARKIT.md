@@ -36,9 +36,7 @@ We are using a 'Single Crystal' solar panel, the current efficiency is around 25
 1. Measure the voltage of each component that will be connected to the battery charged by the solar panel.
 2. Do the same with for the current of each component.
 3. We should calculate how much power in Watt's our device will use, this can be done pretty simple using the following formula: ```Power P = Voltage V * Current I```
-Do this for every device that will be connected to the battery and take the sum of it.
-For example:
-<table style="width:100%">
+Do this for every device that will be connected to the battery and take the sum of it.For example: <table style="width:100%">
 	<tr>
     	<th>Device</th>
     	<th>Voltage</th>
@@ -75,9 +73,7 @@ We will do this for our example above: <b>TOTAL= 0.25 * 0.75 = 0.19 (19 %)</b>
 6. The actual size of the solar panel is determined by the efficiency, the power consumption of the devices, the amount of sunlight available for your location and how long the devices need to be active, let's bring them together!
 Convert the power consumption calculated in step 3 to Wh/day with this formula:
 ```POWER USED DAY = POWER CONSUMPTION * HOURS OF OPERATION```
-In our example: <b>CONSUMPTION EACH DAY = 2.55 W * 12 hours = 30.6 Wh/day</b>
-We use the famous '[Rule of Three](https://en.wikipedia.org/wiki/Cross-multiplication#Rule_of_Three)' for this. For example:
-<table style="width:100%">
+In our example: <b>CONSUMPTION EACH DAY = 2.55 W * 12 hours = 30.6 Wh/day</b> We use the famous '[Rule of Three](https://en.wikipedia.org/wiki/Cross-multiplication#Rule_of_Three)' for this. For example: <table style="width:100%">
 	<tr>
 		<th>Available power</th>
 		<th>Panel size</th>
