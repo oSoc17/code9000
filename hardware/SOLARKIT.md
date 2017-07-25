@@ -36,7 +36,7 @@ We are using a 'Single Crystal' solar panel, the current efficiency is around 25
 1. Measure the voltage of each component that will be connected to the battery charged by the solar panel.
 2. Do the same with for the current of each component.
 3. We should calculate how much power in Watt's our device will use, this can be done pretty simple using the following formula: ```Power P = Voltage V * Current I```
-Do this for every device that will be connected to the battery and take the sum of it.For example: <table style="width:100%">
+Do this for every device that will be connected to the battery and take the sum of it.For example: <p><table style="width:100%">
 	<tr>
     	<th>Device</th>
     	<th>Voltage</th>
@@ -57,7 +57,7 @@ Do this for every device that will be connected to the battery and take the sum 
 	</tr>
 </table>
 
-<p><b>TOTAL: 2.55 W power consumption for all the devices connected to the battery.</b></p>
+<b>TOTAL: 2.55 W power consumption for all the devices connected to the battery.</b></p>
 
 4. Now we need to take the efficiency of the solar panel and DC-DC convertor into account. Since our battery works on 12 V we need to convert it into 5 V to power the Raspberry Pi A+. These convertors have an efficiency between 75-85%. To combine the efficiencies you need to multiply them:
 
