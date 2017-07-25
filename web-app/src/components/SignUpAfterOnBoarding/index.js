@@ -3,21 +3,28 @@ import SignUp from '../SignUp';
 
 import './SignUpAfterOnBoarding.css';
 
+import bertVerkijkerIcon from '../../theme/icons/bert_verkijker.svg';
+
 class SignUpAfterOnBoarding extends Component {
-  constructor(...props) {
-    super(...props);
-
-    this.state = {
-      isValid: false,
-      busy: false,
-    };
-  }
-
   render() {
     return (
       <div className="Overlay">
-        <SignUp />
-       </div>
+        <div className="Overlay__Inner">
+          <SignUp />
+        </div>
+        <div className="Overlay__Outer">
+          <p className="Overlay__Outer__Text">
+            Awesome!<br />
+            Let's get you signed up, so<br />
+            you can keep helping me!
+          </p>
+          <img
+            src={bertVerkijkerIcon}
+            alt="Avatar of Bert, the Bird nerd."
+            className="OnBoard__Bert OnBoard__Bert__Animation"
+          />
+        </div>
+      </div>
     );
   }
 }
