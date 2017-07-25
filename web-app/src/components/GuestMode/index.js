@@ -9,7 +9,9 @@ const GuestMode = ({ children, className }) => {
   return (
     <div className={classNames('GuestMode', className)}>
       <div className="GuestMode__Wrapper">
-        <img src={logo} alt="CODE9000 crest" className="GuestMode__Logo" />
+        <Link to="/" className="GuestMode__Logo">
+          <img src={logo} alt="CODE9000 crest" />
+        </Link>
         {children}
       </div>
     </div>
