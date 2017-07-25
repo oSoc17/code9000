@@ -13,9 +13,12 @@
     border-top: 0.5px solid whitesmoke;
 
     background-color: white;
+    
 }
 
 .Polaroid img {
     width: 100%;
     user-select: none;
+
+    pointer-events: none;
 }

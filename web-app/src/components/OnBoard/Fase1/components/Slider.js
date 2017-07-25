@@ -70,6 +70,7 @@ Slider.defaultProps = {
     lazyLoad: false,
     prevNextButtons: false,
     pageDots: true,
+    dragThreshold: 10,
   },
   process: () => {},
   currentIndex: () => {},

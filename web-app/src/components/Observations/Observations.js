@@ -27,7 +27,7 @@ class Observations extends Component {
   }
 
   render() {
-    const { observations, vote, generateImageUrl } = this.props;
+    const { observations, vote, generateImageUrl, isDemo } = this.props;
 
     if (observations.length <= 0) {
       return (
@@ -56,6 +56,12 @@ class Observations extends Component {
 
         <div className="Observations__Top">
           <img className="Observations__PolaroidIcon" src={polaroid} alt="Polaroid camera" />
+
+          {isDemo && (
+            <div className="Observations__DemoText">
+              {observation.demoText}
+            </div>
+          )}
 
           <Swing
             config={this.state.config}
@@ -89,5 +95,9 @@ class Observations extends Component {
     );
   }
 }
-export default Observations;
 
+Observations.defaultProps = {
+  isDemo: false,
+};
+
+export default Observations;
