@@ -10,8 +10,7 @@ import commonTern3 from '../pictures/common_tern_3.jpeg';
 const Slide2 = () => (
   <Slide className="Carrousel__Item">
     <div className="Carrousel__Item__Text">
-      <p>I&apos;m looking for the common tern..</p>
-      <p>I took some pictures, this is what they look like!</p>
+      <p>These are some pictures of the common tern so you know what we are looking for!</p>
     </div>
     <div className="Carrousel__Dias">
       <div className="Carrousel__Dias__1">
