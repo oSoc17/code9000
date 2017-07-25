@@ -4,6 +4,8 @@ import { NavLink } from 'react-router-dom';
 import './Header.css';
 
 import logo from '../../theme/crest.svg';
+import logoNotAuthenticated from '../../theme/icons/crest_menu.svg';
+
 import api, { removeToken } from '../../utils/api';
 import redirect from '../../utils/redirect';
 import authenticated from '../../utils/isAuthenticated';
@@ -22,9 +24,11 @@ class Header extends Component {
 
     return (
       <div className="Header">
-        <div className="Header__Wrapper">
-          <NavLink to="/" className="Header__Logo"><img src={logo} alt="Logo" /></NavLink>
-          {authenticated() &&
+        {authenticated() && (
+          <div className="Header__Wrapper">
+            <NavLink to="/" className="Header__Logo">
+              <img src={logo} alt="Logo" />
+            </NavLink>
             <div className="Header__Menu">
               <NavLink
                 to="/ranking"
@@ -41,16 +45,21 @@ class Header extends Component {
               >
                 Vote
               </NavLink>
-              <NavLink
-                to="/profile"
-                className="Header__Menu__Icon Header__Menu__Profile"
-                activeClassName="Header__Menu__Profile--active"
+              <div
+                onClick={() => this.logout()}
+                className="Header__Menu__Icon Header__Menu__SignOut"
               >
-                Profile
-              </NavLink>
+                Sign Out
+              </div>
             </div>
-          }
-        </div>
+          </div>
+        )}
+
+        {!authenticated() && (
+          <NavLink to="/" className="Header__LogoNotAuthenticated">
+            <img src={logoNotAuthenticated} alt="Logo" />
+          </NavLink>
+        )}
       </div>
     );
   }
