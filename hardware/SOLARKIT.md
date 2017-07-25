@@ -70,7 +70,7 @@ We will do this for our example above: <b>TOTAL= 0.25 * 0.75 = 0.19 (19 %)</b>
 5. Do you want to run the device 24/24 or not? The amount of hours/day is important to determine how much the devices will consume of the battery. In our case, the device only needs to running during the day (12 hours).
 
 6. The actual size of the solar panel is determined by the efficiency, the power consumption of the devices, the amount of sunlight available for your location and how long the devices need to be active, let's bring them together!
-Convert the power consumption calculated in step 3 to Wh/day with this formula:
+Convert the power consumption calculated in [step III](#iii-calculating-the-solar-panel-size) to Wh/day with this formula:
 ```POWER USED DAY = POWER CONSUMPTION * HOURS OF OPERATION```
 In our example: <b>CONSUMPTION EACH DAY = 2.55 W * 12 hours = 30.6 Wh/day</b> We use the famous '[Rule of Three](https://en.wikipedia.org/wiki/Cross-multiplication#Rule_of_Three)' for this. For example: <table style="width:100%">
 	<tr>
@@ -90,7 +90,7 @@ In our example: <b>CONSUMPTION EACH DAY = 2.55 W * 12 hours = 30.6 Wh/day</b> We
 		<td>0.029708738 m²</td>
 	</tr>
 </table>
-But we forgot something! The efficiency we calculated in step 5! We can do that using this formula:
+But we forgot something! The efficiency we calculated in [step III.5](#iii-calculating-the-solar-panel-size)! We can do that using this formula:
 
 ```ACTUAL SIZE = CALCULATED SIZE * TOTAL EFFICIENCY * CHARGER EFFICIENCY```
 
@@ -131,7 +131,7 @@ For our example we can buy a charger that can handle at least 6 A of charging cu
 ### B) MPPT  based charger
 
 For bigger solar systems a MPPT (Maximum Point to Point Tracker) charger is better because it's efficiency is much higher then in comparison with a PWM charger.
-Choosing a MPPT charger is almost the same process as with the PWM charger in step A.
+Choosing a MPPT charger is almost the same process as with the PWM charger in the previous paragraph.
 
 ### C) Which charger do I need?
 It all depends on how big you installation will be, in our case we only need to feed one device so a cheaper PWM charger is sufficient for our purpose.
@@ -154,7 +154,7 @@ From the datasheet of a [12V lead acid 6.6 Ah](http://www.conrad.be/ce/nl/produc
 	</tr>
 </table>
 
-In step III we did the calculations of the power consumption of our IoT, we can use that to figure out how long our IoT can run on a fully charged battery.
+In [step III](#iii-calculating-the-solar-panel-size) we did the calculations of the power consumption of our IoT, we can use that to figure out how long our IoT can run on a fully charged battery.
 
 The capacity of a battery is defined as the as '[Ampere hour](https://en.wikipedia.org/wiki/Ampere_hour)'. So the current that can flow in 1 hour is equal to 6.6 A, if our device uses 6.6 A then it runs exactly for 1 hour.
 To make the calculations easier we asume that the lead acid battery has a steady voltage of 12 V (in the real world this depends on the temperature, charging level, ...)
