@@ -28,10 +28,10 @@ First things first, check if you the following things at your disposal:
 
 - The IoT needs to be **mounted at the same height** as were the birds can land. Most of the time, you can put it on the ground. You only need a tree stump to mount the IoT.
 
-- The IoT **can't be placed directly in the sunlight**, you need to build a roof for it. Too much sunlight will lead to overexposed pictures.
+- The IoT **can't be placed directly in the sunlight**, you need to build a roof for it. Too much sunlight will lead to overexposed pictures. You can always put the solar panel on top of the roof.
 
 - The solar panel needs to be mounted in an angle of **39° facing South for Ghent, Belgium**.
-More details about this are explained [here](https://www.github.com/oSoc17/hardware/SOLARKIT.md).
+More details about this are explained [here](https://www.github.com/oSoc17/hardware/SOLARKIT.md). If you are having troubles with building a holder under the right angle you can always buy a holder for your solar panel ([example](http://www.conrad.be/ce/nl/product/110539/Modulehouder-Phaesun-102750?ref=list))
 
 ## II. Install the IoT
 1. Mount the IoT on a tree stump or something else using the straps delivered with the NatureBytes kit.

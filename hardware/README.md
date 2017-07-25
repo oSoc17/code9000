@@ -1,11 +1,10 @@
 # IoT hardware
-*This guide will help you to get quickly the IoT deployed*
 
 The IoT installation uses several components to get the job done. These
 components are mostly included in the NatureBytes kit but some other
 things are bought somewhere else.
 
-## II. How does thing work?
+## I. How does thing work?
 
 1. PIR sensor detects a bird.
 2. The Raspberry Pi wakes up.
@@ -13,7 +12,7 @@ things are bought somewhere else.
 4. A 4G connection is initiated.
 5. The picture and the meta data is send to the API.
 
-## I. Hardware
+## II. Hardware
 
 - NatureBytes kit (enclosure, Raspberry Pi A+, Raspberry Pi Camera V2, PIR sensor)
 - Solar kit

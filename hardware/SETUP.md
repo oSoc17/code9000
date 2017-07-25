@@ -75,7 +75,7 @@ IoT
 1. Connect the solar charger, solar panel and battery correctly according to the instructions from the manufacturer.
 2. Setup the router with a SIM card according to the instructions from the manufacturer.
 2. Connect the UTP cable between the IoT and the router.
-3. Connect the power and signal wires between the Battery Guard and the IoT device while **keeping an eye on the polarity**..
+3. Connect the power and signal wires between the Battery Guard and the IoT device while **keeping an eye on the polarity**.
 4. Connect the 4G router to the battery while **keeping an eye on the polarity**.
 5. Connect the IoT device to the battery while **keeping an eye on the polarity**.
 6. If all goes well, the router and the IoT should boot and send the captured pictures to the API you configured in ```constants.json```.
