@@ -24,30 +24,39 @@
 }
 
 .Observations__Footer {
-  border-top: 1px solid rgb(222, 222, 222);
-  background-color: #e9e9e9;
   width: 100%;
   height: 100px;
 
   align-self: flex-end;
 
-  .container,
-  .row,
-  .col {
-    height: 100%;
-  }
-}
-
-.Observations__Buttons {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 30px;
+  justify-content: space-around;
 }
 
-.Observations__Buttons img {
-  height: 80%;
-  cursor: pointer;
+.Observations__Button {
+  height: 125px;
+  width: 125px;
+
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(#000000, 0.3);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.3s;
+}
+
+.Observations__Button:hover {
+  box-shadow: 0 0 20px rgba(#000000, 0.2);
+}
+
+.Observations__Button:active {
+  box-shadow: 0 0 20px rgba(#000000, 0.4);
+}
+
+.Observations__Button img {
+  height: 60%;
 }
 
 @include onMobile() {
