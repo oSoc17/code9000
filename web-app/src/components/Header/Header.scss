@@ -1,7 +1,5 @@
 @import "../../theme/_index.scss";
 
-$headerHeight: 125px;
-
 .Header {
   width: 100%;
   border-bottom: 1px solid rgb(222, 222, 222);
@@ -18,8 +16,6 @@ $headerHeight: 125px;
   width: 100%;
   max-width: 1010px;
   margin: 0 50px;
-
-  height: $headerHeight;
 
   display: flex;
   align-items: center;
@@ -39,6 +35,7 @@ $headerHeight: 125px;
 
 .Header__Menu {
   display: flex;
+  margin: 10px;
 }
 
 /** 
@@ -126,9 +123,5 @@ $headerHeight: 125px;
 
   .Header__Menu__Icon {
     margin: 0 5px;
-  }
-
-  .Header__Wrapper {
-    height: 75px;
   }
 }
