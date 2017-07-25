@@ -16,7 +16,7 @@ First things first, check if you the following things at your disposal:
 
 :exclamation: **If you haven't configured the NatureBytes kit yet, click [here](https://www.github.com/oSoc17/code9000/hardware/SETUP.md).**
 
-:exclamation: **If you don't know which solar kit you need, click [here](https://www.github.com/oSoc17/hardware/SOLARKIT.md).**
+:exclamation: **If you don't know which solar kit you need, click [here](https://www.github.com/oSoc17/code9000/hardware/SOLARKIT.md).**
 
 ### Platform
 - The IoT performs the best when it's installed on an island with the **following dimensions**:
