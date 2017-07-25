@@ -41,7 +41,7 @@ const isAuthenticated = () => {
   return <App />;
 };
 
-const Router = process.env.NODE_ENV === 'github'
+const Router = process.env.REACT_APP_ROUTER === 'HASH'
   ? HashRouter
   : BrowserRouter;
 

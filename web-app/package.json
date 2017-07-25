@@ -2,7 +2,7 @@
   "name": "web-app",
   "version": "0.2.0",
   "private": true,
-  "homepage": "http://birds.today/build",
+  "homepage": "http://birds.today",
   "dependencies": {
     "axios": "^0.16.2",
     "flickity": "^2.0.9",

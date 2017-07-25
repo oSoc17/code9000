@@ -10,8 +10,8 @@
   height: 100%;
 }
 
-.Observations__PolaroidIcon__Wrapper {
-  overflow: hidden;
+.Observations__Top {
+  margin-top: -$appWrapperPadding;
 }
 
 .Observations__PolaroidIcon {
@@ -67,8 +67,7 @@
 }
 
 .Observations__Empty {
-  margin-top: 30px;
-  position: relative;
+  height: 100%;
 }
 
 .Feather {
@@ -77,8 +76,9 @@
   height: 10rem;
 
   position: absolute;
-  top: -156px;
+  top: -195px; 
   left: 50px;
+
   z-index: 2;
 
   animation: featherAnimation 7s infinite linear;
