@@ -34,6 +34,9 @@ class OnBoard extends Component {
 
   currentIndex(index) {
     this.setState({ index });
+    if(index === 3){
+      setTimeout( () => this.showFase2(), 3000);
+    }
   }
 
   moveBottom(positionFrom, component) {
@@ -128,7 +131,7 @@ class OnBoard extends Component {
                 <Slide1 />
                 <Slide2 />
                 <Slide3 showFixedPolaroid={showFixedPolaroid} />
-                <Slide4 showFase2={() => this.showFase2()} />
+                <Slide4 />
               </Slider>
             </div>
           </div>
