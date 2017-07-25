@@ -57,10 +57,11 @@ class Observations extends Component {
     return (
       <div className="Observations">
         <Title name="Vote" />
-        <div className="Observations__Picture">
+
+        <div className="Observations__Top">
           <div className="container">
             <div className="row">
-              <div className="col col-lg-12 Observations__PolaroidIcon__Wrapper">
+              <div className="col col-lg-12">
                 <img className="Observations__PolaroidIcon" src={polaroid} alt="Polaroid camera" />
               </div>
               <Swing
@@ -86,6 +87,7 @@ class Observations extends Component {
             </div>
           </div>
         </div>
+
         <div className="Observations__Footer">
           <div className="container">
             <div className="row">
