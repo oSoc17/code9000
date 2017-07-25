@@ -16,14 +16,15 @@ const GuestMode = ({ children, className }) => {
   );
 };
 
-export const GoBack = ({ to }) => {
+export const GoBack = ({ to, text }) => {
   return (
-    <div className="GuestMode__GoBack"><Link to={to}>Go back</Link></div>
+    <div className="GuestMode__GoBack"><Link to={to}>{text}</Link></div>
   );
 };
 
 GoBack.defaultProps = {
   to: '/login',
+  text: 'Go Back'
 };
 
 export default GuestMode;
