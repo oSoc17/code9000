@@ -1,7 +1,66 @@
 .Overlay {
+	display: flex;
 	height: 100%;
-	width: 100%;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.Overlay__Outer {
+	background: #fff;
+	visibility: hidden;
+	animation: HIDE_BERT 10s linear;
+}
+
+.Overlay__Outer__Text {
+	margin: auto;
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;
+
+	background: #fff;
+	text-align: center;
 	
-	background-color: #000;
-	opacity: 0.5;
+	font-family: "Chivo", serif;
+	font-weight: 600;
+	font-size: 21px;
+	line-height: 28px;
+	color: #000;
+
+	padding-top: 10px;
+}
+
+.OnBoard__Bert__Animation {
+	visibility: hidden;
+	animation: HIDE_BERT 10s linear;
+}
+
+@keyframes HIDE_BERT{
+    0%, 80% {
+    	visibility: visible;
+    	opacity: 1;
+    }
+    100% {
+    	visibility: hidden;
+    	opacity: 0;
+    }
+}
+
+.Overlay__Inner {
+	animation: DISPLAY_SIGN_UP 10s linear;
+}
+
+@keyframes DISPLAY_SIGN_UP {
+    0%, 80% {
+    	visibility: hidden;
+    	opacity: 0;
+    }
+    100% {
+    	visibility: visible;
+    	opacity: 1;
+    }
+}
+
+@media (max-width: 310px) {
+	.Overlay__Outer__Text {
+		font-size: 16px;
+		line-height: 24px;
+	}
 }
