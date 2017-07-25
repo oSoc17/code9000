@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
+import Swing from 'react-swing';
 
 import Title from '../Title';
 import Polaroid from '../Polaroid';
@@ -11,6 +12,20 @@ import book from '../../theme/icons/book.svg';
 import feather from '../../theme/icons/feather.svg';
 
 class Observations extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      stack: null,
+      config: {
+        throwOutConfidence: (xOffset, yOffset, element) => {
+          const xConfidence = Math.min((2 * Math.abs(xOffset)) / element.offsetWidth, 1);
+          const yConfidence = Math.min((Math.abs(yOffset)) / (element.offsetHeight * 10), 1);
+          return Math.max(xConfidence, yConfidence);
+        },
+      },
+    };
+  }
+
   render() {
     const { observations, vote, generateImageUrl } = this.props;
 
@@ -45,11 +60,27 @@ class Observations extends Component {
               <div className="col col-lg-12">
                 <img className="Observations__PolaroidIcon" src={polaroid} alt="Polaroid camera" />
               </div>
-              <div className="col col-lg-offset-2 col-lg-8">
-                <div className="Observations__Picture">
-                  <Polaroid img={generateImageUrl(observation.id)} />
+              <Swing
+                config={this.state.config}
+                className="stack"
+                tagName="div"
+                setStack={(stack) => this.setState({ stack })}
+
+                throwoutleft={(e) => {
+                  vote(-1);
+                  this.state.stack.getCard(e.target).throwIn(0, 0);
+                }}
+                throwoutright={(e) => {
+                  vote(1);
+                  this.state.stack.getCard(e.target).throwIn(0, 0);
+                }}
+              >
+                <div className="col col-lg-offset-2 col-lg-8">
+                  <div className="Observations__Picture">
+                    <Polaroid img={generateImageUrl(observation.id)} />
+                  </div>
                 </div>
-              </div>
+              </Swing>
             </div>
           </div>
         </div>

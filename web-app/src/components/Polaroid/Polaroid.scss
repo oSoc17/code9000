@@ -3,6 +3,7 @@
     margin:0 auto;
     display: block;
 
+    user-drag: none;
     padding: 30px;
     padding-bottom: 80px;
 
@@ -16,4 +17,5 @@
 
 .Polaroid img {
     width: 100%;
+    user-select: none;
 }
