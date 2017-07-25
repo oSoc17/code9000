@@ -9,10 +9,12 @@ const OBSERVATIONS = [
   {
     id: 1,
     picture: picture1,
+    demoText: 'This is a common tern! Drag this to my photobook!',
   },
   {
     id: 2,
     picture: picture2,
+    demoText: 'This is NOT a common tern! Drag this to the trash!',
   },
 ];
 
@@ -37,6 +39,7 @@ class ObservationsContainer extends Component {
     const { observations } = this.state;
 
     return (<Observations
+      isDemo
       observations={observations}
       vote={value => this.vote(value)}
       generateImageUrl={generateImageUrl}
