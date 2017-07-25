@@ -17,13 +17,13 @@ class Observations extends Component {
     this.state = {
       stack: null,
       config: {
-            throwOutConfidence: (xOffset, yOffset, element) => {
-            const xConfidence = Math.min( (2 * Math.abs(xOffset)) / element.offsetWidth, 1);
-            const yConfidence = Math.min( (Math.abs(yOffset)) / (element.offsetHeight * 10), 1);
-            return Math.max(xConfidence, yConfidence * 10);
-            }
-          }
-        };
+        throwOutConfidence: (xOffset, yOffset, element) => {
+          const xConfidence = Math.min((2 * Math.abs(xOffset)) / element.offsetWidth, 1);
+          const yConfidence = Math.min((Math.abs(yOffset)) / (element.offsetHeight * 10), 1);
+          return Math.max(xConfidence, yConfidence);
+        },
+      },
+    };
   }
 
   render() {
@@ -50,7 +50,6 @@ class Observations extends Component {
 
     const observation = _.head(observations);
 
-
     return (
       <div className="Observations">
         <Title name="Vote" />
@@ -65,14 +64,17 @@ class Observations extends Component {
                 config={this.state.config}
                 className="stack"
                 tagName="div"
-                setStack={(stack)=> this.setState({stack:stack})}
-                ref="stack"
-                throwoutleft={(e) => {vote(-1)
-                              this.state.stack.getCard(e.target).throwIn(0, 0)}}
-                throwoutright={(e) => {vote(1)
-                                this.state.stack.getCard(e.target).throwIn(0, 0)}}
-              >
+                setStack={(stack) => this.setState({ stack })}
 
+                throwoutleft={(e) => {
+                  vote(-1);
+                  this.state.stack.getCard(e.target).throwIn(0, 0);
+                }}
+                throwoutright={(e) => {
+                  vote(1);
+                  this.state.stack.getCard(e.target).throwIn(0, 0);
+                }}
+              >
                 <div className="col col-lg-offset-2 col-lg-8">
                   <div className="Observations__Picture">
                     <Polaroid img={generateImageUrl(observation.id)} />
@@ -84,13 +86,11 @@ class Observations extends Component {
         </div>
 
         <div className="Observations__Footer">
-          <div className="container">
-            <div className="row">
-              <div className="col col-lg-12 Observations__Buttons">
-                <img src={trash} alt="Swipe observation to trash" onClick={() => vote(1)} />
-                <img src={book} alt="Swipe book to trash" onClick={() => vote(-1)} />
-              </div>
-            </div>
+          <div className="Observations__Button" onClick={() => vote(-1)}>
+            <img src={trash} alt="Trash" />
+          </div>
+          <div className="Observations__Button" onClick={() => vote(1)}>
+            <img src={book} alt="Book" />
           </div>
         </div>
       </div>
