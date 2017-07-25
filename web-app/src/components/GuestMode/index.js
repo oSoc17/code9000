@@ -24,7 +24,7 @@ export const GoBack = ({ to, text }) => {
 
 GoBack.defaultProps = {
   to: '/login',
-  text: 'Go Back'
+  text: 'Go Back',
 };
 
 export default GuestMode;

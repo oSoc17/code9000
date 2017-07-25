@@ -76,7 +76,7 @@ class Login extends Component {
             </div>
 
             <div className="Login__GoBack">
-              <GoBack to="/start" text="To the tutorial"/>
+              <GoBack to="/start" text="To the tutorial" />
             </div>
           </Form>
         </div>
