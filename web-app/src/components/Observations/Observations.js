@@ -10,17 +10,32 @@ import polaroid from '../../theme/icons/polaroid.svg';
 import trash from '../../theme/icons/trash.svg';
 import book from '../../theme/icons/book.svg';
 import feather from '../../theme/icons/feather.svg';
+import classNames from '../../utils/classNames';
 
 class Observations extends Component {
   constructor(props) {
     super(props);
     this.state = {
       stack: null,
-      toggle: true,
+      animation: true,
+      growTrash: false,
+      growBook: false,
       config: {
         throwOutConfidence: (xOffset, yOffset, element) => {
           const xConfidence = Math.min((4 * Math.abs(xOffset)) / element.offsetWidth, 1);
           const yConfidence = Math.min((Math.abs(yOffset)) / (element.offsetHeight * 10), 1);
+          if (xConfidence === 1) {
+            if (xOffset > 0) {
+              this.toggleBook();
+            } else {
+              this.toggleTrash();
+            }
+          } else {
+            this.setState({
+              growBook: false,
+              growTrash: false,
+            });
+          }
           return Math.max(xConfidence, yConfidence);
         },
       },
@@ -28,13 +43,25 @@ class Observations extends Component {
   }
 
   vote(value) {
-    this.toggle();
+    this.toggleAnimation(this.state.animation);
     this.props.vote(value);
-    setTimeout(() => this.toggle(), 50);
+    this.setState({
+      growBook: false,
+      growTrash: false,
+    });
+    setTimeout(() => this.toggleAnimation(), 50);
   }
 
-  toggle() {
-    this.setState(({ toggle }) => ({ toggle: !toggle }));
+  toggleAnimation() {
+    this.setState(({ animation }) => ({ animation: !animation }));
+  }
+
+  toggleTrash() {
+    this.setState({ growTrash: true });
+  }
+
+  toggleBook() {
+    this.setState({ growBook: true });
   }
 
   render() {
@@ -63,7 +90,6 @@ class Observations extends Component {
     return (
       <div className="Observations">
         <Title name="Vote" />
-
         <div className="Observations__Top">
           <img className="Observations__PolaroidIcon" src={polaroid} alt="Polaroid camera" />
           {isDemo && (
@@ -76,7 +102,6 @@ class Observations extends Component {
             className="Observations__Swing"
             tagName="div"
             setStack={(stack) => this.setState({ stack })}
-
             throwoutleft={(e) => {
               this.vote(-1);
               this.state.stack.getCard(e.target).throwIn(0, 0);
@@ -87,15 +112,15 @@ class Observations extends Component {
             }}
           >
             <div className="Observations__Picture">
-              <Polaroid toggle={this.state.toggle} img={generateImageUrl(observation.id)} />
+              <Polaroid toggle={this.state.animation} img={generateImageUrl(observation.id)} />
             </div>
           </Swing>
         </div>
         <div className="Observations__Footer">
-          <div className="Observations__Button" onClick={() => this.vote(-1)}>
+          <div className={classNames('Observations__Button', this.state.growTrash && 'Observations__Button__Grow')} onClick={() => this.vote(-1)}>
             <img src={trash} alt="Trash" />
           </div>
-          <div className="Observations__Button" onClick={() => this.vote(1)}>
+          <div className={classNames('Observations__Button', this.state.growBook && 'Observations__Button__Grow')} onClick={() => this.vote(1)}>
             <img src={book} alt="Book" />
           </div>
         </div>

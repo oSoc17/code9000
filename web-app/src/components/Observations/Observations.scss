@@ -43,7 +43,8 @@
 .Observations__Button {
   height: 95px;
   width: 95px;
-
+  z-index: 7;
+  background-color: #ffffff;
   border-radius: 50%;
   //box-shadow: 0 0 20px rgba(#000000, 0.3);
 
@@ -53,8 +54,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   transition: all 0.3s;
+}
+
+.Observations__Button__Grow{
+  animation: growButton 0.5s linear forwards;
+}
+
+@keyframes growButton {
+  0% {
+    transform: scale(1.0); }
+  100% {
+    transform: scale(1.5); }
 }
 
 .Observations__Button:hover {
