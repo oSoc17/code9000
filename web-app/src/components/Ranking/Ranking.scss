@@ -2,7 +2,7 @@
 
 .Ranking {
 	max-width: 560px;
-	min-height: 425px;
+	min-height: 300px;
 }
 
 .Ranking_Header {
@@ -44,6 +44,22 @@
 	height: 100px;
 	border-radius: 50%;
 	border: solid 5px $rankingBlue;
+}
+
+@media (max-width: 425px) {
+	.Ranking__Line {
+		font-size: 14px;
+		line-height: 21px;
+	}
+	.Profile_Picture {
+		top: -20px;
+		left: 38%;
+		width: 50px;
+		height: 50px;
+	}
+	.Ranking_Header {
+		margin-top: 20px;
+	}
 }
 
 // self color = rankingBlue
