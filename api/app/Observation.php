@@ -23,6 +23,11 @@ class Observation extends Model
     protected $hidden = [
         'picture_storage', 'created_at', 'updated_at',
     ];
+    
+    
+    protected $dates = [
+        'captured_at',
+    ];
 
     /**
      * Get the votes for the current observation.
