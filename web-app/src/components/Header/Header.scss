@@ -1,44 +1,48 @@
 @import "../../theme/_index.scss";
 
-$headerHeight: 125px;
-
 .Header {
   width: 100%;
   border-bottom: 1px solid rgb(222, 222, 222);
 
   display: flex;
   justify-content: center;
+  align-items: center;
 
   z-index: 10;
 
   background-color: white;
+
+  flex-shrink: 0;
+
+  height: $headerHeight;
 }
 
 .Header__Wrapper {
   width: 100%;
+  height: 100%;
   max-width: 1010px;
   margin: 0 50px;
-
-  height: $headerHeight;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
+
   background-color: inherit;
+  z-index: 10
 }
 
 .Header__Logo {
-    height: 85%;
+  height: 85%;
 }
 
 .Header__Logo img {
-    height: 100%;
-    width: auto;
+  height: 100%;
+  width: auto;
 }
 
 .Header__Menu {
   display: flex;
+  margin: 10px;
 }
 
 /** 
@@ -47,19 +51,14 @@ $headerHeight: 125px;
 **/
 .Header__Menu:after {
   display: none;
-  content: 
-    url('./Icons/leader.svg') 
-    url('./Icons/leader_gray.svg') 
-    url('./Icons/bird.svg')
-    url('./Icons/bird_gray.svg')
-    url('./Icons/sign_out.svg')
-    url('./Icons/sign_out_gray.svg')
+  content: url('./Icons/leader.svg') url('./Icons/leader_gray.svg')
+    url('./Icons/bird.svg') url('./Icons/bird_gray.svg')
+    url('./Icons/sign_out.svg') url('./Icons/sign_out_gray.svg');
 }
 
-.Header__Menu__Icon:hover, .Header__Menu__Icon:active, .Header__Menu__Icon:visited {
-  text-decoration: none;
-}
-
+.Header__Menu__Icon:hover,
+.Header__Menu__Icon:active,
+.Header__Menu__Icon:visited,
 .Header__Menu__Icon:focus {
   text-decoration: none;
 }
@@ -74,7 +73,7 @@ $headerHeight: 125px;
 
   display: flex;
   align-items: flex-end;
-  
+
   font-weight: bold;
 
   color: rgb(125, 125, 125);
@@ -93,17 +92,23 @@ $headerHeight: 125px;
   background-image: url('./Icons/sign_out_gray.svg');
 }
 
-.Header__Menu__Leader:hover, .Header__Menu__Leader:focus, .Header__Menu__Leader--active {
+.Header__Menu__Leader:hover,
+.Header__Menu__Leader:focus,
+.Header__Menu__Leader--active {
   background-image: url('./Icons/leader.svg');
   color: rgb(234, 181, 50);
 }
 
-.Header__Menu__Bird:hover, .Header__Menu__Bird:focus, .Header__Menu__Bird--active {
+.Header__Menu__Bird:hover,
+.Header__Menu__Bird:focus,
+.Header__Menu__Bird--active {
   background-image: url('./Icons/bird.svg');
   color: rgb(214, 102, 55);
 }
 
-.Header__Menu__SignOut:hover, .Header__Menu__SignOut:focus, .Header__Menu__SignOut--active {
+.Header__Menu__SignOut:hover,
+.Header__Menu__SignOut:focus,
+.Header__Menu__SignOut--active {
   background-image: url('./Icons/sign_out.svg');
   color: $darkPastelBlue;
 }
@@ -127,8 +132,22 @@ $headerHeight: 125px;
   .Header__Menu__Icon {
     margin: 0 5px;
   }
+}
 
-  .Header__Wrapper {
-    height: 75px;
+
+.Header__LogoNotAuthenticated {
+  height: 100%;
+  width: 100%;
+
+  background-color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 10;
+
+  img {
+    height: 60%;
   }
 }

@@ -21,15 +21,26 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header />
         <div className="App__Wrapper">
-          <Switch>
-            <Route exact path="/" component={Observations} />
-            <Route exact path="/ranking" component={Ranking} />
-            <Route exact path="/installations" component={Installations} />
-            <Route component={NotFound} />
-          </Switch>
+
+          <Header />
+
+          <div className="App__Content">
+
+            <Switch>
+              <Route exact path="/" component={Observations} />
+              <Route exact path="/ranking" component={Ranking} />
+              <Route exact path="/installations" component={Installations} />
+              <Route component={NotFound} />
+            </Switch>
+
+          </div>
+
+          <div className="App__Push" />
+
         </div>
+
+        <div className="App__Footer" />
       </div>
     );
   }

@@ -16,6 +16,7 @@ import SignUp from './components/SignUp';
 import OnBoard from './components/OnBoard';
 import RequestResetPassword from './components/RequestResetPassword';
 import ResetPassword from './components/ResetPassword';
+import authenticated from './utils/isAuthenticated';
 
 import './index.css';
 
@@ -32,9 +33,7 @@ const configureStore = () => {
 };
 
 const isAuthenticated = () => {
-  const token = window.localStorage.getItem('jwt.token');
-
-  if (token === null || token === undefined) {
+  if (!authenticated()) {
     return <Redirect to="/app" />;
   }
 
