@@ -17,14 +17,17 @@
   background-color: white;
 
   position: relative;
-}
 
-@keyframes developPolaroid {
-  0% {
-    filter: brightness(1%);
+  animation: reseizePolaroid 2s linear;
+}
+@keyframes reseizePolaroid {
+  0%, 40% {
+    width: 30%;
+    padding: 10px;
+    padding-bottom: 28px;
   }
   100% {
-    filter: brightness(100%);
+    width: 100%;
   }
 }
 
@@ -37,6 +40,15 @@
 
 .Polaroid__Animation > .Polaroid__Image {
   animation: developPolaroid 2s linear;
+}
+
+@keyframes developPolaroid {
+  0%, 70% {
+    filter: brightness(1%);
+  }
+  100% {
+    filter: brightness(100%);
+  }
 }
 
 .Polaroid__ZoomIcon {

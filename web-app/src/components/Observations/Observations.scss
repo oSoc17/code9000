@@ -15,6 +15,32 @@
   width: 100%;
 }
 
+.Observations__Animation__Polaroid {
+  position: relative;
+  z-index: 2;
+  animation: POLAROID_DROP 1s linear;
+  padding: 50px 0 50px;
+}
+
+@keyframes POLAROID_DROP {
+  0%   {
+    bottom: 500px;
+  }
+  100% {
+    bottom: 0px;
+  }
+}
+
+.Observations__PolaroidIcon__Top {
+  position: relative;
+  z-index: 3
+}
+
+.Observations__PolaroidIcon__Bottom {
+  position: relative;
+  z-index: 1
+}
+
 .Observations__PolaroidIcon {
   display: block;
   width: 100%;
@@ -31,7 +57,6 @@
 
 .Observations__Swing {
   padding: 5px;
-  z-index: 5px;
 }
 
 .Observations__Footer {

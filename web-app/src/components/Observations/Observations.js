@@ -7,7 +7,7 @@ import Polaroid from '../Polaroid';
 
 import './Observations.css';
 import polaroidTop from '../../theme/icons/polaroid.svg';
-import polaroidDown from '../../theme/icons/polaroid_down.svg';
+import polaroidBottom from '../../theme/icons/polaroid_down.svg';
 import trash from '../../theme/icons/trash.svg';
 import book from '../../theme/icons/book.svg';
 import feather from '../../theme/icons/feather.svg';
@@ -93,8 +93,8 @@ class Observations extends Component {
         <Title name="Vote" />
         <div className="Observations__Top">
           <div className="Observations__PolaroidIcon">
-            <img src={polaroidTop} alt="Polaroid camera" />
-            <img className="Observations__PolaroidIcon--fix"src={polaroidDown} alt="Polaroid camera" />
+            <img className="Observations__PolaroidIcon__Top"src={polaroidTop} alt="Polaroid camera" />
+            <img className="Observations__PolaroidIcon__Bottom Observations__PolaroidIcon--fix"src={polaroidBottom} alt="Polaroid camera" />
           </div>
           {isDemo && (
             <div className="Observations__DemoText">
@@ -103,7 +103,7 @@ class Observations extends Component {
           )}
           <Swing
             config={this.state.config}
-            className="Observations__Swing"
+            className="Observations__Swing Observations__Animation__Polaroid"
             tagName="div"
             setStack={(stack) => this.setState({ stack })}
             throwoutleft={(e) => {
