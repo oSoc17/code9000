@@ -16,9 +16,10 @@ class Observations extends Component {
     super(props);
     this.state = {
       stack: null,
+      toggle: true,
       config: {
         throwOutConfidence: (xOffset, yOffset, element) => {
-          const xConfidence = Math.min((2 * Math.abs(xOffset)) / element.offsetWidth, 1);
+          const xConfidence = Math.min((4 * Math.abs(xOffset)) / element.offsetWidth, 1);
           const yConfidence = Math.min((Math.abs(yOffset)) / (element.offsetHeight * 10), 1);
           return Math.max(xConfidence, yConfidence);
         },
@@ -26,9 +27,18 @@ class Observations extends Component {
     };
   }
 
-  render() {
-    const { observations, vote, generateImageUrl, isDemo } = this.props;
+  vote(value) {
+    this.toggle();
+    this.props.vote(value);
+    setTimeout(() => this.toggle(), 50);
+  }
 
+  toggle() {
+    this.setState(({ toggle }) => ({ toggle: !toggle }));
+  }
+
+  render() {
+    const { observations, generateImageUrl, isDemo } = this.props;
     if (observations.length <= 0) {
       return (
         <div className="container Observations__Empty">
@@ -56,13 +66,11 @@ class Observations extends Component {
 
         <div className="Observations__Top">
           <img className="Observations__PolaroidIcon" src={polaroid} alt="Polaroid camera" />
-
           {isDemo && (
             <div className="Observations__DemoText">
               {observation.demoText}
             </div>
           )}
-
           <Swing
             config={this.state.config}
             className="Observations__Swing"
@@ -70,24 +78,24 @@ class Observations extends Component {
             setStack={(stack) => this.setState({ stack })}
 
             throwoutleft={(e) => {
-              vote(-1);
+              this.vote(-1);
               this.state.stack.getCard(e.target).throwIn(0, 0);
             }}
             throwoutright={(e) => {
-              vote(1);
+              this.vote(1);
               this.state.stack.getCard(e.target).throwIn(0, 0);
             }}
           >
             <div className="Observations__Picture">
-              <Polaroid img={generateImageUrl(observation.id)} />
+              <Polaroid toggle={this.state.toggle} img={generateImageUrl(observation.id)} />
             </div>
           </Swing>
         </div>
-        <div className="Observations__Bottom">
-          <div className="Observations__Button" onClick={() => vote(-1)}>
+        <div className="Observations__Footer">
+          <div className="Observations__Button" onClick={() => this.vote(-1)}>
             <img src={trash} alt="Trash" />
           </div>
-          <div className="Observations__Button" onClick={() => vote(1)}>
+          <div className="Observations__Button" onClick={() => this.vote(1)}>
             <img src={book} alt="Book" />
           </div>
         </div>

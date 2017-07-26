@@ -16,9 +16,23 @@
     
 }
 
-.Polaroid img {
+@keyframes developPolaroid {
+  0% {
+    filter: brightness(1%);
+  }
+  100% {
+    filter: brightness(100%);
+  }
+}
+
+.Polaroid img{
+    pointer-events: none;
     width: 100%;
     user-select: none;
 
     pointer-events: none;
+}
+
+.Polaroid__Animation img{
+  animation: developPolaroid 2s linear;
 }
