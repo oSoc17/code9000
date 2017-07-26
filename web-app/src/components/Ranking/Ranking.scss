@@ -86,6 +86,10 @@ $borderRadius: 3px;
 	font-weight: 600;
 }
 
+.Ranking__Line__Rank--active {
+	background-color: $rankingBlue;
+}
+
 .Ranking__Line__Rank {
 	flex-shrink: 0;
 	position: relative;

@@ -14,7 +14,7 @@ const RankingRank = ({ index }) => {
   const isTop = index <= 3;
 
   return (
-    <div className={classNames('Ranking__Line__Rank')}>
+    <div className="Ranking__Line__Rank">
       {index === 1 && <img src={first} alt="First" />}
       {index === 2 && <img src={second} alt="Second" />}
       {index === 3 && <img src={third} alt="Third" />}
@@ -47,7 +47,7 @@ export const Ranking = ({ ranking, user }) => {
         </div>
       </div>
       {ranking.map((rank, index) => (
-        <div key={rank.id} className="Ranking__Line">
+        <div className={classNames('Ranking__Line', user.id === rank.id && 'Ranking__Line__Rank--active')} key={rank.id} >
           <RankingRank index={index + 1} />
           <div className="Ranking__Line__Name">
             {rank.name}
