@@ -10,13 +10,13 @@ import Slide4 from './Fase1/Slides/Slide4';
 import Header from '../Header';
 import './Fase1/OnBoard.css';
 
-import bertIcon from '../../theme/icons/bert.svg';
+import bertIcon from '../../theme/icons/little_bert.svg';
 import polaroidIcon from '../../theme/icons/polaroid_original.svg';
 
 import Fase2 from './Fase2';
 
 const BERT_POSITION_BOTTOM = 0;
-const POLAROID_POSITION_BOTTOM = 180;
+const POLAROID_POSITION_BOTTOM = 75;
 class OnBoard extends Component {
   constructor(...props) {
     super(...props);
@@ -141,11 +141,7 @@ class OnBoard extends Component {
               </div>
             )}
           </div>
-
-          <div className="App__Push" />
         </div>
-
-        <div className="App__Footer" />
       </div>
     );
   }

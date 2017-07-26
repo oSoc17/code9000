@@ -39,8 +39,6 @@ class App extends Component {
           <div className="App__Push" />
 
         </div>
-
-        <div className="App__Footer" />
       </div>
     );
   }
