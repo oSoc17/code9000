@@ -27,7 +27,7 @@ class Observations extends Component {
   }
 
   render() {
-    const { observations, vote, generateImageUrl } = this.props;
+    const { observations, vote, generateImageUrl, isDemo } = this.props;
 
     if (observations.length <= 0) {
       return (
@@ -55,37 +55,35 @@ class Observations extends Component {
         <Title name="Vote" />
 
         <div className="Observations__Top">
-          <div className="container">
-            <div className="row">
-              <div className="col col-lg-12">
-                <img className="Observations__PolaroidIcon" src={polaroid} alt="Polaroid camera" />
-              </div>
-              <Swing
-                config={this.state.config}
-                className="stack"
-                tagName="div"
-                setStack={(stack) => this.setState({ stack })}
+          <img className="Observations__PolaroidIcon" src={polaroid} alt="Polaroid camera" />
 
-                throwoutleft={(e) => {
-                  vote(-1);
-                  this.state.stack.getCard(e.target).throwIn(0, 0);
-                }}
-                throwoutright={(e) => {
-                  vote(1);
-                  this.state.stack.getCard(e.target).throwIn(0, 0);
-                }}
-              >
-                <div className="col col-lg-offset-2 col-lg-8">
-                  <div className="Observations__Picture">
-                    <Polaroid img={generateImageUrl(observation.id)} />
-                  </div>
-                </div>
-              </Swing>
+          {isDemo && (
+            <div className="Observations__DemoText">
+              {observation.demoText}
             </div>
-          </div>
-        </div>
+          )}
 
-        <div className="Observations__Footer">
+          <Swing
+            config={this.state.config}
+            className="Observations__Swing"
+            tagName="div"
+            setStack={(stack) => this.setState({ stack })}
+
+            throwoutleft={(e) => {
+              vote(-1);
+              this.state.stack.getCard(e.target).throwIn(0, 0);
+            }}
+            throwoutright={(e) => {
+              vote(1);
+              this.state.stack.getCard(e.target).throwIn(0, 0);
+            }}
+          >
+            <div className="Observations__Picture">
+              <Polaroid img={generateImageUrl(observation.id)} />
+            </div>
+          </Swing>
+        </div>
+        <div className="Observations__Bottom">
           <div className="Observations__Button" onClick={() => vote(-1)}>
             <img src={trash} alt="Trash" />
           </div>
@@ -97,4 +95,9 @@ class Observations extends Component {
     );
   }
 }
+
+Observations.defaultProps = {
+  isDemo: false,
+};
+
 export default Observations;
