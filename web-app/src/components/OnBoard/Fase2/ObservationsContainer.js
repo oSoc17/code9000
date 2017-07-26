@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import Observations from '../../Observations/Observations';
-import redirect from '../../../utils/redirect';
+import { Redirect } from 'react-router-dom';
 
 import picture1 from './pictures/fase2_picture1.png';
 import picture2 from './pictures/fase2_picture2.png';
@@ -38,7 +38,7 @@ class ObservationsContainer extends Component {
     const { observations } = this.state;
 
     if (observations.length === 0) {
-      redirect('/you-made-it');
+      return <Redirect push to="/you-made-it" />;
     }
 
     return (<Observations
