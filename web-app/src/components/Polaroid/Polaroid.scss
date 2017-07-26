@@ -13,6 +13,7 @@
     border-top: 0.5px solid whitesmoke;
 
     background-color: white;
+    
 }
 
 @keyframes developPolaroid {
@@ -28,6 +29,8 @@
     pointer-events: none;
     width: 100%;
     user-select: none;
+
+    pointer-events: none;
 }
 
 .Polaroid__Animation img{

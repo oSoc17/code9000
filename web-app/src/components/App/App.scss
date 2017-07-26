@@ -1,18 +1,27 @@
 @import "../../theme/_index.scss";
 
 .App {
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
+  height: 100%;
+  min-height: 100%;
 }
 
 .App__Wrapper {
-    flex: 1;
-    padding-top: $appWrapperPadding;
-    position: relative;
+  min-height: 100%;
 
-    overflow: scroll;
+  margin-bottom: -$footerHeight;
+}
+
+.App__Footer {
+  flex-shrink: 0;
+  height: $footerHeight - 1;
+
+  border-top: 1px solid rgb(222, 222, 222);
+}
+
+.App__Push {
+  height: $footerHeight;
+}
+
+.App__Content {
+  padding: 30px;
 }
