@@ -2369,6 +2369,10 @@ exec-sh@^0.2.0:
   dependencies:
     merge "^1.1.3"
 
+exenv@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/exenv/-/exenv-1.2.0.tgz#3835f127abf075bfe082d0aed4484057c78e3c89"
+
 exit-hook@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/exit-hook/-/exit-hook-1.1.1.tgz#f05ca233b48c05d54fff07765df8507e95c02ff8"
@@ -3983,10 +3987,6 @@ lodash.templatesettings@^4.0.0:
   dependencies:
     lodash._reinterpolate "~3.0.0"
 
-lodash.throttle@^4.0.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
-
 lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
@@ -5013,10 +5013,6 @@ promise@7.1.1, promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-type@0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/prop-type/-/prop-type-0.0.1.tgz#4a211359cc622f7d2d1eee14d34afb7dfe7ea64e"
-
 prop-types@^15.5.10, prop-types@^15.5.4:
   version "15.5.10"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.10.tgz#2797dfc3126182e3a95e3dfbb2e893ddd7456154"
@@ -5143,6 +5139,10 @@ react-dev-utils@^3.0.2:
     strip-ansi "3.0.1"
     text-table "0.2.0"
 
+react-dom-factories@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-dom-factories/-/react-dom-factories-1.0.0.tgz#f43c05e5051b304f33251618d5bc859b29e46b6d"
+
 react-dom@^15.6.1:
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.6.1.tgz#2cb0ed4191038e53c209eb3a79a23e2a4cf99470"
@@ -5163,18 +5163,13 @@ react-error-overlay@^1.0.9:
     settle-promise "1.0.0"
     source-map "0.5.6"
 
-react-pinch-zoom-pan@^1.4.2:
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/react-pinch-zoom-pan/-/react-pinch-zoom-pan-1.4.2.tgz#2f39012e9c1cffcd0d8025f756604f778399db17"
+react-modal@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/react-modal/-/react-modal-2.2.2.tgz#4bbf98bc506e61c446c9f57329c7a488ea7d504b"
   dependencies:
-    lodash.throttle "^4.0.1"
-    prop-type "0.0.1"
-    react-prefixr "^0.1.0"
-    rxjs "^5.4.0"
-
-react-prefixr@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/react-prefixr/-/react-prefixr-0.1.0.tgz#94107665211ba9557e1c3ed162349cc4af88aa23"
+    exenv "1.2.0"
+    prop-types "^15.5.10"
+    react-dom-factories "^1.0.0"
 
 react-redux@^5.0.5:
   version "5.0.5"
@@ -5618,12 +5613,6 @@ rx-lite@*, rx-lite@^4.0.8:
 rx-lite@^3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/rx-lite/-/rx-lite-3.1.2.tgz#19ce502ca572665f3b647b10939f97fd1615f102"
-
-rxjs@^5.4.0:
-  version "5.4.2"
-  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.4.2.tgz#2a3236fcbf03df57bae06fd6972fd99e5c08fcf7"
-  dependencies:
-    symbol-observable "^1.0.1"
 
 safe-buffer@5.1.1, safe-buffer@^5.0.1, safe-buffer@^5.1.0, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.1"
@@ -6101,7 +6090,7 @@ swing@^3.0.3, swing@^3.1.1:
     sister "^3.0.0"
     vendor-prefix "^0.1.0"
 
-symbol-observable@^1.0.1, symbol-observable@^1.0.3:
+symbol-observable@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.0.4.tgz#29bf615d4aa7121bdd898b22d4b3f9bc4e2aa03d"
 

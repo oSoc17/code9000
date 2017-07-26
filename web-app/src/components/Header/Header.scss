@@ -9,12 +9,11 @@
   align-items: center;
 
   z-index: 10;
-
   background-color: white;
-
   flex-shrink: 0;
-
   height: $headerHeight;
+  z-index: 9;
+  position: relative;
 }
 
 .Header__Wrapper {
@@ -28,7 +27,7 @@
   justify-content: space-between;
 
   background-color: inherit;
-  z-index: 10
+  z-index: 10;
 }
 
 .Header__Logo {
@@ -133,7 +132,6 @@
     margin: 0 5px;
   }
 }
-
 
 .Header__LogoNotAuthenticated {
   height: 100%;
