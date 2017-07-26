@@ -6,7 +6,8 @@ import Title from '../Title';
 import Polaroid from '../Polaroid';
 
 import './Observations.css';
-import polaroid from '../../theme/icons/polaroid.svg';
+import polaroidTop from '../../theme/icons/polaroid.svg';
+import polaroidDown from '../../theme/icons/polaroid_down.svg';
 import trash from '../../theme/icons/trash.svg';
 import book from '../../theme/icons/book.svg';
 import feather from '../../theme/icons/feather.svg';
@@ -91,7 +92,10 @@ class Observations extends Component {
       <div className="Observations">
         <Title name="Vote" />
         <div className="Observations__Top">
-          <img className="Observations__PolaroidIcon" src={polaroid} alt="Polaroid camera" />
+          <div className="Observations__PolaroidIcon">
+            <img src={polaroidTop} alt="Polaroid camera" />
+            <img className="Observations__PolaroidIcon--fix"src={polaroidDown} alt="Polaroid camera" />
+          </div>
           {isDemo && (
             <div className="Observations__DemoText">
               {observation.demoText}
