@@ -33,7 +33,7 @@ class NotFound extends Component {
       <div className="NotFound">
         <div className="NotFound__Wrapper">
           <div className="NotFound__Text">
-            404 not found!
+            410 gone!
           </div>
           <div className="NotFound__Logo">
             <img className="NotFound_Logo_Background" src={crestBackground} alt="" />
@@ -41,7 +41,8 @@ class NotFound extends Component {
           </div>
           <div className="NotFound__SubText">
             Woops!<br /><br />
-            Looks like the bird has flown.
+            Looks like Dylan has forgot<br />
+            his name and flew away.
           </div>
         </div>
       </div>
