@@ -1,66 +1,69 @@
-.Overlay {
-	display: flex;
-	height: 100%;
-	flex-direction: column;
-	justify-content: space-between;
-}
-.Overlay__Outer {
-	background: #fff;
-	visibility: hidden;
-	animation: HIDE_BERT 5s linear;
+@import "../../theme/_index.scss";
+
+.SignUpAfterOnBoarding__Content {
+	opacity: 0;
+	transition: all 5s linear; 
+	pointer-events: none;
 }
 
-.Overlay__Outer__Text {
-	margin: auto;
+.SignUpAfterOnBoarding__Content--visible {
+	opacity: 1;
+	pointer-events: initial;
+}
+
+.SignUpAfterOnBoarding__Overlay {
+	opacity: 1;
+	transition: all 5s linear; 
+	pointer-events: none;
+}
+
+.SignUpAfterOnBoarding__Overlay--hidden {
+	opacity: 0;
+}
+
+.SignUpAfterOnBoarding__Header {
+	width: 100%;
 	position: absolute;
-	top: 0; left: 0; bottom: 0; right: 0;
+	top: 0;
+}
 
-	background: #fff;
-	text-align: center;
-	
-	font-family: "Chivo", serif;
-	font-weight: 600;
+.SignUpAfterOnBoarding__Text {
+	position: absolute;
+	margin-top: $headerHeight + 15px;
+	top: 0;
+
+	left: 50%;
+	right: 50%;
+
+	transform: translate(-50%, 0%);
+
+	width: 100%;
+	max-width: 400px;
+
 	font-size: 21px;
+
 	line-height: 28px;
-	color: #000;
 
-	padding-top: 10px;
+	text-align: center;
 }
 
-.OnBoard__Bert__Animation {
-	visibility: hidden;
-	animation: HIDE_BERT 5s linear;
+.SignUpAfterOnBoarding__Bert {
+	width: 100%;
+	max-width: 300px;
+
+	position: absolute;
+	bottom: 0;
+
+	left: 50%;
+	right: 50%;
+
+	transform: translate(-50%, 0%);
+
+	overflow: hidden;
 }
 
-@keyframes HIDE_BERT{
-    0%, 80% {
-    	visibility: visible;
-    	opacity: 1;
-    }
-    100% {
-    	visibility: hidden;
-    	opacity: 0;
-    }
-}
-
-.Overlay__Inner {
-	animation: DISPLAY_SIGN_UP 5s linear;
-}
-
-@keyframes DISPLAY_SIGN_UP {
-    0%, 80% {
-    	visibility: hidden;
-    	opacity: 0;
-    }
-    100% {
-    	visibility: visible;
-    	opacity: 1;
-    }
-}
-
-@media (max-width: 310px) {
-	.Overlay__Outer__Text {
-		font-size: 16px;
-		line-height: 24px;
+@include max-height(674px) {
+	.SignUpAfterOnBoarding__Bert {
+		max-height: 50%;
 	}
 }

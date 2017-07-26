@@ -1,28 +1,45 @@
 import React, { Component } from 'react';
 import SignUp from '../SignUp';
+import Header from '../Header';
+import classNames from '../../utils/classNames';
 
 import './SignUpAfterOnBoarding.css';
 
 import bertVerkijkerIcon from '../../theme/icons/bert_verkijker.svg';
 
 class SignUpAfterOnBoarding extends Component {
+  constructor(...props) {
+    super(...props);
+
+    this.state = {
+      showContent: false,
+    };
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ showContent: true });
+    }, 4000);
+  }
+
   render() {
+    const { showContent } = this.state;
+
     return (
-      <div className="Overlay">
-        <div className="Overlay__Inner">
+      <div>
+        <div className={classNames('SignUpAfterOnBoarding__Content', showContent && 'SignUpAfterOnBoarding__Content--visible')}>
           <SignUp />
         </div>
-        <div className="Overlay__Outer">
-          <p className="Overlay__Outer__Text">
+        <div className={classNames('App', 'SignUpAfterOnBoarding__Overlay', showContent && 'SignUpAfterOnBoarding__Overlay--hidden')}>
+          <div className="SignUpAfterOnBoarding__Header">
+            <Header />
+          </div>
+          <div className="SignUpAfterOnBoarding__Text">
             Awesome!<br />
             Let&apos;s get you signed up, so<br />
             you can keep helping me!
-          </p>
-          <img
-            src={bertVerkijkerIcon}
-            alt="Avatar of Bert, the Bird nerd."
-            className="OnBoard__Bert OnBoard__Bert__Animation"
-          />
+          </div>
+          <img src={bertVerkijkerIcon} className="SignUpAfterOnBoarding__Bert" alt="Bert with a verkijker" />
         </div>
       </div>
     );
