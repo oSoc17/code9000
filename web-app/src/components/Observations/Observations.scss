@@ -169,3 +169,16 @@
     transform: translate(150px, 800px) rotateZ(360deg);
   }
 }
+
+@media (min-width: 700px) {
+  @keyframes reseizePolaroid {
+    0%, 40% {
+      max-width: 180px;
+      padding: 10px;
+      padding-bottom: 28px;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+} 
