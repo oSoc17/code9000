@@ -24,13 +24,17 @@ class Observations extends Component {
         throwOutConfidence: (xOffset, yOffset, element) => {
           const xConfidence = Math.min((4 * Math.abs(xOffset)) / element.offsetWidth, 1);
           const yConfidence = Math.min((Math.abs(yOffset)) / (element.offsetHeight * 10), 1);
-          if(xConfidence === 1){
-            xOffset > 0? this.toggleBook() : this.toggleTrash();
+          if (xConfidence === 1) {
+            if (xOffset > 0) {
+              this.toggleBook();
+            } else {
+              this.toggleTrash();
+            }
           } else {
             this.setState({
               growBook: false,
               growTrash: false,
-            })
+            });
           }
           return Math.max(xConfidence, yConfidence);
         },
@@ -44,7 +48,7 @@ class Observations extends Component {
     this.setState({
       growBook: false,
       growTrash: false,
-    })
+    });
     setTimeout(() => this.toggleAnimation(), 50);
   }
 
@@ -113,10 +117,10 @@ class Observations extends Component {
           </Swing>
         </div>
         <div className="Observations__Footer">
-          <div className={classNames("Observations__Button", this.state.growTrash && "Observations__Button__Grow")} onClick={() => this.vote(-1)}>
+          <div className={classNames('Observations__Button', this.state.growTrash && 'Observations__Button__Grow')} onClick={() => this.vote(-1)}>
             <img src={trash} alt="Trash" />
           </div>
-          <div className={classNames("Observations__Button", this.state.growBook && "Observations__Button__Grow")} onClick={() => this.vote(1)}>
+          <div className={classNames('Observations__Button', this.state.growBook && 'Observations__Button__Grow')} onClick={() => this.vote(1)}>
             <img src={book} alt="Book" />
           </div>
         </div>
