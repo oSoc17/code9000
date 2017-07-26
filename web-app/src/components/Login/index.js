@@ -24,6 +24,13 @@ class Login extends Component {
     };
   }
 
+  onValidationChange(valid) {
+    this.setState({
+      errors: undefined,
+      isValid: valid,
+    });
+  }
+
   login(body) {
     api.post('/auth', body).then(({ data }) => {
       window.localStorage.setItem('jwt.token', data.token);
@@ -38,13 +45,6 @@ class Login extends Component {
     event.preventDefault();
 
     window.location = `${BASE_URL}/auth/facebook`;
-  }
-
-  onValidationChange(valid) {
-    this.setState({
-      errors: undefined,
-      isValid: valid,
-    });
   }
 
   render() {
