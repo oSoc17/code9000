@@ -56,7 +56,7 @@ const Root = () => (
         <Route exact path="/reset-password" component={RequestResetPassword} />
         <Route exact path="/reset-password/:token" component={ResetPassword} />
         <Route exact path="/sign-up" component={SignUp} />
-        <Route exact path="/sign-up-after-onboarding" component={SignUpAfterOnBoarding} />
+        <Route exact path="/you-made-it" component={SignUpAfterOnBoarding} />
         <Route exact path="/start" component={OnBoard} />
         {isAuthenticated()}
       </Switch>

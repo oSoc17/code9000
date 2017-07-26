@@ -38,7 +38,7 @@ class ObservationsContainer extends Component {
     const { observations } = this.state;
 
     if (observations.length === 0) {
-      redirect('/sign-up-after-onboarding');
+      redirect('/you-made-it');
     }
 
     return (<Observations
