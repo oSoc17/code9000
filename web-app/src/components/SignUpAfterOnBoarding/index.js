@@ -15,7 +15,7 @@ class SignUpAfterOnBoarding extends Component {
         <div className="Overlay__Outer">
           <p className="Overlay__Outer__Text">
             Awesome!<br />
-            Let's get you signed up, so<br />
+            Let&apos;s get you signed up, so<br />
             you can keep helping me!
           </p>
           <img
