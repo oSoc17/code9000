@@ -3,7 +3,6 @@
 namespace App\Listeners;
 
 use App\Events\ObservationIsValid;
-use App\Events\ObservationUploaded;
 use App\Services\Facebook\Facebook;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -23,7 +22,7 @@ class SendObservationToFacebook implements ShouldQueue
     {
         $this->facebook = $facebook;
     }
-    
+
     /**
      * Handle the event.
      *
