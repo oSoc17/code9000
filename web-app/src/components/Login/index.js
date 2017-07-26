@@ -40,6 +40,13 @@ class Login extends Component {
     window.location = `${BASE_URL}/auth/facebook`;
   }
 
+  onValidationChange(valid) {
+    this.setState({
+      errors: undefined,
+      isValid: valid,
+    });
+  }
+
   render() {
     const { isValid, errors } = this.state;
 
@@ -49,7 +56,7 @@ class Login extends Component {
         <div className="Login__Form">
           {errors && <Errors errors={errors} />}
           <Form
-            onValidationChange={valid => this.setState({ isValid: valid })}
+            onValidationChange={(valid) => this.onValidationChange(valid)}
             onSubmit={data => this.login(data)}
           >
             <Input name="email" rules={['required', 'email']} placeholder="Email" icon="email" />
