@@ -78,7 +78,7 @@
 .OnBoard__Verkijker {
   @include centerHorizontal();
   width: 190px;
-  bottom: 170px;
+  bottom: 75px;
   left: calc(-50% - 35px);
 }
 
@@ -86,7 +86,7 @@
   @include centerHorizontal();
   width: 150px;
   height: auto;
-  bottom: 190px;
+  bottom: 75px;
   left: calc(-50% - 15px);
 
   transition: bottom 1.5s linear;
