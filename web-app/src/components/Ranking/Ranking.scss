@@ -1,64 +1,99 @@
 @import "../../theme/_variables.scss";
 
+$borderRadius: 3px;
+
 .Ranking {
 	max-width: 560px;
 	min-height: 300px;
+
+	color: white;
+
+	margin-top:30px;
 }
 
-.Ranking_Header {
-	position: relative;
-	margin-bottom: 30px;
-	margin-top: 50px;
-}
+.Ranking__Header {
+	display: flex;
+	background-color: $darkPastelBlue;
 
-.Ranking__Line {
-	background: $darkPastelBlue;
-	border: solid #fff 7px;
-	font-size: 22px;
-	line-height: 28px;
-	color: #fff;
-}
+	padding: 17px 30px;
 
-.Ranking__Line__Name {
 	font-weight: 600;
-	text-align:center; 
+	font-size: 25px;
+
+	border-radius: $borderRadius;
+	margin-bottom: 30px;
 }
 
-.Ranking__Text__Light {
-	font-weight: 200;
+.Ranking__Header__Rank {
+	flex-shrink: 0;
+
+	display: flex;
+	flex-direction: column;
 }
 
-.Ranking__Text__Right {
-	text-align: right;
-}
-
-.Ranking__Text__Center {
+.Ranking__Header__Profile {
+	flex: 1 0 auto;
 	text-align: center;
+
+	position: relative;
+
+	> div {
+		margin-top: 40px;
+	}
 }
 
-.Profile_Picture {
+.Ranking__Header__Points {
+	flex-shrink: 0;
+}
+
+.Ranking__Header__Rank, .Ranking__Header__Points {
+	> div:nth-child(1) {
+		font-weight: 500;
+	}
+
+	> div:nth-child(2) {
+		text-align: center;
+		padding-top: 10px;
+	}
+}
+
+.Profile__Header__Picture {
 	position: absolute;
-	top: -50px;
-	left: 38%;
+	top: -70px;
+	left: 50%;
+	right: 50%;
+	transform: translate(-50%, 0%);
+
 	width: 100px;
 	height: 100px;
 	border-radius: 50%;
 	border: solid 5px $rankingBlue;
 }
 
+.Ranking__Line {
+	background: $darkPastelBlue;
+	font-size: 25px;
+	line-height: 28px;
+
+	display: flex;
+
+	padding: 20px 20px;
+	margin-bottom: 10px;
+
+	border-radius: $borderRadius;
+
+	font-weight: 600;
+}
+
+.Ranking__Line__Name {
+	flex-grow: 1;
+	text-align:center; 
+}
+
 @media (max-width: 425px) {
 	.Ranking__Line {
 		font-size: 14px;
 		line-height: 21px;
-	}
-	.Profile_Picture {
-		top: -20px;
-		left: 38%;
-		width: 50px;
-		height: 50px;
-	}
-	.Ranking_Header {
-		margin-top: 20px;
 	}
 }
 
