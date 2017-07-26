@@ -7,7 +7,7 @@
 .Overlay__Outer {
 	background: #fff;
 	visibility: hidden;
-	animation: HIDE_BERT 7s linear;
+	animation: HIDE_BERT 5s linear;
 }
 
 .Overlay__Outer__Text {
@@ -29,7 +29,7 @@
 
 .OnBoard__Bert__Animation {
 	visibility: hidden;
-	animation: HIDE_BERT 7s linear;
+	animation: HIDE_BERT 5s linear;
 }
 
 @keyframes HIDE_BERT{
@@ -44,7 +44,7 @@
 }
 
 .Overlay__Inner {
-	animation: DISPLAY_SIGN_UP 7s linear;
+	animation: DISPLAY_SIGN_UP 5s linear;
 }
 
 @keyframes DISPLAY_SIGN_UP {
