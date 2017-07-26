@@ -15,6 +15,8 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         'App\Events\ObservationIsValid' => [
             'App\Listeners\SendObservationImgur',
+            'App\Listeners\SendObservationToFacebook',
+            'App\Listeners\SendObservationToTwitter',
         ],
         'App\Events\ObservationUploadedToImgur' => [
             'App\Listeners\SendObservationDatahubGent',

@@ -216,7 +216,8 @@ return [
         Spatie\JsonApiPaginate\JsonApiPaginateServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-
+        Thujohn\Twitter\TwitterServiceProvider::class,
+        SammyK\LaravelFacebookSdk\LaravelFacebookSdkServiceProvider::class,
     ],
 
     /*
@@ -269,7 +270,7 @@ return [
         'JWTFactory'   => Tymon\JWTAuth\Facades\JWTFactory::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Image' => Intervention\Image\Facades\Image::class,
-
+        'Twitter' => Thujohn\Twitter\Facades\Twitter::class,
     ],
 
 ];
