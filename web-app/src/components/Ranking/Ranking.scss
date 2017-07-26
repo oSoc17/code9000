@@ -85,6 +85,35 @@ $borderRadius: 3px;
 	font-weight: 600;
 }
 
+.Ranking__Line__Rank {
+	flex-shrink: 0;
+	position: relative;
+
+	z-index: 0;
+
+	width: 35px;
+
+	text-align: center;
+
+	img {
+		position: absolute;
+		z-index: -1;
+		width: 35px;
+
+		left: 50%;
+		right: 50%;
+		transform: translate(-50%, 0%);
+	}
+}
+
+.Ranking__Line__Rank--top > span {
+	font-size: 13px;
+	font-weight: normal;
+	display: block;
+	margin-top: -4px;
+	z-index: 3;
+}
+
 .Ranking__Line__Name {
 	flex-grow: 1;
 	text-align:center; 
