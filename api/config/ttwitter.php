@@ -3,7 +3,7 @@
 // You can find the keys here : https://apps.twitter.com/
 
 return [
-	'debug'               => env('APP_DEBUG', false),
+    'debug'               => env('APP_DEBUG', false),
 
     'API_URL'             => 'api.twitter.com',
     'UPLOAD_URL'          => 'upload.twitter.com',
@@ -14,8 +14,8 @@ return [
     'REQUEST_TOKEN_URL'   => 'https://api.twitter.com/oauth/request_token',
     'USE_SSL'             => true,
 
-	'CONSUMER_KEY'        => env('TWITTER_CONSUMER_KEY', ''),
-	'CONSUMER_SECRET'     => env('TWITTER_CONSUMER_SECRET', ''),
-	'ACCESS_TOKEN'        => env('TWITTER_ACCESS_TOKEN', ''),
-	'ACCESS_TOKEN_SECRET' => env('TWITTER_ACCESS_TOKEN_SECRET', ''),
+    'CONSUMER_KEY'        => env('TWITTER_CONSUMER_KEY', ''),
+    'CONSUMER_SECRET'     => env('TWITTER_CONSUMER_SECRET', ''),
+    'ACCESS_TOKEN'        => env('TWITTER_ACCESS_TOKEN', ''),
+    'ACCESS_TOKEN_SECRET' => env('TWITTER_ACCESS_TOKEN_SECRET', ''),
 ];
