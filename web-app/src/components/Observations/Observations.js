@@ -103,7 +103,7 @@ class Observations extends Component {
           )}
           <Swing
             config={this.state.config}
-            className="Observations__Swing Observations__Animation__Polaroid"
+            className={classNames('Observations__Swing', this.state.animation && 'Observations__Animation__Polaroid')}
             tagName="div"
             setStack={(stack) => this.setState({ stack })}
             throwoutleft={(e) => {

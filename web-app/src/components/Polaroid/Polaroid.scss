@@ -17,9 +17,12 @@
   background-color: white;
 
   position: relative;
+}
 
+.Polaroid__Animation__Resize {
   animation: reseizePolaroid 2s linear;
 }
+
 @keyframes reseizePolaroid {
   0%, 40% {
     width: 30%;
