@@ -1,19 +1,20 @@
+@import "../../theme/_index.scss";
+
 .Polaroid {
-    max-width: 500px;
-    margin:0 auto;
-    display: block;
+  max-width: 500px;
+  margin: 0 auto;
+  display: block;
 
-    user-drag: none;
-    padding: 30px;
-    padding-bottom: 80px;
+  user-drag: none;
+  padding: 30px;
+  padding-bottom: 50px;
 
-    box-shadow: 0 3px 6px rgba(0,0,0,.25);
-    border-radius: 5px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, .25);
+  border-radius: 5px;
 
-    border-top: 0.5px solid whitesmoke;
+  border-top: 0.5px solid whitesmoke;
 
-    background-color: white;
-    
+  background-color: white;
 }
 
 @keyframes developPolaroid {
@@ -25,14 +26,65 @@
   }
 }
 
-.Polaroid img{
-    pointer-events: none;
-    width: 100%;
-    user-select: none;
+.Polaroid img {
+  pointer-events: none;
+  width: 100%;
+  user-select: none;
 
-    pointer-events: none;
+  pointer-events: none;
 }
 
-.Polaroid__Animation img{
+.Polaroid__Animation img {
   animation: developPolaroid 2s linear;
+}
+
+.ReactModal__Overlay {
+  z-index: 20;
+}
+
+.ReactModal__Content {
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+
+  display: flex;
+
+  border: none !important;
+  background: transparent !important;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: content-box !important;
+
+  img {
+    width: 100%;
+    max-width: 75%;
+    // height: 100%;
+    cursor: pointer;
+  }
+
+  .Polaroid__Modal__CloseButton {
+    width: 200px;
+  }
+}
+
+.Polaroid__Bottom {
+  text-align: right;
+  margin-top: $margin * 2;
+
+  span {
+    cursor: pointer;
+  }
+}
+
+@include onMobile() {
+  .ReactModal__Content {
+    img {
+      max-width: 100%;
+    }
+  }
 }
