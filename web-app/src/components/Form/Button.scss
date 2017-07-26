@@ -17,6 +17,14 @@
   cursor: pointer;
 }
 
+.Form__Button--clean {
+  width: auto;
+  font-size: auto;
+  padding: auto;
+  background-color: initial;
+  
+}
+
 .Form__Button--circle {
   border-radius: 50%; 
 }
@@ -29,10 +37,31 @@
   cursor: not-allowed;
 }
 
+.Form__Button:hover {
+  background-color: $jordyBlue;
+}
+
+.Form__Button:active, .Form__Button:focus {
+  background-color: $celestialBlue;
+}
+
+.Form__Button:disabled {
+  background-color: $lobLolly;
+}
+
 .Form__FacebookButton {
   background-color: $governorBay;
   padding: 0px;
 }
+
+.Form__FacebookButton:hover {
+  background-color: lighten($governorBay, 2);
+}
+
+.Form__FacebookButton:active, .Form__FacebookButton:focus {
+  background-color: darken($governorBay, 10);
+}
+
 
 .Form__FacebookButton__Wrapper {
   display: flex;
@@ -56,4 +85,3 @@
   flex-grow: 1;
   padding: 12px 0px; 
 }
-

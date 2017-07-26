@@ -6,18 +6,20 @@ use App\User;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\UserLogin;
 use App\Http\Requests\Api\UserRegistrationModel;
+use Tymon\JWTAuth\Exceptions\TokenBlacklistedException;
 
 class AuthController extends Controller
 {
     /**
      * Authenticate the user and create a token.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param $request
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function auth(Request $request)
+    public function auth(UserLogin $request)
     {
         $credentials = $request->only('email', 'password');
 
@@ -49,10 +51,14 @@ class AuthController extends Controller
      */
     public function refresh()
     {
-        $token = JWTAuth::getToken();
-        $newToken = JWTAuth::refresh($token);
+        try {
+            $token = JWTAuth::getToken();
+            $newToken = JWTAuth::refresh($token);
 
-        return response()->json(compact('newToken'));
+            return response()->json(compact('newToken'));
+        } catch (TokenBlacklistedException $exception) {
+            return response()->json(['error' => 'token_blacklisted'], $exception->getStatusCode());
+        }
     }
 
     public function logout()
@@ -69,12 +75,14 @@ class AuthController extends Controller
      */
     public function register(UserRegistrationModel $request)
     {
-        $account = [
+        $user = User::create([
             'name'     => $request->name,
             'email'    => $request->email,
             'password' => bcrypt($request->password),
-        ];
+        ]);
 
-        User::create($account);
+        $token = JWTAuth::fromUser($user);
+
+        return response()->json(compact('token'));
     }
 }

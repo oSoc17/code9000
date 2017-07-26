@@ -1,64 +1,136 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
+import Swing from 'react-swing';
 
 import Title from '../Title';
-import { Button } from '../Form';
-import Icon from '../Icon';
-
-import api from '../../utils/api';
+import Polaroid from '../Polaroid';
 
 import './Observations.css';
+import polaroid from '../../theme/icons/polaroid.svg';
+import trash from '../../theme/icons/trash.svg';
+import book from '../../theme/icons/book.svg';
+import feather from '../../theme/icons/feather.svg';
+import classNames from '../../utils/classNames';
 
 class Observations extends Component {
-
-  vote(value) {
-    const observation = _.head(this.props.observations);
-    const newObservations = [..._.drop(this.props.observations)];
-    api.post('/votes', {
-      body: {
-        observation_id: observation.id,
-        value,
+  constructor(props) {
+    super(props);
+    this.state = {
+      stack: null,
+      animation: true,
+      growTrash: false,
+      growBook: false,
+      config: {
+        throwOutConfidence: (xOffset, yOffset, element) => {
+          const xConfidence = Math.min((4 * Math.abs(xOffset)) / element.offsetWidth, 1);
+          const yConfidence = Math.min((Math.abs(yOffset)) / (element.offsetHeight * 10), 1);
+          if (xConfidence === 1) {
+            if (xOffset > 0) {
+              this.toggleBook();
+            } else {
+              this.toggleTrash();
+            }
+          } else {
+            this.setState({
+              growBook: false,
+              growTrash: false,
+            });
+          }
+          return Math.max(xConfidence, yConfidence);
+        },
       },
-    }).then(() => {
-      this.props.loadObservations(newObservations);
-
-      if (newObservations.length < 6) {
-        this.fetch();
-      }
-    });
+    };
   }
 
-  fetch() {
-    api.get('/auth/observations').then(({ data: paginationModel }) => {
-      this.props.loadObservations(paginationModel.data);
+  vote(value) {
+    this.toggleAnimation(this.state.animation);
+    this.props.vote(value);
+    this.setState({
+      growBook: false,
+      growTrash: false,
     });
+    setTimeout(() => this.toggleAnimation(), 50);
+  }
+
+  toggleAnimation() {
+    this.setState(({ animation }) => ({ animation: !animation }));
+  }
+
+  toggleTrash() {
+    this.setState({ growTrash: true });
+  }
+
+  toggleBook() {
+    this.setState({ growBook: true });
   }
 
   render() {
-    const observation = _.head(this.props.observations);
+    const { observations, generateImageUrl, isDemo } = this.props;
+    if (observations.length <= 0) {
+      return (
+        <div className="container Observations__Empty">
+          <div className="Feather">
+            <img src={feather} alt="Feather" />
+          </div>
+          <div className="col-lg-12">
+            <h1>All the birds have flown for today!</h1>
+            <p>Thank you so much for your contribution.</p>
+            <p>
+              Follow <a href="https://twitter.com/TodayBirds">@TodayBirds</a> on twitter or like the
+              page <a href="https://www.facebook.com/TodayBirds/">Birds Today</a> on Facebook to
+              keep track of all the pictures Bert takes.
+            </p>
+          </div>
+        </div>
+      );
+    }
+
+    const observation = _.head(observations);
 
     return (
       <div className="Observations">
-        <Title name="Observations" />
-        {observation === undefined && (
-          <p>No observations left</p>
-        )}
-        {observation && (
-          <div>
-            <img
-              src={`${process.env.REACT_APP_API_URL}/observations/${observation.id}/picture`}
-              alt="Observation"
-              className="Observations__Picture"
-            />
-            <div className="Observations__Buttons">
-              <Button onClick={() => this.vote(1)}><Icon name="thumbs-up" /></Button>
-              <Button onClick={() => this.vote(0)} >SKIP</Button>
-              <Button onClick={() => this.vote(-1)}><Icon name="thumbs-down" /></Button>
+        <Title name="Vote" />
+        <div className="Observations__Top">
+          <img className="Observations__PolaroidIcon" src={polaroid} alt="Polaroid camera" />
+          {isDemo && (
+            <div className="Observations__DemoText">
+              {observation.demoText}
             </div>
+          )}
+          <Swing
+            config={this.state.config}
+            className="Observations__Swing"
+            tagName="div"
+            setStack={(stack) => this.setState({ stack })}
+            throwoutleft={(e) => {
+              this.vote(-1);
+              this.state.stack.getCard(e.target).throwIn(0, 0);
+            }}
+            throwoutright={(e) => {
+              this.vote(1);
+              this.state.stack.getCard(e.target).throwIn(0, 0);
+            }}
+          >
+            <div className="Observations__Picture">
+              <Polaroid toggle={this.state.animation} img={generateImageUrl(observation.id)} />
+            </div>
+          </Swing>
+        </div>
+        <div className="Observations__Footer">
+          <div className={classNames('Observations__Button', this.state.growTrash && 'Observations__Button__Grow')} onClick={() => this.vote(-1)}>
+            <img src={trash} alt="Trash" />
           </div>
-        )}
+          <div className={classNames('Observations__Button', this.state.growBook && 'Observations__Button__Grow')} onClick={() => this.vote(1)}>
+            <img src={book} alt="Book" />
+          </div>
+        </div>
       </div>
     );
   }
 }
+
+Observations.defaultProps = {
+  isDemo: false,
+};
+
 export default Observations;

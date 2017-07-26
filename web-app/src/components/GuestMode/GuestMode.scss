@@ -1,24 +1,42 @@
+@import "../../theme/_index.scss";
 
 .GuestMode {
   display: flex;
-  align-items: center;
   justify-content: center;
+  min-height: 100%;
 }
 
 .GuestMode__Wrapper {
   width: 360px;
-  height: 640px;
+  min-height: 100%;
 
   padding: 30px 30px;
   box-sizing: border-box;
 
   display: flex;
   flex-direction: column;
+
+  justify-content: center;
 }
 
 .GuestMode__Logo {
   margin: 0 auto;
-  width: 150px;
+}
 
-  padding: 20px 20px 50px;
+.GuestMode__Label {
+  color: $darkPastelBlue;
+}
+
+.GuestMode__GoBack {
+  color: $darkPastelBlue;
+  font-size: 13px;
+  margin-top: $margin * 2;
+  text-align: center;
+}
+
+@media (min-width: 300px) {
+  .GuestMode__Logo {
+    width: 80%;
+    padding: 0px 20px 30px;
+  }
 }

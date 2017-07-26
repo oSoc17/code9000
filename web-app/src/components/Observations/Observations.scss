@@ -1,19 +1,141 @@
+@import "../../theme/_index.scss";
+
 .Observations {
-    margin-top: 50px;
+  min-height: calc(100vh - #{$headerHeight} - #{$footerHeight} - 60px - 2px);
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.Observations__Picture {
-    margin: 0 auto;
-    display: block;
-    width: 100%
+.Observations__Top {
+  height: 100%;
+  flex: 1 0 auto;
+  width: 100%;
 }
 
-.Observations__Buttons {
-    margin-top: 50px;
-    display: flex;
-    justify-content: space-between;
+.Observations__PolaroidIcon {
+  display: block;
+  width: 100%;
+  max-width: 225px;
+
+  margin: 0 auto;
+  margin-bottom: 30px;
 }
 
-.Observations__Buttons .Form__Button {
-    margin: 0px 50px;
+.Observations__Swing {
+  padding: 5px;
+  z-index: 5px;
+}
+
+.Observations__Footer {
+  width: 100%;
+  max-width: 500px;
+
+  margin: $margin * 2 0px;
+  flex-shrink: 0;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.Observations__Button {
+  height: 95px;
+  width: 95px;
+  z-index: 7;
+  background-color: #ffffff;
+  border-radius: 50%;
+  //box-shadow: 0 0 20px rgba(#000000, 0.3);
+
+  border: 1px solid whitesmoke;
+  box-shadow: 0 0 1px rgba(#000000, 0.2);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+
+  cursor: pointer;
+}
+
+.Observations__Button__Grow{
+  animation: growButton 0.5s linear forwards;
+}
+
+@keyframes growButton {
+  0% {
+    transform: scale(1.0); }
+  100% {
+    transform: scale(1.5); }
+}
+
+.Observations__Button:hover {
+  box-shadow: 0 0 20px rgba(#000000, 0.2);
+}
+
+.Observations__Button img {
+  height: 60%;
+}
+
+@include onMobile() {
+  .Polaroid {
+    padding: 10px;
+    padding-bottom: 50px;
+    border-radius: 2px;
+  }
+}
+
+@include max-height(900px) {
+  .Observations {
+    margin-top: -30px;
+  }
+
+  .Observations__PolaroidIcon {
+    margin-top: -111px;
+    overflow: hidden;
+    z-index: -99;
+  }
+}
+
+.Observations__DemoText {
+  font-size: 17px;
+  max-width: 220px;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.Observations__Empty {
+  height: 100%;
+}
+
+.Feather {
+  display: inline-block;
+  width: 10rem;
+  height: 10rem;
+
+  position: absolute;
+  top: -195px;
+  left: 50px;
+
+  z-index: 2;
+
+  animation: featherAnimation 7s infinite linear;
+  animation-delay: 1.3s;
+}
+
+@keyframes featherAnimation {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0px) rotateZ(0deg);
+  }
+  75% {
+    opacity: 1;
+    transform: translate(100px, 600px) rotateZ(270deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(150px, 800px) rotateZ(360deg);
+  }
 }

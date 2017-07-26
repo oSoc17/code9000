@@ -1,0 +1,39 @@
+@import "../../theme/_index.scss";
+
+.Alert {
+  border-radius: 3px;
+  padding: $padding * 2;
+  margin: $margin * 3 0;
+
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  background-position: 12px center;
+  padding-left: 38px;
+}
+
+.Errors {
+  color: lighten($tabasco, 5);
+
+  background-color: lighten($tabasco, 45);
+  background-image: url('./icons/error.svg');
+}
+
+.Errors__List {
+  list-style-type: disc;
+  margin-left: $margin * 3;
+}
+
+.Errors__List li {
+  margin-bottom: $margin * 1.5;
+}
+
+.Errors__List li:last-child {
+  margin-bottom: 0px;
+}
+
+.Success {
+  color: darken($jordyBlue, 10);
+  
+  background-color: lighten($jordyBlue, 10);
+  background-image: url('./icons/success.svg');
+}

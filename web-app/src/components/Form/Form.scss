@@ -11,14 +11,33 @@
   width: 100%;
   box-sizing: border-box;
 
-  color: $lobLolly;
+  color: $jordyBlue;
   font-size: 17px;
 
   border: 1px solid $lobLolly;
   border-radius: 3px;
   
+  padding: $margin*2;
+}
 
-  padding: 12px;
+.Form__Input__Icon {
+  background-repeat: no-repeat;
+  background-size: $margin*3 $margin*3;
+  background-position: $margin * 2 center;
+
+  padding: $margin*2 $margin*7;
+}
+
+.Form__Input__Icon--email {
+  background-image: url(../../theme/icons/email.svg);
+}
+
+.Form__Input__Icon--lock {
+  background-image: url(../../theme/icons/lock.svg);
+}
+
+.Form__Input__Icon--person {
+  background-image: url(../../theme/icons/person.svg);
 }
 
 .Form__Input::placeholder {
@@ -27,9 +46,11 @@
 
 .Form__Input:focus, .Form__Dropdown:focus, .Form__Textarea:focus {
   outline: none !important;
+  border: 1px solid $jordyBlue;
 }
 
-.Form__Field__Invalid {
-  //border: 1.2px solid #F44336 !important;
-  //color: #F44336 !important;
+
+.Form__Field__Invalid, .Form__Field__Invalid:focus, .Form__Field__Invalid::placeholder,  {
+  border-color: $thunderbird;
+  color: $thunderbird !important;
 }

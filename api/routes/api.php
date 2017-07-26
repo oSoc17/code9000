@@ -17,6 +17,8 @@ Route::group(['namespace' => 'Api'], function () {
     Route::get('documentation', 'DocumentationController@index');
     Route::post('deploy', 'GithubWebhookController@deploy');
 
+    Route::get('leaderboard', 'LeaderboardController@index');
+
     // Route = api/auth
     Route::prefix('auth')->group(function () {
         Route::post('/', 'AuthController@auth');
@@ -26,6 +28,9 @@ Route::group(['namespace' => 'Api'], function () {
 
         Route::post('register', 'AuthController@register');
         Route::post('refresh', 'AuthController@refresh');
+
+        Route::post('reset', 'PasswordResetController@sendResetMail');
+        Route::post('reset/{token}', 'PasswordResetController@resetPassword');
     });
 
     // Authenticated url's for Installation devices

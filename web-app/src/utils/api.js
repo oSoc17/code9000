@@ -1,6 +1,8 @@
 /* global window */
 import axios from 'axios';
 
+import redirect from './redirect';
+
 export const BASE_URL = process.env.REACT_APP_API_URL;
 
 const getToken = () => {
@@ -30,7 +32,7 @@ const abstractRequest = (endpoint, { headers = {}, body, ...otherOptions }, meth
 };
 
 const checkForRefreshToken = (endpoint, content, method) => (error) => {
-  if (error.response && error.response.status === 401) {
+  if (error.response && error.response.status === 401 && getToken()) {
     return abstractRequest('/auth/refresh', {}, 'post').then(({ data }) => {
       setToken(data);
 
@@ -42,16 +44,16 @@ const checkForRefreshToken = (endpoint, content, method) => (error) => {
 
 const checkForRelogin = error => {
   if (!error.response || !error.response.data || window.location.pathname === '/login') {
-    return Promise.reject(error);
+    return Promise.reject(error.response);
   }
 
   const message = error.response.data.error;
 
-  if (['token_expired', 'token_invalid', 'token_not_provided'].includes(message)) {
-    window.location = '/login';
+  if (['token_expired', 'token_invalid', 'token_not_provided', 'token_blacklisted', 'user_not_found'].includes(message)) {
+    redirect('/login');
   }
 
-  return Promise.reject(error);
+  return Promise.reject(error.response);
 };
 
 const request = (endpoint, content, method) => {

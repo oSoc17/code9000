@@ -39,6 +39,19 @@ return [
         'client_id' => env('FACEBOOK_CLIENT_ID'),
         'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
         'redirect' => config('app.url').'/api/auth/facebook/callback',
+        'page_id' => env('FACEBOOK_PAGE_ID'),
+        'page_token' => env('FACEBOOK_PAGE_TOKEN'),
+    ],
+
+    'imgur' => [
+        'api_url' => env('IMGUR_API_URL', 'https://api.imgur.com/3'),
+        'client_id' => env('IMGUR_CLIENT_ID'),
+    ],
+
+    'datahubGent' => [
+        'api_url' => env('DATAHUBGENT_API_URL', 'http://datahub.gent.be'),
+        'publicHash' => env('DATAHUBGENT_PUBLIC_HASH'),
+        'privateHash' => env('DATAHUBGENT_PRIVATE_HASH'),
     ],
 
 ];

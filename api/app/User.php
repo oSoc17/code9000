@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'avatar_url',
     ];
 
     /**
@@ -43,5 +43,10 @@ class User extends Authenticatable
     public function isAdmin()
     {
         return $this->is_admin;
+    }
+
+    public function passwordResets()
+    {
+        return $this->hasMany('App\PasswordReset')->orderBy('created_at', 'DESC');
     }
 }
