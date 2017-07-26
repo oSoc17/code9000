@@ -30,12 +30,29 @@
   pointer-events: none;
   width: 100%;
   user-select: none;
+  background-color: white;
+
+  position: relative;
+}
+
+.Polaroid__Image {
+  width: 100%;
+  user-select: none;
 
   pointer-events: none;
 }
 
 .Polaroid__Animation img {
   animation: developPolaroid 2s linear;
+}
+
+.Polaroid__ZoomIcon {
+  position: absolute;
+  width: 25px;
+  right: 40px;
+  top: 40px;
+
+  cursor: pointer;
 }
 
 .ReactModal__Overlay {
@@ -78,6 +95,13 @@
 
   span {
     cursor: pointer;
+  }
+
+  img {
+    cursor: pointer;
+    width: 20px;
+
+    color: red;
   }
 }
 

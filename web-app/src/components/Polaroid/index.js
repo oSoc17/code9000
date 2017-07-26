@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ReactModal from 'react-modal';
 import classNames from '../../utils/classNames';
 
+import zoomIcon from '../../theme/icons/zoom.svg';
+
 import './Polaroid.css';
 
 class Polaroid extends Component {
@@ -23,7 +25,8 @@ class Polaroid extends Component {
 
     return (
       <div className={classNames('Polaroid', toggle && 'Polaroid__Animation')} >
-        <img src={img} alt="" />
+        <img src={img} alt="" className="Polaroid__Image" />
+        <img onClick={() => this.showModal(true)} src={zoomIcon} alt="Zoom icon" className="Polaroid__ZoomIcon" />
 
         <ReactModal
           isOpen={showModal}
@@ -32,9 +35,7 @@ class Polaroid extends Component {
           <img src={img} alt="" onClick={() => this.showModal(false)} />
         </ReactModal>
 
-        <div className="Polaroid__Bottom">
-          <span onClick={() => this.showModal(true)}>Zoom</span>
-        </div>
+        <div className="Polaroid__Bottom" />
       </div>
     );
   }
