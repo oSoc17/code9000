@@ -10,7 +10,7 @@ class RankingContainer extends Component {
 
   render() {
     return (
-      <Ranking ranking={this.props.ranking} />
+      <Ranking ranking={this.props.ranking} user={this.props.user} />
     );
   }
 }
