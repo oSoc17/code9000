@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Events\ObservationIsValid;
 use App\Events\ObservationUploaded;
 use Thujohn\Twitter\Facades\Twitter;
 use Illuminate\Support\Facades\Storage;
@@ -9,12 +10,13 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 
 class SendObservationToTwitter implements ShouldQueue
 {
+    
     /**
      * Handle the event.
      *
-     * @param  ObservationUploaded  $event
+     * @param \App\Events\ObservationIsValid $event
      */
-    public function handle(ObservationUploaded $event)
+    public function handle(ObservationIsValid $event)
     {
         $observation = $event->observation;
 
