@@ -28,7 +28,7 @@ export const Ranking = ({ ranking, user }) => {
   const userRank = ranking[userRankIndex];
 
   return (
-    <div className="container Ranking">
+    <div className="Ranking">
       <div className="Ranking__Header">
         <div className="Ranking__Header__Rank">
           <div>Rank</div>

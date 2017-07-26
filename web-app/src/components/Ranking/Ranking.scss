@@ -8,6 +8,7 @@ $borderRadius: 3px;
 
 	color: white;
 
+	margin: 0 auto;
 	margin-top:30px;
 }
 
@@ -120,8 +121,9 @@ $borderRadius: 3px;
 }
 
 @media (max-width: 425px) {
-	.Ranking__Line {
-		font-size: 14px;
+	.Ranking__Line, .Ranking__Header {
+		font-weight: normal;
+		font-size: 15px;
 		line-height: 21px;
 	}
 }
