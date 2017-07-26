@@ -3,8 +3,8 @@
 namespace App\Listeners;
 
 use App\Events\ObservationUploaded;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Facades\Storage;
+use Thujohn\Twitter\Facades\Twitter;
 
 class SendObservationToTwitter
 {
@@ -19,6 +19,10 @@ class SendObservationToTwitter
         
         $uploaded_media = Twitter::uploadMedia(['media' => Storage::get($observation->picture_storage)]);
     
-        Twitter::postTweet(['status' => 'Hello birds', 'media_ids' => $uploaded_media->media_id_string]);
+        $message = [
+            'Spot your bird of the day at www.birds.today! #birds #commonTern #visdief #biodiversity #oSoc17 #CODE9000 #openknowledgebe #opendata',
+        ];
+    
+        Twitter::postTweet(['status' => $message, 'media_ids' => $uploaded_media->media_id_string]);
     }
 }
