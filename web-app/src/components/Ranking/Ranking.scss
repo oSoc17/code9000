@@ -1,0 +1,49 @@
+@import "../../theme/_variables.scss";
+
+.Ranking {
+	max-width: 560px;
+	min-height: 425px;
+}
+
+.Ranking_Header {
+	position: relative;
+	margin-bottom: 30px;
+	margin-top: 50px;
+}
+
+.Ranking__Line {
+	background: $darkPastelBlue;
+	border: solid #fff 7px;
+	font-size: 22px;
+	line-height: 28px;
+	color: #fff;
+}
+
+.Ranking__Line__Name {
+	font-weight: 600;
+	text-align:center; 
+}
+
+.Ranking__Text__Light {
+	font-weight: 200;
+}
+
+.Ranking__Text__Right {
+	text-align: right;
+}
+
+.Ranking__Text__Center {
+	text-align: center;
+}
+
+.Profile_Picture {
+	position: absolute;
+	top: -50px;
+	left: 38%;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	border: solid 5px $rankingBlue;
+}
+
+// self color = rankingBlue
