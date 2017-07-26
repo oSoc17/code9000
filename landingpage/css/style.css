@@ -1,0 +1,350 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#header {
+    background: #67a0d6; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #88bde6 , #67a0d6); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(left, #88bde6 , #67a0d6); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(left, #88bde6 , #67a0d6); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to left, #88bde6 , #67a0d6); /* Standard syntax */
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: fixed;
+    overflow: hidden;
+    position: relative;
+}
+
+
+.navbar-default {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #f7f7f7;
+}
+
+.container-fluid_1 {
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* logo navbar*/
+.img_1 {
+    border: 0;
+    max-height: 30px;
+}
+
+
+.banner_header {
+    text-align: left;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.banner_header h1 {
+	font-family: chivo;
+	color: #fafbfb;
+	font-weight: 700;
+}
+
+.banner_header p {
+	font-family: chivo;
+	color: #fafbfb;
+	font-size: 15px;
+	font-weight: 400;
+}
+
+.hero-container {
+    position: relative;
+    z-index: 1;
+}
+
+.balls {
+    position: relative;
+    top: 0;
+}
+
+.ball {
+    background-color: #3a658c;
+    opacity: 0.3;
+    display: block;
+    border-radius: 100%;
+    position: absolute;
+}
+
+.ball:nth-child(1){
+    width: 25em;
+    height: 25em;
+    left: -8%;
+    bottom: -10em;
+}
+
+.ball:nth-child(2){
+    width: 25em;
+    height: 25em;
+    left: 8%;
+    bottom: -15em;
+}
+
+.ball:nth-child(3){
+    width: 25em;
+    height: 25em;
+    right: -10%;
+    bottom: -12em;
+}
+
+.ball:nth-child(4){
+    width: 25em;
+    height: 25em;
+    right: -3em;
+    bottom: -10em;
+}
+
+/*------------------Bert-------------*/
+#bert{
+	padding: 80px 0px;
+	font-family: lato;
+}
+
+.bert_header{
+	text-align: left;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.bert_header h2{
+	font-family: lato;
+	color: #2b313f;
+	font-weight: 900;
+}
+
+.bert_header p{
+	font-family: lato;
+	color: #2b313f;
+	font-weight: 300;
+    max-width: 75%;
+    font-size: 16px;
+}
+
+
+
+/*-------------- Pilers -------------*/
+
+#pilers{
+	padding: 80px 0px 50px;
+	font-family: lato;
+    background: #67a0d6; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(right, #88bde6 , #67a0d6); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #88bde6 , #67a0d6); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #88bde6 , #67a0d6); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #88bde6 , #67a0d6); /* Standard syntax */
+}
+
+.pilers_header{
+	text-align: center;
+}
+
+.pilers_header h2{
+	font-family: lato;
+	color: #fff;
+	font-weight: 900;
+    text-align: center;
+}
+
+.pilers_header h3{
+	font-family: lato;
+	color: #fff;
+	font-weight: 700;
+    text-align: center;
+}
+
+.pilers_header p{
+    font-family: Roboto;
+	color: #fff;
+	font-weight: 300;
+    max-width: 70%
+}
+
+/* size of image blocks */
+.image_design{
+	width: 80%;
+    margin: 0 auto;
+}
+
+/*  margin of pilers */
+.margin_top_images{
+	margin-top: 40px;
+	margin-bottom: 25px;
+}
+
+.fa_icons{
+    font-size: 130px;
+    color: #fff;
+    text-align: center;
+}
+
+/*---------- app --------------*/
+
+#app{
+	padding: 80px 0px ;
+	font-family: lato;
+}
+
+.app_header{
+	text-align: left;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.app_header h2{
+	font-family: lato;
+	color: #0b0909;
+	font-weight: 900;
+}
+
+.app_header p{
+	font-family: lato;
+	color: #0b0909;
+	font-weight: 300;
+    max-width: 70%
+}
+
+
+
+
+/*---------- developer section --------------*/
+
+#developer{
+	padding: 80px 0px 50px;
+	font-family: lato;
+    background: #67a0d6; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #88bde6 , #67a0d6); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(left, #88bde6 , #67a0d6); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(left, #88bde6 , #67a0d6); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to left, #88bde6 , #67a0d6); /* Standard syntax */
+}
+.dev_header{
+	text-align: left;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.dev_header h2{
+	font-family: lato;
+	color: #fff;
+	font-weight: 900;
+}
+
+.dev_header p{
+	font-family: lato;
+	color: #fff;
+	font-weight: 300;
+    max-width: 70%
+}
+
+
+/*---------- footer -------------*/
+
+#footer{
+	padding: 10px 0px 5px;
+	background-color: #fff;
+	font-family: Roboto;
+	color: #ffffff;
+	font-weight: 100;
+	font-style: italic;
+	
+}
+
+.logo_bottom {
+    /* margin: 0 auto; */
+    margin-left: 40%;
+    margin-right: auto;
+    color: #67a0d6;
+    /* margin: 0px 0px; */
+}
+
+
+.icons {
+    padding: 0px 20px;
+}
+
+.icons:hover {
+     color: #147fc6;
+}
+
+.pull-left{
+	padding: 7px 0px;
+}
+
+.row_footer{
+	padding: 0px;
+}
+
+/*--------------- btn---------------------*/
+.btn_blue{
+    background-color: #67a0d6;
+    border: none;
+    color: aliceblue;
+    width: 40%;
+    font-family: chivo;
+    font-weight:700;
+}
+
+.btn_blue:hover {
+    background-color: #147fc6;
+    color: white;
+}
+
+.btn_white{
+    background-color: #f5f5f5;
+    border: none;
+    color: #67a0d6;
+    width: 40%;
+    font-family: chivo;
+    font-weight:700;
+}
+
+.btn_white:hover {
+    background-color: #fff;
+    color: #67a0d6;
+    
+}
+
+/*----------------images-----------------*/
+
+img {
+    width: 110%;
+    height: auto;
+}
+
+.bert{
+     width: 70%;
+    height: auto;
+    
+}
+.bird{
+     width: 60%;
+    height: auto;
+    float: right;
+    
+}
+.thumbnail {
+	padding: 0px;
+    /*box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.3);*/
+    border:none;
+}
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+
+.vertical-center {
+  display: flex;
+  align-items: center;
+}
