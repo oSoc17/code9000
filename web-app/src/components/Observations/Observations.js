@@ -10,7 +10,6 @@ import polaroid from '../../theme/icons/polaroid.svg';
 import trash from '../../theme/icons/trash.svg';
 import book from '../../theme/icons/book.svg';
 import feather from '../../theme/icons/feather.svg';
-import classNames from '../../utils/classNames';
 
 class Observations extends Component {
   constructor(props) {
@@ -39,7 +38,7 @@ class Observations extends Component {
   }
 
   render() {
-    const { observations, vote, generateImageUrl, isDemo } = this.props;
+    const { observations, generateImageUrl, isDemo } = this.props;
     if (observations.length <= 0) {
       return (
         <div className="container Observations__Empty">
@@ -92,7 +91,7 @@ class Observations extends Component {
             </div>
           </Swing>
         </div>
-         <div className="Observations__Footer">
+        <div className="Observations__Footer">
           <div className="Observations__Button" onClick={() => this.vote(-1)}>
             <img src={trash} alt="Trash" />
           </div>
