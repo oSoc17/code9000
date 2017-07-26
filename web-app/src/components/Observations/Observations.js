@@ -10,15 +10,17 @@ import polaroid from '../../theme/icons/polaroid.svg';
 import trash from '../../theme/icons/trash.svg';
 import book from '../../theme/icons/book.svg';
 import feather from '../../theme/icons/feather.svg';
+import classNames from '../../utils/classNames'
 
 class Observations extends Component {
   constructor(props) {
     super(props);
     this.state = {
       stack: null,
+      toggle: true,
       config: {
         throwOutConfidence: (xOffset, yOffset, element) => {
-          const xConfidence = Math.min((3 * Math.abs(xOffset)) / element.offsetWidth, 1);
+          const xConfidence = Math.min((4 * Math.abs(xOffset)) / element.offsetWidth, 1);
           const yConfidence = Math.min((Math.abs(yOffset)) / (element.offsetHeight * 10), 1);
           return Math.max(xConfidence, yConfidence);
         },
@@ -26,8 +28,20 @@ class Observations extends Component {
     };
   }
 
+  vote(value){
+    console.log(this.state.toggle);
+    this.toggle();
+    console.log(this.state.toggle);
+    this.props.vote(value);
+    console.log(this.state.toggle);
+  }
+
+  toggle() {
+    this.setState(({ toggle }) => ({ toggle: !toggle }));
+  }
+
   render() {
-    const { observations, vote, generateImageUrl } = this.props;
+    const { observations, generateImageUrl } = this.props;
 
     if (observations.length <= 0) {
       return (
@@ -67,17 +81,19 @@ class Observations extends Component {
                 setStack={(stack) => this.setState({ stack })}
 
                 throwoutleft={(e) => {
-                  vote(-1);
+                  this.vote(-1);
                   this.state.stack.getCard(e.target).throwIn(0, 0);
+                  this.toggle();
                 }}
                 throwoutright={(e) => {
-                  vote(1);
+                  this.vote(1);
                   this.state.stack.getCard(e.target).throwIn(0, 0);
+                  this.toggle();
                 }}
               >
                 <div className="col col-lg-offset-2 col-lg-8">
-                  <div className="Observations__Picture">
-                    <Polaroid img={generateImageUrl(observation.id)} />
+                  <div className={classNames("Observations__Picture")}>
+                    <Polaroid toggle={this.state.toggle} img={generateImageUrl(observation.id)} />
                   </div>
                 </div>
               </Swing>
@@ -86,10 +102,10 @@ class Observations extends Component {
         </div>
 
         <div className="Observations__Footer">
-          <div className="Observations__Button" onClick={() => vote(-1)}>
+          <div className="Observations__Button" onClick={() => {this.vote(-1); setTimeout(() => this.toggle(), 50)}}>
             <img src={trash} alt="Trash" />
           </div>
-          <div className="Observations__Button" onClick={() => vote(1)}>
+          <div className="Observations__Button" onClick={() => {this.vote(1); setTimeout(() => this.toggle(), 50)}}>
             <img src={book} alt="Book" />
           </div>
         </div>
