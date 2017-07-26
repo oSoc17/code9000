@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import { Redirect } from 'react-router-dom';
 import Observations from '../../Observations/Observations';
-import { Redirect } from 'react-router-dom';
 
 import picture1 from './pictures/fase2_picture1.jpg';
 import picture2 from './pictures/fase2_picture2.jpg';
