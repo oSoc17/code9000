@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import GuestMode, { GoBack } from '../GuestMode';
 import Title from '../Title';
 import { Input, Form, Button } from '../Form';
+import { Errors } from '../Alerts';
 
 import redirect from '../../utils/redirect';
 import api from '../../utils/api';
@@ -17,6 +18,7 @@ class SignUp extends Component {
     this.state = {
       isValid: false,
       busy: false,
+      errors: undefined,
     };
   }
 
@@ -33,17 +35,19 @@ class SignUp extends Component {
         window.localStorage.setItem('jwt.token', data.token);
         redirect('/');
       })
-      .catch(() => {
-        this.setState({ busy: false });
+      .catch(({ data }) => {
+        this.setState({ busy: false, errors: data });
       });
   }
 
   render() {
-    const { isValid, busy, success } = this.state;
+    const { isValid, busy, success, errors } = this.state;
 
     return (
       <GuestMode className="SignUp">
         <Title name="Sign up" />
+
+        {errors && <Errors errors={errors} />}
 
         {!success && (
         <Form
