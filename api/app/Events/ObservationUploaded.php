@@ -8,7 +8,7 @@ use Illuminate\Queue\SerializesModels;
 class ObservationUploaded
 {
     use SerializesModels;
-    
+
     /**
      * @var \App\Observation
      */

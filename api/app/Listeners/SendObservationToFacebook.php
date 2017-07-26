@@ -7,12 +7,11 @@ use App\Services\Facebook\Facebook;
 
 class SendObservationToFacebook
 {
-    
     /**
      * @var \App\Services\Facebook\Facebook
      */
     private $facebook;
-    
+
     /**
      * Create the event listener.
      *
@@ -32,7 +31,7 @@ class SendObservationToFacebook
     public function handle(ObservationUploaded $event)
     {
         $observation = $event->observation;
-        
+
         $message = [
             'BIRD OF TODAY!',
             '',
@@ -43,7 +42,7 @@ class SendObservationToFacebook
             '',
             '#birds #commonTern #visdief #birdwatching #biodiversity #birds_adored #birds_matter #birds_love #oSoc17 #CODE9000 #openknowledgebe #opendata',
         ];
-        
+
         $this->facebook->postImage($event->observation, implode("\n", $message));
     }
 }

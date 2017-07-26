@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Events\ObservationUploaded;
 use App\Observation;
+use App\Events\ObservationUploaded;
 use App\Http\Controllers\Controller;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
@@ -82,9 +82,9 @@ class ObservationController extends Controller
         // Store the image
         Storage::put($path, $image->stream());
         $request['picture_storage'] = $path;
-    
+
         $observation = Observation::create($request->all());
-        
+
         event(new ObservationUploaded($observation));
 
         return $observation;
