@@ -10,7 +10,7 @@ import polaroid from '../../theme/icons/polaroid.svg';
 import trash from '../../theme/icons/trash.svg';
 import book from '../../theme/icons/book.svg';
 import feather from '../../theme/icons/feather.svg';
-import classNames from '../../utils/classNames'
+import classNames from '../../utils/classNames';
 
 class Observations extends Component {
   constructor(props) {
@@ -28,12 +28,10 @@ class Observations extends Component {
     };
   }
 
-  vote(value){
-    console.log(this.state.toggle);
+  vote(value) {
     this.toggle();
-    console.log(this.state.toggle);
     this.props.vote(value);
-    console.log(this.state.toggle);
+    setTimeout(() => this.toggle(), 50);
   }
 
   toggle() {
@@ -83,16 +81,14 @@ class Observations extends Component {
                 throwoutleft={(e) => {
                   this.vote(-1);
                   this.state.stack.getCard(e.target).throwIn(0, 0);
-                  this.toggle();
                 }}
                 throwoutright={(e) => {
                   this.vote(1);
                   this.state.stack.getCard(e.target).throwIn(0, 0);
-                  this.toggle();
                 }}
               >
                 <div className="col col-lg-offset-2 col-lg-8">
-                  <div className={classNames("Observations__Picture")}>
+                  <div className={classNames('Observations__Picture')}>
                     <Polaroid toggle={this.state.toggle} img={generateImageUrl(observation.id)} />
                   </div>
                 </div>
@@ -102,10 +98,10 @@ class Observations extends Component {
         </div>
 
         <div className="Observations__Footer">
-          <div className="Observations__Button" onClick={() => {this.vote(-1); setTimeout(() => this.toggle(), 50)}}>
+          <div className="Observations__Button" onClick={() => this.vote(-1)}>
             <img src={trash} alt="Trash" />
           </div>
-          <div className="Observations__Button" onClick={() => {this.vote(1); setTimeout(() => this.toggle(), 50)}}>
+          <div className="Observations__Button" onClick={() => this.vote(1)}>
             <img src={book} alt="Book" />
           </div>
         </div>
