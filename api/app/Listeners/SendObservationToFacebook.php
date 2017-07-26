@@ -4,8 +4,9 @@ namespace App\Listeners;
 
 use App\Events\ObservationUploaded;
 use App\Services\Facebook\Facebook;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
-class SendObservationToFacebook
+class SendObservationToFacebook implements ShouldQueue
 {
     /**
      * @var \App\Services\Facebook\Facebook
