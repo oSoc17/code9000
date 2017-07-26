@@ -47,7 +47,7 @@
   max-width: 225px;
 
   margin: 0 auto;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .Observations__PolaroidIcon--fix {
@@ -114,6 +114,10 @@
     padding-bottom: 50px;
     border-radius: 2px;
   }
+  .Polaroid__ZoomIcon {
+    right: 20px;
+    top: 20px;
+  }
 }
 
 @include max-height(900px) {
@@ -133,7 +137,7 @@
   max-width: 220px;
   margin: 0 auto;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .Observations__Empty {
