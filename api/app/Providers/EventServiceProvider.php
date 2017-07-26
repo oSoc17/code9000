@@ -13,6 +13,9 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
+        'App\Events\ObservationUploaded' => [
+            'App\Listeners\SendObservationToFacebook',
+        ],
         'App\Events\ObservationIsValid' => [
             'App\Listeners\SendObservationImgur',
         ],
