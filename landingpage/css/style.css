@@ -167,7 +167,8 @@
     font-family: lato;
 	color: #fff;
 	font-weight: 400;
-    max-width: 70%
+    max-width: 70%;
+    margin: auto;
 }
 
 /* size of image blocks */
@@ -199,22 +200,23 @@
 	text-align: left;
 	width: 80%;
 	margin: 0 auto;
+  padding: 3%;
 }
 
 .app_header h2{
 	font-family: lato;
 	color: #0b0909;
 	font-weight: 900;
+  margin-bottom: 5%;
 }
 
 .app_header p{
 	font-family: lato;
 	color: #0b0909;
 	font-weight: 400;
-    max-width: 70%;
-      font-size: 17px;
+  max-width: 70%;
+  font-size: 17px;
 }
-
 
 
 
@@ -247,8 +249,8 @@
 	font-family: lato;
 	color: #fff;
 	font-weight: 400;
-    max-width: 70%;
-    
+  max-width: 70%;
+
 }
 
 
@@ -271,7 +273,6 @@
     color: #67a0d6;
     /* margin: 0px 0px; */
 }
-
 
 .icons {
     padding: 0px 20px;
