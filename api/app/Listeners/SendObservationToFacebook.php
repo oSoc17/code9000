@@ -38,11 +38,10 @@ class SendObservationToFacebook implements ShouldQueue
             'Spot your bird of the day at www.birds.today!',
             '',
             'Location: Houtdok',
-            'Date: '.$observation->captured_at->format('d-m-Y H:i'),
             '',
             '#birds #commonTern #visdief #birdwatching #biodiversity #birds_adored #birds_matter #birds_love #oSoc17 #CODE9000 #openknowledgebe #opendata',
         ];
 
-        $this->facebook->postImage($event->observation, implode("\n", $message));
+        $this->facebook->postImage($observation, implode("\n", $message));
     }
 }
