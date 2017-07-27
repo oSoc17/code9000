@@ -6,6 +6,8 @@
 }
 
 .App__Wrapper {
+  display: flex;
+  flex-direction: column;
   min-height: 100%;
 
   margin-bottom: -$footerHeight;
@@ -25,4 +27,6 @@
 .App__Content {
   padding: 30px;
   padding-bottom: 0px;
+  flex: 1; 
+  display: flex;
 }

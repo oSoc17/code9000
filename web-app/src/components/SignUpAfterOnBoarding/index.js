@@ -19,7 +19,7 @@ class SignUpAfterOnBoarding extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.setState({ showContent: true });
-    }, 4000);
+    }, 2500);
   }
 
   render() {
@@ -36,8 +36,7 @@ class SignUpAfterOnBoarding extends Component {
           </div>
           <div className="SignUpAfterOnBoarding__Text">
             Awesome!<br />
-            Let&apos;s get you signed up, so<br />
-            you can keep helping me!
+            Let&apos;s get you signed up!
           </div>
           <img src={bertVerkijkerIcon} className="SignUpAfterOnBoarding__Bert" alt="Bert with a verkijker" />
         </div>
