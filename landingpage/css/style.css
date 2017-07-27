@@ -7,9 +7,9 @@
     background: -o-linear-gradient(left, #88bde6 , #67a0d6); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(left, #88bde6 , #67a0d6); /* For Firefox 3.6 to 15 */
     background: linear-gradient(to left, #88bde6 , #67a0d6); /* Standard syntax */
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: fixed;
+	  background-size: cover;
+	  background-repeat: no-repeat;
+	  background-position: fixed;
     overflow: hidden;
     position: relative;
 }
@@ -40,14 +40,15 @@
 
 .banner_header {
     text-align: left;
-	width: 80%;
-	margin: 0 auto;
+	  width: 80%;
+	  margin: 0 auto;
 }
 
 .banner_header h1 {
 	font-family: chivo;
 	color: #fafbfb;
 	font-weight: 700;
+  font-size: 40px;
 }
 
 .banner_header p {
@@ -69,7 +70,7 @@
 
 .ball {
     background-color: #3a658c;
-    opacity: 0.3;
+    opacity: 0.25;
     display: block;
     border-radius: 100%;
     position: absolute;
@@ -78,29 +79,29 @@
 .ball:nth-child(1){
     width: 25em;
     height: 25em;
-    left: -8%;
+    left: -12%;
     bottom: -10em;
 }
 
 .ball:nth-child(2){
     width: 25em;
     height: 25em;
-    left: 8%;
-    bottom: -15em;
+    left: 6%;
+    bottom: -17em;
 }
 
 .ball:nth-child(3){
     width: 25em;
     height: 25em;
-    right: -10%;
-    bottom: -12em;
+    right: -12%;
+    bottom: -10em;
 }
 
 .ball:nth-child(4){
     width: 25em;
     height: 25em;
-    right: -3em;
-    bottom: -10em;
+    right: 6%;
+    bottom: -17em;
 }
 
 /*------------------Bert-------------*/
@@ -124,9 +125,10 @@
 .bert_header p{
 	font-family: lato;
 	color: #2b313f;
-	font-weight: 300;
+	font-weight: 400;
     max-width: 75%;
-    font-size: 16px;
+    font-size: 17px;
+    margin-top: 6%
 }
 
 
@@ -162,9 +164,9 @@
 }
 
 .pilers_header p{
-    font-family: Roboto;
+    font-family: lato;
 	color: #fff;
-	font-weight: 300;
+	font-weight: 400;
     max-width: 70%
 }
 
@@ -208,8 +210,9 @@
 .app_header p{
 	font-family: lato;
 	color: #0b0909;
-	font-weight: 300;
-    max-width: 70%
+	font-weight: 400;
+    max-width: 70%;
+      font-size: 17px;
 }
 
 
@@ -226,6 +229,7 @@
     background: -moz-linear-gradient(left, #88bde6 , #67a0d6); /* For Firefox 3.6 to 15 */
     background: linear-gradient(to left, #88bde6 , #67a0d6); /* Standard syntax */
 }
+
 .dev_header{
 	text-align: left;
 	width: 80%;
@@ -236,13 +240,15 @@
 	font-family: lato;
 	color: #fff;
 	font-weight: 900;
+  margin-bottom: 5%;
 }
 
 .dev_header p{
 	font-family: lato;
 	color: #fff;
-	font-weight: 300;
-    max-width: 70%
+	font-weight: 400;
+    max-width: 70%;
+    
 }
 
 
@@ -255,7 +261,7 @@
 	color: #ffffff;
 	font-weight: 100;
 	font-style: italic;
-	
+
 }
 
 .logo_bottom {
@@ -291,6 +297,7 @@
     width: 40%;
     font-family: chivo;
     font-weight:700;
+    margin-top: 5%;
 }
 
 .btn_blue:hover {
@@ -305,12 +312,13 @@
     width: 40%;
     font-family: chivo;
     font-weight:700;
+    margin-top: 5%;
 }
 
 .btn_white:hover {
     background-color: #fff;
     color: #67a0d6;
-    
+
 }
 
 /*----------------images-----------------*/
@@ -323,13 +331,13 @@ img {
 .bert{
      width: 70%;
     height: auto;
-    
+
 }
 .bird{
-     width: 60%;
+    width: 40%;
     height: auto;
     float: right;
-    
+
 }
 .thumbnail {
 	padding: 0px;
