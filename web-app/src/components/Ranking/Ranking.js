@@ -39,7 +39,7 @@ export const Ranking = ({ ranking, user }) => {
             ? <img className="Profile__Header__Picture" src={crestMenu} alt="" />
             : <img className="Profile__Header__Picture" src={user.avatar_url} alt="" />
           }
-          <div>{user.name}</div>
+          <div>You</div>
         </div>
         <div className="Ranking__Header__Points">
           <div>Points</div>
