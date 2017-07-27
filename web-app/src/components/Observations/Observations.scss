@@ -132,6 +132,21 @@
   }
 }
 
+@media (min-height: 900px) {
+  .Observations__Animation__Polaroid {
+    animation: POLAROID_DROP_LARGE 1s linear;
+  }
+}
+
+@keyframes POLAROID_DROP_LARGE {
+  0%   {
+    bottom: 250px;
+  }
+  100% {
+    bottom: 0px;
+  }
+}
+
 .Observations__DemoText {
   font-size: 17px;
   max-width: 220px;
