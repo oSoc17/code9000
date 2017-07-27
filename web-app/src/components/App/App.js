@@ -35,9 +35,6 @@ class App extends Component {
             </Switch>
 
           </div>
-
-          <div className="App__Push" />
-
         </div>
       </div>
     );
