@@ -114,17 +114,6 @@
  max-width: 150px;
 }
 
-@media (max-width: 992px) {
-  .center {
-    text-align: center;
-  }
-
-  .center-text {
-    margin: 0 auto;
-  }
-}
-
-
 
 .bert_header{
 	text-align: left;
@@ -190,7 +179,7 @@
 /* size of image blocks */
 .image_design{
 	width: 80%;
-    margin: 0 auto;
+  margin: 0 auto;
 }
 
 /*  margin of pilers */
@@ -284,8 +273,7 @@
 
 .logo_bottom {
     /* margin: 0 auto; */
-    margin-left: 40%;
-    margin-right: auto;
+    text-align: center;
     color: #67a0d6;
     /* margin: 0px 0px; */
 }
@@ -362,14 +350,114 @@ img {
     border:none;
 }
 
-.row-eq-height {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display:         flex;
+
+
+@media (min-width: 993px){
+
+  .row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+  }
+
+  .vertical-center {
+    display: flex;
+    align-items: center;
+  }
+
+  .img_size{
+    width: 60%;
+  }
+  .center-text-bird {
+    text-align: center;
+  }
 }
 
-.vertical-center {
-  display: flex;
-  align-items: center;
+@media (max-width: 992px) {
+  .center {
+    margin: 0 auto;
+  }
+
+  .center-text {
+
+    text-align: center;
+  }
+
+  .fa_icons{
+    font-size: 100px;
+    color: #fff;
+    text-align: center;
+  }
+
+  .img_size{
+    width: 70%;
+  }
+
+  .ball:nth-child(1){
+      width: 20em;
+      height: 20em;
+      left: 1%;
+      bottom: -14em;
+  }
+
+  .ball:nth-child(2){
+      width: 20em;
+      height: 20em;
+      left: -12%;
+      bottom: -8em;
+  }
+
+  .ball:nth-child(3){
+      width: 20em;
+      height: 20em;
+      right: -1%;
+      bottom: -14em;
+  }
+
+  .ball:nth-child(4){
+      width: 20em;
+      height: 20em;
+      right: -14%;
+      bottom: -8em;
+  }
+
+}
+
+@media (max-width: 767px) {
+
+  .fa_icons{
+    font-size: 80px;
+    color: #fff;
+    text-align: center;
+    padding-top: 5%;
+  }
+
+    .ball:nth-child(1){
+        width: 15em;
+        height: 15em;
+        left: -1%;
+        bottom: -11em;
+    }
+
+    .ball:nth-child(2){
+        width: 15em;
+        height: 15em;
+        left: -10%;
+        bottom: -8em;
+    }
+
+    .ball:nth-child(3){
+        width: 15em;
+        height: 15em;
+        right: -1%;
+        bottom: -11em;
+    }
+
+    .ball:nth-child(4){
+        width: 15em;
+        height: 15em;
+        right: -12%;
+        bottom: -8em;
+    }
 }
