@@ -1,0 +1,462 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#header {
+    background: #67a0d6; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #88bde6 , #67a0d6); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(left, #88bde6 , #67a0d6); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(left, #88bde6 , #67a0d6); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to left, #88bde6 , #67a0d6); /* Standard syntax */
+	  background-size: cover;
+	  background-repeat: no-repeat;
+	  background-position: fixed;
+    overflow: hidden;
+    position: relative;
+}
+
+
+.navbar-default {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #f7f7f7;
+}
+
+.container-fluid_1 {
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* logo navbar*/
+.img_1 {
+    border: 0;
+    max-height: 30px;
+}
+
+
+.banner_header {
+    text-align: left;
+	  width: 80%;
+	  margin: 0 auto;
+}
+
+.banner_header h1 {
+	font-family: chivo;
+	color: #fafbfb;
+	font-weight: 700;
+  font-size: 40px;
+}
+
+.banner_header p {
+	font-family: chivo;
+	color: #fafbfb;
+	font-size: 15px;
+	font-weight: 400;
+}
+
+.hero-container {
+    position: relative;
+    z-index: 1;
+}
+
+.balls {
+    position: relative;
+    top: 0;
+}
+
+.ball {
+    background-color: #3a658c;
+    opacity: 0.25;
+    display: block;
+    border-radius: 100%;
+    position: absolute;
+}
+
+.ball:nth-child(1){
+    width: 25em;
+    height: 25em;
+    left: -12%;
+    bottom: -10em;
+}
+
+.ball:nth-child(2){
+    width: 25em;
+    height: 25em;
+    left: 6%;
+    bottom: -17em;
+}
+
+.ball:nth-child(3){
+    width: 25em;
+    height: 25em;
+    right: -12%;
+    bottom: -10em;
+}
+
+.ball:nth-child(4){
+    width: 25em;
+    height: 25em;
+    right: 6%;
+    bottom: -17em;
+}
+
+/*------------------Bert-------------*/
+#intro{
+	padding: 80px 0px;
+	font-family: lato;
+}
+
+.intro_header{
+	text-align: left;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.intro_header h2{
+	font-family: lato;
+	color: #2b313f;
+	font-weight: 900;
+}
+
+.intro_header p{
+	font-family: lato;
+	color: #2b313f;
+	font-weight: 400;
+    max-width: 75%;
+    font-size: 17px;
+    margin-top: 6%
+}
+
+
+
+/*-------------- Pilers -------------*/
+
+#hardware{
+  padding: 80px 0px 50px;
+	font-family: lato;
+    background: #67a0d6; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #88bde6 , #67a0d6); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(left, #88bde6 , #67a0d6); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(left, #88bde6 , #67a0d6); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to left, #88bde6 , #67a0d6); /* Standard syntax */
+}
+
+.hardware_header{
+	text-align: left;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.hardware_header h2{
+	font-family: lato;
+	color: #fff;
+	font-weight: 900;
+  margin-bottom: 5%;
+}
+
+.hardware_header p{
+	font-family: lato;
+	color: #fff;
+	font-weight: 400;
+    max-width: 70%;
+    font-size: 17px;
+
+}
+
+.circular {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+	}
+
+  .circular img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+
+}
+/*---------- app --------------*/
+
+#app{
+	padding: 80px 0px ;
+	font-family: lato;
+}
+
+.app_header{
+	text-align: left;
+	width: 80%;
+	margin: 0 auto;
+
+}
+
+.app_header h2{
+	font-family: lato;
+	color: #0b0909;
+	font-weight: 900;
+    margin-bottom: 5%;
+}
+
+.app_header p{
+	font-family: lato;
+	color: #0b0909;
+	font-weight: 400;
+  max-width: 70%;
+  font-size: 17px;
+}
+
+
+
+
+/*---------- API --------------*/
+
+#api{
+	padding: 80px 0px 50px;
+	font-family: lato;
+    background: #67a0d6; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #88bde6 , #67a0d6); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(left, #88bde6 , #67a0d6); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(left, #88bde6 , #67a0d6); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to left, #88bde6 , #67a0d6); /* Standard syntax */
+}
+
+.api_header{
+	text-align: left;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.api_header h2{
+	font-family: lato;
+	color: #fff;
+	font-weight: 900;
+  margin-bottom: 5%;
+}
+
+.api_header p{
+	font-family: lato;
+	color: #fff;
+	font-weight: 400;
+    max-width: 70%;
+    font-size: 17px;
+}
+
+p.fa_icons i{
+    font-size: 200px;
+    color: #fff;
+    text-align: center;
+}
+
+/*------------------team-------------*/
+#team{
+	padding: 80px 0px;
+	font-family: lato;
+}
+
+.team_header{
+	text-align: left;
+	width: 80%;
+	margin: 0 auto;
+  padding-bottom: 5%;
+}
+
+.team_header h2{
+	font-family: lato;
+	color: #2b313f;
+	font-weight: 900;
+}
+
+.team_header p{
+	font-family: lato;
+	color: #2b313f;
+	font-weight: 700;
+    max-width: 75%;
+    font-size: 17px;
+    margin-top: 6%;
+    margin: auto;
+
+}
+
+.circular {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+	}
+
+  .circular img {
+    -webkit-transition: -webkit-filter .33s;
+      transition: filter .33s, -webkit-filter .33s;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background: #ddd;
+      -webkit-filter: contrast(2) grayscale(1) opacity(0.7) brightness(0.9);
+      filter: contrast(2) grayscale(1) opacity(0.7) brightness(0.9);
+
+}
+
+.circular img:hover {
+    -webkit-transition: -webkit-filter .3s;
+    transition: filter .3s, -webkit-filter .3s;
+    -webkit-filter: none;
+    filter: none;
+}
+
+
+/*---------- developer section --------------*/
+
+#partner{
+	padding: 80px 0px 50px;
+	font-family: lato;
+    background: #67a0d6; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #88bde6 , #67a0d6); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(left, #88bde6 , #67a0d6); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(left, #88bde6 , #67a0d6); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to left, #88bde6 , #67a0d6); /* Standard syntax */
+}
+
+.partner_header{
+	text-align: left;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.partner_header h2{
+	font-family: lato;
+	color: #fff;
+	font-weight: 900;
+  margin-bottom: 5%;
+}
+
+.partner_header p{
+	font-family: lato;
+	color: #fff;
+	font-weight: 400;
+  max-width: 70%;
+}
+
+.img_size{
+  max-width: 30%;
+  margin: 0 auto;
+}
+
+.partner_header img{
+  max-height: 100%;
+}
+
+.margin_right-5 {
+  margin-right: 5%;
+}
+
+
+/*---------- footer -------------*/
+
+#footer{
+	padding: 10px 0px 5px;
+	background-color: #fff;
+	font-family: Roboto;
+	color: #ffffff;
+	font-weight: 100;
+	font-style: italic;
+
+}
+
+.logo_bottom {
+    /* margin: 0 auto; */
+    margin-left: 40%;
+    margin-right: auto;
+    color: #67a0d6;
+    /* margin: 0px 0px; */
+}
+
+
+.icons {
+    padding: 0px 20px;
+}
+
+.icons:hover {
+     color: #147fc6;
+}
+
+.pull-left{
+	padding: 7px 0px;
+}
+
+.row_footer{
+	padding: 0px;
+}
+
+/*--------------- btn---------------------*/
+.btn_blue{
+    background-color: #67a0d6;
+    border: none;
+    color: aliceblue;
+    width: 40%;
+    font-family: chivo;
+    font-weight:700;
+    margin-top: 5%;
+}
+
+.btn_blue:hover {
+    background-color: #147fc6;
+    color: white;
+}
+
+.btn_white{
+    background-color: #f5f5f5;
+    border: none;
+    color: #67a0d6;
+    width: 40%;
+    font-family: chivo;
+    font-weight:700;
+    margin-top: 5%;
+}
+
+.btn_white:hover {
+    background-color: #fff;
+    color: #67a0d6;
+
+}
+
+/*----------------images-----------------*/
+
+img {
+    width: 110%;
+    height: auto;
+}
+
+.bert{
+     width: 70%;
+    height: auto;
+
+}
+.bird{
+    width: 40%;
+    height: auto;
+    float: right;
+
+}
+.thumbnail {
+	padding: 0px;
+    /*box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.3);*/
+    border:none;
+}
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+
+.horizontal-center{
+text-align: center;
+}
+
+.vertical-center {
+  display: flex;
+  align-items: center;
+}
