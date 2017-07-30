@@ -1,0 +1,576 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#header {
+    background: #67a0d6; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #88bde6 , #67a0d6); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(left, #88bde6 , #67a0d6); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(left, #88bde6 , #67a0d6); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to left, #88bde6 , #67a0d6); /* Standard syntax */
+	  background-size: cover;
+	  background-repeat: no-repeat;
+	  background-position: fixed;
+    overflow: hidden;
+    position: relative;
+}
+
+
+.navbar-default {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #f7f7f7;
+}
+
+.container-fluid_1 {
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.banner_header {
+    text-align: left;
+	  width: 80%;
+	  margin: 0 auto;
+}
+
+.banner_header h1 {
+	font-family: chivo;
+	color: #fafbfb;
+	font-weight: 700;
+  font-size: 40px;
+}
+
+.banner_header p {
+	font-family: chivo;
+	color: #fafbfb;
+	font-size: 15px;
+	font-weight: 400;
+}
+
+.outer {
+  position: relative;
+}
+
+.rechts {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 30%;
+}
+
+.links {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 30%;
+}
+
+/*------------------Intro-------------*/
+#intro{
+	padding: 80px 0px;
+	font-family: lato;
+}
+
+.img_bert {
+  max-width: 150px;
+  padding-top: 5%;
+}
+
+.intro_header{
+	text-align: left;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.intro_header h2{
+	font-family: lato;
+	color: #2b313f;
+	font-weight: 900;
+}
+
+.intro_header p{
+	font-family: lato;
+	color: #2b313f;
+	font-weight: 400;
+    max-width: 90%;
+    font-size: 17px;
+    margin-top: 6%
+}
+
+
+
+/*-------------- hardware -------------*/
+
+#hardware{
+  padding: 80px 0px 50px;
+	font-family: lato;
+    background: #67a0d6; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #88bde6 , #67a0d6); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(left, #88bde6 , #67a0d6); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(left, #88bde6 , #67a0d6); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to left, #88bde6 , #67a0d6); /* Standard syntax */
+}
+
+.hardware_header{
+	text-align: left;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.hardware_header h2{
+	font-family: lato;
+	color: #fff;
+	font-weight: 900;
+  margin-bottom: 5%;
+}
+
+.hardware_header p{
+	font-family: lato;
+	color: #fff;
+	font-weight: 400;
+    max-width: 90%;
+    font-size: 17px;
+
+}
+
+.circular_hardware {
+  display: inline-block;
+  position: relative;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  overflow: hidden;
+	}
+
+.circular_hardware img {
+  width: auto;
+  height: 100%;
+  margin-left: -50px;
+
+
+}
+/*---------- app --------------*/
+
+#app{
+	padding: 80px 0px ;
+	font-family: lato;
+}
+
+.app_header{
+	text-align: left;
+	width: 80%;
+	margin: 0 auto;
+
+}
+
+.app_header h2{
+	font-family: lato;
+	color: #0b0909;
+	font-weight: 900;
+    margin-bottom: 5%;
+}
+
+.app_header p{
+	font-family: lato;
+	color: #0b0909;
+	font-weight: 400;
+  max-width: 90%;
+  font-size: 17px;
+}
+
+
+.fa_icons {
+  font-size: 130px;
+  color: #fff;
+  text-align: center;
+}
+
+/*---------- API --------------*/
+
+#api{
+	padding: 80px 0px 50px;
+	font-family: lato;
+    background: #67a0d6; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #88bde6 , #67a0d6); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(left, #88bde6 , #67a0d6); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(left, #88bde6 , #67a0d6); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to left, #88bde6 , #67a0d6); /* Standard syntax */
+}
+
+.api_header{
+	text-align: left;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.api_header h2{
+	font-family: lato;
+	color: #fff;
+	font-weight: 900;
+  margin-bottom: 5%;
+}
+
+.api_header p{
+	font-family: lato;
+	color: #fff;
+	font-weight: 400;
+  max-width: 90%;
+  font-size: 17px;
+
+}
+
+/*------------------team-------------*/
+#team{
+	padding: 80px 0px;
+	font-family: lato;
+}
+
+.team_header{
+	text-align: left;
+	width: 80%;
+	margin: 0 auto;
+
+}
+
+.team_title{
+  padding-bottom: 5%;
+}
+
+.team_header h2{
+	font-family: lato;
+	color: #2b313f;
+	font-weight: 900;
+}
+
+.team_header p{
+	font-family: lato;
+	color: #2b313f;
+	font-weight: 700;
+    max-width: 75%;
+    font-size: 17px;
+    margin-top: 6%;
+    margin: auto;
+}
+
+.col_margin{
+  margin-bottom: 5%;
+}
+.circular {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+	}
+
+.circular img {
+      -webkit-transition: -webkit-filter .33s;
+      transition: filter .33s, -webkit-filter .33s;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background: #ddd;
+      -webkit-filter: contrast(2) grayscale(1) opacity(0.7) brightness(0.9);
+      filter: contrast(2) grayscale(1) opacity(0.7) brightness(0.9);
+}
+
+.circular img:hover {
+    -webkit-transition: -webkit-filter .3s;
+    transition: filter .3s, -webkit-filter .3s;
+    -webkit-filter: none;
+    filter: none;
+}
+
+
+/*---------- developer section --------------*/
+
+#partner{
+	padding: 80px 0px 50px;
+	font-family: lato;
+    background: #67a0d6; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #88bde6 , #67a0d6); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(left, #88bde6 , #67a0d6); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(left, #88bde6 , #67a0d6); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to left, #88bde6 , #67a0d6); /* Standard syntax */
+}
+
+.partner_header{
+	text-align: left;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.partner_header h2{
+	font-family: lato;
+	color: #fff;
+	font-weight: 900;
+  margin-bottom: 5%;
+}
+
+.partner_header p{
+	font-family: lato;
+	color: #fff;
+	font-weight: 400;
+  max-width: 70%;
+}
+
+.img_size{
+  max-width: 30%;
+  margin: 0 auto;
+}
+
+.partner_header img{
+  max-height: 100%;
+}
+
+.btn_blue_margin {
+  margin-right: 5%;
+}
+
+
+/*---------- footer -------------*/
+
+#footer {
+  padding: 10px 0px 5px;
+  background-color: #fff;
+  font-family: Roboto;
+  color: #ffffff;
+  font-weight: 100;
+  font-style: italic;
+}
+.row_footer {
+  padding: 0px;
+}
+
+.icon_bottom {
+  /* margin: 0 auto; */
+  text-align: center;
+
+  /* margin: 0px 0px; */
+}
+
+.icon_bottom a {
+  color: #67a0d6;
+
+}
+
+.icons {
+  padding: 0px 20px;
+}
+
+.icons:hover {
+  color: #147fc6;
+}
+
+
+/*--------------- btn---------------------*/
+.btn_blue{
+    background-color: #67a0d6;
+    border: none;
+    color: aliceblue;
+    width: 30%;
+    font-family: chivo;
+    font-weight:700;
+    margin-top: 5%;
+}
+
+.btn_blue:hover {
+    background-color: #147fc6;
+    color: white;
+}
+
+.btn_white{
+    background-color: #f5f5f5;
+    border: none;
+    color: #67a0d6;
+    width: 40%;
+    font-family: chivo;
+    font-weight:700;
+    margin-top: 5%;
+}
+
+.btn_white:hover {
+    background-color: #fff;
+    color: #67a0d6;
+
+}
+
+/*----------------images-----------------*/
+
+img {
+    width: 110%;
+    height: auto;
+}
+
+.horizontal-center{
+text-align: center;
+}
+
+.img_size_bird {
+  width: 60%;
+}
+
+@media (max-width: 1199px) {
+.circular_hardware {
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+}
+
+@media (min-width: 993px) {
+  .row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .vertical-center {
+    display: flex;
+    align-items: center;
+  }
+
+
+  .center-text-bird {
+    text-align: center;
+  }
+}
+
+@media (max-width: 992px) {
+  .center {
+    margin: 0 auto;
+  }
+  .center-text {
+    text-align: center;
+  }
+  .fa_icons {
+    font-size: 100px;
+    color: #fff;
+    text-align: center;
+  }
+
+
+  .circular_hardware {
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .img_size_bird {
+    width: 95%;
+  }
+
+}
+
+@media (max-width: 767px) {
+  .fa_icons {
+    font-size: 80px;
+    color: #fff;
+    text-align: center;
+    padding-top: 5%;
+  }
+
+  .circular_hardware {
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .btn_blue{
+
+      font-size: 11px;
+  }
+}
+
+
+@media (max-width: 414px) {
+
+ .intro_header{
+   width: 99%;
+ }
+ .intro_header p{
+   max-width: 90%;
+ }
+
+ .hardware_header{
+   width: 99%;
+ }
+
+ .hardware_header p{
+   max-width: 90%;
+ }
+
+ .app_header{
+  	width: 99%;
+  }
+
+  .app_header p{
+    max-width: 90%;
+  }
+
+  .api_header{
+    width: 99%
+  }
+  .api_header p{
+    max-width: 90%
+  }
+}
+
+@media (max-width: 600px) {
+  .img_size_bird {
+    position: relative;
+    bottom: 30px;
+
+    width: 100%;
+  }
+
+  .btn_white {
+    width: 65%;
+    margin-top: 15%;
+  }
+
+  .btn_blue {
+    width: 65%;
+    margin-top: 15%;
+  }
+
+  .btn_blue_margin {
+    margin-right: 0;
+  }
+
+  #intro{
+    padding: 50px 0px;
+  }
+
+  #hardware{
+    padding: 50px 0px;
+  }
+
+  #app{
+    padding: 50px 0px ;
+  }
+
+  #api{
+    padding: 50px 0px;
+  }
+
+  #team{
+    padding: 50px 0px;
+  }
+
+  #partner{
+    padding: 50px 0px;
+  }
+}
