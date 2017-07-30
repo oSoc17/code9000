@@ -25,12 +25,12 @@ things are bought somewhere else.
 An alternative setup could be achieved using a 3G/4G network shield for example: [Adafruit FONA 3G + GPS](https://learn.adafruit.com/adafruit-fona-3g-cellular-gps-breakout/overview) which also includes GPS. With this shield the setup becomes smaller and easier to hide.
 However, a separate 5V power supply will be needed to provide enough power for the shield while sending data over the cellular network.
 
-You can find more information about the solar kit [here](https://github.com/oSoc17/code9000/hardware/SOLARKIT.md).
+You can find more information about the solar kit [here](https://github.com/oSoc17/code9000/blob/develop/hardware/SOLARKIT.md).
 
 ## III. Installation
 
-You can find the installation instructions for both the hardware and the software [here](https://github.com/oSoc17/code9000/hardware/SETUP.md).
+You can find the installation instructions for both the hardware and the software [here](https://github.com/oSoc17/code9000/blob/develop/hardware/SETUP.md).
 
 ## IV. Deployment
 
-You can find the deployment instructions [here](https://github.com/oSoc17/code9000/hardware/DEPLOYMENT.md).
+You can find the deployment instructions [here](https://github.com/oSoc17/code9000/blob/develop/hardware/DEPLOYMENT.md).
