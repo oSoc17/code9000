@@ -163,7 +163,7 @@
 /*---------- app --------------*/
 
 #app {
-  padding: 80px 0px;
+  padding: 30px 0px;
   font-family: lato;
 }
 
@@ -301,6 +301,8 @@ img {
   width: 60%;
 }
 
+/*----------------media-----------------*/
+
 @media (min-width: 993px) {
   .row-eq-height {
     display: -webkit-box;
@@ -344,5 +346,23 @@ img {
     text-align: center;
     padding-top: 5%;
   }
+}
 
+@media (max-width: 600px) {
+  .img_size_bird {
+    position: relative;
+    bottom: 30px;
+
+    width: 100%;
+  }
+
+  .btn_white {
+    width: 60%;
+    margin-top: 15%;
+  }
+
+  .btn_blue {
+    width: 60%;
+    margin-top: 15%;
+  }
 }
