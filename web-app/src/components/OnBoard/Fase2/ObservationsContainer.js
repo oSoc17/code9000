@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
+import { Redirect } from 'react-router-dom';
 import Observations from '../../Observations/Observations';
 
 import picture1 from './pictures/fase2_picture1.jpg';
@@ -37,6 +38,10 @@ class ObservationsContainer extends Component {
 
   render() {
     const { observations } = this.state;
+
+    if (observations.length === 0) {
+      return <Redirect push to="/you-made-it" />;
+    }
 
     return (<Observations
       isDemo

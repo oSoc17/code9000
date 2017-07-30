@@ -1,6 +1,6 @@
 {
   "name": "web-app",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "homepage": "http://birds.today",
   "dependencies": {
@@ -10,7 +10,7 @@
     "lodash": "^4.17.4",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-pinch-zoom-pan": "^1.4.2",
+    "react-modal": "^2.2.2",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.1",
     "react-swing": "^0.0.7",

@@ -12,7 +12,9 @@
         "laravel/framework": "5.4.*",
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
+        "sammyk/laravel-facebook-sdk": "^3.5",
         "spatie/laravel-json-api-paginate": "^1.1",
+        "thujohn/twitter": "^2.2",
         "tymon/jwt-auth": "^0.5.12"
     },
     "require-dev": {

@@ -39,6 +39,8 @@ return [
         'client_id' => env('FACEBOOK_CLIENT_ID'),
         'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
         'redirect' => config('app.url').'/api/auth/facebook/callback',
+        'page_id' => env('FACEBOOK_PAGE_ID'),
+        'page_token' => env('FACEBOOK_PAGE_TOKEN'),
     ],
 
     'imgur' => [

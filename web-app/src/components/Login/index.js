@@ -24,6 +24,13 @@ class Login extends Component {
     };
   }
 
+  onValidationChange(valid) {
+    this.setState({
+      errors: undefined,
+      isValid: valid,
+    });
+  }
+
   login(body) {
     api.post('/auth', body).then(({ data }) => {
       window.localStorage.setItem('jwt.token', data.token);
@@ -49,7 +56,7 @@ class Login extends Component {
         <div className="Login__Form">
           {errors && <Errors errors={errors} />}
           <Form
-            onValidationChange={valid => this.setState({ isValid: valid })}
+            onValidationChange={(valid) => this.onValidationChange(valid)}
             onSubmit={data => this.login(data)}
           >
             <Input name="email" rules={['required', 'email']} placeholder="Email" icon="email" />

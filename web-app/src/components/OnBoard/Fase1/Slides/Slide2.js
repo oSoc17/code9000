@@ -14,13 +14,13 @@ const Slide2 = () => (
     </div>
     <div className="Carrousel__Dias">
       <div className="Carrousel__Dias__1">
-        <Polaroid img={commonTern1} />
+        <Polaroid img={commonTern1} zoomable={false} />
       </div>
       <div className="Carrousel__Dias__2">
-        <Polaroid img={commonTern2} />
+        <Polaroid img={commonTern2} zoomable={false} />
       </div>
       <div className="Carrousel__Dias__3">
-        <Polaroid img={commonTern3} />
+        <Polaroid img={commonTern3} zoomable={false} />
       </div>
     </div>
   </Slide>

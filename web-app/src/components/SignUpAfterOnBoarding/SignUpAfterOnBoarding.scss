@@ -1,0 +1,69 @@
+@import "../../theme/_index.scss";
+
+.SignUpAfterOnBoarding__Content {
+	opacity: 0;
+	transition: all 0.35s linear; 
+	pointer-events: none;
+}
+
+.SignUpAfterOnBoarding__Content--visible {
+	opacity: 1;
+	pointer-events: initial;
+}
+
+.SignUpAfterOnBoarding__Overlay {
+	opacity: 1;
+	transition: all 0.35s linear; 
+	pointer-events: none;
+}
+
+.SignUpAfterOnBoarding__Overlay--hidden {
+	opacity: 0;
+}
+
+.SignUpAfterOnBoarding__Header {
+	width: 100%;
+	position: absolute;
+	top: 0;
+}
+
+.SignUpAfterOnBoarding__Text {
+	position: absolute;
+	margin-top: $headerHeight + 15px;
+	top: 0;
+
+	left: 50%;
+	right: 50%;
+
+	transform: translate(-50%, 0%);
+
+	width: 100%;
+	max-width: 400px;
+
+	font-size: 21px;
+
+	line-height: 28px;
+
+	text-align: center;
+}
+
+.SignUpAfterOnBoarding__Bert {
+	width: 100%;
+	max-width: 300px;
+
+	position: absolute;
+	bottom: 0;
+
+	left: 50%;
+	right: 50%;
+
+	transform: translate(-50%, 0%);
+
+	overflow: hidden;
+}
+
+@include max-height(674px) {
+	.SignUpAfterOnBoarding__Bert {
+		max-height: 50%;
+	}
+}
