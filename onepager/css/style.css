@@ -69,6 +69,10 @@
   width: 30%;
 }
 
+br {
+  margin-bottom: 5px;
+}
+
 /*------------------Intro-------------*/
 #intro{
 	padding: 80px 0px;
@@ -219,6 +223,7 @@
 	color: #fff;
 	font-weight: 400;
   max-width: 90%;
+  font-size: 17px;
 }
 
 
@@ -325,7 +330,7 @@
   max-height: 100%;
 }
 
-.margin_right-5 {
+.btn_blue_margin {
   margin-right: 5%;
 }
 
@@ -487,13 +492,6 @@ text-align: center;
     border-radius: 50%;
     overflow: hidden;
   }
-
-  .btn_blue{
-
-      font-size: 11px;
-  }
-
-
 }
 
 
@@ -528,16 +526,51 @@ text-align: center;
   .api_header p{
     max-width: 90%
   }
+}
 
-  .btn_blue{
-      background-color: #67a0d6;
-      border: none;
-      color: aliceblue;
-      width: 30%;
-      font-family: chivo;
-      font-weight:700;
-      margin-top: 5%;
-      font-size: 9px;
+@media (max-width: 600px) {
+  .img_size_bird {
+    position: relative;
+    bottom: 30px;
+
+    width: 100%;
   }
 
+  .btn_white {
+    width: 65%;
+    margin-top: 15%;
+  }
+
+  .btn_blue {
+    width: 65%;
+    margin-top: 15%;
+  }
+
+  .btn_blue_margin {
+    margin-right: 0;
+  }
+
+  #intro{
+    padding: 50px 0px;
+  }
+
+  #hardware{
+    padding: 50px 0px;
+  }
+
+  #app{
+    padding: 50px 0px ;
+  }
+
+  #api{
+    padding: 50px 0px;
+  }
+
+  #team{
+    padding: 50px 0px;
+  }
+
+  #partner{
+    padding: 50px 0px;
+  }
 }
