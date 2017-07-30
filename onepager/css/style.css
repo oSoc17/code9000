@@ -69,10 +69,6 @@
   width: 30%;
 }
 
-br {
-  margin-bottom: 5px;
-}
-
 /*------------------Intro-------------*/
 #intro{
 	padding: 80px 0px;
@@ -224,9 +220,8 @@ br {
 	font-weight: 400;
   max-width: 90%;
   font-size: 17px;
+
 }
-
-
 
 /*------------------team-------------*/
 #team{
@@ -491,6 +486,11 @@ text-align: center;
     height: 200px;
     border-radius: 50%;
     overflow: hidden;
+  }
+
+  .btn_blue{
+
+      font-size: 11px;
   }
 }
 
