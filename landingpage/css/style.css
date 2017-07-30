@@ -97,7 +97,7 @@
   font-family: lato;
   color: #2b313f;
   font-weight: 400;
-  max-width: 75%;
+  max-width: 90%;
   font-size: 17px;
   margin-top: 6%
 }
@@ -171,7 +171,7 @@
   text-align: left;
   width: 80%;
   margin: 0 auto;
-  padding: 3%;
+
 }
 
 .app_header h2 {
@@ -185,7 +185,7 @@
   font-family: lato;
   color: #0b0909;
   font-weight: 400;
-  max-width: 70%;
+  max-width: 90%;
   font-size: 17px;
 }
 
@@ -219,7 +219,8 @@
   font-family: lato;
   color: #fff;
   font-weight: 400;
-  max-width: 70%;
+  max-width: 90%;
+  font-size: 17px;
 }
 
 
@@ -364,5 +365,31 @@ img {
   .btn_blue {
     width: 60%;
     margin-top: 15%;
+  }
+}
+
+@media (max-width: 414px) {
+
+ .bert_header{
+   width: 99%;
+ }
+ .bert_header p{
+   max-width: 90%;
+ }
+
+ .app_header{
+   width: 99%;
+ }
+
+ .app_header p{
+   max-width: 90%;
+ }
+
+
+  .dev_header{
+    width: 99%
+  }
+  .dev_header p{
+    max-width: 90%
   }
 }
