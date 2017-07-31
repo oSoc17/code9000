@@ -76,7 +76,7 @@
 }
 
 .img_bert {
-  max-width: 150px;
+
   padding-top: 5%;
 }
 
@@ -424,13 +424,17 @@ img {
     height: auto;
 }
 
-.horizontal-center{
-text-align: center;
-}
+
 
 .img_size_bird {
   width: 60%;
 }
+
+.horizontal-center{
+text-align: center;
+}
+
+/*----------------- Media --------------------*/
 
 @media (max-width: 1199px) {
 .circular_hardware {
@@ -508,9 +512,10 @@ text-align: center;
     overflow: hidden;
   }
 
-  .btn_blue{
 
-      font-size: 11px;
+
+  .img_bert{
+    width: 90%;
   }
 }
 
@@ -563,7 +568,7 @@ text-align: center;
 
   .btn_blue {
     width: 65%;
-    margin-top: 15%;
+    margin-top: 8%;
   }
 
   .btn_blue_margin {
