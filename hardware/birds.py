@@ -9,7 +9,7 @@
 import logging
 import json
 import sys
-from time import gmtime, strftime, sleep
+from time import gmtime, strftime, sleep, time
 import threading
 import os
 import asyncio
@@ -53,7 +53,7 @@ camera = picamera.PiCamera()
 uploadQueue = []
 uploading = False
 uploadCounter = 0
-launch_time = time.time()
+launch_time = time()
 
 def takePicture(channel):
 	global camera
@@ -72,7 +72,7 @@ def takePicture(channel):
 		uploadCounter = uploadCounter + 1
 	else:
 		logging.warning('Daily upload limit reached!')
-		if launch_time - time.time() > configData['resetUploadTime']: # Reset limit if device is powered for more then 24 hours.
+		if launch_time - time() > configData['resetUploadTime']: # Reset limit if device is powered for more then 24 hours.
 			uploadCounter = 0
 
 
