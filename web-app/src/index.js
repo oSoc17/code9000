@@ -18,6 +18,7 @@ import OnBoard from './components/OnBoard';
 import RequestResetPassword from './components/RequestResetPassword';
 import ResetPassword from './components/ResetPassword';
 import authenticated from './utils/isAuthenticated';
+import redirect from './utils/redirect';
 
 import './index.css';
 
@@ -35,7 +36,7 @@ const configureStore = () => {
 
 const isAuthenticated = () => {
   if (!authenticated()) {
-    return <Redirect to="/app" />;
+    redirect('/landingpage');
   }
 
   return <App />;
