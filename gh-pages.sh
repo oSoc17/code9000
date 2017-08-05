@@ -3,7 +3,7 @@ cd web-app
 yarn install
 yarn build-css
 
-NODE_ENV="production" PUBLIC_URL="https://osoc17.github.io/code9000/" REACT_APP_ROUTER="HASH" REACT_APP_API_URL="https://develop.birds.today/api" yarn build
+NODE_ENV="production" PUBLIC_URL="https://osoc17.github.io/code9000/" REACT_APP_ROUTER="HASH" REACT_APP_API_URL="https://birds.today/api" yarn build
 
 cd ..
 
