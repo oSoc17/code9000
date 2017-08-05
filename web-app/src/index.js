@@ -1,7 +1,7 @@
 /* global document, window */
 import React from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter, HashRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Switch, Route } from 'react-router-dom';
 
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
@@ -36,12 +36,13 @@ const configureStore = () => {
 
 const isAuthenticated = () => {
   if (!authenticated()) {
-    if(window.location.pathname !== "/landingpage" && window.location.pathname !== "/develop" && window.location.pathname !== "/app" && window.location.pathname !== "/login" && window.location.pathname.substring(0,25) !== "/login/callback/facebook/" && window.location.pathname !== "/reset-password" && window.location.pathname.substring(0,16) !== "/reset-password/" && window.location.pathname !== "/sign-up" && window.location.pathname !== "/you-made-it" && window.location.pathname !== "/start") {
+    if (window.location.pathname !== '/landingpage' && window.location.pathname !== '/develop' && window.location.pathname !== '/app' && window.location.pathname !== '/login' && window.location.pathname.substring(0, 25) !== '/login/callback/facebook/' && window.location.pathname !== '/reset-password' && window.location.pathname.substring(0, 16) !== '/reset-password/' && window.location.pathname !== '/sign-up' && window.location.pathname !== '/you-made-it' && window.location.pathname !== '/start') {
       redirect('/landingpage');
     }
   } else {
     return <App />;
   }
+  return null;
 };
 
 const Router = process.env.REACT_APP_ROUTER === 'HASH'
