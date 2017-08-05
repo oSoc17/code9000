@@ -36,10 +36,12 @@ const configureStore = () => {
 
 const isAuthenticated = () => {
   if (!authenticated()) {
-    redirect('/landingpage');
+    if(window.location.pathname !== "/landingpage" && window.location.pathname !== "/develop" && window.location.pathname !== "/app" && window.location.pathname !== "/login" && window.location.pathname.substring(0,25) !== "/login/callback/facebook/" && window.location.pathname !== "/reset-password" && window.location.pathname.substring(0,16) !== "/reset-password/" && window.location.pathname !== "/sign-up" && window.location.pathname !== "/you-made-it" && window.location.pathname !== "/start") {
+      redirect('/landingpage');
+    }
+  } else {
+    return <App />;
   }
-
-  return <App />;
 };
 
 const Router = process.env.REACT_APP_ROUTER === 'HASH'
