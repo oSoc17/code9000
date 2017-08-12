@@ -7,8 +7,6 @@ import './landingpage.css';
 import imageBall from '../images/bal.svg';
 import imageBallRight from '../images/bal_rechts.svg';
 import imageBert from './images/bert_1.svg';
-//import imageBirdLogo from './images/Bird_logo.svg';
-//import imageIphone from './images/iphone.png';
 import imageLeader from './images/leader.png';
 import imageLogoHeader from '../images/logo_header.svg';
 import imageVoting from '../images/voting.png';

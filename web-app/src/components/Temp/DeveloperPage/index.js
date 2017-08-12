@@ -192,15 +192,16 @@ const DeveloperPage = () => {
               <h2 className="center-text">The API</h2>
               <p className="center">
                 The API handles the pictures taken by the IoT-device. We use it to collect our
-                pictures, save it and make it accessible for other services. Since we don&apos;t have
+                pictures, save it and make it accessible for other services. Since we
+                don&apos;t have
                 another way of validating what triggered the infrared sensor, we are using a human
                 voting system. Votes are send to the API, and when an image reaches a certain
                 threshold, the API will assume it&apos;s validated and send it forward.
                 <br />
                 <br />
                 The API is made in PHP, using the Laravel framework. We chose to include user
-                accounts as it&apos;s the only way to know for sure one person can only vote once on a
-                picture.
+                accounts as it&apos;s the only way to know for sure one person can only
+                vote once on a picture.
               </p>
               <div className="center-text">
                 <a
