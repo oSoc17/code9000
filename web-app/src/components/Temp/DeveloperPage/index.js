@@ -133,6 +133,8 @@ const DeveloperPage = () => {
                   href="https://github.com/oSoc17/code9000/tree/develop/hardware"
                   className="btn btn-default btn_white"
                   role="button"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Documentation
                 </a>
@@ -162,6 +164,8 @@ const DeveloperPage = () => {
                   href="https://github.com/oSoc17/code9000/tree/develop/web-app"
                   className="btn btn-default btn_blue btn_blue_margin"
                   role="button"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Documentation
                 </a>
@@ -203,6 +207,8 @@ const DeveloperPage = () => {
                   href="https://github.com/oSoc17/code9000/tree/develop/api"
                   className="btn btn-default btn_white"
                   role="button"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Documentation
                 </a>
@@ -221,7 +227,7 @@ const DeveloperPage = () => {
           </div>
           <div className="row team_header row-eq-height horizontal-center">
             <div className="col-md-4 col_margin">
-              <a className="img_circular" href="https://www.linkedin.com/in/demiandekoninck/">
+              <a className="img_circular" href="https://www.linkedin.com/in/demiandekoninck/" target="_blank" rel="noopener noreferrer">
                 <div className="img__overlay">
                   <i className="fa fa-linkedin-square fa-2x play" />
                 </div>
@@ -230,7 +236,7 @@ const DeveloperPage = () => {
               <p>Demian Dekoninck</p>
             </div>
             <div className="col-md-4 col_margin">
-              <a className="img_circular" href="https://www.linkedin.com/in/dewilde-it/">
+              <a className="img_circular" href="https://www.linkedin.com/in/dewilde-it/" target="_blank" rel="noopener noreferrer">
                 <div className="img__overlay">
                   <i className="fa fa-linkedin-square fa-2x play" />
                 </div>
@@ -239,7 +245,7 @@ const DeveloperPage = () => {
               <p>Diëgo De Wilde</p>
             </div>
             <div className="col-md-4 col_margin">
-              <a className="img_circular" href="https://www.linkedin.com/in/bert-commeine/">
+              <a className="img_circular" href="https://www.linkedin.com/in/bert-commeine/" target="_blank" rel="noopener noreferrer">
                 <div className="img__overlay">
                   <i className="fa fa-linkedin-square fa-2x play" />
                 </div>
@@ -250,7 +256,7 @@ const DeveloperPage = () => {
           </div>
           <div className="row team_header row-eq-height horizontal-center">
             <div className="col-md-6 col_margin">
-              <a className="img_circular" href="https://www.linkedin.com/in/dylanvanassche/">
+              <a className="img_circular" href="https://www.linkedin.com/in/dylanvanassche/" target="_blank" rel="noopener noreferrer">
                 <div className="img__overlay">
                   <i className="fa fa-linkedin-square fa-2x play" />
                 </div>
@@ -259,7 +265,7 @@ const DeveloperPage = () => {
               <p>Dylan Van Assche</p>
             </div>
             <div className="col-md-6 col_margin">
-              <a className="img_circular" href="https://www.linkedin.com/in/cynthiavanoirbeek/">
+              <a className="img_circular" href="https://www.linkedin.com/in/cynthiavanoirbeek/" target="_blank" rel="noopener noreferrer">
                 <div className="img__overlay">
                   <i className="fa fa-linkedin-square fa-2x play" />
                 </div>
@@ -281,21 +287,21 @@ const DeveloperPage = () => {
           <div className="row partner_header row-eq-height horizontal-center">
             <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4 " style={{ margin: '5% 0' }}>
               <div className="img_size">
-                <a href="https://www.digipolis.be/">
+                <a href="https://www.digipolis.be/" target="_blank" rel="noopener noreferrer">
                   <img src={imageDigipolis} alt="" />
                 </a>
               </div>
             </div>
             <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4 " style={{ margin: '5% 0' }}>
               <div className="img_size">
-                <a href="https://stad.gent/">
+                <a href="https://stad.gent/" target="_blank" rel="noopener noreferrer">
                   <img src={imageGent} alt="" />
                 </a>
               </div>
             </div>
             <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4 " style={{ margin: '5% 0' }}>
               <div className="img_size">
-                <a href="http://2017.summerofcode.be/">
+                <a href="http://2017.summerofcode.be/" target="_blank" rel="noopener noreferrer">
                   <img src={imageOpen} alt="" />
                 </a>
               </div>
@@ -308,13 +314,13 @@ const DeveloperPage = () => {
         <div className="container">
           <div className="row row_footer">
             <div className="icon_bottom">
-              <a href="https://www.facebook.com/TodayBirds/">
+              <a href="https://www.facebook.com/TodayBirds/" target="_blank" rel="noopener noreferrer">
                 <i className="fa fa-facebook-square fa-3x icons" aria-hidden="true" />
               </a>
-              <a href="https://github.com/oSoc17/code9000">
+              <a href="https://github.com/oSoc17/code9000" target="_blank" rel="noopener noreferrer">
                 <i className="fa fa-github-square fa-3x icons" aria-hidden="true" />
               </a>
-              <a href="https://twitter.com/TodayBirds">
+              <a href="https://twitter.com/TodayBirds" target="_blank" rel="noopener noreferrer">
                 <i className="fa fa-twitter-square fa-3x icons" aria-hidden="true" />
               </a>
             </div>

@@ -201,13 +201,13 @@ const LandingPage = () => {
           <div className="row row_footer">
             <div className="icon_bottom">
               <a href="https://www.facebook.com/TodayBirds/">
-                <i className="fa fa-facebook-square fa-3x icons" aria-hidden="true" />
+                <i className="fa fa-facebook-square fa-3x icons" aria-hidden="true" target="_blank" rel="noopener noreferrer" />
               </a>
               <a href="https://github.com/oSoc17/code9000">
-                <i className="fa fa-github-square fa-3x icons" aria-hidden="true" />
+                <i className="fa fa-github-square fa-3x icons" aria-hidden="true" target="_blank" rel="noopener noreferrer" />
               </a>
               <a href="https://twitter.com/TodayBirds">
-                <i className="fa fa-twitter-square fa-3x icons" aria-hidden="true" />
+                <i className="fa fa-twitter-square fa-3x icons" aria-hidden="true" target="_blank" rel="noopener noreferrer" />
               </a>
             </div>
           </div>
