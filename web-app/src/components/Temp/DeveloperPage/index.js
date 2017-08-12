@@ -165,9 +165,7 @@ const DeveloperPage = () => {
                 >
                   Documentation
                 </a>
-                <a href="#" className="btn btn-default btn_blue " role="button">
-                  Go to app
-                </a>
+                <Link to="app" className="btn btn-default btn_blue">Go to app</Link>
               </div>
             </div>
             <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4 center-text">
