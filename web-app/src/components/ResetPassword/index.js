@@ -40,7 +40,7 @@ class RequestResetPassword extends Component {
 
         {success && <Success body="We have reset your password." />}
 
-        {error && <Errors errors={['Sorry. Something whent wrong!']} />}
+        {error && <Errors errors={['Sorry. Something went wrong!']} />}
 
 
         {!success && (
