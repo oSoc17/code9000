@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import '../bootstrap.css';
-import '../landingpage.css';
+import './landingpage.css';
 
 import imageBall from '../images/bal.svg';
 import imageBallRight from '../images/bal_rechts.svg';

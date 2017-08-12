@@ -1,0 +1,399 @@
+@charset "UTF-8";
+
+.LandingPage {
+
+  /* CSS Document */
+
+  #header {
+    background: #67a0d6;  /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #88bde6, #67a0d6);  /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(left, #88bde6, #67a0d6);  /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(left, #88bde6, #67a0d6);  /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to left, #88bde6, #67a0d6);  /* Standard syntax */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: fixed;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .navbar-default {
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  .navbar-default .navbar-nav>li>a {
+    color: #f7f7f7;
+  }
+
+  .container-fluid_1 {
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .banner_header {
+    text-align: left;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .banner_header h1 {
+    font-family: chivo;
+    color: #fafbfb;
+    font-weight: 700;
+    font-size: 40px;
+  }
+
+  .banner_header p {
+    font-family: chivo;
+    color: #fafbfb;
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  .outer {
+    position: relative;
+  }
+
+  .rechts {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 30%;
+  }
+
+  .links {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 30%;
+  }
+
+
+  /*------------------Bert-------------*/
+
+  #bert {
+    padding: 80px 0px;
+    font-family: lato;
+  }
+
+  .img_bert {
+    max-width: 150px;
+  }
+
+  .bert_header {
+    text-align: left;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .bert_header h2 {
+    font-family: lato;
+    color: #2b313f;
+    font-weight: 900;
+  }
+
+  .bert_header p {
+    font-family: lato;
+    color: #2b313f;
+    font-weight: 400;
+    max-width: 90%;
+    font-size: 17px;
+    margin-top: 6%
+  }
+
+
+  /*-------------- Pilers -------------*/
+
+  #pilers {
+    padding: 80px 0px 50px;
+    font-family: lato;
+    background: #67a0d6;  /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(right, #88bde6, #67a0d6);  /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #88bde6, #67a0d6);  /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #88bde6, #67a0d6);  /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #88bde6, #67a0d6);  /* Standard syntax */
+  }
+
+  .pilers_header {
+    text-align: center;
+  }
+
+  .pilers_header h2 {
+    font-family: lato;
+    color: #fff;
+    font-weight: 900;
+    text-align: center;
+  }
+
+  .pilers_header h3 {
+    font-family: lato;
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .pilers_header p {
+    font-family: lato;
+    color: #fff;
+    font-weight: 400;
+    max-width: 70%;
+    margin: auto;
+  }
+
+  /* size of image blocks */
+  .image_design {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  /*  margin of pilers */
+  .margin_top_images {
+    margin-top: 40px;
+    margin-bottom: 25px;
+  }
+
+  .fa_icons {
+    font-size: 130px;
+    color: #fff;
+    text-align: center;
+  }
+
+
+  /*---------- app --------------*/
+
+  #app {
+    padding: 30px 0px;
+    font-family: lato;
+  }
+
+  .app_header {
+    text-align: left;
+    width: 80%;
+    margin: 0 auto;
+
+  }
+
+  .app_header h2 {
+    font-family: lato;
+    color: #0b0909;
+    font-weight: 900;
+    margin-bottom: 5%;
+  }
+
+  .app_header p {
+    font-family: lato;
+    color: #0b0909;
+    font-weight: 400;
+    max-width: 90%;
+    font-size: 17px;
+  }
+
+
+  /*---------- developer section --------------*/
+
+  #developer {
+    padding: 80px 0px 50px;
+    font-family: lato;
+    background: #67a0d6;  /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #88bde6, #67a0d6);  /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(left, #88bde6, #67a0d6);  /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(left, #88bde6, #67a0d6);  /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to left, #88bde6, #67a0d6);  /* Standard syntax */
+  }
+
+  .dev_header {
+    text-align: left;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .dev_header h2 {
+    font-family: lato;
+    color: #fff;
+    font-weight: 900;
+    margin-bottom: 5%;
+  }
+
+  .dev_header p {
+    font-family: lato;
+    color: #fff;
+    font-weight: 400;
+    max-width: 90%;
+    font-size: 17px;
+  }
+
+
+  /*---------- footer -------------*/
+
+  #footer {
+    padding: 10px 0px 5px;
+    background-color: #fff;
+    font-family: Roboto;
+    color: #ffffff;
+    font-weight: 100;
+    font-style: italic;
+  }
+  .row_footer {
+    padding: 0px;
+  }
+
+  .icon_bottom {
+    /* margin: 0 auto; */
+    text-align: center;
+
+    /* margin: 0px 0px; */
+  }
+
+  .icon_bottom a {
+    color: #67a0d6;
+
+  }
+
+  .icons {
+    padding: 0px 20px;
+  }
+
+  .icons:hover {
+    color: #147fc6;
+  }
+
+  /*--------------- btn---------------------*/
+
+  .btn_blue {
+    background-color: #67a0d6;
+    border: none;
+    color: aliceblue;
+    width: 40%;
+    font-family: chivo;
+    font-weight: 700;
+    margin-top: 5%;
+  }
+
+  .btn_blue:hover {
+    background-color: #147fc6;
+    color: white;
+  }
+
+  .btn_white {
+    background-color: #f5f5f5;
+    border: none;
+    color: #67a0d6;
+    width: 40%;
+    font-family: chivo;
+    font-weight: 700;
+    margin-top: 5%;
+  }
+
+  .btn_white:hover {
+    background-color: #fff;
+    color: #67a0d6;
+  }
+
+
+  /*----------------images-----------------*/
+
+  img {
+    width: 110%;
+    height: auto;
+  }
+
+  .img_size_bird {
+    width: 60%;
+  }
+
+  /*----------------media-----------------*/
+
+  @media (min-width: 993px) {
+    .row-eq-height {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+    }
+    .vertical-center {
+      display: flex;
+      align-items: center;
+    }
+    .img_size {
+      width: 130%;
+    }
+    .center-text-bird {
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .center {
+      margin: 0 auto;
+    }
+    .center-text {
+      text-align: center;
+    }
+    .fa_icons {
+      font-size: 100px;
+      color: #fff;
+      text-align: center;
+    }
+    .img_size {
+      width: 80%;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .fa_icons {
+      font-size: 80px;
+      color: #fff;
+      text-align: center;
+      padding-top: 5%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .img_size_bird {
+      position: relative;
+      bottom: 30px;
+
+      width: 100%;
+    }
+
+    .btn_white {
+      width: 60%;
+      margin-top: 15%;
+    }
+
+    .btn_blue {
+      width: 60%;
+      margin-top: 15%;
+    }
+  }
+
+  @media (max-width: 414px) {
+
+  .bert_header{
+    width: 99%;
+  }
+  .bert_header p{
+    max-width: 90%;
+  }
+
+  .app_header{
+    width: 99%;
+  }
+
+  .app_header p{
+    max-width: 90%;
+  }
+
+
+    .dev_header{
+      width: 99%
+    }
+    .dev_header p{
+      max-width: 90%
+    }
+  }
+
+}
