@@ -1,16 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-import './bootstrap.css';
-import './landingpage.css';
+import '../bootstrap.css';
+import '../landingpage.css';
 
-import imageBall from './images/bal.svg';
-import imageBallRight from './images/bal_rechts.svg';
+import imageBall from '../images/bal.svg';
+import imageBallRight from '../images/bal_rechts.svg';
 import imageBert from './images/bert_1.svg';
 //import imageBirdLogo from './images/Bird_logo.svg';
 //import imageIphone from './images/iphone.png';
 import imageLeader from './images/leader.png';
-import imageLogoHeader from './images/logo_header.svg';
-import imageVoting from './images/voting.png';
+import imageLogoHeader from '../images/logo_header.svg';
+import imageVoting from '../images/voting.png';
 
 const LandingPage = () => {
   return (
@@ -36,10 +37,10 @@ const LandingPage = () => {
               <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul className="nav navbar-nav navbar-right">
                   <li>
-                    <a href="#app">App</a>
+                    <Link to="app">App</Link>
                   </li>
                   <li>
-                    <a href="#developer">Developers</a>
+                    <Link to="developer">Developers</Link>
                   </li>
                 </ul>
               </div>

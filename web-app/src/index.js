@@ -19,6 +19,7 @@ import RequestResetPassword from './components/RequestResetPassword';
 import ResetPassword from './components/ResetPassword';
 import authenticated from './utils/isAuthenticated';
 import LandingPage from './components/Temp/LandingPage';
+import DeveloperPage from './components/Temp/DeveloperPage';
 
 import './index.css';
 
@@ -51,6 +52,7 @@ const Root = () => (
     <Router>
       <Switch>
         <Route exact path="/" component={LandingPage} />
+        <Route exact path="/developer" component={DeveloperPage} />
         <Route exact path="/app" component={StartScreen} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/login/callback/facebook/:token" component={LoginCallback} />
