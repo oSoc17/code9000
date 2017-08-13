@@ -1,7 +1,7 @@
 /* global document, window */
 import React from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter, HashRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Switch, Route } from 'react-router-dom';
 
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
@@ -39,8 +39,7 @@ const isAuthenticated = () => {
   if (authenticated()) {
     return <App />;
   }
-
-  //return <App />;
+  return undefined;
 };
 
 const Router = process.env.REACT_APP_ROUTER === 'HASH'

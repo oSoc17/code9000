@@ -28,14 +28,14 @@ const DeveloperPage = () => {
         <div className="container">
           <nav className="navbar navbar-default">
             <div className="container-fluid container-fluid_1">
-                <ul className="nav navbar-nav navbar-right">
-                  <li>
-                    <Link to="app">App</Link>
-                  </li>
-                  <li>
-                    <Link to="/">Welcome</Link>
-                  </li>
-                </ul>
+              <ul className="nav navbar-nav navbar-right">
+                <li>
+                  <Link to="app">App</Link>
+                </li>
+                <li>
+                  <Link to="/">Welcome</Link>
+                </li>
+              </ul>
             </div>
           </nav>
 
