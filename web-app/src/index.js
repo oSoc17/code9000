@@ -36,11 +36,11 @@ const configureStore = () => {
 };
 
 const isAuthenticated = () => {
-  if (!authenticated()) {
-    return <Redirect to="/app" />;
+  if (authenticated()) {
+    return <App />;
   }
 
-  return <App />;
+  //return <App />;
 };
 
 const Router = process.env.REACT_APP_ROUTER === 'HASH'
@@ -51,6 +51,7 @@ const Root = () => (
   <Provider store={configureStore()}>
     <Router>
       <Switch>
+        {isAuthenticated()}
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/developer" component={DeveloperPage} />
         <Route exact path="/app" component={StartScreen} />
@@ -61,7 +62,6 @@ const Root = () => (
         <Route exact path="/sign-up" component={SignUp} />
         <Route exact path="/you-made-it" component={SignUpAfterOnBoarding} />
         <Route exact path="/start" component={OnBoard} />
-        {isAuthenticated()}
       </Switch>
     </Router>
   </Provider>
