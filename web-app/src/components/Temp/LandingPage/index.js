@@ -18,30 +18,14 @@ const LandingPage = () => {
         <div className="container">
           <nav className="navbar navbar-default">
             <div className="container-fluid container-fluid_1">
-              <div className="navbar-header">
-                <button
-                  type="button"
-                  className="navbar-toggle collapsed"
-                  data-toggle="collapse"
-                  data-target="#bs-example-navbar-collapse-1"
-                  aria-expanded="false"
-                >
-                  <span className="sr-only">Toggle navigation</span>
-                  <span className="icon-bar" />
-                  <span className="icon-bar" />
-                  <span className="icon-bar" />
-                </button>
-              </div>
-              <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul className="nav navbar-nav navbar-right">
-                  <li>
-                    <Link to="app">App</Link>
-                  </li>
-                  <li>
-                    <Link to="developer">Developers</Link>
-                  </li>
-                </ul>
-              </div>
+              <ul className="nav navbar-nav navbar-right">
+                <li>
+                  <Link to="app">App</Link>
+                </li>
+                <li>
+                  <Link to="developer">Developers</Link>
+                </li>
+              </ul>
             </div>
           </nav>
 
@@ -80,9 +64,9 @@ const LandingPage = () => {
                 common tern.{' '}
               </p>
               <div className="center-text">
-                <button type="button" className="btn btn-default btn_blue">
+                <Link to="app" className="btn btn-default btn_blue">
                   Help Bert
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -185,9 +169,9 @@ const LandingPage = () => {
                 this open source project.{' '}
               </p>
               <div className="center-text">
-                <button type="button" className="btn btn-default btn_white">
+                <Link to="developer" className="btn btn-default btn_white">
                   Contribute
-                </button>
+                </Link>
               </div>
             </div>
           </div>
