@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use App\User;
 use Illuminate\Http\Request;
-use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\UserLogin;
+use Tymon\JWTAuth\Exceptions\JWTException;
 use App\Http\Requests\Api\UserRegistrationModel;
 
 class AuthController extends Controller
