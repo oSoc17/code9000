@@ -34,3 +34,7 @@ You can find the installation instructions for both the hardware and the softwar
 ## IV. Deployment
 
 You can find the deployment instructions [here](https://github.com/oSoc17/code9000/blob/develop/hardware/DEPLOYMENT.md).
+
+## V. Maintenance
+
+You can find the maintenance instructions [here](https://github.com/oSoc17/code9000/blob/develop/hardware/MAINTENANCE.md).
