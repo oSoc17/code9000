@@ -13,6 +13,8 @@ If the device ever stops sending pictures it is advised you have the following b
 
 ## II. Fixing it
 
+The most likely culprit is the camera: this is easily solved by reseating the ribbon connector.
+
 1. Ensure the device gets enough power during daylight. 
 
 Angle the panel as described in deployment. If both red and green leds on the solar power controller are lit it means the battery's voltage is too low and needs to be recharged. The other components will not receive power until that happens. 
@@ -27,10 +29,10 @@ Make sure both the Raspberry Pi and the router are powered - it is advised you u
 Make sure the pictures folder is not full. Delete all pictures if it is.
 
 Make sure the python script is running (```top```).
-If it isn't running, try to start it manually. Read the cronlog file to see the what's going wrong. 
+If it isn't running, try to start it manually. Read the cronlog file to see what's going wrong. 
 It is likely the camera is the problem:
+- Reseat the ribbon connector between the Pi and the camera **on both ends**.
 - Enable the camera with ```sudo raspi-config```. Then reboot.
-- Reseat the ribbon connector between the Pi and the camera.
 
 If this does not fix it, stack overflow it and pray to your preferred diety.
 
