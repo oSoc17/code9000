@@ -3,7 +3,8 @@
 
 ## I. Preparation
 
-If the device ever stops sending pictures it is advised you have the following before attempting to fix it:
+If possible, take the installation off the island for troubleshooting. Water en weather are not your friends when fixing stuff.
+It is advised you have the following before attempting to fix it:
 
 - Power adapters for the Raspberry Pi and the 4g router - if not, you will only have power when there is sufficient daylight and if the panel is set up correctly
 - Multimeter
