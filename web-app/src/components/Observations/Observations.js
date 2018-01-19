@@ -86,7 +86,7 @@ class Observations extends Component {
       );
     }
 
-    const observation = _.head(observations);
+    const observation = _.last(observations);
 
     return (
       <div className="Observations">
