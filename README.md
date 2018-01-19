@@ -10,10 +10,7 @@
 
 For this project, we wanted to observe the common tern, a bird living near the "Houtdok" in Ghent. tbc
 ####  Status
-<a href="https://travis-ci.org/oSoc17/code9000.svg?branch=master" >
-<img src="https://camo.githubusercontent.com/3700a6394b649fb2e3620c649ae29f8ccce97be8/68747470733a2f2f7472617669732d63692e6f72672f6f536f6331372f6f617369732d66726f6e74656e642e706e67" alt="Build Status" data-canonical-src="https://travis-ci.org/oSoc17/oasis-frontend.png" style="max-width:100%;">
-</a>
-
+[![Build Status](https://travis-ci.org/oSoc17/code9000.svg?branch=develop)](https://travis-ci.org/oSoc17/code9000)
 
 ####  Technologies
 ##### API
