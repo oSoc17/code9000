@@ -69,7 +69,7 @@ return [
     |
     */
 
-     'valid_observation_threshold' => env('VALID_OBSERVATION_THRESHOLD', 5),
+     'valid_observation_threshold'   => env('VALID_OBSERVATION_THRESHOLD', 5),
      'unvalid_observation_threshold' => env('UNVALID_OBSERVATION_THRESHOLD', -5),
 
     /*
@@ -268,9 +268,9 @@ return [
         'View'         => Illuminate\Support\Facades\View::class,
         'JWTAuth'      => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory'   => Tymon\JWTAuth\Facades\JWTFactory::class,
-        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-        'Image' => Intervention\Image\Facades\Image::class,
-        'Twitter' => Thujohn\Twitter\Facades\Twitter::class,
+        'Socialite'    => Laravel\Socialite\Facades\Socialite::class,
+        'Image'        => Intervention\Image\Facades\Image::class,
+        'Twitter'      => Thujohn\Twitter\Facades\Twitter::class,
     ],
 
 ];

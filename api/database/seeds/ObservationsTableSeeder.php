@@ -1,9 +1,9 @@
 <?php
 
-use Carbon\Carbon;
 use App\Observation;
-use Illuminate\Http\File;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
+use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
 
 class ObservationsTableSeeder extends Seeder
@@ -38,9 +38,9 @@ class ObservationsTableSeeder extends Seeder
         $imageLocation = storage_path('example/observations').'/'.$image;
 
         Observation::create([
-            'captured_at'  => Carbon::now(),
-            'longitude'    => '4.3517000',
-            'latitude'     => '50.8503000',
+            'captured_at'     => Carbon::now(),
+            'longitude'       => '4.3517000',
+            'latitude'        => '50.8503000',
             'picture_storage' => Storage::putFile('observations', new File($imageLocation)),
         ]);
     }

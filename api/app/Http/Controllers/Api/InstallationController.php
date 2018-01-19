@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Installation;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\InstallationModel;
+use App\Installation;
 
 class InstallationController extends Controller
 {
@@ -24,7 +24,8 @@ class InstallationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  $request
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(InstallationModel $request, $id)
@@ -38,7 +39,8 @@ class InstallationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

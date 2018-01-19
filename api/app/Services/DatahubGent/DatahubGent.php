@@ -39,7 +39,7 @@ class DatahubGent
             ],
             'headers' => [
                 'Phant-Private-Key' => $this->privateHash,
-                'Content-type' => 'application/x-www-form-urlencoded',
+                'Content-type'      => 'application/x-www-form-urlencoded',
             ],
         ]);
     }

@@ -27,7 +27,7 @@ class ImgurApi
         $response = $this->client->post($this->apiUrl.'/image', [
             'form_params' => [
                 'image' => $file,
-                'type' => 'file',
+                'type'  => 'file',
             ],
             'headers' => [
                 'authorization' => 'Client-ID '.$this->clientId,

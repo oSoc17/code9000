@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Api;
 
-use Mail;
-use App\User;
-use Carbon\Carbon;
-use App\PasswordReset;
-use App\Mail\PasswordResetMail;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\NewPasswordModel;
 use App\Http\Requests\Api\PasswordResetModel;
+use App\Mail\PasswordResetMail;
+use App\PasswordReset;
+use App\User;
+use Carbon\Carbon;
+use Mail;
 
 class PasswordResetController extends Controller
 {
@@ -33,18 +33,18 @@ class PasswordResetController extends Controller
 
         $user = User::where('email', $userEmail)->first();
 
-        if ($user && ! $this->isSpamming($user)) {
+        if ($user && !$this->isSpamming($user)) {
             $token = str_random(150);
 
             $this->sendPasswordResetMail([
                 'email' => $user->email,
-                'url' => sprintf('%s/reset-password/%s', config('app.url_front_end'), $token), // Redirect to front-end
-                'name' => $user->name,
+                'url'   => sprintf('%s/reset-password/%s', config('app.url_front_end'), $token), // Redirect to front-end
+                'name'  => $user->name,
             ]);
 
             PasswordReset::create([
-                'user_id' => $user->id,
-                'token' => $token,
+                'user_id'    => $user->id,
+                'token'      => $token,
                 'created_at' => Carbon::now(),
             ]);
         }
@@ -54,7 +54,7 @@ class PasswordResetController extends Controller
     {
         $lastPasswordReset = $user->passwordResets()->first();
 
-        if (! $lastPasswordReset) {
+        if (!$lastPasswordReset) {
             return false;
         }
 
@@ -66,7 +66,7 @@ class PasswordResetController extends Controller
      * app.password_reset_minutes.
      *
      * @param \App\Http\Requests\Api\NewPasswordModel $request
-     * @param string $token
+     * @param string                                  $token
      *
      * @return \Illuminate\Http\JsonResponse
      */

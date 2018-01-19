@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Observation;
 use App\Http\Controllers\Controller;
-use Intervention\Image\Facades\Image;
-use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\Api\ObservationModel;
+use App\Observation;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class ObservationController extends Controller
 {

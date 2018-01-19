@@ -2,8 +2,8 @@
 
 namespace App\Listeners;
 
-use App\Services\DatahubGent\DatahubGent;
 use App\Events\ObservationUploadedToImgur;
+use App\Services\DatahubGent\DatahubGent;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 class SendObservationDatahubGent implements ShouldQueue
@@ -23,7 +23,8 @@ class SendObservationDatahubGent implements ShouldQueue
     /**
      * Handle the event.
      *
-     * @param  ObservationUploadedToImgur  $event
+     * @param ObservationUploadedToImgur $event
+     *
      * @return void
      */
     public function handle(ObservationUploadedToImgur $event)
