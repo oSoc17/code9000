@@ -10,6 +10,7 @@
 
 For this project, we wanted to observe the common tern, a bird living near the "Houtdok" in Ghent. tbc
 ####  Status
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://travis-ci.org/oSoc17/code9000.svg?branch=develop)](https://travis-ci.org/oSoc17/code9000)
 
 ####  Technologies
