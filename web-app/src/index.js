@@ -20,6 +20,7 @@ import ResetPassword from './components/ResetPassword';
 import authenticated from './utils/isAuthenticated';
 import LandingPage from './components/Temp/LandingPage';
 import DeveloperPage from './components/Temp/DeveloperPage';
+import NotFound from './components/NotFound';
 
 import './index.css';
 
@@ -61,6 +62,7 @@ const Root = () => (
         <Route exact path="/sign-up" component={SignUp} />
         <Route exact path="/you-made-it" component={SignUpAfterOnBoarding} />
         <Route exact path="/start" component={OnBoard} />
+        <Route component={NotFound} />
       </Switch>
     </Router>
   </Provider>
