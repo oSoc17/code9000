@@ -3,9 +3,9 @@
 namespace App\Listeners;
 
 use App\Events\ObservationIsValid;
-use Thujohn\Twitter\Facades\Twitter;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Facades\Storage;
+use Thujohn\Twitter\Facades\Twitter;
 
 class SendObservationToTwitter implements ShouldQueue
 {

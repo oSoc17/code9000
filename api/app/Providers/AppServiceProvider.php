@@ -2,11 +2,11 @@
 
 namespace App\Providers;
 
-use GuzzleHttp\Client;
+use App\Services\DatahubGent\DatahubGent;
 use App\Services\Imgur\ImgurApi;
+use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
-use App\Services\DatahubGent\DatahubGent;
 
 class AppServiceProvider extends ServiceProvider
 {

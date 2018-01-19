@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\User;
-use App\Provider;
-use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\Controller;
+use App\Provider;
+use App\User;
 use Laravel\Socialite\Facades\Socialite;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthSocialiteController extends Controller
 {

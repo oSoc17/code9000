@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
-use ReflectionMethod;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Route;
+use ReflectionMethod;
 
 class DocumentationController extends Controller
 {
