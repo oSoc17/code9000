@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Vote;
-use App\Observation;
 use App\Events\ObservationIsValid;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\VoteModel;
+use App\Observation;
+use App\Vote;
 
 class VotesController extends Controller
 {
@@ -22,7 +22,7 @@ class VotesController extends Controller
         $observation = $this->getObservation($request->observation_id);
         $currentVote = $this->findCurrentVote($observation);
 
-        if (! is_null($currentVote)) {
+        if (!is_null($currentVote)) {
             return response()->json('You have already voted on this observation.');
         }
 
