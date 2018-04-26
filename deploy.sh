@@ -36,7 +36,7 @@ cd ..
 CURRENT_DIR=$(pwd)
 
 ln -sf $CURRENT_DIR/web-app/build/**/* $CURRENT_DIR/api/public
-ln -sf $CURRENT_DIR/web-app/build/* $CURRENT_DIR/api/public
+ln -sf $CURRENT_DIR/web-app/build/* $CURRENT_DIR/api/public/
 
 # Set live
 cd api
