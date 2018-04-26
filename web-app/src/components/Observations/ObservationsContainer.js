@@ -11,6 +11,10 @@ const generateImageUrl = (observationId) => {
 class ObservationsContainer extends Component {
   componentWillMount() {
     this.fetch();
+
+    setInterval(() => {
+      this.fetch();
+    }, 1000);
   }
 
   vote(value) {

@@ -1,5 +1,4 @@
 import React from 'react';
-import TransitiveNumber from 'react-transitive-number';
 
 import classNames from '../../utils/classNames';
 
@@ -39,7 +38,7 @@ export const Ranking = ({ ranking, user }) => {
             ? <img className="Profile__Header__Picture" src={crestMenu} alt="" />
             : <img className="Profile__Header__Picture" src={user.avatar_url} alt="" />
           }
-          <div>{user.name}</div>
+          <div>You</div>
         </div>
         <div className="Ranking__Header__Points">
           <div>Points</div>
@@ -53,7 +52,7 @@ export const Ranking = ({ ranking, user }) => {
             {rank.name}
           </div>
           <div className="Ranking__Line__Points">
-            <TransitiveNumber>{rank.points}</TransitiveNumber>
+            {rank.points}
           </div>
         </div>
       ))}

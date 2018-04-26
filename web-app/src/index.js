@@ -1,7 +1,7 @@
 /* global document, window */
 import React from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter, HashRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Switch, Route } from 'react-router-dom';
 
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
@@ -18,6 +18,9 @@ import OnBoard from './components/OnBoard';
 import RequestResetPassword from './components/RequestResetPassword';
 import ResetPassword from './components/ResetPassword';
 import authenticated from './utils/isAuthenticated';
+import LandingPage from './components/Temp/LandingPage';
+import DeveloperPage from './components/Temp/DeveloperPage';
+import NotFound from './components/NotFound';
 
 import './index.css';
 
@@ -34,11 +37,10 @@ const configureStore = () => {
 };
 
 const isAuthenticated = () => {
-  if (!authenticated()) {
-    return <Redirect to="/app" />;
+  if (authenticated()) {
+    return <App />;
   }
-
-  return <App />;
+  return undefined;
 };
 
 const Router = process.env.REACT_APP_ROUTER === 'HASH'
@@ -49,6 +51,9 @@ const Root = () => (
   <Provider store={configureStore()}>
     <Router>
       <Switch>
+        {isAuthenticated()}
+        <Route exact path="/" component={LandingPage} />
+        <Route exact path="/developer" component={DeveloperPage} />
         <Route exact path="/app" component={StartScreen} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/login/callback/facebook/:token" component={LoginCallback} />
@@ -57,7 +62,7 @@ const Root = () => (
         <Route exact path="/sign-up" component={SignUp} />
         <Route exact path="/you-made-it" component={SignUpAfterOnBoarding} />
         <Route exact path="/start" component={OnBoard} />
-        {isAuthenticated()}
+        <Route component={NotFound} />
       </Switch>
     </Router>
   </Provider>

@@ -19,12 +19,18 @@
   position: relative;
 }
 
-@keyframes developPolaroid {
-  0% {
-    filter: brightness(1%);
+.Polaroid__Animation__Resize {
+  animation: reseizePolaroid 2s linear;
+}
+
+@keyframes reseizePolaroid {
+  0%, 40% {
+    width: 30%;
+    padding: 10px;
+    padding-bottom: 28px;
   }
   100% {
-    filter: brightness(100%);
+    width: 100%;
   }
 }
 
@@ -39,11 +45,20 @@
   animation: developPolaroid 2s linear;
 }
 
+@keyframes developPolaroid {
+  0%, 70% {
+    filter: brightness(1%);
+  }
+  100% {
+    filter: brightness(100%);
+  }
+}
+
 .Polaroid__ZoomIcon {
   position: absolute;
   width: 25px;
-  right: 40px;
-  top: 40px;
+  right: 10%;
+  top: 13%;
 
   cursor: pointer;
 }

@@ -2,16 +2,17 @@
 
 namespace App\Http\Middleware;
 
-use Closure;
 use App\Installation;
+use Closure;
 
 class AuthInstallationMiddleware
 {
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure                 $next
+     *
      * @return mixed
      */
     public function handle($request, Closure $next)

@@ -42,7 +42,7 @@ class Facebook
 
         $data = [
             'message' => $message,
-            'source' => $this->facebookSdk->fileToUpload($photoLink),
+            'source'  => $this->facebookSdk->fileToUpload($photoLink),
         ];
 
         $this->facebookSdk->post('/me/photos', $data, $this->token);

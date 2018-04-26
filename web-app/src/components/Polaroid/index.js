@@ -24,7 +24,7 @@ class Polaroid extends Component {
     const { showModal } = this.state;
 
     return (
-      <div className={classNames('Polaroid', toggle && 'Polaroid__Animation')} >
+      <div className={classNames('Polaroid', toggle && 'Polaroid__Animation__Resize', toggle && 'Polaroid__Animation')} >
         <img src={img} alt="" className="Polaroid__Image" />
         {zoomable && (
           <div>

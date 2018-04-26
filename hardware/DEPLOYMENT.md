@@ -14,9 +14,9 @@ First things first, check if you the following things at your disposal:
 - [ ] Lead acid battery
 - [ ] Fuse
 
-:exclamation: **If you haven't configured the NatureBytes kit yet, click [here](https://www.github.com/oSoc17/code9000/hardware/SETUP.md).**
+:exclamation: **If you haven't configured the NatureBytes kit yet, click [here](https://github.com/oSoc17/code9000/blob/develop/hardware/SETUP.md).**
 
-:exclamation: **If you don't know which solar kit you need, click [here](https://www.github.com/oSoc17/code9000/hardware/SOLARKIT.md).**
+:exclamation: **If you don't know which solar kit you need, click [here](https://github.com/oSoc17/code9000/blob/develop/hardware/SOLARKIT.md).**
 
 ### Platform
 - The IoT performs the best when it's installed on an island with the **following dimensions**:
@@ -31,7 +31,7 @@ First things first, check if you the following things at your disposal:
 - The IoT **can't be placed directly in the sunlight**, you need to build a roof for it. Too much sunlight will lead to overexposed pictures. You can always put the solar panel on top of the roof.
 
 - The solar panel needs to be mounted in an angle of **39° facing South for Ghent, Belgium**.
-More details about this are explained [here](https://www.github.com/oSoc17/hardware/SOLARKIT.md). If you are having troubles with building a holder under the right angle you can always buy a holder for your solar panel ([example](http://www.conrad.be/ce/nl/product/110539/Modulehouder-Phaesun-102750?ref=list))
+More details about this are explained [here](https://github.com/oSoc17/code9000/blob/develop/hardware/SOLARKIT.md). If you are having troubles with building a holder under the right angle you can always buy a holder for your solar panel ([example](http://www.conrad.be/ce/nl/product/110539/Modulehouder-Phaesun-102750?ref=list))
 
 ## II. Install the IoT
 1. Mount the IoT on a tree stump or something else using the straps delivered with the NatureBytes kit.

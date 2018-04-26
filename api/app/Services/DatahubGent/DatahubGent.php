@@ -31,7 +31,7 @@ class DatahubGent
     {
         $this->client->post($this->getEndpoint('/input'), [
             'form_params' => [
-                'captured_at' => $observation->captured_at,
+                'captured_at' => $observation->captured_at->format('Y-m-d H:i:s'),
                 'imgur_url'   => $observation->imgur,
                 'latitude'    => $observation->latitude,
                 'longitude'   => $observation->longitude,
@@ -39,7 +39,7 @@ class DatahubGent
             ],
             'headers' => [
                 'Phant-Private-Key' => $this->privateHash,
-                'Content-type' => 'application/x-www-form-urlencoded',
+                'Content-type'      => 'application/x-www-form-urlencoded',
             ],
         ]);
     }
