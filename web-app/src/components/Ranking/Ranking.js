@@ -1,5 +1,4 @@
 import React from 'react';
-import TransitiveNumber from 'react-transitive-number';
 
 import classNames from '../../utils/classNames';
 
@@ -53,7 +52,7 @@ export const Ranking = ({ ranking, user }) => {
             {rank.name}
           </div>
           <div className="Ranking__Line__Points">
-            <TransitiveNumber>{rank.points}</TransitiveNumber>
+            {rank.points}
           </div>
         </div>
       ))}
